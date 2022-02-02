@@ -2,5 +2,10 @@
 
 theme:
   name: material
+  features:
+    - navigation.instant # Faster loading
+    - navigation.tabs # Top level horizontal tabs
+    - toc.integrate # Integrated Table Of Contents (shows #, ##... sections)
+    - content.code.annotate # Annotations on lines of code
 
-site_name: My Docs
+site_name: BotCommands Wiki
