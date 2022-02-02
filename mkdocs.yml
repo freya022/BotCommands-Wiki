@@ -3,4 +3,8 @@
 theme:
   name: material
 
+extra:
+  version:
+    provider: mike
+
 site_name: My Docs

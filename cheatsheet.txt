@@ -1,0 +1,7 @@
+https://github.com/jimporter/mike
+
+Build docs: mike deploy [version]
+
+Preview docs: mike serve
+
+Set default version: mike set-default [version]
