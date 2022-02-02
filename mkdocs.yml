@@ -1,11 +1,37 @@
 # yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
 
+# Heavily inspired from: https://github.com/DV8FromTheWorld/JDA-Website/blob/master/mkdocs.yml
 theme:
-  name: material
   features:
     - navigation.instant # Faster loading
     - navigation.tabs # Top level horizontal tabs
     - toc.integrate # Integrated Table Of Contents (shows #, ##... sections)
-    - content.code.annotate # Annotations on lines of code
+    - content.code.annotate # Annotations on lines of codeicon:
+  name: material
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: purple
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: purple
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+repo_name: BotCommands
+repo_url: https://github.com/freya022/BotCommands
+edit_uri: ../BotCommands-Wiki/edit/master/docs
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/freya022/BotCommands
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/frpCcQfvTz
 
 site_name: BotCommands Wiki
