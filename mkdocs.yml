@@ -41,6 +41,7 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.highlight
+  - pymdownx.inlinehilite
   - footnotes
   - def_list
   - pymdownx.tasklist:

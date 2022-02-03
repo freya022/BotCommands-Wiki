@@ -1,6 +1,6 @@
 # Slash commands - Updating option choices
 
-See [here](https://github.com/freya022/BotCommands/wiki/Slash-commands#examples) 
+See [here](/using-commands/Slash-commands/#examples) 
 the example on how to add predefined choices to your slash commands
 
 You can also change the `GuildApplicationSettings#getOptionChoices` to provide dynamic values, 
@@ -8,7 +8,7 @@ for example if you have a command that adds choices,
 you would add the choice to the list and then call 
 `BContext#scheduleApplicationCommandsUpdate` to update the application commands with the new choices
 
-### Example - How to make a dynamic choice list, having a command to add choices
+Example - How to make a dynamic choice list, having a command to add choices
 
 ```java
 public class SlashChoices extends ApplicationCommand {

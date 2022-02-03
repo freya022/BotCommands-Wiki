@@ -1,15 +1,14 @@
-## About selection menus
+# About selection menus
+## How can I use them ?
+You'll first need to have some experience using [JDA's SelectMenu(s)](https://jda.wiki/using-jda/interactions/#selection-menus-dropdowns) directly
 
-Selection menus works almost the same as the buttons, they are made with a builder. There is currently no selection menu wiki on JDA's wiki as their usage is pretty straight forward, just look at the `SelectionMenu` docs.
-
-# How can I use them ?
 You will need to have your `ComponentManager` set up in order to use the Components API, which is where the selection menus are created.
 
-You can then use the `Components` class methods such as `Components#selectionMenu`, which is equivalent to JDA's `SelectionMenu#create`, except it will give you a builder class where you can set the properties defined in [the Components API wiki](https://github.com/freya022/BotCommands/wiki/The-Components-API)
+You can then use the `Components` class methods such as `Components#selectionMenu`, which is equivalent to JDA's `SelectionMenu#create`, except it will give you a builder class where you can set the properties defined in [the Components API wiki](../The-Components-API)
 
 ## How to listen to selection events
 
-You have to make a method annotated with `@JDASelectionMenuListener` and have their first parameter be a `SelectionEvent`
+You have to make a method annotated with `#!java @JDASelectionMenuListener` and have their first parameter be a `SelectionEvent`
 
 Example:
 ```java

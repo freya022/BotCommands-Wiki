@@ -1,5 +1,5 @@
 # The Components API
-The `Components` class is the only class you need to directly use when using components (buttons / selection menus), it provides a builder for every component in order to not introduce boilerplate such as `Button.primary(getId(...), "Test button");`, it would instead be `Components.primaryButton(...).build("Test button");`
+The `Components` class is the only class you need to directly use when using components (buttons / selection menus), it provides a builder for every component in order to not introduce boilerplate such as `#!java Button.primary(getId(...), "Test button");`, it would instead be `#!java Components.primaryButton(...).build("Test button");`
 
 ## Prerequisites
 You will need to set a `ComponentManager` in `CommandsBuilder#setComponentManager`, I strongly recommend that you use the `DefaultComponentManager`, unless you want to reimplement the interface.
@@ -17,6 +17,7 @@ There are two types of components:
 * Lambda components: These are used when you need a command's context (such as captured variables) using lambdas, **however this does not survive bot restarts**
 
 Both types supports properties such as:
+
 * One-use-ness (Component is deleted from the component manager when all conditions are met and the linked code is executed)
-* Owner (Component is only usable by a specific user)
+* Interaction constraints (Component is only usable by users which meets *any* of the predefined filters)
 * Timeouts (Component is deleted from the component manager after a period of time)

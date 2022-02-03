@@ -1,17 +1,14 @@
-## About buttons
-
-For an introduction about buttons, you can check out [buttons on JDA's wiki](https://github.com/DV8FromTheWorld/JDA/wiki/Interactions#buttons)
-
-# How can I use them ?
-You'll first need to have some experience using [JDA's buttons](https://github.com/DV8FromTheWorld/JDA/wiki/Interactions#buttons) directly
+# About buttons
+## How can I use them ?
+You'll first need to have some experience using [JDA's buttons](https://jda.wiki/using-jda/interactions/#buttons) directly
 
 You will need to have your `ComponentManager` set up in order to use the Components API, which is where the buttons are created.
 
-You can then use the `Components` class methods such as `Components#primaryButton`, which is equivalent to JDA's `Button#primary`, except it will give you a builder class where you can set the properties defined in [the Components API wiki](https://github.com/freya022/BotCommands/wiki/The-Components-API)
+You can then use the `Components` class methods such as `Components#primaryButton`, which is equivalent to JDA's `Button#primary`, except it will give you a builder class where you can set the properties defined in [the Components API wiki](../The-Components-API)
 
 ## How to listen to button clicks
 
-You have to make a method annotated with `@JDAButtonListener` and have their first parameter be a `ButtonEvent`
+You have to make a method annotated with `#!java @JDAButtonListener` and have their first parameter be a `ButtonEvent`
 
 Example:
 ```java

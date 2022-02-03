@@ -1,6 +1,6 @@
 # Inferred option names
 
-For annotations such as `@TextOption` or `@AppOption`, you would need to set a `name` attribute on them, 
+For annotations such as `#!java @TextOption` or `#!java @AppOption`, you would need to set a `name` attribute on them, 
 so it can be displayed on Discord
 
 Fortunately, you can make the library take the name of your parameter as the name for your option, 
