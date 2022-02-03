@@ -1,0 +1,22 @@
+# The Components API
+The `Components` class is the only class you need to directly use when using components (buttons / selection menus), it provides a builder for every component in order to not introduce boilerplate such as `Button.primary(getId(...), "Test button");`, it would instead be `Components.primaryButton(...).build("Test button");`
+
+## Prerequisites
+You will need to set a `ComponentManager` in `CommandsBuilder#setComponentManager`, I strongly recommend that you use the `DefaultComponentManager`, unless you want to reimplement the interface.
+
+For the default component manager, you will need a database, you *will not* be able to use any database if you choose to use the `DefaultComponentManager`, PostgreSQL is what I tested the framework on, but MariaDB or H2 *should* work.
+
+*The database does not need to be populated with anything*, the tables are created on startup, you will only need to provide a `Connection` supplier.
+
+**I also highly recommend you use a library capable of pooling SQL connections** such as [HikariCP](https://github.com/brettwooldridge/HikariCP), which will greatly reduce the time to process interactions / components
+
+## Discord components features
+There are two types of components:
+
+* Persistent components: These are used when you may need to run a method even after your bot is restarted
+* Lambda components: These are used when you need a command's context (such as captured variables) using lambdas, **however this does not survive bot restarts**
+
+Both types supports properties such as:
+* One-use-ness (Component is deleted from the component manager when all conditions are met and the linked code is executed)
+* Owner (Component is only usable by a specific user)
+* Timeouts (Component is deleted from the component manager after a period of time)

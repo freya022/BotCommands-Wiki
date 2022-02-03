@@ -1,17 +1,5 @@
-# Welcome to MkDocs
+# Welcome to the BotCommands wiki!
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Have a look around the different categories on how to use this framework
 
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+*If you don't find a wiki page you need, you should check out the [examples](https://github.com/freya022/BotCommands/tree/master/examples)*

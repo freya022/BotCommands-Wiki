@@ -1,0 +1,58 @@
+# Writing context menu commands
+
+Context commands are these commands when you right-click on a message, or on a user, and executes an interaction, similarly to slash commands
+
+## A few keywords
+
+* `[Type]` is either User or Message
+* `ApplicationCommand` - Must be extended by the class which contains applications commands
+* `@AppOption` - Mandatory on options
+* `@JDA[Type]Command` - Annotation for methods which marks context commands
+
+## Making a slash command
+
+An application command is similar to a slash command - You extend `ApplicationCommand` on your class and use `@JDA[Type]Command` on every method you want to be a context menu command
+
+Your method has to:
+* Be public
+* Have `Guild[Type]Event` (for guild-only context commands, if not specified explicitly, a context command is guild-only) as first parameter, or a `Global[Type]Event` for global commands
+* Be annotated `@JDA[Type]Command`
+
+## Examples
+<details>
+<summary>Basic <code>Quote message</code> message command</summary>
+
+```java
+public class ContextQuote extends ApplicationCommand {
+	@JDAMessageCommand(name = "Quote message")
+	public void execute(GuildMessageEvent event) {
+		final Message targetMessage = event.getTargetMessage();
+
+		event.reply("> " + targetMessage.getContentRaw()).queue();
+	}
+}
+```
+</details>
+
+<details>
+<summary>Basic <code>Get avatar</code> user command</summary>
+
+```java
+public class ContextAvatar extends ApplicationCommand {
+	@JDAUserCommand(name = "Get avatar")
+	public void execute(GuildUserEvent event) {
+		final User targetUser = event.getTargetUser();
+
+		event.reply(targetUser.getEffectiveAvatarUrl()).queue();
+	}
+}
+```
+</details>
+
+## Adding command privileges / Add or remove context commands from certain Guilds
+
+See the [same section in slash commands](https://github.com/freya022/BotCommands/wiki/Slash-commands#adding-command-privileges--add-or-remove-slash-commands-from-certain-guilds)
+
+## Updating existing context commands on the fly
+
+See the [same section in slash commands](https://github.com/freya022/BotCommands/wiki/Slash-commands#updating-existing-commands-on-the-fly)
