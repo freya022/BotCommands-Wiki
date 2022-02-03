@@ -9,9 +9,9 @@ Context commands are these commands when you right-click on a message, or on a u
 * `@AppOption` - Mandatory on options
 * `@JDA[Type]Command` - Annotation for methods which marks context commands
 
-## Making a slash command
+## Making context commands
 
-An application command is similar to a slash command - You extend `ApplicationCommand` on your class and use `@JDA[Type]Command` on every method you want to be a context menu command
+A context command is similar to a slash command - You extend `ApplicationCommand` on your class and use `@JDA[Type]Command` on every method you want to be a context menu command
 
 Your method has to:
 * Be public
@@ -19,40 +19,36 @@ Your method has to:
 * Be annotated `@JDA[Type]Command`
 
 ## Examples
-<details>
-<summary>Basic <code>Quote message</code> message command</summary>
+??? note "Basic `Quote message` message command"
 
-```java
-public class ContextQuote extends ApplicationCommand {
-	@JDAMessageCommand(name = "Quote message")
-	public void execute(GuildMessageEvent event) {
-		final Message targetMessage = event.getTargetMessage();
+    ```java
+    public class ContextQuote extends ApplicationCommand {
+        @JDAMessageCommand(name = "Quote message")
+        public void execute(GuildMessageEvent event) {
+            final Message targetMessage = event.getTargetMessage();
+    
+            event.reply("> " + targetMessage.getContentRaw()).queue();
+        }
+    }
+    ```
 
-		event.reply("> " + targetMessage.getContentRaw()).queue();
-	}
-}
-```
-</details>
+??? note "Basic `Get avatar user` command"
 
-<details>
-<summary>Basic <code>Get avatar</code> user command</summary>
-
-```java
-public class ContextAvatar extends ApplicationCommand {
-	@JDAUserCommand(name = "Get avatar")
-	public void execute(GuildUserEvent event) {
-		final User targetUser = event.getTargetUser();
-
-		event.reply(targetUser.getEffectiveAvatarUrl()).queue();
-	}
-}
-```
-</details>
+    ```java
+    public class ContextAvatar extends ApplicationCommand {
+        @JDAUserCommand(name = "Get avatar")
+        public void execute(GuildUserEvent event) {
+            final User targetUser = event.getTargetUser();
+    
+            event.reply(targetUser.getEffectiveAvatarUrl()).queue();
+        }
+    }
+    ```
 
 ## Adding command privileges / Add or remove context commands from certain Guilds
 
-See the [same section in slash commands](https://github.com/freya022/BotCommands/wiki/Slash-commands#adding-command-privileges--add-or-remove-slash-commands-from-certain-guilds)
+See the [Updating privileges page](../updating-application-commands/Updating-privileges)
 
 ## Updating existing context commands on the fly
 
-See the [same section in slash commands](https://github.com/freya022/BotCommands/wiki/Slash-commands#updating-existing-commands-on-the-fly)
+See the [Updating existing commands page](../Slash-commands/#updating-existing-commands-on-the-fly)
