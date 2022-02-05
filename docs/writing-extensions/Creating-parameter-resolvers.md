@@ -1,6 +1,6 @@
 The reason why your commands with method signatures like `#!java public void kick(GuildSlashEvent event, @AppOption User user, @AppOption String reason)` works is because there are default parameter resolvers, the default resolvers are registered automatically when ParameterResolvers is loaded. They can resolve regex command parameters / application command parameters and also button parameters
 
-# Creating a new `ParameterResolver`
+## Creating a new `ParameterResolver`
 To create a new parameter resolver, you have the following steps:
 
 * Create a new class
