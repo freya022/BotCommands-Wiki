@@ -1,12 +1,13 @@
-The reason why your commands with method signatures like `public void kick(GuildSlashEvent event, @AppOption User user, @AppOption String reason)` works is because there are default parameter resolvers, they're registered automatically when ParameterResolvers is loaded. They can resolve regex command parameters / application command parameters and also button parameters
+The reason why your commands with method signatures like `#!java public void kick(GuildSlashEvent event, @AppOption User user, @AppOption String reason)` works is because there are default parameter resolvers, the default resolvers are registered automatically when ParameterResolvers is loaded. They can resolve regex command parameters / application command parameters and also button parameters
 
 # Creating a new `ParameterResolver`
 To create a new parameter resolver, you have the following steps:
+
 * Create a new class
 * Make it extend `ParameterResolver`
 * Use the `super` constructor to indicate the type of the resolved object
 * Implement one or more of these interfaces described in `ParameterResolver`
-* Register the resolver with ExtensionsBuilder#registerParameterResolver
+* Register the resolver with `ExtensionsBuilder#registerParameterResolver`
 
 ## Example - How to add a `ParameterResolver`
 
