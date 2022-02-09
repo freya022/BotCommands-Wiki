@@ -40,6 +40,7 @@ My personal choice for a `logback.xml` is as such:
     <!-- You can remove these comments if you want JDA to log only on debug while the library itself is on the trace level, for debugging purposes -->
 <!--    <logger name="net.dv8tion.jda" level="debug" additivity="false">-->
 <!--        <appender-ref ref="STDOUT"/>-->
+<!--        <appender-ref ref="FILE"/>-->
 <!--    </logger>-->
 
     <root level="debug">
