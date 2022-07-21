@@ -25,7 +25,7 @@ Your method has to:
     ```java
     public class SlashPing extends ApplicationCommand {
         @JDASlashCommand(
-                guildOnly = false,
+                scope = CommandScope.GLOBAL,
                 name = "ping",
                 description = "Pong !"
         )
