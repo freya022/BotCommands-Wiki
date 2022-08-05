@@ -91,3 +91,12 @@ public class PrefixSettingsProvider implements SettingsProvider {
 ```
 
 You can then register your `SettingsProvider` by adding `#setSettingsProvider(new PrefixSettingsProvider())` to your CommandsBuilder chain
+
+## Replacing help content
+
+You can replace the default help command by making a text command with the same path.
+Your help command needs to implement `IHelpCommand` so that the help is still displayed when commands are detected, but their syntax is invalid
+
+You can also not provide an help implementation and just disable the command with `TextCommandsBuilder#disableHelpCommand`
+
+You can also modify the help embeds with `TextCommandsBuilder#setHelpBuilderConsumer`
