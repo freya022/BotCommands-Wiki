@@ -6,7 +6,7 @@ Localization lets you translate commands & responses to the user's or the guild'
 Localization can be stored in the JSON format and can contain your command translations, as well as command responses, or any other string.
 
 ### Where do I store them ?
-Localization files need to be stored in the `bc_localization` folder, in your `resources` directory, 
+Localization files must be stored in the `bc_localization` folder, in your `resources` directory, 
 these files can be of any *base* name, but must end with the locale's string, and must have a `.json` extension.
 
 Examples:
@@ -18,7 +18,7 @@ Examples:
 ### What do they look like ?
 The JSON file is going to be an object, with each key being the "localization key" and the value being the "localization template".
 
-The localization key is a string with keywords separated by a dot, the framework takes advantage of JSON as you can nest objects with their translations inside, the path to the nested translation will be your localization key, 
+The localization key is a string where keywords are separated by a dot, the framework takes advantage of JSON as you can nest objects with their translations inside, the path to the nested translation will be your localization key, 
 but they can look exactly like the keys in Java's `ResourceBundle`, where no nesting is required.
 
 ??? note "Example without nesting"
@@ -49,11 +49,13 @@ The default localization templates works the same as [Java's MessageFormat](http
 In a nutshell, you can either have basic templates such as `This message will delete in {delete_time} seconds`, or have complex templates which will accept the argument name, the format type and the format style.
 
 ??? note "Example - `/ban` success message"
-    ```json title="/resources/bc_localization/CommandsLocalization.json"
+    ```json title="/resources/bc_localization/MyCommandsLocalization.json"
     {
         "ban.success": "{banned_user} was banned successfully for the reason '{reason}', and {del_hours} {del_hours, choice, 1#hour|2<hours} of messages were deleted"
     }
     ```
+
+    **Don't forget** `#!java @LocalizationBundle("MyCommandsLocalization")` **to use your localization bundle** !
     
     ```java title="Ban.java"
     final String response = event.localize("ban.success",
@@ -114,7 +116,7 @@ You can then create your commands as you would normally, no need to set up speci
 Your localization keys will be the same as specified by JDA's `LocalizationFunction`, 
 which means the keys are composed of the complete path, combined with the option's name and the choice's name as well, please refer to the [JDA documentation](https://ci.dv8tion.net/job/JDA5/javadoc/net/dv8tion/jda/api/interactions/commands/localization/LocalizationFunction.html) for more details.
 
-## Localization responses
+## Localizing responses
 
 Localizing responses can be done using the framework's events, with the `localize` methods and its overloads. The method uses the best locale available, depending on the context:
 
@@ -124,10 +126,15 @@ Localizing responses can be done using the framework's events, with the `localiz
 Let's say someone used a ban command, but the caller cannot ban the user, due to hierarchy reasons:
 
 ```java title="SlashBan.java"
-final String errorMessage = event.localize("ban.caller.interact_error", entry("mention", targetMember.getAsMention())); // (1)
+final String errorMessage = event.localize( // (1)
+    "ban.caller.interact_error", 
+    entry("mention", targetMember.getAsMention())  // (2)
+); 
 event.reply(errorMessage).queue();
 ```
 
 1.  This will use the user's locale, as a slash command is an interaction.
+2.  "mention" is a variable of the string template
 
-    "mention" is a variable of the string template
+## Example project
+You can also see this very small bot using localization: [Link](https://github.com/freya022/BotCommands/tree/master/examples/src/main/java/com/freya02/bot/wiki/localization)
