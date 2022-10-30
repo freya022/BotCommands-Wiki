@@ -41,6 +41,10 @@ but they can look exactly like the keys in Java's `ResourceBundle`, where no nes
     }
     ```
 
+### What are localization templates ?
+
+TODO
+
 ## Localizing default messages
 Default messages are messages that can be sent by the framework itself, they can come from the command listeners, components or modals for example. 
 
@@ -92,4 +96,19 @@ which means the keys are composed of the complete path, combined with the option
 
 ## Localization responses
 
-TODO
+Localizing responses can be done using the framework's events, with the `localize` methods and its overloads. The method uses the best locale available, depending on the context:
+
+* Any type of [Interaction](https://ci.dv8tion.net/job/JDA5/javadoc/net/dv8tion/jda/api/interactions/Interaction.html): Uses the user's locale
+* Other events: Uses the [Guild's locale](https://ci.dv8tion.net/job/JDA5/javadoc/net/dv8tion/jda/api/entities/Guild.html#getLocale()) (US English by default)
+
+Let's say someone used a ban command, but the caller cannot ban the user, due to hierarchy reasons:
+
+!!! note "Example - `/ban` command"
+    ```java
+    final String errorMessage = event.localize("ban.caller.interact_error", entry("mention", targetMember.getAsMention())); // (1)
+    event.reply(errorMessage).queue();
+    ```
+
+    1.  This will use the user's locale, as a slash command is an interaction.
+
+        "mention" is a variable of the string template
