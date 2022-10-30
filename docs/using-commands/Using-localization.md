@@ -75,26 +75,23 @@ Default messages are messages that can be sent by the framework itself, they can
 Default messages are defined in `/resources/bc_localization/DefaultMessages.json`, this is where you can find all the localization keys used by the framework.
 
 To override one or more default messages, create your own `DefaultMessages.json`, like you would with a normal localization file.
-
-!!! note "Replacing default messages"
     
-    ```json title="/resources/bc_localization/DefaultMessages.json"
-    {
-        "general_error_message": "The bot has encountered an error, try again later."
-    }
-    ```
+```json title="/resources/bc_localization/DefaultMessages.json"
+{
+    "general_error_message": "The bot has encountered an error, try again later."
+}
+```
 
 ### Adding translations to default messages
 
 Default messages can also be localized, but they must keep the same base name, i.e. `DefaultMessages`.
 
-!!! note "Adding translations to default messages"
 
-    ```json title="/resources/bc_localization/DefaultMessages_fr.json"
-    {
-        "general_error_message": "Le bot a rencontré une erreur, veuillez réessayer plus tard."
-    }   
-    ```
+```json title="/resources/bc_localization/DefaultMessages_fr.json"
+{
+    "general_error_message": "Le bot a rencontré une erreur, veuillez réessayer plus tard."
+}   
+```
 
 ## Localizing application commands
 Only application commands supports localization, translations can include names and description of commands as well as options, and also choice names.
@@ -126,12 +123,11 @@ Localizing responses can be done using the framework's events, with the `localiz
 
 Let's say someone used a ban command, but the caller cannot ban the user, due to hierarchy reasons:
 
-!!! note "Example - `/ban` command"
-    ```java
-    final String errorMessage = event.localize("ban.caller.interact_error", entry("mention", targetMember.getAsMention())); // (1)
-    event.reply(errorMessage).queue();
-    ```
+```java title="SlashBan.java"
+final String errorMessage = event.localize("ban.caller.interact_error", entry("mention", targetMember.getAsMention())); // (1)
+event.reply(errorMessage).queue();
+```
 
-    1.  This will use the user's locale, as a slash command is an interaction.
+1.  This will use the user's locale, as a slash command is an interaction.
 
-        "mention" is a variable of the string template
+    "mention" is a variable of the string template
