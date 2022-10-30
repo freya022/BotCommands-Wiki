@@ -33,7 +33,7 @@ jobs:
         name: Find Comment
         with:
           issue-number: ${{ github.event.pull_request.number }}
-          comment-author: gh-pages-deploy
+          comment-author: gh-pages-preview
       - uses: peter-evans/create-or-update-comment@v2
         id: comment
         name: Create initial comment
@@ -66,7 +66,7 @@ jobs:
           personal_token: ${{ secrets.BOT }}
           publish_dir: ./site
           destination_dir: ./${{ github.repository }}/${{ github.event.pull_request.number }}
-          external_repository: gh-pages-deploy/Deploy-Previews
+          external_repository: gh-pages-preview/Deploy-Previews
           full_commit_message: 'Pushing deploy preview for Pull request ${{ github.event.pull_request.number }} from ${{ github.repository }}'
       - name: Delay comment update by 30 seconds
         run: sleep 30s
@@ -83,7 +83,7 @@ jobs:
             | Name   | Link                                                                                                               |
             | ------ | ------------------------------------------------------------------------------------------------------------------ |
             | Commit | ${{ github.event.pull_request.head.sha }}                                                                          |
-            | Link   | https://gh-pages-deploy.github.io/Deploy-Previews/${{ github.repository }}/${{ github.event.pull_request.number }} |
+            | Link   | https://gh-pages-preview.github.io/Deploy-Previews/${{ github.repository }}/${{ github.event.pull_request.number }} |
             | Logs   | ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}                                |
           comment-id: ${{ steps.comment.outputs.comment-id }}
           edit-mode: replace
