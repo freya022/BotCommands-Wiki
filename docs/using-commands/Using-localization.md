@@ -43,7 +43,30 @@ but they can look exactly like the keys in Java's `ResourceBundle`, where no nes
 
 ### What are localization templates ?
 
-TODO
+Localization templates are going to determine how your localized strings will include runtime values. 
+
+The default localization templates works the same as [Java's MessageFormat](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/text/MessageFormat.html), except it accepts named arguments instead of indexes.
+In a nutshell, you can either have basic templates such as `This message will delete in {delete_time} seconds`, or have complex templates which will accept the argument name, the format type and the format style.
+
+??? note "Example - `/ban` success message"
+    ```json title="/resources/bc_localization/CommandsLocalization.json"
+    {
+        "ban.success": "{banned_user} was banned successfully for the reason '{reason}', and {del_hours} {del_hours, choice, 1#hour|2<hours} of messages were deleted"
+    }
+    ```
+    
+    ```java title="Ban.java"
+    final String response = event.localize("ban.success",
+        entry("banned_user", targetUser.getAsMention()),
+        entry("del_hours", delHours), // (1)
+        entry("reason", reason)
+    );
+
+    event.reply(response).queue();
+    ```
+
+    1.  The hours of messages being deleted can use different wording depending on plurality, 
+        this is reflected on the localization templates with a `choice` format type, and a [choice format](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/text/ChoiceFormat.html)
 
 ## Localizing default messages
 Default messages are messages that can be sent by the framework itself, they can come from the command listeners, components or modals for example. 
