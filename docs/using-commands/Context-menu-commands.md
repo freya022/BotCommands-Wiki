@@ -45,10 +45,6 @@ Your method has to:
     }
     ```
 
-## Adding command privileges / Add or remove context commands from certain Guilds
-
-See the [Updating privileges page](../updating-application-commands/Updating-privileges)
-
 ## Updating existing context commands on the fly
 
 See the [Updating existing commands page](../Slash-commands/#updating-existing-commands-on-the-fly)
