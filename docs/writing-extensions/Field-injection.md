@@ -1,6 +1,6 @@
 You might have a use case where your command needs specific objects from other instances (such as a database connection perhaps), normally you could pass them to your command constructors, but here your commands are constructed automatically, so manually doing it is not an option.
 
-That's why you can register field dependencies suppliers (or use [constructor injection](https://github.com/freya022/BotCommands/wiki/Constructor-injection))
+That's why you can register field dependencies suppliers (or use [constructor injection](./Constructor-injection.md))
 
 ## How to use them
 
