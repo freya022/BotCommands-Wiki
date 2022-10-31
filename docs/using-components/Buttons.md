@@ -4,7 +4,7 @@ You'll first need to have some experience using [JDA's buttons](https://jda.wiki
 
 You will need to have your `ComponentManager` set up in order to use the Components API, which is where the buttons are created.
 
-You can then use the `Components` class methods such as `Components#primaryButton`, which is equivalent to JDA's `Button#primary`, except it will give you a builder class where you can set the properties defined in [the Components API wiki](../The-Components-API)
+You can then use the `Components` class methods such as `Components#primaryButton`, which is equivalent to JDA's `Button#primary`, except it will give you a builder class where you can set the properties defined in [the Components API wiki](./The-Components-API.md)
 
 ## How to listen to button clicks
 

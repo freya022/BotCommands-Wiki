@@ -4,7 +4,7 @@ You'll first need to have some experience using [JDA's SelectMenu(s)](https://jd
 
 You will need to have your `ComponentManager` set up in order to use the Components API, which is where the selection menus are created.
 
-You can then use the `Components` class methods such as `Components#selectionMenu`, which is equivalent to JDA's `SelectionMenu#create`, except it will give you a builder class where you can set the properties defined in [the Components API wiki](../The-Components-API)
+You can then use the `Components` class methods such as `Components#selectionMenu`, which is equivalent to JDA's `SelectionMenu#create`, except it will give you a builder class where you can set the properties defined in [the Components API wiki](./The-Components-API.md)
 
 ## How to listen to selection events
 

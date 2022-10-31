@@ -47,4 +47,4 @@ Your method has to:
 
 ## Updating existing context commands on the fly
 
-See the [Updating existing commands page](../Slash-commands/#updating-existing-commands-on-the-fly)
+See the [Updating existing commands page](./using-slash-commands/Updating-slash-commands.md)
