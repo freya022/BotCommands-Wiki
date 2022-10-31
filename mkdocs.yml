@@ -66,6 +66,7 @@ nav:
       - Updating application commands:
           - Slash commands - Updating option choices: using-commands/updating-application-commands/Slash-commands---Updating-option-choices.md
           - Updating privileges: using-commands/updating-application-commands/Updating-privileges.md
+      - Using localization: using-commands/Using-localization.md
       - Inferred option names: using-commands/Inferred-option-names.md
   - Using components:
       - The Components API: using-components/The-Components-API.md
