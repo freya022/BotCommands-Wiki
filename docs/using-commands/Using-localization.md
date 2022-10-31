@@ -46,12 +46,12 @@ but they can look exactly like the keys in Java's `ResourceBundle`, where no nes
 Localization templates are going to determine how your localized strings will include runtime values. 
 
 The default localization templates works the same as [Java's MessageFormat](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/text/MessageFormat.html), except it accepts named arguments instead of indexes.
-In a nutshell, you can either have basic templates such as `This message will delete itself in {delete_time} seconds`, or have complex templates which will accept the argument name, the format type and the format style.
+In a nutshell, you can either have basic templates such as `This message will delete itself in {deleteTime} seconds`, or have complex templates which will accept the argument name, the format type and the format style.
 
 ??? note "Example - `/ban` success message"
     ```json title="/resources/bc_localization/MyCommandsLocalization.json"
     {
-        "ban.success": "{banned_user} was banned successfully for the reason '{reason}', and {del_hours} {del_hours, choice, 1#hour|2<hours} of messages were deleted"
+        "ban.success": "{bannedUser} was banned successfully for the reason '{reason}', and {delHours} {delHours, choice, 1#hour|2<hours} of messages were deleted"
     }
     ```
 
@@ -59,8 +59,8 @@ In a nutshell, you can either have basic templates such as `This message will de
     
     ```java title="Ban.java"
     final String response = event.localize("ban.success",
-        entry("banned_user", targetUser.getAsMention()),
-        entry("del_hours", delHours), // (1)
+        entry("bannedUser", targetUser.getAsMention()),
+        entry("delHours", delHours), // (1)
         entry("reason", reason)
     );
 
