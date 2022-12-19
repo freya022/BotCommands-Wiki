@@ -40,15 +40,16 @@ private static final String ROLEPLAY_LABEL_SELECT_MENU_LISTENER = "SlashRoleplay
 private static final String AUTO_ROLE_SELECT_MENU_LISTENER = "SlashRoleplay: autoRoleSelectMenu"
 
 @JDASelectionMenuListener(name = ROLEPLAY_LABEL_SELECT_MENU_LISTENER)
-public void onRoleplayLabelSelectMenu(StringSelectionEvent event, 
+public void onRoleplayLabelSelected(StringSelectionEvent event, 
                                       @AppOption long randomNumber) { // Number we got back from when we created the selection menu
     event.replyFormat("My random number is %d and your labels have been set to: %s", randomNumber, event.getValues())
         .setEphemeral(true)
         .queue();
 }
 
+//If you were to create an entity select menu
 @JDASelectionMenuListener(name = AUTO_ROLE_SELECT_MENU_LISTENER)
-public void onRoleplayLabelSelectMenu(EntitySelectionEvent event) {
+public void onAutoRoleSelected(EntitySelectionEvent event) {
     final String rolesString = event.getValues().stream()
         .map(IMentionable::getAsMention)
         .collect(Collectors.joining(", "));
