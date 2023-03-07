@@ -103,13 +103,13 @@ You will need to indicate to the framework which localization files are availabl
 ``` java title="Main.java"
 CommandsBuilder builder = ...;
 builder.applicationCommandBuilder(applicationCommandsBuilder -> applicationCommandsBuilder
-        .addLocalizations("LocalizationWikiCommands", Locale.US) // (1)
+        .addLocalizations("LocalizationWikiCommands", DiscordLocale.ENGLISH_US) // (1)
 );
 ```
 
 1.  This enables localization from the `LocalizationWikiCommands.json` bundle, in the `en_US` language. (i.e. `LocalizationWikiCommands_en_US.json`)
 
-    If you wish to add more localizations, add a `Locale` here, and create the corresponding files.
+    If you wish to add more localizations, add a `DiscordLocale` here, and create the corresponding files.
 
 You can then create your commands as you would normally, no need to set up special names or anything.
 
