@@ -116,6 +116,8 @@ You can then create your commands as you would normally, no need to set up speci
 Your localization keys will be the same as specified by JDA's `LocalizationFunction`, 
 which means the keys are composed of the complete path, combined with the option's name and the choice's name as well, please refer to the [JDA documentation](https://ci.dv8tion.net/job/JDA5/javadoc/net/dv8tion/jda/api/interactions/commands/localization/LocalizationFunction.html) for more details.
 
+An example can be found [here](https://github.com/freya022/BotCommands/blob/master/examples/src/main/java/com/freya02/bot/wiki/localization/commands/SlashBan.java)
+
 ## Localizing responses
 
 Localizing responses can be done using the framework's events, with the `localize` methods and its overloads. The method uses the best locale available, depending on the context:
