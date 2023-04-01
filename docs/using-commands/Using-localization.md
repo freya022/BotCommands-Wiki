@@ -118,6 +118,10 @@ which means the keys are composed of the complete path, combined with the option
 
 An example can be found [here](https://github.com/freya022/BotCommands/blob/master/examples/src/main/java/com/freya02/bot/wiki/localization/commands/SlashBan.java)
 
+### Inferred command and option descriptions
+Application command descriptions and option descriptions can be retrieved from the "root" localization bundles, 
+i.e. localization bundles without a language specified, such as `LocalizationWikiCommands.json`
+
 ## Localizing responses
 
 Localizing responses can be done using the framework's events, with the `localize` methods and its overloads. The method uses the best locale available, depending on the context:
