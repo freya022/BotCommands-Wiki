@@ -1,6 +1,6 @@
 #
 # Original Action made by @andrewstech (https://github.com/andrewstech)
-# and slightly modified by Andre601 (https://github.com/Andre601)
+# and slightly modified by Andre601 (https://github.com/Andre601) and freya022 (https://github.com/freya022)
 #
 # Original Action file:
 # https://github.com/DV8FromTheWorld/JDA-Website/blob/master/.github/workflows/deploy-preview.yml
@@ -22,6 +22,8 @@ on:
       - 'overrides/**'
       - 'mkdocs.yml'
       - 'requirements.txt'
+
+permissions: {}
 
 jobs:
   deploy-preview:
