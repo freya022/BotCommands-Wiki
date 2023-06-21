@@ -23,6 +23,7 @@ My personal choice for a `logback.xml` is as such:
     </appender>
 
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/latest.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- daily rollover -->
             <fileNamePattern>logs/logs-%d{yyyy-MM-dd}.log</fileNamePattern>
