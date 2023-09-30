@@ -8,6 +8,7 @@ theme:
     - toc.integrate # Integrated Table Of Contents (shows #, ##... sections)
     - content.code.annotate # Annotations on lines of codeicon:
     - content.action.edit
+    - content.tabs.link
   name: material
   logo: assets/logo-transparent.svg
   favicon: assets/logo-round.svg
@@ -53,10 +54,13 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.highlight
   - pymdownx.inlinehilite
+  - pymdownx.snippets
   - footnotes
   - def_list
   - pymdownx.tasklist:
       custom_checkbox: true
+  - pymdownx.snippets:
+      url_download: true
   - toc:
       permalink: true
   - pymdownx.tabbed:
@@ -67,6 +71,7 @@ markdown_extensions:
 
 nav:
   - Home: index.md
+  - Setup: setup.md
   - Using commands:
       - Writing prefixed commands: using-commands/Prefixed-commands.md
       - Using slash commands:
@@ -90,4 +95,3 @@ nav:
       - Conditional instancing: misc/Conditional-instancing.md
       - Using instance suppliers: misc/Instance-suppliers.md
       - Using the event waiter: misc/The-event-waiter.md
-  - Logging: Logging.md
