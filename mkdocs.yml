@@ -34,14 +34,14 @@ site_name: BotCommands Wiki
 site_url: 'https://freya022.github.io/BotCommands-Wiki/'
 
 repo_name: BotCommands
-repo_url: https://github.com/freya022/BotCommands
+repo_url: https://github.com/freya022/BotCommands/tree/3.0.0-dev
 edit_uri: ../BotCommands-Wiki/edit/master/docs
 extra:
   version:
     provider: mike
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/freya022/BotCommands
+      link: https://github.com/freya022/BotCommands/tree/3.0.0-dev
     - icon: fontawesome/brands/discord
       link: https://discord.gg/frpCcQfvTz
 
