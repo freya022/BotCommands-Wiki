@@ -42,6 +42,8 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/freya022/BotCommands
+    - icon: fontawesome/solid/book
+      link: https://github.com/freya022/BotCommands-Wiki
     - icon: fontawesome/brands/discord
       link: https://discord.gg/frpCcQfvTz
 
