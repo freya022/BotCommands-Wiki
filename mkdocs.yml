@@ -7,6 +7,7 @@ theme:
     - navigation.tabs # Top level horizontal tabs
     - toc.integrate # Integrated Table Of Contents (shows #, ##... sections)
     - content.code.annotate # Annotations on lines of codeicon:
+    - content.action.edit
   name: material
   logo: assets/logo-transparent.svg
   favicon: assets/logo-round.svg
@@ -26,12 +27,18 @@ theme:
         icon: material/weather-sunny
         name: Switch to light mode
 
+plugins:
+  - mike
+
 site_name: BotCommands Wiki
+site_url: 'https://freya022.github.io/BotCommands-Wiki/'
 
 repo_name: BotCommands
 repo_url: https://github.com/freya022/BotCommands
 edit_uri: ../BotCommands-Wiki/edit/master/docs
 extra:
+  version:
+    provider: mike
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/freya022/BotCommands
