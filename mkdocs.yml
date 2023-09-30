@@ -8,6 +8,8 @@ theme:
     - toc.integrate # Integrated Table Of Contents (shows #, ##... sections)
     - content.code.annotate # Annotations on lines of codeicon:
   name: material
+  logo: assets/logo-transparent.svg
+  favicon: assets/logo-round.svg
   icon:
     repo: fontawesome/brands/github
   palette:
