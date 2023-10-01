@@ -13,16 +13,16 @@ In order to add a logger, you need to get the following dependencies:
 You can then create a `logback.xml` file, which you can put in the root of your resources (`src/main/resources`),
 or in another place (such as in a config directory), as shown in the bot template ([Java][set-logback-file-java] / [Kotlin][set-logback-file-kotlin])
 
-Here are the logback configs used in the [bot template](https://github.com/freya022/BotCommands/tree/3.0.0-dev/BotTemplate):
+Here are the logback configs used in the [bot template](https://github.com/freya022/BotCommands/tree/3.X/BotTemplate):
 
 === "Dev config"
 
     ```xml title="logback-test.xml"
-    --8<-- "https://raw.githubusercontent.com/freya022/BotCommands/3.0.0-dev/BotTemplate/BotTemplate-Kotlin/config-template/logback-test.xml"
+    --8<-- "https://raw.githubusercontent.com/freya022/BotCommands/3.X/BotTemplate/BotTemplate-Kotlin/config-template/logback-test.xml"
     ```
 
 === "Prod config"
 
     ```xml title="logback.xml"
-    --8<-- "https://raw.githubusercontent.com/freya022/BotCommands/3.0.0-dev/BotTemplate/BotTemplate-Kotlin/config-template/logback.xml"
+    --8<-- "https://raw.githubusercontent.com/freya022/BotCommands/3.X/BotTemplate/BotTemplate-Kotlin/config-template/logback.xml"
     ```
