@@ -7,6 +7,7 @@ theme:
     - navigation.tabs # Top level horizontal tabs
     - toc.integrate # Integrated Table Of Contents (shows #, ##... sections)
     - content.code.annotate # Annotations on lines of codeicon:
+    - content.code.copy
     - content.action.edit
     - content.tabs.link
   name: material
@@ -55,6 +56,7 @@ markdown_extensions:
   - pymdownx.highlight
   - pymdownx.inlinehilite
   - pymdownx.snippets
+  - pymdownx.keys
   - footnotes
   - def_list
   - pymdownx.tasklist:
