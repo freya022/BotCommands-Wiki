@@ -1,5 +1,0 @@
-https://squidfunk.github.io/mkdocs-material/
-
-Build docs: mkdocs build
-
-Preview docs: mkdocs server
