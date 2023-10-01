@@ -51,12 +51,12 @@ enable version control, and configure your build file:
         id("com.github.johnrengelman.shadow") version "7.1.2"
     }
     
-    application.mainClass.set("io.github.name.bot.Main")    //TODO change here
+    application.mainClass.set("io.github.[username].bot.Main")    //TODO change here
     group = "io.github.name"                                //TODO change here
     version = "1.0-SNAPSHOT"
     
     tasks.withType<ShadowJar> {
-        archiveFileName.set("your-project-name.jar")        //TODO change here
+        archiveFileName.set("ProjectName.jar")        //TODO change here
     }
     
     repositories {
@@ -67,7 +67,7 @@ enable version control, and configure your build file:
     dependencies {
         //Logging
         implementation("org.slf4j:slf4j-api:[VERSION]") //See https://mvnrepository.com/artifact/org.slf4j/slf4j-api/latest
-        implementation("ch.qos.logback:logback-classic:1.2.11") //See https://mvnrepository.com/artifact/ch.qos.logback/logback-classic/latest
+        implementation("ch.qos.logback:logback-classic:[VERSION]") //See https://mvnrepository.com/artifact/ch.qos.logback/logback-classic/latest
 
         //JDA
         implementation("net.dv8tion:JDA:[VERSION]") //See https://mvnrepository.com/artifact/net.dv8tion/JDA/latest
