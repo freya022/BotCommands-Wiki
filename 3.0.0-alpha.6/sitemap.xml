@@ -6,11 +6,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://freya022.github.io/BotCommands-Wiki/3.0.0-alpha.6/setup/</loc>
-         <lastmod>2023-10-01</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://freya022.github.io/BotCommands-Wiki/3.0.0-alpha.6/misc/Conditional-instancing/</loc>
          <lastmod>2023-10-01</lastmod>
          <changefreq>daily</changefreq>
@@ -22,6 +17,16 @@
     </url>
     <url>
          <loc>https://freya022.github.io/BotCommands-Wiki/3.0.0-alpha.6/misc/The-event-waiter/</loc>
+         <lastmod>2023-10-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://freya022.github.io/BotCommands-Wiki/3.0.0-alpha.6/setup/getting-started/</loc>
+         <lastmod>2023-10-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://freya022.github.io/BotCommands-Wiki/3.0.0-alpha.6/setup/logging/</loc>
          <lastmod>2023-10-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
