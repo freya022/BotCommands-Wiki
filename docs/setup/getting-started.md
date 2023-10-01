@@ -11,13 +11,21 @@ You can clone the template with the following command: (use "Git Bash" on Window
 === "Kotlin"
 
     ```sh
-    git clone -n --depth=1 --filter=tree:0 --branch=3.X https://github.com/freya022/BotCommands && cd BotCommands && git sparse-checkout set --no-cone BotTemplate/BotTemplate-Kotlin && git checkout && mv ./BotTemplate/BotTemplate-Kotlin/{.,}* . || rm -r BotTemplate && rm -rf .git
+    git clone -n --depth=1 --filter=tree:0 --branch=3.X https://github.com/freya022/BotCommands &&
+    cd BotCommands && git sparse-checkout set --no-cone BotTemplate/BotTemplate-Kotlin && git checkout &&
+    mv ./BotTemplate/BotTemplate-Kotlin/{.,}* . ||
+    rm -r BotTemplate &&
+    rm -rf .git
     ```
 
 === "Java"
 
     ```sh
-    git clone -n --depth=1 --filter=tree:0 --branch=3.X https://github.com/freya022/BotCommands && cd BotCommands && git sparse-checkout set --no-cone BotTemplate/BotTemplate-Java && git checkout && mv ./BotTemplate/BotTemplate-Java/{.,}* . || rm -r BotTemplate && rm -rf .git
+    git clone -n --depth=1 --filter=tree:0 --branch=3.X https://github.com/freya022/BotCommands &&
+    cd BotCommands && git sparse-checkout set --no-cone BotTemplate/BotTemplate-Java && git checkout &&
+    mv ./BotTemplate/BotTemplate-Java/{.,}* . ||
+    rm -r BotTemplate &&
+    rm -rf .git
     ```
 
 !!! info
