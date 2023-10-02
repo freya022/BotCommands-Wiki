@@ -24,17 +24,16 @@ while the declaring class must extend `ApplicationCommand`.
 
 [//]: # (TODO add tip with live template)
 
-Example:
-=== "Java"
-
-    ```java
-    --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/java/io/github/freya022/bot/commands/slash/SlashPingJava.java:ping_java"
-    ```
-
-=== "Kotlin"
-    ```kotlin
-    --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/kotlin/io/github/freya022/bot/commands/slash/SlashPing.kt:ping_kotlin"
-    ```
+!!! example
+    === "Java"
+        ```java
+        --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/java/io/github/freya022/bot/commands/slash/SlashPingJava.java:ping_java"
+        ```
+    
+    === "Kotlin"
+        ```kotlin
+        --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/kotlin/io/github/freya022/bot/commands/slash/SlashPing.kt:ping_kotlin"
+        ```
 
 ### Adding options
 
@@ -42,25 +41,25 @@ Options can simply be added with a parameter annotated with `#!java @SlashOption
 
 All supported types are documented under `ParameterResolver`, and [other types can be added](#adding-option-resolvers).
 
-!!! tip "Inferred option names"
+!!! example
+    === "Java"
+        ```java
+        --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/java/io/github/freya022/bot/commands/slash/SlashSayJava.java:say_java"
+        ```
+    
+    === "Kotlin"
+        ```kotlin
+        --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/kotlin/io/github/freya022/bot/commands/slash/SlashSay.kt:say_kotlin"
+        ```
 
-    Display names of options can be deduced from the parameter name, this is natively supported in Kotlin,
+!!! tip "Inferred option names"
+    Display names of options can be set on the annotation,
+    but can also be deduced from the parameter name, this is natively supported in Kotlin,
     but for Java, you will need to [enable parameter names](../Inferred-option-names.md) on the Java compiler.
 
-Example:
-=== "Java"
+#### Using choices
 
-    ```java
-    --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/java/io/github/freya022/bot/commands/slash/SlashSayJava.java:say_java"
-    ```
-
-=== "Kotlin"
-
-    ```kotlin
-    --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/kotlin/io/github/freya022/bot/commands/slash/SlashSay.kt:say_kotlin"
-    ```
-
-### Predefined choices
+#### Predefined choices
 
 ## DSL commands (Kotlin)
 
@@ -77,25 +76,24 @@ and then configure your command.
 
 [//]: # (TODO add tip with live template)
 
-Example:
-```kotlin
---8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/kotlin/io/github/freya022/bot/commands/slash/SlashPing.kt:ping_kotlin_dsl"
-```
+!!! example
+    ```kotlin
+    --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/kotlin/io/github/freya022/bot/commands/slash/SlashPing.kt:ping_kotlin_dsl"
+    ```
 
 ### Adding options
 
 Options can simply be added with a parameter and declaring it using `option` in your command builder,
-where the name is the name of your parameter.
+where the `declaredName` is the name of your parameter, the block will let you change the description, choices, etc.
 
 All supported types are documented under `ParameterResolver`, and [other types can be added](#adding-option-resolvers).
 
-Example:
-```kotlin
---8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/kotlin/io/github/freya022/bot/commands/slash/SlashSay.kt:say_kotlin_dsl"
-```
+!!! example
+    ```kotlin
+    --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/kotlin/io/github/freya022/bot/commands/slash/SlashSay.kt:say_kotlin_dsl"
+    ```
 
 !!! tip
-    
     You can override the option name by setting `optionName` in the option declaration:
     ```kotlin
     option("content", optionName = "sentence") {
@@ -103,13 +101,21 @@ Example:
     }
     ```
 
-### Predefined choices
+#### Adding choices
+
+#### Predefined choices
 
 ## Default description
 
 [//]: # (Describe how descriptions are retrieved from the root bundle, defined in BApplicationConfig)
 
 ## Adding option resolvers
+
+### Implementation
+
+### Built-in resolver generators
+
+[//]: # (Using `Resolvers`)
 
 ## Advanced usage
 
