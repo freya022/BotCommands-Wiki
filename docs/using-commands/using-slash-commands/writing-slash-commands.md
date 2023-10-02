@@ -38,13 +38,37 @@ Example:
 
 ### Adding options
 
+Options can simply be added with a parameter annotated with `#!java @SlashOption`.
+
+All supported types are documented under `ParameterResolver`, and [other types can be added](#adding-option-resolvers).
+
+!!! tip "Inferred option names"
+
+    Display names of options can be deduced from the parameter name, this is natively supported in Kotlin,
+    but for Java, you will need to [enable parameter names](../Inferred-option-names.md) on the Java compiler.
+
+Example:
+=== "Java"
+
+    ```java
+    --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/java/io/github/freya022/bot/commands/slash/SlashSayJava.java:say_java"
+    ```
+
+=== "Kotlin"
+
+    ```kotlin
+    --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/kotlin/io/github/freya022/bot/commands/slash/SlashSay.kt:say_kotlin"
+    ```
+
+### Predefined choices
+
 ## DSL commands (Kotlin)
 
 DSL commands were added in V3 to help create commands dynamically, 
 whether it's to let the user filter commands themselves, or adding subcommands/options in a loop; 
 you can almost do anything you want while keeping the simplicity of your command method.
 
-Application commands can be added with a public, non-static method annotated with `#!java @AppDeclaration`,
+Application commands can be added with a public method annotated with `#!java @AppDeclaration`,
 where the first parameter is a `GlobalApplicationCommandManager` (for global / guild-only global) commands, 
 or `GuildApplicationCommandManager` for guild commands.
 
@@ -54,20 +78,38 @@ and then configure your command.
 [//]: # (TODO add tip with live template)
 
 Example:
-=== "Kotlin (DSL)"
 ```kotlin
 --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/kotlin/io/github/freya022/bot/commands/slash/SlashPing.kt:ping_kotlin_dsl"
 ```
 
 ### Adding options
 
+Options can simply be added with a parameter and declaring it using `option` in your command builder,
+where the name is the name of your parameter.
+
+All supported types are documented under `ParameterResolver`, and [other types can be added](#adding-option-resolvers).
+
+Example:
+```kotlin
+--8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/kotlin/io/github/freya022/bot/commands/slash/SlashSay.kt:say_kotlin_dsl"
+```
+
+!!! tip
+    
+    You can override the option name by setting `optionName` in the option declaration:
+    ```kotlin
+    option("content", optionName = "sentence") {
+        ...
+    }
+    ```
+
+### Predefined choices
+
 ## Default description
 
 [//]: # (Describe how descriptions are retrieved from the root bundle, defined in BApplicationConfig)
 
 ## Adding option resolvers
-
-## Predefined choices
 
 ## Advanced usage
 
