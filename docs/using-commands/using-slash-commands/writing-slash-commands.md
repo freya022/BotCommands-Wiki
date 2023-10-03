@@ -188,9 +188,20 @@ by putting them in a localization file, using the root locale (i.e., no locale s
 and have your localization bundle registered with `BApplicationConfigBuilder#addLocalizations`.
 
 ??? info "The same commands as before, but without the descriptions"
-    ```kotlin
-    --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/kotlin/io/github/freya022/bot/commands/slash/SlashSayDefaultDescription.kt:say_default_description-kotlin_dsl"
-    ```
+    === "Kotlin"
+        ```kotlin
+        --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/kotlin/io/github/freya022/bot/commands/slash/SlashSayDefaultDescription.kt:say_default_description-kotlin"
+        ```
+
+    === "Kotlin (DSL)"
+        ```kotlin
+        --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/kotlin/io/github/freya022/bot/commands/slash/SlashSayDefaultDescription.kt:say_default_description-kotlin_dsl"
+        ```
+
+    === "Java"
+        ```java
+        --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/java/io/github/freya022/bot/commands/slash/SlashSayDefaultDescriptionJava.java:say_default_description-java"
+        ```
 
 !!! example "Adding the root localization bundle"
     For the given resource bundle:
