@@ -292,6 +292,13 @@ all you need to do is declare a service factory with `#!java @Resolver` and use 
 
 ### Composite options
 
+!!! info "Distinction between parameters and options"
+    Method parameters are what you expect, simply a value in your method,
+    but for the framework, parameters might be a complex object (composed of multiple options),
+    or simply a single option, whether it's an injected service, a Discord option or a generated value.
+
+    i.e., A parameter might be a single or multiple options, but an option is always a single value.
+
 ### Kotlin's inline classes
 
 ## Examples
