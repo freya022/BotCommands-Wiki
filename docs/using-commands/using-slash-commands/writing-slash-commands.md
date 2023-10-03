@@ -286,4 +286,4 @@ The framework also provides functions in `Resolvers` to do most of the work for 
 
 ## Examples
 
-[//]: # (link to examples)
+You can take a look at more examples [here](https://github.com/freya022/BotCommands/tree/3.X/examples#examples).
