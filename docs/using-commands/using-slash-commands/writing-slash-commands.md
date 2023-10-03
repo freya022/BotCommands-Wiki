@@ -235,6 +235,15 @@ Option resolvers help you support other types for your command options, such as 
 Slash command option resolvers specify which option type will be used on Discord, 
 and will handle the conversion from the Discord value to the corresponding object.
 
+The class implementing the resolver, or the function returning a resolver, must be annotated with `#!java @Resolver`.
+
+!!! note
+    `#!java @Resolver` is one of the annotations that are considered as a service annotation.
+    This means that it behaves exactly the same as if you had used `@BService`, 
+    except here the annotation is more meaningful.
+
+[//]: # (TODO Add link to DI section in note)
+
 ### Implementation
 
 For that, you need a class annotated with `#!java @Resolver` extending `ParameterResolver`, 
@@ -258,7 +267,8 @@ The first type parameter is the type of your resolver implementation, and the se
 
 ### Built-in resolver generators
 
-The framework also provides functions in `Resolvers` to do most of the work for some types.
+The framework also provides functions in `Resolvers` to do most of the work for some types,
+all you need to do is declare a service factory with `#!java @Resolver` and use the provided methods.
 
 !!! note
     Currently there is only a factory for enum resolvers, but others might be added in the future.
