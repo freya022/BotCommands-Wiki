@@ -44,14 +44,14 @@ while the declaring class must extend `ApplicationCommand`.
 [//]: # (TODO add tip with live template)
 
 !!! example
-    === "Java"
-        ```java
-        --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/java/io/github/freya022/bot/commands/slash/SlashPingJava.java:ping-java"
-        ```
-    
     === "Kotlin"
         ```kotlin
         --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/kotlin/io/github/freya022/bot/commands/slash/SlashPing.kt:ping-kotlin"
+        ```
+
+    === "Java"
+        ```java
+        --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/java/io/github/freya022/bot/commands/slash/SlashPingJava.java:ping-java"
         ```
 
 ### Adding options
@@ -61,14 +61,14 @@ Options can simply be added with a parameter annotated with `#!java @SlashOption
 All supported types are documented under `ParameterResolver`, and [other types can be added](#adding-option-resolvers).
 
 !!! example
-    === "Java"
-        ```java
-        --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/java/io/github/freya022/bot/commands/slash/SlashSayJava.java:say-java"
-        ```
-    
     === "Kotlin"
         ```kotlin
         --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/kotlin/io/github/freya022/bot/commands/slash/SlashSay.kt:say-kotlin"
+        ```
+
+    === "Java"
+        ```java
+        --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/java/io/github/freya022/bot/commands/slash/SlashSayJava.java:say-java"
         ```
 
 !!! tip "Inferred option names"
