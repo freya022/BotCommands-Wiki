@@ -93,6 +93,10 @@ or `GuildApplicationCommandManager` for guild commands.
 You can then simply use the `slashCommand` method, give it the command name, the command method, 
 and then configure your command.
 
+!!! tip
+    You are allowed to not add any command at all, for example, 
+    if the `guild` in `GuildApplicationCommandManager` isn't a guild you want the command to appear in.
+
 [//]: # (TODO add tip with live template)
 
 !!! example
