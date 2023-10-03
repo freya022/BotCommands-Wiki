@@ -183,6 +183,25 @@ Contrary to the annotated commands, no checks are required, as this is tied to t
 
 ## Default description
 
+You can avoid setting the (non-localized) descriptions of your commands and options 
+by putting them in a localization file, using the root locale (i.e., no locale suffix),
+and have your localization bundle registered with `BApplicationConfigBuilder#addLocalizations`.
+
+??? info "The same commands as before, but without the descriptions"
+    ```kotlin
+    --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/kotlin/io/github/freya022/bot/commands/slash/SlashSayDefaultDescription.kt:say_default_description-kotlin_dsl"
+    ```
+
+!!! example "Adding the root localization bundle"
+    For the given resource bundle:
+    ```json title="src/main/resources/bc_localization/Commands.json"
+    {
+    --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/resources/bc_localization/Commands.json:default_description-json"
+    }
+    ```
+
+    You can add the bundle by simply calling `BApplicationConfigBuilder#addLocalizations("Commands")`.
+
 ## Using predefined choices
 
 If your choices stay the same for every command,
@@ -208,8 +227,6 @@ All you now need to do is enable `usePredefinedChoices` on your option.
         ```java
         --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/java/io/github/freya022/bot/commands/slash/SlashConvertSimplifiedJava.java:convert_simplified-java"
         ```
-
-[//]: # (Describe how descriptions are retrieved from the root bundle, defined in BApplicationConfig)
 
 ## Adding option resolvers
 
