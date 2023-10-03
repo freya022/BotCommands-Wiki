@@ -27,12 +27,12 @@ while the declaring class must extend `ApplicationCommand`.
 !!! example
     === "Java"
         ```java
-        --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/java/io/github/freya022/bot/commands/slash/SlashPingJava.java:ping_java"
+        --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/java/io/github/freya022/bot/commands/slash/SlashPingJava.java:ping-java"
         ```
     
     === "Kotlin"
         ```kotlin
-        --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/kotlin/io/github/freya022/bot/commands/slash/SlashPing.kt:ping_kotlin"
+        --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/kotlin/io/github/freya022/bot/commands/slash/SlashPing.kt:ping-kotlin"
         ```
 
 ### Adding options
@@ -44,12 +44,12 @@ All supported types are documented under `ParameterResolver`, and [other types c
 !!! example
     === "Java"
         ```java
-        --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/java/io/github/freya022/bot/commands/slash/SlashSayJava.java:say_java"
+        --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/java/io/github/freya022/bot/commands/slash/SlashSayJava.java:say-java"
         ```
     
     === "Kotlin"
         ```kotlin
-        --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/kotlin/io/github/freya022/bot/commands/slash/SlashSay.kt:say_kotlin"
+        --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/kotlin/io/github/freya022/bot/commands/slash/SlashSay.kt:say-kotlin"
         ```
 
 !!! tip "Inferred option names"
@@ -78,7 +78,7 @@ and then configure your command.
 
 !!! example
     ```kotlin
-    --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/kotlin/io/github/freya022/bot/commands/slash/SlashPing.kt:ping_kotlin_dsl"
+    --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/kotlin/io/github/freya022/bot/commands/slash/SlashPing.kt:ping-kotlin_dsl"
     ```
 
 ### Adding options
@@ -90,7 +90,7 @@ All supported types are documented under `ParameterResolver`, and [other types c
 
 !!! example
     ```kotlin
-    --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/kotlin/io/github/freya022/bot/commands/slash/SlashSay.kt:say_kotlin_dsl"
+    --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/kotlin/io/github/freya022/bot/commands/slash/SlashSay.kt:say-kotlin_dsl"
     ```
 
 !!! tip
