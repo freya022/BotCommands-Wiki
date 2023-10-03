@@ -63,6 +63,7 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.snippets:
       url_download: true
+      check_paths: true
   - toc:
       permalink: true
   - pymdownx.tabbed:
