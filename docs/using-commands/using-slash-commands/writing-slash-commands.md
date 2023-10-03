@@ -13,6 +13,19 @@ or `GuildSlashEvent` for guild commands, or guild-only global commands (default)
 
 Lastly, any class containing commands will need to be annotated with `#!java @Command`.
 
+The command methods support coroutines, as well as nullable options, and optionals.
+
+??? example "A method with everything mentioned above"
+    === "Kotlin"
+        ```kotlin
+        suspend fun example(event: GuildSlashEvent, string: String, user: User?, integer: Int = 42) {}    
+        ```
+
+    === "Java"
+        ```java
+        public void example(@NotNull GuildSlashEvent event, @NotNull String string, @Nullable User user) {}
+        ```
+
 ## Annotated commands
 
 Annotated commands are easy to create, but generally are hard to read, cannot be made dynamically,
