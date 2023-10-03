@@ -35,6 +35,12 @@ The command method must be annotated with `#!java @JDASlashCommand`,
 where you can set the scope, name, description, etc..., 
 while the declaring class must extend `ApplicationCommand`.
 
+!!! question "Why do I need to extend `ApplicationCommand`?"
+    As a limitation of annotated commands, 
+    you are required to extend this class as it allows the framework to ask your commands for stuff,
+    like what guilds a command should be pushed to, getting a value generator for one of their options,
+    and also getting choices.
+
 [//]: # (TODO add tip with live template)
 
 !!! example
