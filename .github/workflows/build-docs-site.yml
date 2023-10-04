@@ -11,8 +11,8 @@ on:
         default: 'dev'
         type: choice
         options:
-          - latest
-          - dev
+          - 2.X
+          - 3.X
 
 jobs:
   deploy:

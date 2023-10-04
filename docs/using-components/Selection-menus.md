@@ -58,4 +58,4 @@ public void onAutoRoleSelected(EntitySelectionEvent event) {
 ```
 
 ## More examples
-You can see more examples in the [examples directory](https://github.com/freya022/BotCommands/tree/master/examples/src/main/java/com/freya02/bot/componentsbot)
+You can see more examples in the [examples directory](https://github.com/freya022/BotCommands/tree/2.X/examples/src/main/java/com/freya02/bot/componentsbot)

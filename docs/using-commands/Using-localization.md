@@ -116,7 +116,7 @@ You can then create your commands as you would normally, no need to set up speci
 Your localization keys will be the same as specified by JDA's `LocalizationFunction`, 
 which means the keys are composed of the complete path, combined with the option's name and the choice's name as well, please refer to the [JDA documentation](https://ci.dv8tion.net/job/JDA5/javadoc/net/dv8tion/jda/api/interactions/commands/localization/LocalizationFunction.html) for more details.
 
-An example can be found [here](https://github.com/freya022/BotCommands/blob/master/examples/src/main/java/com/freya02/bot/wiki/localization/commands/SlashBan.java)
+An example can be found [here](https://github.com/freya022/BotCommands/blob/2.X/examples/src/main/java/com/freya02/bot/wiki/localization/commands/SlashBan.java)
 
 ### Inferred command and option descriptions
 Application command descriptions and option descriptions can be retrieved from the "root" localization bundles, 
@@ -143,4 +143,4 @@ event.reply(errorMessage).queue();
 2.  "mention" is a variable of the string template
 
 ## Example project
-You can also see this very small bot using localization: [Link](https://github.com/freya022/BotCommands/tree/master/examples/src/main/java/com/freya02/bot/wiki/localization)
+You can also see this very small bot using localization: [Link](https://github.com/freya022/BotCommands/tree/2.X/examples/src/main/java/com/freya02/bot/wiki/localization)

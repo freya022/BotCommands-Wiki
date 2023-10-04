@@ -4,7 +4,7 @@ The `Components` class is the only class you need to directly use when using com
 ## Prerequisites
 You will need to set a `ComponentManager` in `CommandsBuilder#setComponentManager`, I strongly recommend that you use the `DefaultComponentManager`, unless you want to reimplement the interface.
 
-For the default component manager, you will need a database, you *will not* be able to use any database if you choose to use the `DefaultComponentManager`, PostgreSQL is what I tested the framework on, but MariaDB or H2 *should* work.
+For the default component manager, you will need to use PostgreSQL to be able to use the `DefaultComponentManager`, as it is what I tested the framework with.
 
 *The database does not need to be populated with anything*, the tables are created on startup, you will only need to provide a `Connection` supplier.
 
