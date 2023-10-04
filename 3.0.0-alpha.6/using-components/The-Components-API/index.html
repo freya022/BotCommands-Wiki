@@ -14,7 +14,7 @@
       
       
       <link rel="icon" href="../../assets/logo-round.svg">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.2">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.3">
     
     
       
@@ -22,7 +22,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.d451bc0e.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.79e020e9.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.a5377069.min.css">
@@ -385,7 +385,7 @@
 <p>The <code>Components</code> class is the only class you need to directly use when using components (buttons / selection menus), it provides a builder for every component in order to not introduce boilerplate such as <code class="highlight"><span class="n">Button</span><span class="p">.</span><span class="na">primary</span><span class="p">(</span><span class="n">getId</span><span class="p">(...),</span><span class="w"> </span><span class="s">&quot;Test button&quot;</span><span class="p">);</span></code>, it would instead be <code class="highlight"><span class="n">Components</span><span class="p">.</span><span class="na">primaryButton</span><span class="p">(...).</span><span class="na">build</span><span class="p">(</span><span class="s">&quot;Test button&quot;</span><span class="p">);</span></code></p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <p>You will need to set a <code>ComponentManager</code> in <code>CommandsBuilder#setComponentManager</code>, I strongly recommend that you use the <code>DefaultComponentManager</code>, unless you want to reimplement the interface.</p>
-<p>For the default component manager, you will need a database, you <em>will not</em> be able to use any database if you choose to use the <code>DefaultComponentManager</code>, PostgreSQL is what I tested the framework on, but MariaDB or H2 <em>should</em> work.</p>
+<p>For the default component manager, you will need to use PostgreSQL to be able to use the <code>DefaultComponentManager</code>, as it is what I tested the framework with.</p>
 <p><em>The database does not need to be populated with anything</em>, the tables are created on startup, you will only need to provide a <code>Connection</code> supplier.</p>
 <p><strong>I also highly recommend you use a library capable of pooling SQL connections</strong> such as <a href="https://github.com/brettwooldridge/HikariCP">HikariCP</a>, which will greatly reduce the time to process interactions / components</p>
 <h2 id="discord-components-features">Discord components features<a class="headerlink" href="#discord-components-features" title="Permanent link">&para;</a></h2>
@@ -476,10 +476,11 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
+    
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "toc.integrate", "content.code.annotate", "content.code.copy", "content.action.edit", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.726fbb30.min.js"></script>
+      <script src="../../assets/javascripts/bundle.6eac0284.min.js"></script>
       
     
   </body>
