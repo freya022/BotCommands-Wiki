@@ -257,7 +257,7 @@ The class implementing the resolver, or the function returning a resolver, must 
 
 ### Implementation
 
-For that, you need a class annotated with `#!java @Resolver` extending `ParameterResolver`, 
+For that, you need a class annotated with `#!java @Resolver` extending `ClassParameterResolver`, 
 and implementing `SlashParameterResolver`.
 
 The first type parameter is the type of your resolver implementation, and the second type is what the resolver returns.
