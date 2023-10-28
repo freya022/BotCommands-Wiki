@@ -92,8 +92,9 @@ be careful to check against the command path as well as the option's display nam
         --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/java/io/github/freya022/bot/commands/slash/SlashConvertJava.java:convert-java"
         ```
 
-As you can see, the choice lists, despite being simple, are quite lengthy and duplicated,
-this issue is solved with [predefined choices](#using-predefined-choices).
+As you can see, despite the short choice list, 
+the method is quite lengthy and causes duplications with multiple commands.
+This issue is solved with [predefined choices](#using-predefined-choices).
 
 ### Generated values
 
@@ -160,15 +161,15 @@ All supported types are documented under `ParameterResolver`, and [other types c
 
 #### Using choices
 
-Adding choices is very straight forward, you just have to give a list of choices to the `choice` property.
+Adding choices is very straight forward, you only have to give a list of choices to the `choice` property.
 
 !!! example
     ```kotlin
     --8<-- "https://github.com/freya022/BotCommands/raw/3.X/examples/src/main/kotlin/io/github/freya022/bot/commands/slash/SlashConvert.kt:convert-kotlin_dsl"
     ```
 
-As you can see, the choice lists, despite being simple, are quite lengthy and duplicated, 
-this issue is solved with [predefined choices](#using-predefined-choices).
+As you can see, despite the short choice list, this causes duplications with multiple commands.
+This issue is solved with [predefined choices](#using-predefined-choices).
 
 ### Generated values
 
