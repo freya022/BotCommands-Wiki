@@ -6,42 +6,16 @@ and how to install PostgreSQL.
 The framework provides Kotlin and Java templates for a quick start,
 while the template uses Maven, it can be substituted with Gradle.
 
-### Cloning the template
-You can clone the template with the following command: (use "Git Bash" on Windows)
-=== "Kotlin"
-
-    ```sh
-    git clone -n --depth=1 --filter=tree:0 --branch=3.X https://github.com/freya022/BotCommands &&
-    cd BotCommands && git sparse-checkout set --no-cone BotTemplate/BotTemplate-Kotlin && git checkout &&
-    mv ./BotTemplate/BotTemplate-Kotlin/{.,}* . ||
-    rm -r BotTemplate &&
-    rm -rf .git
-    ```
-
-=== "Java"
-
-    ```sh
-    git clone -n --depth=1 --filter=tree:0 --branch=3.X https://github.com/freya022/BotCommands &&
-    cd BotCommands && git sparse-checkout set --no-cone BotTemplate/BotTemplate-Java && git checkout &&
-    mv ./BotTemplate/BotTemplate-Java/{.,}* . ||
-    rm -r BotTemplate &&
-    rm -rf .git
-    ```
-
-!!! info
-
-    You can safely ignore these warnings:
-    ``` { .txt .no-copy }
-    mv: cannot move './BotTemplate/BotTemplate-[Lang]/.' to a subdirectory of itself, './.'
-    mv: cannot move './BotTemplate/BotTemplate-[Lang]/..' to a subdirectory of itself, './..'
-    ```
+### Getting the template
+You can make a repository from the 
+([Kotlin](https://github.com/freya022/BotCommands-Template-Kotlin) / [Java](https://github.com/freya022/BotCommands-Template-Java))
+template on GitHub, or clone them.
 
 ### Preparing your project
-You can then rename the cloned `BotCommands` folder to your project's name,
-enable version control, and configure your build file:
+You can then configure your build file:
 === "Maven"
 
-    1. In your pom.xml, change the `groupId` to your base package name, such as `io.github.[your username]`, in lowercase.
+    1. In the pom.xml, change the `groupId` to your base package name, such as `io.github.[your username]`, in lowercase.
     2. Replace the `artifactId` and `finalName` (in the `maven-shade-plugin`), with your project's name.
 
 === "Gradle"
