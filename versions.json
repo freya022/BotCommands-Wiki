@@ -1,1 +1,24 @@
-[{"version": "3.0.0-alpha.6", "title": "3.0.0-alpha.6", "aliases": ["3.X", "dev"]}, {"version": "2.10.3", "title": "2.10.3", "aliases": ["2.X", "latest"]}]
+[
+  {
+    "version": "3.0.0-alpha.7",
+    "title": "3.0.0-alpha.7",
+    "aliases": [
+      "3.X"
+    ]
+  },
+  {
+    "version": "3.0.0-alpha.6",
+    "title": "3.0.0-alpha.6",
+    "aliases": [
+      "dev"
+    ]
+  },
+  {
+    "version": "2.10.3",
+    "title": "2.10.3",
+    "aliases": [
+      "latest",
+      "2.X"
+    ]
+  }
+]
