@@ -63,6 +63,7 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.snippets:
       url_download: true
+      check_paths: true
   - toc:
       permalink: true
   - pymdownx.tabbed:
@@ -76,10 +77,10 @@ nav:
   - Setup:
       - Getting started: setup/getting-started.md
       - Logging: setup/logging.md
-#  - Using commands:
+  - Using commands:
 #      - Writing prefixed commands: using-commands/Prefixed-commands.md
-#      - Using slash commands:
-#        - Writing slash commands: using-commands/using-slash-commands/Slash-commands.md
+      - Using slash commands:
+        - Writing slash commands: using-commands/using-slash-commands/writing-slash-commands.md
 #        - Updating application commands: using-commands/using-slash-commands/Updating-slash-commands.md
 #        - Managing guild application commands: using-commands/using-slash-commands/Managing-application-commands.md
 #      - Writing context menu commands: using-commands/Context-menu-commands.md
