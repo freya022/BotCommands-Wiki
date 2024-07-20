@@ -21,6 +21,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Fetch gh-pages
+        run: git fetch origin gh-pages --depth=1
       - name: Configure Git user
         run: |
           git config user.name GitHub Actions
