@@ -1,8 +1,9 @@
 # yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
 
-# Heavily inspired from: https://github.com/DV8FromTheWorld/JDA-Website/blob/master/mkdocs.yml
+# Base file from: https://github.com/discord-jda/JDA-Website/blob/8a3a36f0f95e29f14f0e04a75c219c4e4352ecf7/mkdocs.yml
 theme:
   features:
+    - navigation.indexes
     - navigation.instant # Faster loading
     - navigation.tabs # Top level horizontal tabs
     - toc.integrate # Integrated Table Of Contents (shows #, ##... sections)
@@ -30,14 +31,15 @@ theme:
         name: Switch to light mode
 
 plugins:
+  - search
   - mike
 
 site_name: BotCommands Wiki
-site_url: 'https://freya022.github.io/BotCommands-Wiki/'
+site_url: 'https://freya022.github.io/BotCommands'
 
 repo_name: BotCommands
 repo_url: https://github.com/freya022/BotCommands/tree/3.X
-edit_uri: ../../../BotCommands-Wiki/edit/3.X/docs # This URI is relative to repo_url
+edit_uri: ../../edit/3.X/wiki/docs # This URI is relative to repo_url
 extra:
   version:
     provider: mike
@@ -45,7 +47,7 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/freya022/BotCommands/tree/3.X
     - icon: fontawesome/solid/book
-      link: https://github.com/freya022/BotCommands-Wiki/tree/3.X
+      link: https://github.com/freya022/BotCommands/tree/3.X/wiki
     - icon: fontawesome/brands/discord
       link: https://discord.gg/frpCcQfvTz
 
@@ -62,6 +64,12 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.snippets:
+      base_path:
+       - "./src/main/java/io/github/freya022"
+       - "./src/main/kotlin/io/github/freya022"
+       - "./src/main/resources"
+       - "."
+       - ".."
       url_download: true
       check_paths: true
   - toc:
@@ -69,34 +77,36 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 nav:
   - Home: index.md
   - Setup:
       - Getting started: setup/getting-started.md
       - Logging: setup/logging.md
+  - Using BotCommands:
+      - Dependency injection:
+        - using-botcommands/dependency-injection/index.md
+        - Creating services: using-botcommands/dependency-injection/creating-services.md
+        - Retrieving services: using-botcommands/dependency-injection/retrieving-services.md
+      - Database: using-botcommands/database.md
+#      - Rate limiting: foo
+#      - Localization: foo
+      - Kotlin extensions: using-botcommands/extensions.md
+      - Java parameter names: using-botcommands/parameter-names.md
   - Using commands:
-#      - Writing prefixed commands: using-commands/Prefixed-commands.md
-      - Using slash commands:
-        - Writing slash commands: using-commands/using-slash-commands/writing-slash-commands.md
-#        - Updating application commands: using-commands/using-slash-commands/Updating-slash-commands.md
-#        - Managing guild application commands: using-commands/using-slash-commands/Managing-application-commands.md
-#      - Writing context menu commands: using-commands/Context-menu-commands.md
-#      - Updating application commands:
-#          - Slash commands - Updating option choices: using-commands/updating-application-commands/Slash-commands---Updating-option-choices.md
-#      - Using localization: using-commands/Using-localization.md
-#      - Inferred option names: using-commands/Inferred-option-names.md
-#  - Using components:
-#      - The Components API: using-components/The-Components-API.md
-#      - Buttons: using-components/Buttons.md
-#      - Selection menus: using-components/Selection-menus.md
-#  - Writing extensions:
-#      - Creating parameter resolvers: writing-extensions/Creating-parameter-resolvers.md #TODO move to each command type's wiki as to show the different interfaces
-#      - Constructor injection: writing-extensions/Constructor-injection.md
-#      - Field injection: writing-extensions/Field-injection.md
-#  - Misc:
-#      - Conditional instancing: misc/Conditional-instancing.md
-#      - Using instance suppliers: misc/Instance-suppliers.md
-#      - Using the event waiter: misc/The-event-waiter.md
+      - Common details: using-commands/common-command-details.md
+#      - Text commands:
+#        - Creating text commands: foo
+#        - Built-in help command: foo
+      - Application commands:
+        - Creating slash commands: using-commands/application-commands/writing-slash-commands.md
+#        - Rate limiting / cooldowns: foo
+        - Using autocomplete: using-commands/application-commands/using-autocomplete.md
+        # TODO move to Using BotCommands, make a global overview and then a bunch of sections for each resolver type
+        - Adding option resolvers: using-commands/application-commands/option-resolvers.md
+      - Advanced options: using-commands/advanced-options.md
+  - Using components: using-components.md
+#  - Using modals: foo
+  - Docs: https://freya022.github.io/BotCommands/docs
