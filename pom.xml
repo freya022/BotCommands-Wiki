@@ -15,14 +15,14 @@
         <maven.compiler.target>17</maven.compiler.target>
 
         <kotlin.version>2.0.0</kotlin.version>
-        <kotlin.coroutine.version>1.8.0</kotlin.coroutine.version>
+        <kotlin.coroutine.version>1.8.1</kotlin.coroutine.version>
 
         <kotlin.compiler.languageVersion>2.0</kotlin.compiler.languageVersion>
         <kotlin.compiler.apiVersion>2.0</kotlin.compiler.apiVersion>
         <kotlin.compiler.jvmTarget>17</kotlin.compiler.jvmTarget>
         <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
 
-        <flyway.version>10.8.1</flyway.version>
+        <flyway.version>10.16.0</flyway.version>
     </properties>
 
     <build>
@@ -125,7 +125,7 @@
         <dependency>
             <groupId>net.dv8tion</groupId>
             <artifactId>JDA</artifactId>
-            <version>5.0.0-beta.24</version>
+            <version>5.0.1</version>
             <exclusions>
                 <exclusion>
                     <groupId>club.minnced</groupId>
@@ -136,26 +136,26 @@
         <dependency>
             <groupId>io.github.freya022</groupId>
             <artifactId>BotCommands</artifactId>
-            <version>3.0.0-alpha.15</version>
+            <version>3.0.0-alpha.16</version>
         </dependency>
 
         <!-- Needed for JDA and BotCommands logging -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>2.0.12</version>
+            <version>2.0.13</version>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.5.1</version>
+            <version>1.5.6</version>
         </dependency>
 
         <!-- Needed for components, otherwise optional - You must use PostgreSQL -->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.7.1</version>
+            <version>42.7.3</version>
         </dependency>
         <!-- BotCommands should provide upgrade scripts detectable by flyway, so you don't need to upgrade manually -->
         <dependency>

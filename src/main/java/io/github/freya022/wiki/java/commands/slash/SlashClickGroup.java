@@ -34,7 +34,7 @@ public class SlashClickGroup extends ApplicationCommand {
                 .noTimeout()
 
                 // Make it so this button is only usable once
-                .oneUse(true)
+                .singleUse(true)
 
                 // Only allow the caller to use the button
                 .constraints(interactionConstraints -> {
@@ -51,7 +51,7 @@ public class SlashClickGroup extends ApplicationCommand {
                 .noTimeout()
 
                 // Make it so this button is only usable once
-                .oneUse(true)
+                .singleUse(true)
 
                 // Only allow the caller to use the button
                 .constraints(interactionConstraints -> {

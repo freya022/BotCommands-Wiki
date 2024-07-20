@@ -25,7 +25,7 @@ class SlashClickGroup(private val buttons: Buttons) : ApplicationCommand() {
             noTimeout()
 
             // Make it so this button is only usable once
-            oneUse = true
+            singleUse = true
 
             // Only allow the caller to use the button
             constraints += event.user
@@ -35,7 +35,7 @@ class SlashClickGroup(private val buttons: Buttons) : ApplicationCommand() {
             noTimeout()
 
             // Make it so this button is only usable once
-            oneUse = true
+            singleUse = true
 
             // Only allow the caller to use the button
             constraints += event.user

@@ -14,8 +14,8 @@ import io.github.freya022.botcommands.api.components.annotations.ComponentData
 import io.github.freya022.botcommands.api.components.annotations.ComponentTimeoutHandler
 import io.github.freya022.botcommands.api.components.annotations.JDAButtonListener
 import io.github.freya022.botcommands.api.components.annotations.TimeoutData
-import io.github.freya022.botcommands.api.components.builder.bindTo
-import io.github.freya022.botcommands.api.components.builder.timeout
+import io.github.freya022.botcommands.api.components.builder.bindWith
+import io.github.freya022.botcommands.api.components.builder.timeoutWith
 import io.github.freya022.botcommands.api.components.data.ComponentTimeoutData
 import io.github.freya022.botcommands.api.components.event.ButtonEvent
 import io.github.freya022.wiki.switches.wiki.WikiLanguage
@@ -69,18 +69,18 @@ class SlashPersistentClicker(private val buttons: Buttons) : ApplicationCommand(
                 // Make it so this button is only usable once
                 // this is not an issue as we recreate the button everytime.
                 // If this wasn't usable only once, the timeout would run for each button.
-                oneUse = true
+                singleUse = true
 
                 // Only allow the caller to use the button
                 constraints += event.user
 
                 // Timeout and call the method after the button hasn't been used for a day
                 // The timeout gets cancelled if the button is invalidated
-                timeout(1.days, ::onCookieTimeout, count)
+                timeoutWith(1.days, ::onCookieTimeout, count)
 
                 // When clicked, run the onCookieClick method with the count
                 // Extension for type-safe binding, no need to type the name
-                bindTo(::onCookieClick, count)
+                bindWith(::onCookieClick, count)
             }
     }
 }
@@ -108,7 +108,7 @@ class SlashEphemeralClicker(private val buttons: Buttons) : ApplicationCommand()
                 // Make it so this button is only usable once
                 // this is not an issue as we recreate the button everytime.
                 // If this wasn't usable only once, the timeout would run for each button.
-                oneUse = true
+                singleUse = true
 
                 // Only allow the caller to use the button
                 constraints += event.user

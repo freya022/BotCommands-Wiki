@@ -14,7 +14,7 @@ data class FullName(val firstName: String, val secondName: String)
 // --8<-- [start:autocomplete_transformer-kotlin]
 @BService
 class FullNameTransformer : AutocompleteTransformer<FullName> {
-    override fun getElementType(): Class<FullName> = FullName::class.java
+    override val elementType: Class<FullName> = FullName::class.java
 
     override fun apply(e: FullName): Command.Choice {
         return Command.Choice("${e.firstName} ${e.secondName}", "${e.firstName}|${e.secondName}")

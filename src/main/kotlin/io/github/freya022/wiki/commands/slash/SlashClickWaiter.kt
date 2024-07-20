@@ -28,7 +28,7 @@ class SlashClickWaiter(private val buttons: Buttons) : ApplicationCommand() {
     suspend fun onSlashClickWaiter(event: GuildSlashEvent) {
         val button = buttons.primary("Click me").ephemeral {
             // Make it so this button is only usable once
-            oneUse = true
+            singleUse = true
 
             // Only allow the caller to use the button
             constraints += event.user

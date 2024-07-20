@@ -42,7 +42,7 @@ public class SlashClickerEphemeral extends ApplicationCommand {
                 // Make it so this button is only usable once
                 // this is not an issue as we recreate the button everytime.
                 // If this wasn't usable only once, the timeout would run for each button.
-                .oneUse(true)
+                .singleUse(true)
 
                 // Only allow the caller to use the button
                 .constraints(interactionConstraints -> {

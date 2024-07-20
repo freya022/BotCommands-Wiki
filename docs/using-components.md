@@ -84,7 +84,7 @@ Ephemeral components have a default timeout set in [`Components.defaultTimeout`]
 ## Component groups
 Component groups can be created in any component factory, and allow you to configure one timeout for all components.
 
-Also, when one of them gets invalidated (after being used with `oneUse = true`),
+Also, when one of them gets invalidated (after being used with `singleUse = true`),
 the entire group gets invalidated.
 
 For example, this can be useful when the user needs to use a single component, once.

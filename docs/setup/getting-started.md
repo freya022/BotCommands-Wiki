@@ -118,7 +118,8 @@ and still be able to get it as a service.
         val config = Config.instance
     
         BotCommands.create {
-            addOwners(config.ownerIds)
+            // Optionally set the owner IDs if they differ from the owners in the Discord dashboard
+            // addPredefinedOwners(config.ownerIds)
     
             // Add the base package of the application
             // All services and commands inside will be loaded
@@ -136,7 +137,8 @@ and still be able to get it as a service.
         final var config = Config.getInstance();
     
         BotCommands.create(builder -> {
-            builder.addOwners(config.getOwnerIds());
+            // Optionally set the owner IDs if they differ from the owners in the Discord dashboard
+            // builder.addPredefinedOwners(config.getOwnerIds());
     
             // Add the base package of the application
             // All services and commands inside will be loaded
