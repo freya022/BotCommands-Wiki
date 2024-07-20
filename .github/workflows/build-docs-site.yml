@@ -3,9 +3,12 @@ name: Deploy wiki to Pages
 on:
   push:
     paths:
+      - 'mkdocs.yml'
+      - 'requirements.txt'
       - 'pom.xml'
-      - 'src/main/**.java'
-      - 'src/main/**.kt'
+      - 'docs/**'
+      - 'config-template/**'
+      - 'src/**'
   workflow_dispatch:
 
 # Allow one concurrent deployment
