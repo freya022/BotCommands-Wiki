@@ -67,7 +67,7 @@ jobs:
 
             throw new Error("Could not find used BC version")
       - name: Generate wiki
-        run: mike deploy ${{ steps.get-bc-version.outputs.bcVersion }} ${{ steps.get-bc-version.outputs.alias }} --update-aliases
+        run: mike deploy ${{ fromJSON(steps.get-bc-version.outputs.result).bcVersion }} ${{ fromJSON(steps.get-bc-version.outputs.result).alias }} --update-aliases
       - name: Update latest alias
-        if: ${{ steps.get-bc-version.outputs.isLatest }}
-        run: mike set-default ${{ steps.get-bc-version.outputs.alias }} --push
+        if: ${{ fromJSON(steps.get-bc-version.outputs.result).alias }}
+        run: mike set-default ${{ fromJSON(steps.get-bc-version.outputs.result).alias }} --push
