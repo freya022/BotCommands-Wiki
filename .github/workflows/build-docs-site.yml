@@ -31,8 +31,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20.x'
-      - run: npm install jsdom
-      - uses: actions/github-script@v7
+      - name: Install jsdom
+        run: npm install jsdom
+      - name: Get BC version and alias
+        uses: actions/github-script@v7
         id: get-bc-version
         with:
           result-encoding: 'json'
@@ -65,7 +67,7 @@ jobs:
 
             throw new Error("Could not find used BC version")
       - name: Generate wiki
-        run: mike deploy ${{ steps.get-bc-version.outputs.result.bcVersion }} ${{ steps.get-bc-version.outputs.result.alias }} --update-aliases
+        run: mike deploy ${{ steps.get-bc-version.outputs.bcVersion }} ${{ steps.get-bc-version.outputs.alias }} --update-aliases
       - name: Update latest alias
-        if: ${{ steps.get-bc-version.outputs.result.isLatest }}
-        run: mike set-default ${{ steps.get-bc-version.outputs.result.alias }} --push
+        if: ${{ steps.get-bc-version.outputs.isLatest }}
+        run: mike set-default ${{ steps.get-bc-version.outputs.alias }} --push
