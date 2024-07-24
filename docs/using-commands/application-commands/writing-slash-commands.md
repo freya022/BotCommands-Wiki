@@ -41,7 +41,7 @@ while the declaring class must extend `ApplicationCommand`.
 
 To make a subcommand, set the `name` and `subcommand` on the annotation.
 
-You will also need to add a [`#!java @TopLevelSlashCommandData`](https://freya022.github.io/BotCommands/docs/-bot-commands/io.github.freya022.botcommands.api.commands.application.slash.annotations/-top-level-slash-command-data/index.html),
+You will also need to add a [`#!java @TopLevelSlashCommandData`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.commands.application.slash.annotations/-top-level-slash-command-data/index.html),
 it must only be used **once per top-level** command, this allows you to set top-level attributes.
 
 !!! example
@@ -109,7 +109,7 @@ be careful to check against the command path as well as the option's display nam
 !!! info "Learn how to create an autocomplete handler [here](using-autocomplete.md)"
 
 Enabling autocompletion for an option is done by referencing an existing handler,
-in the [`autocomplete`](https://freya022.github.io/BotCommands/docs/-bot-commands/io.github.freya022.botcommands.api.commands.application.slash.annotations/-slash-option/autocomplete.html) property of your `#!java @SlashOption`.
+in the [`autocomplete`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.commands.application.slash.annotations/-slash-option/autocomplete.html) property of your `#!java @SlashOption`.
 
 !!! example
 
@@ -129,7 +129,7 @@ in the [`autocomplete`](https://freya022.github.io/BotCommands/docs/-bot-command
 
 Generated values are parameters that get their values from a lambda everytime a command is run.
 
-You must give one by overriding [`ApplicationCommand#getGeneratedValueSupplier`](https://freya022.github.io/BotCommands/docs/-bot-commands/io.github.freya022.botcommands.api.commands.application/-application-command/get-generated-value-supplier.html), 
+You must give one by overriding [`ApplicationCommand#getGeneratedValueSupplier`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.commands.application/-application-command/get-generated-value-supplier.html), 
 similarly to adding choices.
 
 As always, make sure to check against the command path as well as the option's display name.
@@ -216,11 +216,11 @@ Adding choices is very straight forward, you only have to give a list of choices
 !!! info "Learn how to create an autocomplete handler [here](using-autocomplete.md)"
 
 Enabling autocompletion for an option is done by referencing an existing handler,
-either using [autocompleteByFunction](https://freya022.github.io/BotCommands/docs/-bot-commands/io.github.freya022.botcommands.api.commands.application.slash.builder/-slash-command-option-builder/autocomplete-by-function.html) or [autocompleteByName](https://freya022.github.io/BotCommands/docs/-bot-commands/io.github.freya022.botcommands.api.commands.application.slash.builder/-slash-command-option-builder/autocomplete-by-name.html).
+either using [autocompleteByFunction](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.commands.application.slash.builder/-slash-command-option-builder/autocomplete-by-function.html) or [autocompleteByName](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.commands.application.slash.builder/-slash-command-option-builder/autocomplete-by-name.html).
 
 !!! tip
 
-    I recommend using [autocompleteByFunction](https://freya022.github.io/BotCommands/docs/-bot-commands/io.github.freya022.botcommands.api.commands.application.slash.builder/-slash-command-option-builder/autocomplete-by-function.html) 
+    I recommend using [autocompleteByFunction](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.commands.application.slash.builder/-slash-command-option-builder/autocomplete-by-function.html) 
     as it avoids typing the name twice.
 
 !!! example
