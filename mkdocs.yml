@@ -35,11 +35,11 @@ plugins:
   - mike
 
 site_name: BotCommands Wiki
-site_url: 'https://freya022.github.io/BotCommands'
+site_url: 'https://bc.freya02.dev'
 
 repo_name: BotCommands
 repo_url: https://github.com/freya022/BotCommands/tree/3.X
-edit_uri: ../../edit/3.X/wiki/docs # This URI is relative to repo_url
+edit_uri: https://github.com/freya022/BotCommands-Wiki/edit/3.X/docs # This URI is relative to repo_url
 extra:
   version:
     provider: mike
@@ -47,7 +47,7 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/freya022/BotCommands/tree/3.X
     - icon: fontawesome/solid/book
-      link: https://github.com/freya022/BotCommands/tree/3.X/wiki
+      link: https://github.com/freya022/BotCommands-Wiki/tree/3.X
     - icon: fontawesome/brands/discord
       link: https://discord.gg/frpCcQfvTz
 
@@ -109,4 +109,4 @@ nav:
       - Advanced options: using-commands/advanced-options.md
   - Using components: using-components.md
 #  - Using modals: foo
-  - Docs: https://freya022.github.io/BotCommands/docs
+  - Docs: https://docs.bc.freya02.dev

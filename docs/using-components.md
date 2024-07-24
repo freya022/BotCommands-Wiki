@@ -10,8 +10,8 @@ they can be configured to:
 - Have method handlers or callbacks
 - Have constraints (allow list for users/roles/permissions)
 
-To get access to them, you can use the [`Buttons`](https://freya022.github.io/BotCommands/docs/-bot-commands/io.github.freya022.botcommands.api.components/-buttons/index.html) and [`SelectMenus`](https://freya022.github.io/BotCommands/docs/-bot-commands/io.github.freya022.botcommands.api.components/-select-menus/index.html) factories,
-as well as [`Components`](https://freya022.github.io/BotCommands/docs/-bot-commands/io.github.freya022.botcommands.api.components/-components/index.html) to delete them manually and make groups.
+To get access to them, you can use the [`Buttons`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components/-buttons/index.html) and [`SelectMenus`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components/-select-menus/index.html) factories,
+as well as [`Components`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components/-components/index.html) to delete them manually and make groups.
 
 !!! note "Configuring components with Java"
 
@@ -20,12 +20,12 @@ as well as [`Components`](https://freya022.github.io/BotCommands/docs/-bot-comma
 
 !!! tip "Disabling classes depending on components"
 
-    You can use [`#!java @RequiresComponents`](https://freya022.github.io/BotCommands/docs/-bot-commands/io.github.freya022.botcommands.api.components.annotations/-requires-components/index.html) if you want your class to be disabled when the components are not available.
+    You can use [`#!java @RequiresComponents`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components.annotations/-requires-components/index.html) if you want your class to be disabled when the components are not available.
 
 ## Persistent components
 They are components that still work after a restart,
 their handlers are methods identified by their handler name,
-set in [`#!java @JDAButtonListener`](https://freya022.github.io/BotCommands/docs/-bot-commands/io.github.freya022.botcommands.api.components.annotations/-j-d-a-button-listener/index.html)) / [`#!java @JDASelectMenuListener`](https://freya022.github.io/BotCommands/docs/-bot-commands/io.github.freya022.botcommands.api.components.annotations/-j-d-a-select-menu-listener/index.html).
+set in [`#!java @JDAButtonListener`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components.annotations/-j-d-a-button-listener/index.html)) / [`#!java @JDASelectMenuListener`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components.annotations/-j-d-a-select-menu-listener/index.html).
 
 ??? tip "Type-safe component methods and optional handlers in Kotlin"
 
@@ -38,14 +38,14 @@ set in [`#!java @JDAButtonListener`](https://freya022.github.io/BotCommands/docs
     --8<-- "wiki/commands/slash/SlashClickWaiter.kt:click_waiter-kotlin"
     ```
 
-    1. [`awaitOrNull`](https://freya022.github.io/BotCommands/docs/-bot-commands/io.github.freya022.botcommands.api.components/await-or-null.html) returns `null` when the component expired, useful when combined with an elvis operator,
+    1. [`awaitOrNull`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components/await-or-null.html) returns `null` when the component expired, useful when combined with an elvis operator,
     this is the equivalent of a `#!java try catch` on `TimeoutCancellationException`.
 
-    2. [`awaitUnit`](https://freya022.github.io/BotCommands/docs/-bot-commands/io.github.freya022.botcommands.api.core.utils/await-unit.html) is an extension to await and then return `Unit`, 
+    2. [`awaitUnit`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.core.utils/await-unit.html) is an extension to await and then return `Unit`, 
     which helps in common scenarios where you want to reply using an elvis operator.
 
 Persistent components have no timeout by default, as their purpose is to be long-lived, however,
-you can set one using `timeout`, which accept a timeout handler name, set with [`#!java @ComponentTimeoutHandler`](https://freya022.github.io/BotCommands/docs/-bot-commands/io.github.freya022.botcommands.api.components.annotations/-component-timeout-handler/index.html).
+you can set one using `timeout`, which accept a timeout handler name, set with [`#!java @ComponentTimeoutHandler`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components.annotations/-component-timeout-handler/index.html).
 
 !!! info
 
@@ -69,7 +69,7 @@ their handlers are callbacks, which can also have a timeout set, and also use ca
 
     "Invalidated" means that they are deleted from the database, but not necessarily from the message.
 
-Ephemeral components have a default timeout set in [`Components.defaultTimeout`](https://freya022.github.io/BotCommands/docs/-bot-commands/io.github.freya022.botcommands.api.components/-components/-companion/default-timeout.html), which can be changed.
+Ephemeral components have a default timeout set in [`Components.defaultTimeout`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components/-components/-companion/default-timeout.html), which can be changed.
 
 ### Example
 === "Kotlin"
@@ -93,7 +93,7 @@ For example, this can be useful when the user needs to use a single component, o
 
     If you put ephemeral components in your group, you must disable the timeout with `noTimeout()`.
 
-The timeout works similarly to components, except the annotated handler is a [`#!java @GroupTimeoutHandler`](https://freya022.github.io/BotCommands/docs/-bot-commands/io.github.freya022.botcommands.api.components.annotations/-group-timeout-handler/index.html).
+The timeout works similarly to components, except the annotated handler is a [`#!java @GroupTimeoutHandler`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components.annotations/-group-timeout-handler/index.html).
 
 ### Example
 === "Kotlin"
@@ -113,12 +113,12 @@ Components also support filtering, you can use `addFilter` with either the filte
 
     You cannot pass filters that cannot be obtained via dependency injection,
     this includes composite filters (using `and` / `or`), 
-    see [`ComponentInteractionFilter`](https://freya022.github.io/BotCommands/docs/-bot-commands/io.github.freya022.botcommands.api.components/-component-interaction-filter/index.html) for more details
+    see [`ComponentInteractionFilter`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components/-component-interaction-filter/index.html) for more details
 
 ### Creating a filter
 
 Creating a filter can be done
-by implementing [`ComponentInteractionFilter`](https://freya022.github.io/BotCommands/docs/-bot-commands/io.github.freya022.botcommands.api.components/-component-interaction-filter/index.html)
+by implementing [`ComponentInteractionFilter`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components/-component-interaction-filter/index.html)
 and registering it as a service, 
 they run when a component is about to be executed.
 
@@ -144,7 +144,7 @@ Lets create a filter that allows the component to be usable in a predefined one 
 
 ### Creating a rejection handler
 
-You must then create **a single** [rejection handler](https://freya022.github.io/BotCommands/docs/-bot-commands/io.github.freya022.botcommands.api.components/-component-interaction-rejection-handler/index.html) for **all your filters**, 
+You must then create **a single** [rejection handler](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components/-component-interaction-rejection-handler/index.html) for **all your filters**, 
 it runs when one of your filters fails.
 
 !!! note
@@ -184,7 +184,7 @@ Now that your filter has been created, you can reference it in your component.
     ```
 
 ## Rate limiting
-Rate limiting / cooldowns can be applied to components by using [`rateLimitReference()`](https://freya022.github.io/BotCommands/docs/-bot-commands/io.github.freya022.botcommands.api.components.builder/-i-actionable-component/rate-limit-reference.html),
+Rate limiting / cooldowns can be applied to components by using [`rateLimitReference()`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components.builder/-i-actionable-component/rate-limit-reference.html),
 then referencing an existing rate limiter.
 
 [//]: # (Add ", see [link to rate limiting]")
