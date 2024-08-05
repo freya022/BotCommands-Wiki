@@ -152,13 +152,16 @@ and still be able to get it as a service.
 
 === "Spring IoC"
     
-    The framework also supports Spring IoC, 
-    in which case you need to add `#!java @EnableBotCommands` on your main application class.
+    The framework also supports Spring IoC, add the library and it will run by itself.
 
-    Configuration of the framework is then done either by using application properties,
-    or by implementing configurers, which are explained in the annotation docs.
+    !!! note
+        You can always disable it by adding `BotCommandsAutoConfiguration` to the `exclude` value of your `#!java @SpringBootApplication`.
 
-    Of course, you will need to add component scans to your own classes so it sees commands and other handlers.
+    If the `#!java @SpringBootApplication` annotation isn't enough to detect commands and other handles,
+    you can add component scans for your classes.
+
+    Configuration of the framework is then done either by using application properties (with the prefix being either `botcommands` or `jda`),
+    or by implementing configurers, see the [`BConfigurer` inheritors](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.core.config/-b-configurer/index.html).
 
 ??? tip "Kotlin - Using a custom `CoroutineEventManager`"
 

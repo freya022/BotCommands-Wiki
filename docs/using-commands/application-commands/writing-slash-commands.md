@@ -3,6 +3,8 @@
 Slash commands are the new way of defining commands, even though there are limitations with them, 
 we do have some advantages such as being easier to fill in, choices and auto-completion.
 
+!!! info "If you wish to handle application commands yourself, you can disable them by disabling [`BApplicationConfig#enable`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.core.config/-b-application-config-builder/enable.html)."
+
 ## Defining the command method
 
 !!! tip
@@ -299,6 +301,12 @@ All you now need to do is enable `usePredefinedChoices` on your option.
         ```java
         --8<-- "wiki/java/commands/slash/SlashConvertSimplified.java:convert_simplified-java"
         ```
+
+## Update logs
+
+You can optionally get more info on what changed in your application commands,
+by enabling the `TRACE` logs on `io.github.freya022.botcommands.internal.commands.application.diff.DiffLogger`,
+or any package it is in.
 
 ## Examples
 

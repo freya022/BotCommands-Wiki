@@ -72,7 +72,7 @@ object Main {
 
                 components {
                     // Enables usage of components
-                    useComponents = true
+                    enable = true
                 }
             }
 

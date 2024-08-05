@@ -203,7 +203,7 @@ but only one must be instantiable.
 
     **Global:**
 
-    - `CommandsBuilder#setComponentManager`: Removed, using components must be enabled in `BComponentsConfigBuilder#useComponents`, and a `ConnectionSupplier` service be present
+    - `CommandsBuilder#setComponentManager`: Removed, using components must be enabled in `BComponentsConfigBuilder#enable`, and a `ConnectionSupplier` service be present
     - `CommandsBuilder#setSettingsProvider`: Needs to implement `SettingsProvider`
     - `CommandsBuilder#setUncaughtExceptionHandler`: Needs to implement `GlobalExceptionHandler`
     - `CommandsBuilder#setDefaultEmbedFunction`: Needs to implement `DefaultEmbedSupplier` and `DefaultEmbedFooterIconSupplier`
