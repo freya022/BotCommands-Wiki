@@ -152,13 +152,12 @@ and still be able to get it as a service.
 
 === "Spring IoC"
     
-    The framework also supports Spring IoC, add the library and it will run by itself.
+    The framework also supports Spring IoC, add the library,
+    add the package of your application with the `scanBasePackages` value of your `#!java @SpringBootApplication`,
+    and voilà.
 
     !!! note
         You can always disable it by adding `BotCommandsAutoConfiguration` to the `exclude` value of your `#!java @SpringBootApplication`.
-
-    If the `#!java @SpringBootApplication` annotation isn't enough to detect commands and other handles,
-    you can add component scans for your classes.
 
     Configuration of the framework is then done either by using application properties (with the prefix being either `botcommands` or `jda`),
     or by implementing configurers, see the [`BConfigurer` inheritors](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.core.config/-b-configurer/index.html).
