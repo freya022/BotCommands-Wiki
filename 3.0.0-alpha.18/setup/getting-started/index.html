@@ -1281,13 +1281,13 @@ and still be able to get it as a service.</p>
 </div>
 </div>
 <div class="tabbed-block">
-<p>The framework also supports Spring IoC, add the library and it will run by itself.</p>
+<p>The framework also supports Spring IoC, add the library,
+add the package of your application with the <code>scanBasePackages</code> value of your <code class="highlight"><span class="nd">@SpringBootApplication</span></code>,
+and voilà.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You can always disable it by adding <code>BotCommandsAutoConfiguration</code> to the <code>exclude</code> value of your <code class="highlight"><span class="nd">@SpringBootApplication</span></code>.</p>
 </div>
-<p>If the <code class="highlight"><span class="nd">@SpringBootApplication</span></code> annotation isn't enough to detect commands and other handles,
-you can add component scans for your classes.</p>
 <p>Configuration of the framework is then done either by using application properties (with the prefix being either <code>botcommands</code> or <code>jda</code>),
 or by implementing configurers, see the <a href="https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.core.config/-b-configurer/index.html"><code>BConfigurer</code> inheritors</a>.</p>
 </div>
