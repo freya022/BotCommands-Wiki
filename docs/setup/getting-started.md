@@ -205,11 +205,6 @@ but you must now have a way to start JDA, implementing `JDAService` will let you
     You can retrieve a `JDA` instance once this service has finished constructing, 
     this also implies that you cannot request a `JDA` before `InjectedJDAEvent` has fired.
 
-!!! warning
-
-    Your `JDABuilder` or `DefaultShardManagerBuilder` needs to use the provided event manager,
-    this enables the framework to also receive the events as they will both use the same event manager.
-
 You can now run your bot!
 Assuming you have done your config class and provided at least the token and owner IDs, 
 you should be able to run the help command, by mentioning your bot `@YourBot help`.
