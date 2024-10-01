@@ -1,7 +1,7 @@
 package io.github.freya022.wiki
 
 import ch.qos.logback.classic.ClassicConstants
-import dev.reformator.stacktracedecoroutinator.runtime.DecoroutinatorRuntime
+import dev.reformator.stacktracedecoroutinator.jvm.DecoroutinatorJvmApi
 import io.github.freya022.botcommands.api.core.BotCommands
 import io.github.freya022.botcommands.api.core.config.DevConfig
 import io.github.freya022.wiki.config.Config
@@ -33,7 +33,7 @@ object Main {
             } else if ("--no-decoroutinator" in args) {
                 logger.info { "Skipping stacktrace-decoroutinator as --no-decoroutinator is specified" }
             } else {
-                DecoroutinatorRuntime.load()
+                DecoroutinatorJvmApi.install()
             }
 
             val config = Config.instance
@@ -56,12 +56,17 @@ object Main {
                     @OptIn(DevConfig::class)
                     disableAutocompleteCache = Environment.isDev
 
-                    // Check command updates based on Discord's commands.
-                    // This is only useful during development,
-                    // as you can develop on multiple machines (but not simultaneously!).
-                    // Using this in production is only going to waste API requests.
-                    @OptIn(DevConfig::class)
-                    onlineAppCommandCheckEnabled = Environment.isDev
+                    // It is safer (and also more convenient in containers) to use a database
+                    // If you don't have a database, you can either remove this, which defaults to a file cache
+                    // or use "fileCache" instead
+                    databaseCache {
+                        // Check command updates based on Discord's commands.
+                        // This is only useful during development,
+                        // as you can develop on multiple machines (but not simultaneously!).
+                        // Using this in production is only going to waste API requests.
+                        @OptIn(DevConfig::class)
+                        checkOnline = Environment.isDev
+                    }
 
                     // Guilds in which `@Test` commands will be inserted
                     testGuildIds += config.testGuildIds
