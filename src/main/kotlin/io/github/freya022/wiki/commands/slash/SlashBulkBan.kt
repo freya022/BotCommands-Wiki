@@ -12,16 +12,13 @@ import io.github.freya022.botcommands.api.commands.application.slash.annotations
 import io.github.freya022.botcommands.api.core.entities.InputUser
 import io.github.freya022.botcommands.api.core.utils.awaitCatching
 import io.github.freya022.botcommands.api.core.utils.awaitUnit
+import io.github.freya022.botcommands.api.core.utils.ban
 import io.github.freya022.botcommands.api.core.utils.handle
 import io.github.freya022.wiki.switches.wiki.WikiLanguage
-import net.dv8tion.jda.api.entities.Guild
-import net.dv8tion.jda.api.entities.UserSnowflake
 import net.dv8tion.jda.api.requests.ErrorResponse
 import java.util.concurrent.TimeUnit
-import kotlin.time.Duration
 import kotlin.time.toDuration
 import kotlin.time.toDurationUnit
-import kotlin.time.toJavaDuration
 
 @WikiLanguage(WikiLanguage.Language.KOTLIN)
 // --8<-- [start:bulk_ban-kotlin]
@@ -59,6 +56,3 @@ class SlashBulkBan : ApplicationCommand() {
     }
 }
 // --8<-- [end:bulk_ban-kotlin]
-
-private fun Guild.ban(users: Collection<UserSnowflake>, duration: Duration) =
-    ban(users, duration.toJavaDuration())

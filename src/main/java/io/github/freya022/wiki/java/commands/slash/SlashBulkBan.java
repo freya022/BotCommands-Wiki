@@ -10,7 +10,6 @@ import io.github.freya022.botcommands.api.core.entities.InputUser;
 import io.github.freya022.wiki.switches.wiki.WikiLanguage;
 import net.dv8tion.jda.api.entities.IMentionable;
 import net.dv8tion.jda.api.entities.Member;
-import net.dv8tion.jda.api.entities.UserSnowflake;
 import net.dv8tion.jda.api.exceptions.ErrorHandler;
 import net.dv8tion.jda.api.requests.ErrorResponse;
 
@@ -54,7 +53,7 @@ public class SlashBulkBan extends ApplicationCommand {
 
         event.deferReply(true).queue();
 
-        event.getGuild().ban((List<UserSnowflake>) (List<? extends UserSnowflake>) users, Duration.of(timeframe, unit.toChronoUnit()))
+        event.getGuild().ban(users, Duration.of(timeframe, unit.toChronoUnit()))
                 .queue(response -> {
                     event.getHook().sendMessageFormat("Banned %s users, %s failed", response.getBannedUsers().size(), response.getFailedUsers().size()).queue();
                 }, new ErrorHandler()
