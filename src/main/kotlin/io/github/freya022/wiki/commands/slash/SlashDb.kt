@@ -20,7 +20,7 @@ private val logger = KotlinLogging.logger { }
 @Command
 class SlashDb(private val database: Database) : ApplicationCommand() {
     @JDASlashCommand(name = "db")
-    suspend fun onSlash(event: GuildSlashEvent) {
+    suspend fun onSlashDb(event: GuildSlashEvent) {
         // --8<-- [start:db_return_value-kotlin]
         val tagCount: Long = database.preparedStatement("SELECT count(*) FROM tag") {
             val dbResult = executeQuery().read() //Read a single row
