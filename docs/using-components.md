@@ -27,23 +27,6 @@ They are components that still work after a restart,
 their handlers are methods identified by their handler name,
 set in [`#!java @JDAButtonListener`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components.annotations/-j-d-a-button-listener/index.html)) / [`#!java @JDASelectMenuListener`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components.annotations/-j-d-a-select-menu-listener/index.html).
 
-??? tip "Type-safe component methods and optional handlers in Kotlin"
-
-    You can bind a method to your component, enabling you to pass arguments in a type-safe way with `bindTo` extensions,
-    a similarly used `timeout` function also exists.
-
-    You can also not use `bindTo` and instead use `await()` on the built component.
-
-    ```kotlin
-    --8<-- "wiki/commands/slash/SlashClickWaiter.kt:click_waiter-kotlin"
-    ```
-
-    1. [`awaitOrNull`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components/await-or-null.html) returns `null` when the component expired, useful when combined with an elvis operator,
-    this is the equivalent of a `#!java try catch` on `TimeoutCancellationException`.
-
-    2. [`awaitUnit`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.core.utils/await-unit.html) is an extension to await and then return `Unit`, 
-    which helps in common scenarios where you want to reply using an elvis operator.
-
 Persistent components have no timeout by default, as their purpose is to be long-lived, however,
 you can set one using `timeout`, which accept a timeout handler name, set with [`#!java @ComponentTimeoutHandler`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components.annotations/-component-timeout-handler/index.html).
 
@@ -53,9 +36,31 @@ you can set one using `timeout`, which accept a timeout handler name, set with [
 
 ### Example
 === "Kotlin"
+    In Kotlin, we can use extensions to make sure we call our component handlers in a type-safe manner,
+    this way you will have a compile error if the handler and the arguments don't match,
+    it will also allow using handlers without setting a name.
+
+    This can only be used when the input argument types matches the handler parameter types.
+
+    !!! note
+        A similar `timeoutWith` function exists for timeouts.
+
     ```kotlin
     --8<-- "wiki/commands/slash/SlashClicker.kt:persistent-clicker-kotlin"
     ```
+
+    You can also use components without setting a handler, and instead await the event:
+
+    ```kotlin
+    --8<-- "wiki/commands/slash/SlashClickWaiter.kt:click_waiter-kotlin"
+    ```
+
+    1. [`awaitOrNull`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components/await-or-null.html) returns `null` when the component expired, useful when combined with an elvis operator,
+    this is the equivalent of a `#!java try catch` on `TimeoutCancellationException`.
+    Since there is no timeout set here, the [default duration](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components/-components/-companion/default-timeout.html) is used.
+
+    2. [`awaitUnit`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.core.utils/await-unit.html) is an extension to await and then return `Unit`, 
+    which helps in common scenarios where you want to reply using an elvis operator.
 === "Java"
     ```java
     --8<-- "wiki/java/commands/slash/SlashClickerPersistent.java:persistent-clicker-java"

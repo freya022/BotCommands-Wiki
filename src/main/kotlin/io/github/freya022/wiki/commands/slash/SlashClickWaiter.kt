@@ -46,6 +46,7 @@ class SlashClickWaiter(private val buttons: Buttons) : ApplicationCommand() {
             .setReplace(true)
             // Delete after 5 seconds
             .deleteDelayed(5.seconds)
+            // Note that the coroutine will resume *after the message is deleted*
             .await()
     }
 }

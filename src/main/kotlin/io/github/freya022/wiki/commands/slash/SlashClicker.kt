@@ -42,17 +42,15 @@ class SlashPersistentClicker(private val buttons: Buttons) : ApplicationCommand(
         event.replyComponents(row(button)).await()
     }
 
-    // The name should be unique,
-    // I recommend naming the handler "[ClassName]: [purpose]"
-    // And the name would be "on[purpose]Click"
-    @JDAButtonListener("SlashPersistentClicker: cookie")
+    // No need for a name if you use the type-safe "bindWith" extensions
+    @JDAButtonListener
     suspend fun onCookieClick(event: ButtonEvent, @ComponentData count: Int) {
         val button = createButton(event, count + 1)
         event.editComponents(row(button)).await()
     }
 
-    // Same thing here, names don't collide with other types of listener
-    @ComponentTimeoutHandler("SlashPersistentClicker: cookie")
+    // Same thing here, no name required
+    @ComponentTimeoutHandler
     fun onCookieTimeout(timeout: ComponentTimeoutData, @TimeoutData count: Int) {
         println("User finished clicking $count cookies")
     }
