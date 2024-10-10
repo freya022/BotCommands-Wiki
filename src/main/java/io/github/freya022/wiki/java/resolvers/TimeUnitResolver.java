@@ -1,6 +1,6 @@
 package io.github.freya022.wiki.java.resolvers;
 
-import io.github.freya022.botcommands.api.commands.application.slash.SlashCommandInfo;
+import io.github.freya022.botcommands.api.commands.application.slash.options.SlashCommandOption;
 import io.github.freya022.botcommands.api.core.service.annotations.Resolver;
 import io.github.freya022.botcommands.api.parameters.ClassParameterResolver;
 import io.github.freya022.botcommands.api.parameters.Resolvers;
@@ -49,7 +49,7 @@ public class TimeUnitResolver
 
     @Nullable
     @Override
-    public TimeUnit resolve(@NotNull SlashCommandInfo info, @NotNull CommandInteractionPayload event, @NotNull OptionMapping optionMapping) {
+    public TimeUnit resolve(@NotNull SlashCommandOption option, @NotNull CommandInteractionPayload event, @NotNull OptionMapping optionMapping) {
         return TimeUnit.valueOf(optionMapping.getAsString());
     }
 }

@@ -1,6 +1,6 @@
 package io.github.freya022.wiki.resolvers
 
-import io.github.freya022.botcommands.api.commands.application.slash.SlashCommandInfo
+import io.github.freya022.botcommands.api.commands.application.slash.options.SlashCommandOption
 import io.github.freya022.botcommands.api.core.service.annotations.Resolver
 import io.github.freya022.botcommands.api.localization.context.LocalizationContext
 import io.github.freya022.botcommands.api.localization.to
@@ -47,7 +47,7 @@ class TimeUnitResolver :
     }
 
     override suspend fun resolveSuspend(
-        info: SlashCommandInfo,
+        option: SlashCommandOption,
         event: CommandInteractionPayload,
         optionMapping: OptionMapping
     ): TimeUnit = enumValueOf<TimeUnit>(optionMapping.asString)
