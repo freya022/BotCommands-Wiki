@@ -147,6 +147,46 @@ As always, make sure to check against the command path as well as the option's d
         --8<-- "wiki/java/commands/slash/SlashCreateTime.java:create_time-java"
         ```
 
+### Rate limiting
+This lets you reject application commands if the user tries to use them too often.
+
+[//]: # (TODO when making the dedicated rate limit wiki, put a cancelling rate limit section with the voice state check, remove from slash command rl examples)
+
+#### Using an (anonymous) rate limiter
+=== "Kotlin"
+    ```kotlin
+    --8<-- "wiki/commands/slash/SlashRateLimit.kt:rate_limit-kotlin"
+    ```
+
+=== "Java"
+    ```java
+    --8<-- "wiki/java/commands/slash/SlashRateLimit.java:rate_limit-java"
+    ```
+
+#### Using an existing rate limiter
+Nothing as simple as using `#!java @RateLimitReference` with the `group` of a rate limiter defined in a `RateLimitProvider`.
+
+=== "Kotlin"
+    ```kotlin title="WikiRateLimitProvider.kt"
+    --8<-- "wiki/ratelimit/WikiRateLimitProvider.kt:rate_limit_provider-kotlin"
+    ```
+
+    ```kotlin
+    --8<-- "wiki/commands/slash/SlashRateLimitExisting.kt:rate_limit_existing-kotlin"
+    ```
+
+=== "Java"
+    ```java title="WikiRateLimitProvider.java"
+    --8<-- "wiki/java/ratelimit/WikiRateLimitProvider.java:rate_limit_provider-java"
+    ```
+
+    ```java
+    --8<-- "wiki/java/commands/slash/SlashRateLimitExisting.java:rate_limit_existing-java"
+    ```
+
+#### Cooldown
+A cooldown is a rate limit, but with fewer parameters, it can be used as `#!java @Cooldown(5, ChronoUnit.SECONDS /* also scope and deleteOnRefill */)`.
+
 ## DSL commands (Kotlin)
 
 Commands can be DSL-declared by either implementing:
@@ -232,6 +272,28 @@ either using [autocompleteByFunction](https://docs.bc.freya02.dev/-bot-commands/
     ```kotlin
     --8<-- "wiki/commands/slash/SlashWord.kt:word_command-kotlin_dsl"
     ```
+
+### Rate limiting
+This lets you reject application commands if the user tries to use them too often.
+
+#### Using an (anonymous) rate limiter
+```kotlin
+--8<-- "wiki/commands/slash/SlashRateLimitDsl.kt:rate_limit-kotlin_dsl"
+```
+
+#### Using an existing rate limiter
+Nothing as simple as using `rateLimitReference` with the `group` of a rate limiter defined in a `RateLimitProvider`.
+
+```kotlin title="WikiRateLimitProvider.kt"
+--8<-- "wiki/ratelimit/WikiRateLimitProvider.kt:rate_limit_provider-kotlin"
+```
+
+```kotlin
+--8<-- "wiki/commands/slash/SlashRateLimitExistingDsl.kt:rate_limit_existing-kotlin_dsl"
+```
+
+#### Cooldown
+A cooldown is a rate limit, but with fewer parameters, it can be used as `cooldown(5.seconds /* also scope and deleteOnRefill */)`.
 
 ### Generated values
 
