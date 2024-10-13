@@ -5,13 +5,6 @@
     "aliases": []
   },
   {
-    "version": "3.0.0-alpha.20_DEV",
-    "title": "3.0.0-alpha.20_DEV",
-    "aliases": [
-      "3.X"
-    ]
-  },
-  {
     "version": "3.0.0-alpha.19",
     "title": "3.0.0-alpha.19",
     "aliases": []
