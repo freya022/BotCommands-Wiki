@@ -39,6 +39,10 @@ while the declaring class must extend `ApplicationCommand`.
         --8<-- "wiki/java/commands/slash/SlashPing.java:ping-java"
         ```
 
+### Top level configuration
+You can configure properties which only applies to top-level commands, using [`#!java @TopLevelSlashCommandData`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.commands.application.slash.annotations/-top-level-slash-command-data/index.html),
+this includes elements such as the `scope` (guild, global or global without DMs), `description` and whether the command is locked to admins by default.
+
 ### Subcommands
 
 To make a subcommand, set the `name` and `subcommand` on the annotation.
