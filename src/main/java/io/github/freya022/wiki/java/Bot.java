@@ -37,7 +37,7 @@ public class Bot extends JDAService {
 
     @Override
     public void createJDA(@NotNull BReadyEvent event, @NotNull IEventManager eventManager) {
-        light(config.getToken())
+        createLight(config.getToken())
                 .setActivity(Activity.customStatus("In Java with ❤️"))
                 .build();
     }
