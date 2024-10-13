@@ -912,6 +912,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#top-level-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Top level configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#subcommands" class="md-nav__link">
     <span class="md-ellipsis">
       Subcommands
@@ -994,6 +1003,39 @@
   <a href="#cooldown" class="md-nav__link">
     <span class="md-ellipsis">
       Cooldown
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtering-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filtering commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Filtering commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-the-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating the filter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-the-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using the filter
     </span>
   </a>
   
@@ -1363,6 +1405,9 @@ and also getting choices.</p>
 </div>
 </div>
 </div>
+<h3 id="top-level-configuration">Top level configuration<a class="headerlink" href="#top-level-configuration" title="Permanent link">&para;</a></h3>
+<p>You can configure properties which only applies to top-level commands, using <a href="https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.commands.application.slash.annotations/-top-level-slash-command-data/index.html"><code class="highlight"><span class="nd">@TopLevelSlashCommandData</span></code></a>,
+this includes elements such as the <code>scope</code> (guild, global or global without DMs), <code>description</code> and whether the command is locked to admins by default.</p>
 <h3 id="subcommands">Subcommands<a class="headerlink" href="#subcommands" title="Permanent link">&para;</a></h3>
 <p>To make a subcommand, set the <code>name</code> and <code>subcommand</code> on the annotation.</p>
 <p>You will also need to add a <a href="https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.commands.application.slash.annotations/-top-level-slash-command-data/index.html"><code class="highlight"><span class="nd">@TopLevelSlashCommandData</span></code></a>,
@@ -1864,6 +1909,94 @@ similarly to adding choices.</p>
 </div>
 <h4 id="cooldown">Cooldown<a class="headerlink" href="#cooldown" title="Permanent link">&para;</a></h4>
 <p>A cooldown is a rate limit, but with fewer parameters, it can be used as <code class="highlight"><span class="nd">@Cooldown</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="n">ChronoUnit</span><span class="p">.</span><span class="na">SECONDS</span><span class="w"> </span><span class="cm">/* also scope and deleteOnRefill */</span><span class="p">)</span></code>.</p>
+<h3 id="filtering-commands">Filtering commands<a class="headerlink" href="#filtering-commands" title="Permanent link">&para;</a></h3>
+<p>You can use <a href="https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.commands.application.annotations/-declaration-filter/index.html"><code class="highlight"><span class="nd">@DeclarationFilter</span></code></a> if you wish to declare a <strong>guild</strong> command conditionally.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is no equivalent for DSL commands as you can check and return early with your own code.</p>
+</div>
+<h4 id="creating-the-filter">Creating the filter<a class="headerlink" href="#creating-the-filter" title="Permanent link">&para;</a></h4>
+<p>Create a service implementing <a href="https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.commands.application/-command-declaration-filter/index.html"><code>CommandDeclarationFilter</code></a>,
+and make the method return <code>true</code> if the command can be declared.
+All filters must return <code>true</code> for the command to be declared.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">Kotlin</label><label for="__tabbed_9_2">Java</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="nd">@BService</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">BotOwnerIsGuildOwnerDeclarationFilter</span><span class="p">(</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">botOwners</span><span class="p">:</span><span class="w"> </span><span class="n">BotOwners</span><span class="p">,</span><span class="w"> </span><span class="c1">// Provided by the framework</span>
+<span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">CommandDeclarationFilter</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">filter</span><span class="p">(</span><span class="n">guild</span><span class="p">:</span><span class="w"> </span><span class="n">Guild</span><span class="p">,</span><span class="w"> </span><span class="n">path</span><span class="p">:</span><span class="w"> </span><span class="n">CommandPath</span><span class="p">,</span><span class="w"> </span><span class="n">commandId</span><span class="p">:</span><span class="w"> </span><span class="kt">String?</span><span class="p">):</span><span class="w"> </span><span class="kt">Boolean</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Only allow this command to be in guilds owned by the bot owner</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">guild</span><span class="p">.</span><span class="na">ownerIdLong</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">botOwners</span><span class="p">.</span><span class="na">ownerIds</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="nd">@BService</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BotOwnerIsGuildOwnerDeclarationFilter</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">CommandDeclarationFilter</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">BotOwners</span><span class="w"> </span><span class="n">botOwners</span><span class="p">;</span><span class="w"> </span><span class="c1">// Provided by the framework</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">BotOwnerIsGuildOwnerDeclarationFilter</span><span class="p">(</span><span class="n">BotOwners</span><span class="w"> </span><span class="n">botOwners</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">botOwners</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">botOwners</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">filter</span><span class="p">(</span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">Guild</span><span class="w"> </span><span class="n">guild</span><span class="p">,</span><span class="w"> </span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">CommandPath</span><span class="w"> </span><span class="n">commandPath</span><span class="p">,</span><span class="w"> </span><span class="nd">@Nullable</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Only allow this command to be in guilds owned by the bot owner</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">botOwners</span><span class="p">.</span><span class="na">getOwnerIds</span><span class="p">().</span><span class="na">contains</span><span class="p">(</span><span class="n">guild</span><span class="p">.</span><span class="na">getOwnerIdLong</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<h4 id="using-the-filter">Using the filter<a class="headerlink" href="#using-the-filter" title="Permanent link">&para;</a></h4>
+<p>Add a <code>@DeclarationFilter</code> on your command and reference your filter inside it.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:2"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">Kotlin</label><label for="__tabbed_10_2">Java</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="nd">@Command</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">SlashBotOwnerIsGuildOwner</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ApplicationCommand</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="c1">// All filters must return &#39;true&#39; for the command to be declared</span>
+<span class="w">    </span><span class="nd">@DeclarationFilter</span><span class="p">(</span><span class="n">BotOwnerIsGuildOwnerDeclarationFilter</span><span class="o">::</span><span class="n">class</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">// The command needs to be registered on guilds for it to be filtered</span>
+<span class="w">    </span><span class="nd">@TopLevelSlashCommandData</span><span class="p">(</span><span class="n">scope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CommandScope</span><span class="p">.</span><span class="na">GUILD</span><span class="p">)</span>
+<span class="w">    </span><span class="nd">@JDASlashCommand</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;bot_owner_is_guild_owner&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">suspend</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onSlashBotOwnerIsGuildOwner</span><span class="p">(</span><span class="n">event</span><span class="p">:</span><span class="w"> </span><span class="n">GuildSlashEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">event</span><span class="p">.</span><span class="na">reply_</span><span class="p">(</span><span class="s">&quot;You are the owner of this bot and guild!&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ephemeral</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">).</span><span class="na">await</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="nd">@Command</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SlashBotOwnerIsGuildOwner</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ApplicationCommand</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="c1">// All filters must return &#39;true&#39; for the command to be declared</span>
+<span class="w">    </span><span class="nd">@DeclarationFilter</span><span class="p">(</span><span class="n">BotOwnerIsGuildOwnerDeclarationFilter</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">// The command needs to be registered on guilds for it to be filtered</span>
+<span class="w">    </span><span class="nd">@TopLevelSlashCommandData</span><span class="p">(</span><span class="n">scope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CommandScope</span><span class="p">.</span><span class="na">GUILD</span><span class="p">)</span>
+<span class="w">    </span><span class="nd">@JDASlashCommand</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;bot_owner_is_guild_owner&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onSlashBotOwnerIsGuildOwner</span><span class="p">(</span><span class="n">GuildSlashEvent</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">event</span><span class="p">.</span><span class="na">reply</span><span class="p">(</span><span class="s">&quot;You are the owner of this bot and guild!&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">setEphemeral</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">queue</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
 <h2 id="dsl-commands-kotlin">DSL commands (Kotlin)<a class="headerlink" href="#dsl-commands-kotlin" title="Permanent link">&para;</a></h2>
 <p>Commands can be DSL-declared by either implementing:</p>
 <ul>
@@ -2176,7 +2309,7 @@ by putting them in a localization file, using the root locale (i.e., no locale s
 and have your localization bundle registered with <code>BApplicationConfigBuilder#addLocalizations</code>.</p>
 <details class="info">
 <summary>The same commands as before, but without the descriptions</summary>
-<div class="tabbed-set tabbed-alternate" data-tabs="9:3"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><input id="__tabbed_9_3" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">Kotlin</label><label for="__tabbed_9_2">Kotlin (DSL)</label><label for="__tabbed_9_3">Java</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:3"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><input id="__tabbed_11_3" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">Kotlin</label><label for="__tabbed_11_2">Kotlin (DSL)</label><label for="__tabbed_11_3">Java</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nd">@Command</span>
@@ -2238,7 +2371,7 @@ that is, the resolver will return the choices used for every option of their typ
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <p>Here, the resolver for <code>TimeUnit</code> is already defined and will be explained in <a href="../option-resolvers/">Adding option resolvers</a>.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="10:3"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><input id="__tabbed_10_3" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">Kotlin</label><label for="__tabbed_10_2">Kotlin (DSL)</label><label for="__tabbed_10_3">Java</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="12:3"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><input id="__tabbed_12_3" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">Kotlin</label><label for="__tabbed_12_2">Kotlin (DSL)</label><label for="__tabbed_12_3">Java</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nd">@Command</span>
