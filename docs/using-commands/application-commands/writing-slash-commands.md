@@ -187,6 +187,45 @@ Nothing as simple as using `#!java @RateLimitReference` with the `group` of a ra
 #### Cooldown
 A cooldown is a rate limit, but with fewer parameters, it can be used as `#!java @Cooldown(5, ChronoUnit.SECONDS /* also scope and deleteOnRefill */)`.
 
+### Filtering commands
+You can use [`#!java @DeclarationFilter`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.commands.application.annotations/-declaration-filter/index.html) if you wish to declare a **guild** command conditionally.
+
+!!! note
+
+    There is no equivalent for DSL commands as you can check and return early with your own code.
+
+#### Creating the filter
+Create a service implementing [`CommandDeclarationFilter`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.commands.application/-command-declaration-filter/index.html),
+and make the method return `true` if the command can be declared.
+All filters must return `true` for the command to be declared.
+
+!!! example
+
+    === "Kotlin"
+        ```kotlin
+        --8<-- "wiki/filters/declaration/BotOwnerIsGuildOwnerDeclarationFilter.kt:command_declaration_filter-kotlin"
+        ```
+    
+    === "Java"
+        ```java
+        --8<-- "wiki/java/filters/declaration/BotOwnerIsGuildOwnerDeclarationFilter.java:command_declaration_filter-java"
+        ```
+
+#### Using the filter
+Add a `@DeclarationFilter` on your command and reference your filter inside it.
+
+!!! example
+
+    === "Kotlin"
+        ```kotlin
+        --8<-- "wiki/commands/slash/SlashBotOwnerIsGuildOwner.kt:declaration_filter-kotlin"
+        ```
+    
+    === "Java"
+        ```java
+        --8<-- "wiki/java/commands/slash/SlashBotOwnerIsGuildOwner.java:declaration_filter-java"
+        ```
+
 ## DSL commands (Kotlin)
 
 Commands can be DSL-declared by either implementing:
