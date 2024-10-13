@@ -9,7 +9,7 @@ import io.github.freya022.wiki.switches.wiki.WikiCommandProfile;
 
 import java.time.temporal.ChronoUnit;
 
-@SuppressWarnings({"DataFlowIssue", "DefaultAnnotationParam"})
+@SuppressWarnings({"DefaultAnnotationParam"})
 @WikiCommandProfile(WikiCommandProfile.Profile.JAVA)
 // --8<-- [start:rate_limit-java]
 @Command

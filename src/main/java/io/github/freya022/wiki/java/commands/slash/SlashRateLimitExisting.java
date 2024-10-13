@@ -8,7 +8,6 @@ import io.github.freya022.botcommands.api.commands.application.slash.annotations
 import io.github.freya022.wiki.java.ratelimit.WikiRateLimitProvider;
 import io.github.freya022.wiki.switches.wiki.WikiCommandProfile;
 
-@SuppressWarnings({"DataFlowIssue"})
 @WikiCommandProfile(WikiCommandProfile.Profile.JAVA)
 // --8<-- [start:rate_limit_existing-java]
 @Command

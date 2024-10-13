@@ -20,7 +20,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 //TODO remove wildcard once fixed
-@SuppressWarnings("unchecked")
 @WikiLanguage(WikiLanguage.Language.JAVA)
 // --8<-- [start:bulk_ban-java]
 @Command
