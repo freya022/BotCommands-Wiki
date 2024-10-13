@@ -1010,6 +1010,24 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#reset-timeout-on-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reset timeout on use
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleting-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deleting components
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#filtering" class="md-nav__link">
     <span class="md-ellipsis">
       Filtering
@@ -1057,21 +1075,6 @@
       Rate limiting
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Rate limiting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#using-an-existing-rate-limiter" class="md-nav__link">
-    <span class="md-ellipsis">
-      Using an existing rate limiter
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1571,6 +1574,29 @@ the entire group gets invalidated.</p>
 </div>
 </div>
 </div>
+<h2 id="reset-timeout-on-use">Reset timeout on use<a class="headerlink" href="#reset-timeout-on-use" title="Permanent link">&para;</a></h2>
+<p>The <a href="https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components.builder/-i-timeoutable-component/reset-timeout-on-use.html"><code>resetTimeoutOnUse</code></a> lets you reset the timeout each time the button is clicked.
+The timeout is only reset if the button was actually used, it will not be reset if unauthorized users use it.</p>
+<h2 id="deleting-components">Deleting components<a class="headerlink" href="#deleting-components" title="Permanent link">&para;</a></h2>
+<p>Here are some tips on how to delete components:</p>
+<ul>
+<li>Most likely, you have the message (from a <code>ButtonEvent</code> for example) and you want to delete the buttons from the message and invalidate them,
+in this case you should use <a href="https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components/-abstract-component-factory/delete-rows.html"><code>deleteRows</code></a>.</li>
+<li>
+<p>In stateful interactions, where components can be <strong>re</strong>used,
+you might sometimes want to store the IDs of the components,
+to then invalidate them when the interaction expires.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>The built-in paginators stores all the <code>int</code> IDs of the components used in paginators,
+as they cannot be deleted on each page change, as the user might reuse a component they made themselves.
+Storing them this way is more efficient and allows deletion when the paginator expires, using <a href="https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components/-abstract-component-factory/delete-components-by-ids.html">deleteComponentsByIds</a>.</p>
+</div>
+</li>
+<li>
+<p>In other, rare cases, you have the component instances (not the JDA ones), for which you can use <a href="https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components/-abstract-component-factory/delete-components.html">deleteComponents</a></p>
+</li>
+</ul>
 <h2 id="filtering">Filtering<a class="headerlink" href="#filtering" title="Permanent link">&para;</a></h2>
 <p>Components also support filtering, you can use <code>addFilter</code> with either the filter type, or the filter instance directly.</p>
 <div class="admonition failure">
@@ -1702,23 +1728,112 @@ it runs when one of your filters fails.</p>
 </div>
 </div>
 <h2 id="rate-limiting">Rate limiting<a class="headerlink" href="#rate-limiting" title="Permanent link">&para;</a></h2>
-<p>Rate limiting / cooldowns can be applied to components by using <a href="https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components.builder/-i-actionable-component/rate-limit-reference.html"><code>rateLimitReference()</code></a>,
-then referencing an existing rate limiter.</p>
-<h3 id="using-an-existing-rate-limiter">Using an existing rate limiter<a class="headerlink" href="#using-an-existing-rate-limiter" title="Permanent link">&para;</a></h3>
+<p>Just like application commands, components can be rate limited.
+However, you will need to help the library differentiate components from each other (unlike commands which are differentiated by their names).</p>
+<p>You will first need to create a <a href="https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components.ratelimit/-component-rate-limit-reference/index.html"><code>ComponentRateLimitReference</code></a>,
+you can do that with <a href="https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components/-abstract-component-factory/create-rate-limit-reference.html"><code>createRateLimitReference</code></a>, present in any component factory (<code>Components</code>, <code>Buttons</code>, <code>SelectMenus</code>).</p>
+<p>The <code>group</code> associated with the <code>discriminator</code> will need to be unique,
+as to differentiate components (referenced by <code>discriminator</code>) using the same rate limiter (referenced by <code>group</code>).</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Kotlin</label><label for="__tabbed_7_2">Java</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="n">buttons</span><span class="p">.</span><span class="na">primary</span><span class="p">(</span><span class="s">&quot;Can&#39;t click me too fast&quot;</span><span class="p">).</span><span class="na">ephemeral</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">rateLimitReference</span><span class="p">(</span><span class="s">&quot;name of the rate limiter&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="nd">@Command</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">SlashComponentRateLimit</span><span class="p">(</span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">buttons</span><span class="p">:</span><span class="w"> </span><span class="n">Buttons</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ApplicationCommand</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// This is to prevent an unnecessary load on startup, emojis are slow</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">arrowUp</span><span class="p">:</span><span class="w"> </span><span class="n">UnicodeEmoji</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">lazy</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">EmojiUtils</span><span class="p">.</span><span class="na">resolveJDAEmoji</span><span class="p">(</span><span class="s">&quot;arrow_up&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">arrowDown</span><span class="p">:</span><span class="w"> </span><span class="n">UnicodeEmoji</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">lazy</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">EmojiUtils</span><span class="p">.</span><span class="na">resolveJDAEmoji</span><span class="p">(</span><span class="s">&quot;arrow_down&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// The combination of the group and discriminator must be unique</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">upvoteRateLimitReference</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buttons</span><span class="p">.</span><span class="na">createRateLimitReference</span><span class="p">(</span>
+<span class="w">        </span><span class="c1">// The name of the rate limiter</span>
+<span class="w">        </span><span class="n">group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">WikiRateLimitProvider</span><span class="p">.</span><span class="na">RATE_LIMIT_GROUP</span><span class="p">,</span>
+<span class="w">        </span><span class="c1">// The &quot;discriminator&quot; for this component,</span>
+<span class="w">        </span><span class="c1">// this is important as this differentiates a component from others</span>
+<span class="w">        </span><span class="n">discriminator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;upvote&quot;</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">downvoteRateLimitReference</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buttons</span><span class="p">.</span><span class="na">createRateLimitReference</span><span class="p">(</span>
+<span class="w">        </span><span class="n">group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">WikiRateLimitProvider</span><span class="p">.</span><span class="na">RATE_LIMIT_GROUP</span><span class="p">,</span>
+<span class="w">        </span><span class="n">discriminator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;downvote&quot;</span>
+<span class="w">    </span><span class="p">)</span>
+
+<span class="w">    </span><span class="nd">@JDASlashCommand</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;component_rate_limit&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">suspend</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onSlashComponentRateLimit</span><span class="p">(</span><span class="n">event</span><span class="p">:</span><span class="w"> </span><span class="n">GuildSlashEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">upvoteButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buttons</span><span class="p">.</span><span class="na">success</span><span class="p">(</span><span class="s">&quot;Upvote&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">arrowUp</span><span class="p">).</span><span class="na">ephemeral</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">rateLimitReference</span><span class="p">(</span><span class="n">upvoteRateLimitReference</span><span class="p">)</span>
+
+<span class="w">            </span><span class="n">bindTo</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">buttonEvent</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">                </span><span class="n">buttonEvent</span><span class="p">.</span><span class="na">reply</span><span class="p">(</span><span class="s">&quot;Your vote has been taken into account&quot;</span><span class="p">).</span><span class="na">setEphemeral</span><span class="p">(</span><span class="kc">true</span><span class="p">).</span><span class="na">queue</span><span class="p">()</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">downvoteButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buttons</span><span class="p">.</span><span class="na">danger</span><span class="p">(</span><span class="s">&quot;Downvote&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">arrowDown</span><span class="p">).</span><span class="na">ephemeral</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">rateLimitReference</span><span class="p">(</span><span class="n">downvoteRateLimitReference</span><span class="p">)</span>
+
+<span class="w">            </span><span class="n">bindTo</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">buttonEvent</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">                </span><span class="n">buttonEvent</span><span class="p">.</span><span class="na">reply</span><span class="p">(</span><span class="s">&quot;Your anger has been taken into account&quot;</span><span class="p">).</span><span class="na">setEphemeral</span><span class="p">(</span><span class="kc">true</span><span class="p">).</span><span class="na">queue</span><span class="p">()</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">event</span><span class="p">.</span><span class="na">reply</span><span class="p">(</span><span class="s">&quot;[Insert controversial sentence]&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">addActionRow</span><span class="p">(</span><span class="n">upvoteButton</span><span class="p">,</span><span class="w"> </span><span class="n">downvoteButton</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">await</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="n">buttons</span><span class="p">.</span><span class="na">primary</span><span class="p">(</span><span class="s">&quot;Can&#39;t click me too fast&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="na">ephemeral</span><span class="p">()</span>
-<span class="w">    </span><span class="p">.</span><span class="na">rateLimitReference</span><span class="p">(</span><span class="s">&quot;name of the rate limiter&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="nd">@Command</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SlashComponentRateLimit</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ApplicationCommand</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// This is to prevent an unnecessary load on startup, emojis are slow</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Emojis</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">UnicodeEmoji</span><span class="w"> </span><span class="n">arrowUp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EmojiUtils</span><span class="p">.</span><span class="na">resolveJDAEmoji</span><span class="p">(</span><span class="s">&quot;arrow_up&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">UnicodeEmoji</span><span class="w"> </span><span class="n">arrowDown</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EmojiUtils</span><span class="p">.</span><span class="na">resolveJDAEmoji</span><span class="p">(</span><span class="s">&quot;arrow_down&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Buttons</span><span class="w"> </span><span class="n">buttons</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ComponentRateLimitReference</span><span class="w"> </span><span class="n">upvoteRateLimitReference</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ComponentRateLimitReference</span><span class="w"> </span><span class="n">downvoteRateLimitReference</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">SlashComponentRateLimit</span><span class="p">(</span><span class="n">Buttons</span><span class="w"> </span><span class="n">buttons</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">buttons</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buttons</span><span class="p">;</span>
+<span class="w">        </span><span class="c1">// The combination of the group and discriminator must be unique</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">upvoteRateLimitReference</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buttons</span><span class="p">.</span><span class="na">createRateLimitReference</span><span class="p">(</span>
+<span class="w">                </span><span class="c1">// The name of the rate limiter</span>
+<span class="w">                </span><span class="n">WikiRateLimitProvider</span><span class="p">.</span><span class="na">RATE_LIMIT_GROUP</span><span class="p">,</span>
+<span class="w">                </span><span class="c1">// The &quot;discriminator&quot; for this component,</span>
+<span class="w">                </span><span class="c1">// this is important as this differentiates a component from others</span>
+<span class="w">                </span><span class="s">&quot;upvote&quot;</span>
+<span class="w">        </span><span class="p">);</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">downvoteRateLimitReference</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buttons</span><span class="p">.</span><span class="na">createRateLimitReference</span><span class="p">(</span><span class="n">WikiRateLimitProvider</span><span class="p">.</span><span class="na">RATE_LIMIT_GROUP</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;downvote&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@JDASlashCommand</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;component_rate_limit&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onSlashComponentRateLimit</span><span class="p">(</span><span class="n">GuildSlashEvent</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">upvoteButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buttons</span><span class="p">.</span><span class="na">success</span><span class="p">(</span><span class="s">&quot;Upvote&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Emojis</span><span class="p">.</span><span class="na">arrowUp</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">ephemeral</span><span class="p">()</span>
+<span class="w">                </span><span class="p">.</span><span class="na">rateLimitReference</span><span class="p">(</span><span class="n">upvoteRateLimitReference</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">bindTo</span><span class="p">(</span><span class="n">buttonEvent</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">buttonEvent</span><span class="p">.</span><span class="na">reply</span><span class="p">(</span><span class="s">&quot;Your vote has been taken into account&quot;</span><span class="p">).</span><span class="na">setEphemeral</span><span class="p">(</span><span class="kc">true</span><span class="p">).</span><span class="na">queue</span><span class="p">();</span>
+<span class="w">                </span><span class="p">})</span>
+<span class="w">                </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">downvoteButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buttons</span><span class="p">.</span><span class="na">danger</span><span class="p">(</span><span class="s">&quot;Downvote&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Emojis</span><span class="p">.</span><span class="na">arrowDown</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">ephemeral</span><span class="p">()</span>
+<span class="w">                </span><span class="p">.</span><span class="na">rateLimitReference</span><span class="p">(</span><span class="n">downvoteRateLimitReference</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">bindTo</span><span class="p">(</span><span class="n">buttonEvent</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">buttonEvent</span><span class="p">.</span><span class="na">reply</span><span class="p">(</span><span class="s">&quot;Your anger has been taken into account&quot;</span><span class="p">).</span><span class="na">setEphemeral</span><span class="p">(</span><span class="kc">true</span><span class="p">).</span><span class="na">queue</span><span class="p">();</span>
+<span class="w">                </span><span class="p">})</span>
+<span class="w">                </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">event</span><span class="p">.</span><span class="na">reply</span><span class="p">(</span><span class="s">&quot;[Insert controversial sentence]&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">addActionRow</span><span class="p">(</span><span class="n">upvoteButton</span><span class="p">,</span><span class="w"> </span><span class="n">downvoteButton</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">queue</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
+</div>
 </div>
 </div>
 </div>
