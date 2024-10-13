@@ -962,6 +962,48 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#rate-limiting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rate limiting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rate limiting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-an-anonymous-rate-limiter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using an (anonymous) rate limiter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-an-existing-rate-limiter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using an existing rate limiter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cooldown" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cooldown
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1009,6 +1051,48 @@
   <a href="#using-autocomplete_1" class="md-nav__link">
     <span class="md-ellipsis">
       Using autocomplete
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rate-limiting_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rate limiting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rate limiting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-an-anonymous-rate-limiter_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using an (anonymous) rate limiter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-an-existing-rate-limiter_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using an existing rate limiter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cooldown_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cooldown
     </span>
   </a>
   
@@ -1557,6 +1641,229 @@ similarly to adding choices.</p>
 </div>
 </div>
 </div>
+<h3 id="rate-limiting">Rate limiting<a class="headerlink" href="#rate-limiting" title="Permanent link">&para;</a></h3>
+<p>This lets you reject application commands if the user tries to use them too often.</p>
+<h4 id="using-an-anonymous-rate-limiter">Using an (anonymous) rate limiter<a class="headerlink" href="#using-an-anonymous-rate-limiter" title="Permanent link">&para;</a></h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Kotlin</label><label for="__tabbed_7_2">Java</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="nd">@Command</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">SlashRateLimit</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ApplicationCommand</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="c1">// A rate limit for this slash command only</span>
+<span class="w">    </span><span class="nd">@RateLimit</span><span class="p">(</span>
+<span class="w">        </span><span class="c1">// Apply to each user, regardless of channel/guild</span>
+<span class="w">        </span><span class="n">scope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RateLimitScope</span><span class="p">.</span><span class="na">USER</span><span class="p">,</span>
+<span class="w">        </span><span class="c1">// Delete the message telling the user about the remaining rate limit after it expires</span>
+<span class="w">        </span><span class="n">deleteOnRefill</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="c1">// At least one of those needs to be empty for the command to be rejected</span>
+<span class="w">        </span><span class="n">bandwidths</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span>
+<span class="w">            </span><span class="c1">// 5 uses, 5 tokens gets added gradually over an hour (so, 1 token every 12 minutes)</span>
+<span class="w">            </span><span class="n">Bandwidth</span><span class="p">(</span>
+<span class="w">                </span><span class="n">capacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="c1">// 5 uses</span>
+<span class="w">                </span><span class="n">Refill</span><span class="p">(</span>
+<span class="w">                    </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RefillType</span><span class="p">.</span><span class="na">GREEDY</span><span class="p">,</span><span class="w">       </span><span class="c1">// Gradually</span>
+<span class="w">                    </span><span class="n">tokens</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w">                     </span><span class="c1">// gives 5 tokens</span>
+<span class="w">                    </span><span class="n">period</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w">                     </span><span class="c1">// every 1</span>
+<span class="w">                    </span><span class="n">periodUnit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ChronoUnit</span><span class="p">.</span><span class="na">HOURS</span><span class="w">   </span><span class="c1">// hour</span>
+<span class="w">                </span><span class="p">)</span>
+<span class="w">            </span><span class="p">),</span>
+<span class="w">            </span><span class="c1">// 2 uses, 2 tokens gets added at once after 2 minutes</span>
+<span class="w">            </span><span class="c1">// This is to prevent the user from spamming the command</span>
+<span class="w">            </span><span class="n">Bandwidth</span><span class="p">(</span>
+<span class="w">                </span><span class="n">capacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="c1">// 2 uses</span>
+<span class="w">                </span><span class="n">Refill</span><span class="p">(</span>
+<span class="w">                    </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RefillType</span><span class="p">.</span><span class="na">INTERVAL</span><span class="p">,</span><span class="w">     </span><span class="c1">// At once,</span>
+<span class="w">                    </span><span class="n">tokens</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w">                     </span><span class="c1">// give 2 tokens</span>
+<span class="w">                    </span><span class="n">period</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w">                     </span><span class="c1">// every 2</span>
+<span class="w">                    </span><span class="n">periodUnit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ChronoUnit</span><span class="p">.</span><span class="na">MINUTES</span><span class="w"> </span><span class="c1">// minutes</span>
+<span class="w">                </span><span class="p">)</span>
+<span class="w">            </span><span class="p">),</span>
+<span class="w">        </span><span class="o">]</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="nd">@JDASlashCommand</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;rate_limit&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">suspend</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onSlashRateLimit</span><span class="p">(</span><span class="n">event</span><span class="p">:</span><span class="w"> </span><span class="n">GuildSlashEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Assuming we have voice states cached</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">event</span><span class="p">.</span><span class="na">member</span><span class="p">.</span><span class="na">voiceState</span><span class="o">!!</span><span class="p">.</span><span class="na">inAudioChannel</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Don&#39;t consume a token as this command requires to be in a voice channel</span>
+<span class="w">            </span><span class="c1">// Note that this would be easier done using a filter,</span>
+<span class="w">            </span><span class="c1">// as no token would be used, and would also be cleaner.</span>
+<span class="w">            </span><span class="n">event</span><span class="p">.</span><span class="na">cancelRateLimit</span><span class="p">()</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="na">reply_</span><span class="p">(</span><span class="s">&quot;You must be in a voice channel&quot;</span><span class="p">).</span><span class="na">awaitUnit</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">event</span><span class="p">.</span><span class="na">reply</span><span class="p">(</span><span class="s">&quot;Hello world!&quot;</span><span class="p">).</span><span class="na">await</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="nd">@Command</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SlashRateLimit</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ApplicationCommand</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="c1">// A rate limit for this slash command only</span>
+<span class="w">    </span><span class="nd">@RateLimit</span><span class="p">(</span>
+<span class="w">            </span><span class="c1">// Apply to each user, regardless of channel/guild</span>
+<span class="w">            </span><span class="n">scope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RateLimitScope</span><span class="p">.</span><span class="na">USER</span><span class="p">,</span>
+<span class="w">            </span><span class="c1">// Delete the message telling the user about the remaining rate limit after it expires</span>
+<span class="w">            </span><span class="n">deleteOnRefill</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="c1">// At least one of those needs to be empty for the command to be rejected</span>
+<span class="w">            </span><span class="n">bandwidths</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="c1">// 5 uses, 5 tokens gets added gradually over an hour (so, 1 token every 12 minutes)</span>
+<span class="w">                    </span><span class="nd">@Bandwidth</span><span class="p">(</span>
+<span class="w">                            </span><span class="n">capacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="c1">// 5 uses</span>
+<span class="w">                            </span><span class="n">refill</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nd">@Refill</span><span class="p">(</span>
+<span class="w">                                    </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RefillType</span><span class="p">.</span><span class="na">GREEDY</span><span class="p">,</span><span class="w">       </span><span class="c1">// Gradually</span>
+<span class="w">                                    </span><span class="n">tokens</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">                     </span><span class="c1">// gives 5 tokens</span>
+<span class="w">                                    </span><span class="n">period</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">                     </span><span class="c1">// every 1</span>
+<span class="w">                                    </span><span class="n">periodUnit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ChronoUnit</span><span class="p">.</span><span class="na">HOURS</span><span class="w">   </span><span class="c1">// hour</span>
+<span class="w">                            </span><span class="p">)</span>
+<span class="w">                    </span><span class="p">),</span>
+<span class="w">                    </span><span class="c1">// 2 uses, 2 tokens gets added at once after 2 minutes</span>
+<span class="w">                    </span><span class="c1">// This is to prevent the user from spamming the command</span>
+<span class="w">                    </span><span class="nd">@Bandwidth</span><span class="p">(</span>
+<span class="w">                            </span><span class="n">capacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="c1">// 2 uses</span>
+<span class="w">                            </span><span class="n">refill</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nd">@Refill</span><span class="p">(</span>
+<span class="w">                                    </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RefillType</span><span class="p">.</span><span class="na">INTERVAL</span><span class="p">,</span><span class="w">     </span><span class="c1">// At once,</span>
+<span class="w">                                    </span><span class="n">tokens</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">                     </span><span class="c1">// give 2 tokens</span>
+<span class="w">                                    </span><span class="n">period</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">                     </span><span class="c1">// every 2</span>
+<span class="w">                                    </span><span class="n">periodUnit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ChronoUnit</span><span class="p">.</span><span class="na">MINUTES</span><span class="w"> </span><span class="c1">// minutes</span>
+<span class="w">                            </span><span class="p">)</span>
+<span class="w">                    </span><span class="p">),</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="nd">@JDASlashCommand</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;rate_limit&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onSlashRateLimit</span><span class="p">(</span><span class="n">GuildSlashEvent</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Assuming we have voice states cached</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">event</span><span class="p">.</span><span class="na">getMember</span><span class="p">().</span><span class="na">getVoiceState</span><span class="p">().</span><span class="na">inAudioChannel</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Don&#39;t consume a token as this command requires to be in a voice channel</span>
+<span class="w">            </span><span class="c1">// Note that this would be easier done using a filter,</span>
+<span class="w">            </span><span class="c1">// as no token would be used, and would also be cleaner.</span>
+<span class="w">            </span><span class="n">event</span><span class="p">.</span><span class="na">cancelRateLimit</span><span class="p">();</span>
+<span class="w">            </span><span class="n">event</span><span class="p">.</span><span class="na">reply</span><span class="p">(</span><span class="s">&quot;You must be in a voice channel&quot;</span><span class="p">).</span><span class="na">queue</span><span class="p">();</span>
+<span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">event</span><span class="p">.</span><span class="na">reply</span><span class="p">(</span><span class="s">&quot;Hello world!&quot;</span><span class="p">).</span><span class="na">queue</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="using-an-existing-rate-limiter">Using an existing rate limiter<a class="headerlink" href="#using-an-existing-rate-limiter" title="Permanent link">&para;</a></h4>
+<p>Nothing as simple as using <code class="highlight"><span class="nd">@RateLimitReference</span></code> with the <code>group</code> of a rate limiter defined in a <code>RateLimitProvider</code>.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Kotlin</label><label for="__tabbed_8_2">Java</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">WikiRateLimitProvider.kt</span><pre><span></span><code><span class="nd">@BService</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">WikiRateLimitProvider</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">RateLimitProvider</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">declareRateLimit</span><span class="p">(</span><span class="n">manager</span><span class="p">:</span><span class="w"> </span><span class="n">RateLimitManager</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Lets the user use the command 5 times in an hour, but also 2 times in 2 minutes to prevent spam</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">bucketConfiguration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Buckets</span><span class="p">.</span><span class="na">spikeProtected</span><span class="p">(</span>
+<span class="w">            </span><span class="n">capacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w">               </span><span class="c1">// 5 uses</span>
+<span class="w">            </span><span class="n">duration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1.</span><span class="n">hours</span><span class="p">,</span><span class="w">         </span><span class="c1">// Gives 5 tokens gradually, during an hour (1 token every 12 minutes)</span>
+<span class="w">            </span><span class="n">spikeCapacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w">          </span><span class="c1">// 2 uses</span>
+<span class="w">            </span><span class="n">spikeDuration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2.</span><span class="n">minutes</span><span class="w">   </span><span class="c1">// Give 2 tokens every 2 minutes</span>
+<span class="w">        </span><span class="p">)</span>
+
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">rateLimiter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RateLimiter</span><span class="p">.</span><span class="na">createDefault</span><span class="p">(</span>
+<span class="w">            </span><span class="c1">// Apply to each user, regardless of channel/guild</span>
+<span class="w">            </span><span class="n">RateLimitScope</span><span class="p">.</span><span class="na">USER</span><span class="p">,</span>
+<span class="w">            </span><span class="c1">// Delete the message telling the user about the remaining rate limit after it expires</span>
+<span class="w">            </span><span class="n">deleteOnRefill</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="c1">// Give our constant bucket configuration</span>
+<span class="w">            </span><span class="n">configurationSupplier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bucketConfiguration</span><span class="p">.</span><span class="na">toSupplier</span><span class="p">()</span>
+<span class="w">        </span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// Register, any command can use it</span>
+<span class="w">        </span><span class="n">manager</span><span class="p">.</span><span class="na">rateLimit</span><span class="p">(</span><span class="n">RATE_LIMIT_GROUP</span><span class="p">,</span><span class="w"> </span><span class="n">rateLimiter</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">companion</span><span class="w"> </span><span class="kd">object</span><span class="w"> </span><span class="err">{</span>
+<span class="w">        </span><span class="c1">// The name of the rate limit, so you can reference it in your commands/components</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">RATE_LIMIT_GROUP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Wiki&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nd">@Command</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">SlashRateLimitExisting</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ApplicationCommand</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="c1">// A rate limit for this slash command only</span>
+<span class="w">    </span><span class="nd">@RateLimitReference</span><span class="p">(</span><span class="n">WikiRateLimitProvider</span><span class="p">.</span><span class="na">RATE_LIMIT_GROUP</span><span class="p">)</span>
+<span class="w">    </span><span class="nd">@JDASlashCommand</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;rate_limit_existing&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">suspend</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onSlashRateLimit</span><span class="p">(</span><span class="n">event</span><span class="p">:</span><span class="w"> </span><span class="n">GuildSlashEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Assuming we have voice states cached</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">event</span><span class="p">.</span><span class="na">member</span><span class="p">.</span><span class="na">voiceState</span><span class="o">!!</span><span class="p">.</span><span class="na">inAudioChannel</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Don&#39;t consume a token as this command requires to be in a voice channel</span>
+<span class="w">            </span><span class="c1">// Note that this would be easier done using a filter,</span>
+<span class="w">            </span><span class="c1">// as no token would be used, and would also be cleaner.</span>
+<span class="w">            </span><span class="n">event</span><span class="p">.</span><span class="na">cancelRateLimit</span><span class="p">()</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="na">reply_</span><span class="p">(</span><span class="s">&quot;You must be in a voice channel&quot;</span><span class="p">).</span><span class="na">awaitUnit</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">event</span><span class="p">.</span><span class="na">reply</span><span class="p">(</span><span class="s">&quot;Hello world!&quot;</span><span class="p">).</span><span class="na">await</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">WikiRateLimitProvider.java</span><pre><span></span><code><span class="nd">@BService</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">WikiRateLimitProvider</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">RateLimitProvider</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// The name of the rate limit, so you can reference it in your commands/components</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">RATE_LIMIT_GROUP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Wiki&quot;</span><span class="p">;</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">declareRateLimit</span><span class="p">(</span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">RateLimitManager</span><span class="w"> </span><span class="n">rateLimitManager</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Lets the user use the command 5 times in an hour, but also 2 times in 2 minutes to prevent spam</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">bucketConfiguration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Buckets</span><span class="p">.</span><span class="na">spikeProtected</span><span class="p">(</span>
+<span class="w">                </span><span class="mi">5</span><span class="p">,</span><span class="w">              </span><span class="c1">// 5 uses</span>
+<span class="w">                </span><span class="n">Duration</span><span class="p">.</span><span class="na">ofHours</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w">    </span><span class="c1">// Gives 5 tokens gradually, during an hour (1 token every 12 minutes)</span>
+<span class="w">                </span><span class="mi">2</span><span class="p">,</span><span class="w">                      </span><span class="c1">// 2 uses</span>
+<span class="w">                </span><span class="n">Duration</span><span class="p">.</span><span class="na">ofMinutes</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w">   </span><span class="c1">// Give 2 tokens every 2 minutes</span>
+<span class="w">        </span><span class="p">);</span>
+
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">rateLimiter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RateLimiter</span><span class="p">.</span><span class="na">createDefault</span><span class="p">(</span>
+<span class="w">                </span><span class="c1">// Apply to each user, regardless of channel/guild</span>
+<span class="w">                </span><span class="n">RateLimitScope</span><span class="p">.</span><span class="na">USER</span><span class="p">,</span>
+<span class="w">                </span><span class="c1">// Give our constant bucket configuration</span>
+<span class="w">                </span><span class="n">BucketConfigurationSupplier</span><span class="p">.</span><span class="na">constant</span><span class="p">(</span><span class="n">bucketConfiguration</span><span class="p">),</span>
+<span class="w">                </span><span class="c1">// Delete the message telling the user about the remaining rate limit after it expires</span>
+<span class="w">                </span><span class="kc">true</span>
+<span class="w">        </span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Register</span>
+<span class="w">        </span><span class="n">rateLimitManager</span><span class="p">.</span><span class="na">rateLimit</span><span class="p">(</span><span class="n">RATE_LIMIT_GROUP</span><span class="p">,</span><span class="w"> </span><span class="n">rateLimiter</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nd">@Command</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SlashRateLimitExisting</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ApplicationCommand</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="c1">// A rate limit for this slash command only</span>
+<span class="w">    </span><span class="nd">@RateLimitReference</span><span class="p">(</span><span class="n">WikiRateLimitProvider</span><span class="p">.</span><span class="na">RATE_LIMIT_GROUP</span><span class="p">)</span>
+<span class="w">    </span><span class="nd">@JDASlashCommand</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;rate_limit_existing&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onSlashRateLimit</span><span class="p">(</span><span class="n">GuildSlashEvent</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Assuming we have voice states cached</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">event</span><span class="p">.</span><span class="na">getMember</span><span class="p">().</span><span class="na">getVoiceState</span><span class="p">().</span><span class="na">inAudioChannel</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Don&#39;t consume a token as this command requires to be in a voice channel</span>
+<span class="w">            </span><span class="c1">// Note that this would be easier done using a filter,</span>
+<span class="w">            </span><span class="c1">// as no token would be used, and would also be cleaner.</span>
+<span class="w">            </span><span class="n">event</span><span class="p">.</span><span class="na">cancelRateLimit</span><span class="p">();</span>
+<span class="w">            </span><span class="n">event</span><span class="p">.</span><span class="na">reply</span><span class="p">(</span><span class="s">&quot;You must be in a voice channel&quot;</span><span class="p">).</span><span class="na">queue</span><span class="p">();</span>
+<span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">event</span><span class="p">.</span><span class="na">reply</span><span class="p">(</span><span class="s">&quot;Hello world!&quot;</span><span class="p">).</span><span class="na">queue</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="cooldown">Cooldown<a class="headerlink" href="#cooldown" title="Permanent link">&para;</a></h4>
+<p>A cooldown is a rate limit, but with fewer parameters, it can be used as <code class="highlight"><span class="nd">@Cooldown</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="n">ChronoUnit</span><span class="p">.</span><span class="na">SECONDS</span><span class="w"> </span><span class="cm">/* also scope and deleteOnRefill */</span><span class="p">)</span></code>.</p>
 <h2 id="dsl-commands-kotlin">DSL commands (Kotlin)<a class="headerlink" href="#dsl-commands-kotlin" title="Permanent link">&para;</a></h2>
 <p>Commands can be DSL-declared by either implementing:</p>
 <ul>
@@ -1735,6 +2042,108 @@ as it avoids typing the name twice.</p>
 <span class="p">}</span>
 </code></pre></div>
 </div>
+<h3 id="rate-limiting_1">Rate limiting<a class="headerlink" href="#rate-limiting_1" title="Permanent link">&para;</a></h3>
+<p>This lets you reject application commands if the user tries to use them too often.</p>
+<h4 id="using-an-anonymous-rate-limiter_1">Using an (anonymous) rate limiter<a class="headerlink" href="#using-an-anonymous-rate-limiter_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nd">@Command</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">SlashRateLimitDsl</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">GlobalApplicationCommandProvider</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">suspend</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onSlashRateLimit</span><span class="p">(</span><span class="n">event</span><span class="p">:</span><span class="w"> </span><span class="n">GuildSlashEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Assuming we have voice states cached</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">event</span><span class="p">.</span><span class="na">member</span><span class="p">.</span><span class="na">voiceState</span><span class="o">!!</span><span class="p">.</span><span class="na">inAudioChannel</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Don&#39;t consume a token as this command requires to be in a voice channel</span>
+<span class="w">            </span><span class="c1">// Note that this would be easier done using a filter,</span>
+<span class="w">            </span><span class="c1">// as no token would be used, and would also be cleaner.</span>
+<span class="w">            </span><span class="n">event</span><span class="p">.</span><span class="na">cancelRateLimit</span><span class="p">()</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="na">reply_</span><span class="p">(</span><span class="s">&quot;You must be in a voice channel&quot;</span><span class="p">).</span><span class="na">awaitUnit</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">event</span><span class="p">.</span><span class="na">reply</span><span class="p">(</span><span class="s">&quot;Hello world!&quot;</span><span class="p">).</span><span class="na">await</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">declareGlobalApplicationCommands</span><span class="p">(</span><span class="n">manager</span><span class="p">:</span><span class="w"> </span><span class="n">GlobalApplicationCommandManager</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">manager</span><span class="p">.</span><span class="na">slashCommand</span><span class="p">(</span><span class="s">&quot;rate_limit_dsl&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">function</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">::</span><span class="n">onSlashRateLimit</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Lets the user use the command 5 times in an hour, but also 2 times in 2 minutes to prevent spam</span>
+<span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">bucketConfiguration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Buckets</span><span class="p">.</span><span class="na">spikeProtected</span><span class="p">(</span>
+<span class="w">                </span><span class="n">capacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w">               </span><span class="c1">// 5 uses</span>
+<span class="w">                </span><span class="n">duration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1.</span><span class="n">hours</span><span class="p">,</span><span class="w">         </span><span class="c1">// Gives 5 tokens gradually, during an hour (1 token every 12 minutes)</span>
+<span class="w">                </span><span class="n">spikeCapacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w">          </span><span class="c1">// 2 uses</span>
+<span class="w">                </span><span class="n">spikeDuration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2.</span><span class="n">minutes</span><span class="w">   </span><span class="c1">// Give 2 tokens every 2 minutes</span>
+<span class="w">            </span><span class="p">)</span>
+
+<span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">rateLimiter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RateLimiter</span><span class="p">.</span><span class="na">createDefault</span><span class="p">(</span>
+<span class="w">                </span><span class="c1">// Apply to each user, regardless of channel/guild</span>
+<span class="w">                </span><span class="n">RateLimitScope</span><span class="p">.</span><span class="na">USER</span><span class="p">,</span>
+<span class="w">                </span><span class="c1">// Delete the message telling the user about the remaining rate limit after it expires</span>
+<span class="w">                </span><span class="n">deleteOnRefill</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">                </span><span class="c1">// Give our constant bucket configuration</span>
+<span class="w">                </span><span class="n">configurationSupplier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bucketConfiguration</span><span class="p">.</span><span class="na">toSupplier</span><span class="p">()</span>
+<span class="w">            </span><span class="p">)</span>
+
+<span class="w">            </span><span class="n">rateLimit</span><span class="p">(</span><span class="n">rateLimiter</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="using-an-existing-rate-limiter_1">Using an existing rate limiter<a class="headerlink" href="#using-an-existing-rate-limiter_1" title="Permanent link">&para;</a></h4>
+<p>Nothing as simple as using <code>rateLimitReference</code> with the <code>group</code> of a rate limiter defined in a <code>RateLimitProvider</code>.</p>
+<div class="highlight"><span class="filename">WikiRateLimitProvider.kt</span><pre><span></span><code><span class="nd">@BService</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">WikiRateLimitProvider</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">RateLimitProvider</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">declareRateLimit</span><span class="p">(</span><span class="n">manager</span><span class="p">:</span><span class="w"> </span><span class="n">RateLimitManager</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Lets the user use the command 5 times in an hour, but also 2 times in 2 minutes to prevent spam</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">bucketConfiguration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Buckets</span><span class="p">.</span><span class="na">spikeProtected</span><span class="p">(</span>
+<span class="w">            </span><span class="n">capacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w">               </span><span class="c1">// 5 uses</span>
+<span class="w">            </span><span class="n">duration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1.</span><span class="n">hours</span><span class="p">,</span><span class="w">         </span><span class="c1">// Gives 5 tokens gradually, during an hour (1 token every 12 minutes)</span>
+<span class="w">            </span><span class="n">spikeCapacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w">          </span><span class="c1">// 2 uses</span>
+<span class="w">            </span><span class="n">spikeDuration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2.</span><span class="n">minutes</span><span class="w">   </span><span class="c1">// Give 2 tokens every 2 minutes</span>
+<span class="w">        </span><span class="p">)</span>
+
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">rateLimiter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RateLimiter</span><span class="p">.</span><span class="na">createDefault</span><span class="p">(</span>
+<span class="w">            </span><span class="c1">// Apply to each user, regardless of channel/guild</span>
+<span class="w">            </span><span class="n">RateLimitScope</span><span class="p">.</span><span class="na">USER</span><span class="p">,</span>
+<span class="w">            </span><span class="c1">// Delete the message telling the user about the remaining rate limit after it expires</span>
+<span class="w">            </span><span class="n">deleteOnRefill</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="c1">// Give our constant bucket configuration</span>
+<span class="w">            </span><span class="n">configurationSupplier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bucketConfiguration</span><span class="p">.</span><span class="na">toSupplier</span><span class="p">()</span>
+<span class="w">        </span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// Register, any command can use it</span>
+<span class="w">        </span><span class="n">manager</span><span class="p">.</span><span class="na">rateLimit</span><span class="p">(</span><span class="n">RATE_LIMIT_GROUP</span><span class="p">,</span><span class="w"> </span><span class="n">rateLimiter</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">companion</span><span class="w"> </span><span class="kd">object</span><span class="w"> </span><span class="err">{</span>
+<span class="w">        </span><span class="c1">// The name of the rate limit, so you can reference it in your commands/components</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">RATE_LIMIT_GROUP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Wiki&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nd">@Command</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">SlashRateLimitExistingDsl</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">GlobalApplicationCommandProvider</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">suspend</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onSlashRateLimit</span><span class="p">(</span><span class="n">event</span><span class="p">:</span><span class="w"> </span><span class="n">GuildSlashEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Assuming we have voice states cached</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">event</span><span class="p">.</span><span class="na">member</span><span class="p">.</span><span class="na">voiceState</span><span class="o">!!</span><span class="p">.</span><span class="na">inAudioChannel</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Don&#39;t consume a token as this command requires to be in a voice channel</span>
+<span class="w">            </span><span class="c1">// Note that this would be easier done using a filter,</span>
+<span class="w">            </span><span class="c1">// as no token would be used, and would also be cleaner.</span>
+<span class="w">            </span><span class="n">event</span><span class="p">.</span><span class="na">cancelRateLimit</span><span class="p">()</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="na">reply_</span><span class="p">(</span><span class="s">&quot;You must be in a voice channel&quot;</span><span class="p">).</span><span class="na">awaitUnit</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">event</span><span class="p">.</span><span class="na">reply</span><span class="p">(</span><span class="s">&quot;Hello world!&quot;</span><span class="p">).</span><span class="na">await</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">declareGlobalApplicationCommands</span><span class="p">(</span><span class="n">manager</span><span class="p">:</span><span class="w"> </span><span class="n">GlobalApplicationCommandManager</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">manager</span><span class="p">.</span><span class="na">slashCommand</span><span class="p">(</span><span class="s">&quot;rate_limit_existing_dsl&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">function</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">::</span><span class="n">onSlashRateLimit</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Use the rate limiter we defined in [[WikiRateLimitProvider]]</span>
+<span class="w">            </span><span class="n">rateLimitReference</span><span class="p">(</span><span class="n">WikiRateLimitProvider</span><span class="p">.</span><span class="na">RATE_LIMIT_GROUP</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="cooldown_1">Cooldown<a class="headerlink" href="#cooldown_1" title="Permanent link">&para;</a></h4>
+<p>A cooldown is a rate limit, but with fewer parameters, it can be used as <code>cooldown(5.seconds /* also scope and deleteOnRefill */)</code>.</p>
 <h3 id="generated-values_1">Generated values<a class="headerlink" href="#generated-values_1" title="Permanent link">&para;</a></h3>
 <p>Generated values are a command parameter that gets their values computed by the given block everytime the command run.</p>
 <p>Contrary to the annotated commands, no checks are required, as this is tied to the currently built command.</p>
@@ -1767,7 +2176,7 @@ by putting them in a localization file, using the root locale (i.e., no locale s
 and have your localization bundle registered with <code>BApplicationConfigBuilder#addLocalizations</code>.</p>
 <details class="info">
 <summary>The same commands as before, but without the descriptions</summary>
-<div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Kotlin</label><label for="__tabbed_7_2">Kotlin (DSL)</label><label for="__tabbed_7_3">Java</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:3"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><input id="__tabbed_9_3" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">Kotlin</label><label for="__tabbed_9_2">Kotlin (DSL)</label><label for="__tabbed_9_3">Java</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nd">@Command</span>
@@ -1829,7 +2238,7 @@ that is, the resolver will return the choices used for every option of their typ
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <p>Here, the resolver for <code>TimeUnit</code> is already defined and will be explained in <a href="../option-resolvers/">Adding option resolvers</a>.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Kotlin</label><label for="__tabbed_8_2">Kotlin (DSL)</label><label for="__tabbed_8_3">Java</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:3"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><input id="__tabbed_10_3" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">Kotlin</label><label for="__tabbed_10_2">Kotlin (DSL)</label><label for="__tabbed_10_3">Java</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nd">@Command</span>
