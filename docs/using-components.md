@@ -209,23 +209,22 @@ Now that your filter has been created, you can reference it in your component.
     ```
 
 ## Rate limiting
-Rate limiting / cooldowns can be applied to components by using [`rateLimitReference()`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components.builder/-i-actionable-component/rate-limit-reference.html),
-then referencing an existing rate limiter.
+Just like application commands, components can be rate limited.
+However, you will need to help the library differentiate components from each other (unlike commands which are differentiated by their names).
 
-[//]: # (Add ", see [link to rate limiting]")
+You will first need to create a [`ComponentRateLimitReference`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components.ratelimit/-component-rate-limit-reference/index.html),
+you can do that with [`createRateLimitReference`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components/-abstract-component-factory/create-rate-limit-reference.html), present in any component factory (`Components`, `Buttons`, `SelectMenus`).
 
-### Using an existing rate limiter
-=== "Kotlin"
-    ```kotlin
-    buttons.primary("Can't click me too fast").ephemeral {
-        rateLimitReference("name of the rate limiter")
-    }
-    ```
+The `group` associated with the `discriminator` will need to be unique,
+as to differentiate components (referenced by `discriminator`) using the same rate limiter (referenced by `group`).
 
-=== "Java"
-    ```java
-    buttons.primary("Can't click me too fast")
-        .ephemeral()
-        .rateLimitReference("name of the rate limiter")
-        .build()
-    ```
+!!! example
+    === "Kotlin"
+        ```kotlin
+        --8<-- "wiki/commands/slash/SlashComponentRateLimit.kt:component_rate_limit-kotlin"
+        ```
+    
+    === "Java"
+        ```java
+        --8<-- "wiki/java/commands/slash/SlashComponentRateLimit.java:component_rate_limit-java"
+        ```
