@@ -29,6 +29,26 @@ and allows switching implementations in a completely transparent manner.
     it is basically the same, except in a much more complete framework, and without having to declare everything with this method.
 
     === "2.X"
+        === "Kotlin"
+            ```kotlin title="TagDatabase.kt"
+            class TagDatabase { /* */ }
+            ```
+    
+            ```kotlin title="TagCommand.kt"
+            class TagCommand(private val tagDatabase: TagDatabase) {
+                /* */
+            }
+            ```
+    
+            ```kotlin title="Builder"
+            val tagDatabase = TagDatabase(/* */);
+            
+            CommandsBuilder.newBuilder()
+                .registerConstructorParameter(TagDatabase::class.java) { tagDatabase }
+                // Further configuration
+                .build();
+            ```
+
         === "Java"
             ```java title="TagDatabase.java"
             public class TagDatabase { /* */ }
@@ -53,27 +73,22 @@ and allows switching implementations in a completely transparent manner.
                 .build();
             ```
 
+    === "3.X"
         === "Kotlin"
             ```kotlin title="TagDatabase.kt"
+            @BService //Makes this class injectable, can also pull other services in its constructor
             class TagDatabase { /* */ }
             ```
     
             ```kotlin title="TagCommand.kt"
+            @Command
             class TagCommand(private val tagDatabase: TagDatabase) {
                 /* */
             }
             ```
     
-            ```kotlin title="Builder"
-            val tagDatabase = TagDatabase(/* */);
-            
-            CommandsBuilder.newBuilder()
-                .registerConstructorParameter(TagDatabase::class.java) { tagDatabase }
-                // Further configuration
-                .build();
-            ```
+            No specific builder code required!
 
-    === "3.X"
         === "Java"
             ```java title="TagDatabase.java"
             @BService //Makes this class injectable, can also pull other services in its constructor
@@ -89,21 +104,6 @@ and allows switching implementations in a completely transparent manner.
                     this.tagDatabase = tagDatabase;
                 }
 
-                /* */
-            }
-            ```
-    
-            No specific builder code required!
-
-        === "Kotlin"
-            ```kotlin title="TagDatabase.kt"
-            @BService //Makes this class injectable, can also pull other services in its constructor
-            class TagDatabase { /* */ }
-            ```
-    
-            ```kotlin title="TagCommand.kt"
-            @Command
-            class TagCommand(private val tagDatabase: TagDatabase) {
                 /* */
             }
             ```

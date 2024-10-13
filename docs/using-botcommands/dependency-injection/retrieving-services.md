@@ -10,7 +10,26 @@ this can be omitted if the parameter name matches a service with a compatible ty
     You can also get services manually with `BContext` or `ServiceContainer`, the latter has all methods available, 
     including Kotlin extensions.
 
-!!! example
+!!! example              
+
+    === "Kotlin"
+        ```kotlin
+        @BService // Enables the service to request services and be requested
+        class TagDatabase { /* */ }
+        ```
+
+        ```kotlin
+        @Command // Enables the command to request services and be requested
+        class TagCommand(
+            // You can even request framework services, as long as they are annotated with @BService or @InterfacedService
+            // Here I've named it "componentsService" because "components" might conflict with some JDA-KTX builders
+            private val componentsService: Components,
+            // and your own services
+            private val tagDatabase: TagDatabase
+        ) {
+            /* */
+        }
+        ```
 
     === "Java"
         ```java
@@ -36,26 +55,7 @@ this can be omitted if the parameter name matches a service with a compatible ty
 
             /* */
         }
-        ```                
-
-    === "Kotlin"
-        ```kotlin
-        @BService // Enables the service to request services and be requested
-        class TagDatabase { /* */ }
-        ```
-
-        ```kotlin
-        @Command // Enables the command to request services and be requested
-        class TagCommand(
-            // You can even request framework services, as long as they are annotated with @BService or @InterfacedService
-            // Here I've named it "componentsService" because "components" might conflict with some JDA-KTX builders
-            private val componentsService: Components,
-            // and your own services
-            private val tagDatabase: TagDatabase
-        ) {
-            /* */
-        }
-        ```
+        ```  
 
 ??? example "Retrieving services by name"
 
@@ -142,14 +142,14 @@ or to get services that are not yet available, such as manually injected service
 
 !!! example "Retrieving a lazy service"
 
-    === "Java"
-        Request a `Lazy` with the element type being the requested service, 
-        and then get the service when needed by using `Lazy#getValue`.
-
     === "Kotlin"
         Request a `ServiceContainer` and use a delegated property, such as:
 
         `#!kotlin private val helpCommand: IHelpCommand by serviceContainer.lazy()`
+
+    === "Java"
+        Request a `Lazy` with the element type being the requested service, 
+        and then get the service when needed by using `Lazy#getValue`.
 
 !!! note
 

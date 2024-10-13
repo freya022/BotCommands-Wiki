@@ -23,27 +23,6 @@ they must be annotated with `#!java @BService`, be in a service, or in an `#!kot
 
 ??? example
 
-    === "Java"
-        ```java
-        public class Config {
-            private static Config INSTANCE = null;
-
-            /* */
-
-            // Service factory, registers as "Config" (as it is the return type), with the name "config"
-            // You can use any method name, but the method name is what the service is registered as
-            @BService
-            public static Config config() {
-                if (INSTANCE == null) {
-                    // Of course here you would load the config from a file
-                    INSTANCE = new Config();
-                }
-                
-                return INSTANCE;
-            }
-        }
-        ```
-
     === "Kotlin"
         ```kotlin
         class Config {
@@ -73,6 +52,27 @@ they must be annotated with `#!java @BService`, be in a service, or in an `#!kot
                     // Of course here you would load the config from a file
                     Config()
                 }
+            }
+        }
+        ```
+
+    === "Java"
+        ```java
+        public class Config {
+            private static Config INSTANCE = null;
+
+            /* */
+
+            // Service factory, registers as "Config" (as it is the return type), with the name "config"
+            // You can use any method name, but the method name is what the service is registered as
+            @BService
+            public static Config config() {
+                if (INSTANCE == null) {
+                    // Of course here you would load the config from a file
+                    INSTANCE = new Config();
+                }
+                
+                return INSTANCE;
             }
         }
         ```
@@ -122,14 +122,14 @@ the service is only created if none of these classes return an error message.
 
 ??? example
 
-    === "Java"
-        ```java
-        --8<-- "wiki/java/commands/slash/TagCommand.java:tag_interfaced_condition-java"
-        ```
-
     === "Kotlin"
         ```kotlin
         --8<-- "wiki/commands/slash/TagCommand.kt:tag_interfaced_condition-kotlin"
+        ```
+
+    === "Java"
+        ```java
+        --8<-- "wiki/java/commands/slash/TagCommand.java:tag_interfaced_condition-java"
         ```
 
 #### Annotation conditions
@@ -147,6 +147,17 @@ The implementation must have a no-arg constructor, or be an `#!kotlin object`
 
 ??? example
 
+    === "Kotlin"
+        ```kotlin title="DevCommand.kt"
+        --8<-- "wiki/switches/DevCommand.kt:dev_command_annotated_condition-annotation-kotlin"
+        
+        --8<-- "wiki/switches/DevCommand.kt:dev_command_annotated_condition-checker-kotlin"
+        ```
+
+        ```kotlin title="SlashShutdown.kt"
+        --8<-- "wiki/commands/slash/SlashShutdown.kt:dev_command_annotated_condition-command-kotlin"
+        ```
+
     === "Java"
         ```java title="DevCommand.java"
         --8<-- "wiki/java/switches/DevCommand.java:dev_command_annotated_condition-annotation-java"
@@ -158,17 +169,6 @@ The implementation must have a no-arg constructor, or be an `#!kotlin object`
 
         ```java title="SlashShutdown.java"
         --8<-- "wiki/java/commands/slash/SlashShutdown.java:dev_command_annotated_condition-command-java"
-        ```
-
-    === "Kotlin"
-        ```kotlin title="DevCommand.kt"
-        --8<-- "wiki/switches/DevCommand.kt:dev_command_annotated_condition-annotation-kotlin"
-        
-        --8<-- "wiki/switches/DevCommand.kt:dev_command_annotated_condition-checker-kotlin"
-        ```
-
-        ```kotlin title="SlashShutdown.kt"
-        --8<-- "wiki/commands/slash/SlashShutdown.kt:dev_command_annotated_condition-command-kotlin"
         ```
 
 ### Interfaced services
