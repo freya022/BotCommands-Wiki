@@ -192,7 +192,7 @@ Now that your filter has been created, you can reference it in your component.
 Rate limiting / cooldowns can be applied to components by using [`rateLimitReference()`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components.builder/-i-actionable-component/rate-limit-reference.html),
 then referencing an existing rate limiter.
 
-[//]: # (Add ", see [link to rate limiting]")
+!!! info "Learn how to create a rate limiter on the [Rate limiting wiki](./using-botcommands/ratelimit.md)"
 
 ### Using an existing rate limiter
 === "Kotlin"
