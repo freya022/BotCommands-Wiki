@@ -1090,8 +1090,24 @@ including Kotlin extensions.</p>
 </div>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">Kotlin</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Kotlin</label><label for="__tabbed_1_2">Java</label></div>
 <div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="nd">@BService</span><span class="w"> </span><span class="c1">// Enables the service to request services and be requested</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">TagDatabase</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* */</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nd">@Command</span><span class="w"> </span><span class="c1">// Enables the command to request services and be requested</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">TagCommand</span><span class="p">(</span>
+<span class="w">    </span><span class="c1">// You can even request framework services, as long as they are annotated with @BService or @InterfacedService</span>
+<span class="w">    </span><span class="c1">// Here I&#39;ve named it &quot;componentsService&quot; because &quot;components&quot; might conflict with some JDA-KTX builders</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">componentsService</span><span class="p">:</span><span class="w"> </span><span class="n">Components</span><span class="p">,</span>
+<span class="w">    </span><span class="c1">// and your own services</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">tagDatabase</span><span class="p">:</span><span class="w"> </span><span class="n">TagDatabase</span>
+<span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cm">/* */</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nd">@BService</span><span class="w"> </span><span class="c1">// Enables the service to request services and be requested</span>
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TagDatabase</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* */</span><span class="w"> </span><span class="p">}</span>
@@ -1111,22 +1127,6 @@ including Kotlin extensions.</p>
 <span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">tagDatabase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tagDatabase</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="cm">/* */</span>
-<span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="nd">@BService</span><span class="w"> </span><span class="c1">// Enables the service to request services and be requested</span>
-<span class="kd">class</span><span class="w"> </span><span class="nc">TagDatabase</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* */</span><span class="w"> </span><span class="p">}</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="nd">@Command</span><span class="w"> </span><span class="c1">// Enables the command to request services and be requested</span>
-<span class="kd">class</span><span class="w"> </span><span class="nc">TagCommand</span><span class="p">(</span>
-<span class="w">    </span><span class="c1">// You can even request framework services, as long as they are annotated with @BService or @InterfacedService</span>
-<span class="w">    </span><span class="c1">// Here I&#39;ve named it &quot;componentsService&quot; because &quot;components&quot; might conflict with some JDA-KTX builders</span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">componentsService</span><span class="p">:</span><span class="w"> </span><span class="n">Components</span><span class="p">,</span>
-<span class="w">    </span><span class="c1">// and your own services</span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">tagDatabase</span><span class="p">:</span><span class="w"> </span><span class="n">TagDatabase</span>
-<span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="cm">/* */</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -1257,15 +1257,15 @@ which are usable.</p>
 or to get services that are not yet available, such as manually injected services (like <code>JDA</code>).</p>
 <div class="admonition example">
 <p class="admonition-title">Retrieving a lazy service</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Java</label><label for="__tabbed_5_2">Kotlin</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Kotlin</label><label for="__tabbed_5_2">Java</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block">
-<p>Request a <code>Lazy</code> with the element type being the requested service, 
-and then get the service when needed by using <code>Lazy#getValue</code>.</p>
-</div>
 <div class="tabbed-block">
 <p>Request a <code>ServiceContainer</code> and use a delegated property, such as:</p>
 <p><code class="highlight"><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">helpCommand</span><span class="p">:</span><span class="w"> </span><span class="n">IHelpCommand</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">serviceContainer</span><span class="p">.</span><span class="na">lazy</span><span class="p">()</span></code></p>
+</div>
+<div class="tabbed-block">
+<p>Request a <code>Lazy</code> with the element type being the requested service, 
+and then get the service when needed by using <code>Lazy#getValue</code>.</p>
 </div>
 </div>
 </div>

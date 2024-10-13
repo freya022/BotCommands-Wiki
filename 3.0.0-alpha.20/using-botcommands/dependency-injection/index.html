@@ -1031,8 +1031,23 @@ it is basically the same, except in a much more complete framework, and without 
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">2.X</label><label for="__tabbed_1_2">3.X</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">Kotlin</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Kotlin</label><label for="__tabbed_2_2">Java</label></div>
 <div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">TagDatabase.kt</span><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">TagDatabase</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* */</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">TagCommand.kt</span><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">TagCommand</span><span class="p">(</span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">tagDatabase</span><span class="p">:</span><span class="w"> </span><span class="n">TagDatabase</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cm">/* */</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">Builder</span><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">tagDatabase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TagDatabase</span><span class="p">(</span><span class="cm">/* */</span><span class="p">);</span>
+
+<span class="n">CommandsBuilder</span><span class="p">.</span><span class="na">newBuilder</span><span class="p">()</span>
+<span class="w">    </span><span class="p">.</span><span class="na">registerConstructorParameter</span><span class="p">(</span><span class="n">TagDatabase</span><span class="o">::</span><span class="n">class</span><span class="p">.</span><span class="na">java</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">tagDatabase</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// Further configuration</span>
+<span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+</code></pre></div>
+</div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">TagDatabase.java</span><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TagDatabase</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* */</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
@@ -1052,27 +1067,23 @@ it is basically the same, except in a much more complete framework, and without 
 <span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </code></pre></div>
 </div>
+</div>
+</div>
+</div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">TagDatabase.kt</span><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">TagDatabase</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* */</span><span class="w"> </span><span class="p">}</span>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Kotlin</label><label for="__tabbed_3_2">Java</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">TagDatabase.kt</span><pre><span></span><code><span class="nd">@BService</span><span class="w"> </span><span class="c1">//Makes this class injectable, can also pull other services in its constructor</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">TagDatabase</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* */</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
-<div class="highlight"><span class="filename">TagCommand.kt</span><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">TagCommand</span><span class="p">(</span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">tagDatabase</span><span class="p">:</span><span class="w"> </span><span class="n">TagDatabase</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><span class="filename">TagCommand.kt</span><pre><span></span><code><span class="nd">@Command</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">TagCommand</span><span class="p">(</span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">tagDatabase</span><span class="p">:</span><span class="w"> </span><span class="n">TagDatabase</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="cm">/* */</span>
 <span class="p">}</span>
 </code></pre></div>
-<div class="highlight"><span class="filename">Builder</span><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">tagDatabase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TagDatabase</span><span class="p">(</span><span class="cm">/* */</span><span class="p">);</span>
-
-<span class="n">CommandsBuilder</span><span class="p">.</span><span class="na">newBuilder</span><span class="p">()</span>
-<span class="w">    </span><span class="p">.</span><span class="na">registerConstructorParameter</span><span class="p">(</span><span class="n">TagDatabase</span><span class="o">::</span><span class="n">class</span><span class="p">.</span><span class="na">java</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">tagDatabase</span><span class="w"> </span><span class="p">}</span>
-<span class="w">    </span><span class="c1">// Further configuration</span>
-<span class="w">    </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
-</code></pre></div>
+<p>No specific builder code required!</p>
 </div>
-</div>
-</div>
-</div>
-<div class="tabbed-block">
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">Kotlin</label></div>
-<div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">TagDatabase.java</span><pre><span></span><code><span class="nd">@BService</span><span class="w"> </span><span class="c1">//Makes this class injectable, can also pull other services in its constructor</span>
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TagDatabase</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* */</span><span class="w"> </span><span class="p">}</span>
@@ -1085,17 +1096,6 @@ it is basically the same, except in a much more complete framework, and without 
 <span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">tagDatabase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tagDatabase</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="cm">/* */</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>No specific builder code required!</p>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">TagDatabase.kt</span><pre><span></span><code><span class="nd">@BService</span><span class="w"> </span><span class="c1">//Makes this class injectable, can also pull other services in its constructor</span>
-<span class="kd">class</span><span class="w"> </span><span class="nc">TagDatabase</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* */</span><span class="w"> </span><span class="p">}</span>
-</code></pre></div>
-<div class="highlight"><span class="filename">TagCommand.kt</span><pre><span></span><code><span class="nd">@Command</span>
-<span class="kd">class</span><span class="w"> </span><span class="nc">TagCommand</span><span class="p">(</span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">tagDatabase</span><span class="p">:</span><span class="w"> </span><span class="n">TagDatabase</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="cm">/* */</span>
 <span class="p">}</span>
 </code></pre></div>
