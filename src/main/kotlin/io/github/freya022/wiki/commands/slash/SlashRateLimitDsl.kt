@@ -18,7 +18,7 @@ import kotlin.time.Duration.Companion.minutes
 @WikiCommandProfile(WikiCommandProfile.Profile.KOTLIN_DSL)
 // --8<-- [start:rate_limit-kotlin_dsl]
 @Command
-class SlashRateLimitDSL : GlobalApplicationCommandProvider {
+class SlashRateLimitDsl : GlobalApplicationCommandProvider {
 
     suspend fun onSlashRateLimit(event: GuildSlashEvent) {
         // Assuming we have voice states cached

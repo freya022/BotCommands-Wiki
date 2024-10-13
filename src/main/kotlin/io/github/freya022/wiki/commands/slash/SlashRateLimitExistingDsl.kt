@@ -13,7 +13,7 @@ import io.github.freya022.wiki.switches.wiki.WikiCommandProfile
 @WikiCommandProfile(WikiCommandProfile.Profile.KOTLIN_DSL)
 // --8<-- [start:rate_limit_existing-kotlin_dsl]
 @Command
-class SlashRateLimitExistingDSL : GlobalApplicationCommandProvider {
+class SlashRateLimitExistingDsl : GlobalApplicationCommandProvider {
 
     suspend fun onSlashRateLimit(event: GuildSlashEvent) {
         // Assuming we have voice states cached
