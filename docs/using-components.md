@@ -111,6 +111,26 @@ The timeout works similarly to components, except the annotated handler is a [`#
         --8<-- "wiki/java/commands/slash/SlashClickGroup.java:click_group-java"
         ```
 
+## Reset timeout on use
+The [`resetTimeoutOnUse`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components.builder/-i-timeoutable-component/reset-timeout-on-use.html) lets you reset the timeout each time the button is clicked.
+The timeout is only reset if the button was actually used, it will not be reset if unauthorized users use it.
+
+## Deleting components
+Here are some tips on how to delete components:
+
+- Most likely, you have the message (from a `ButtonEvent` for example) and you want to delete the buttons from the message and invalidate them,
+in this case you should use [`deleteRows`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components/-abstract-component-factory/delete-rows.html).
+- In stateful interactions, where components can be **re**used,
+you might sometimes want to store the IDs of the components,
+to then invalidate them when the interaction expires.
+
+    !!! example
+        The built-in paginators stores all the `int` IDs of the components used in paginators,
+        as they cannot be deleted on each page change, as the user might reuse a component they made themselves.
+        Storing them this way is more efficient and allows deletion when the paginator expires, using [deleteComponentsByIds](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components/-abstract-component-factory/delete-components-by-ids.html).
+
+- In other, rare cases, you have the component instances (not the JDA ones), for which you can use [deleteComponents](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components/-abstract-component-factory/delete-components.html)
+
 ## Filtering
 Components also support filtering, you can use `addFilter` with either the filter type, or the filter instance directly.
 
