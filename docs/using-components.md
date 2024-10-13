@@ -27,8 +27,8 @@ They are components that still work after a restart,
 their handlers are methods identified by their handler name,
 set in [`#!java @JDAButtonListener`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components.annotations/-j-d-a-button-listener/index.html)) / [`#!java @JDASelectMenuListener`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components.annotations/-j-d-a-select-menu-listener/index.html).
 
-Persistent components have no timeout by default, as their purpose is to be long-lived, however,
-you can set one using `timeout`, which accept a timeout handler name, set with [`#!java @ComponentTimeoutHandler`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components.annotations/-component-timeout-handler/index.html).
+Persistent components have a default timeout set in [`Components.defaultPersistentTimeout`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components/-components/-companion/default-persistent-timeout.html),
+which can be changed.
 
 !!! info
 
@@ -74,7 +74,7 @@ their handlers are callbacks, which can also have a timeout set, and also use ca
 
     "Invalidated" means that they are deleted from the database, but not necessarily from the message.
 
-Ephemeral components have a default timeout set in [`Components.defaultTimeout`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components/-components/-companion/default-timeout.html), which can be changed.
+Ephemeral components have a default timeout set in [`Components.defaultEphemeralTimeout`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.components/-components/-companion/default-ephemeral-timeout.html), which can be changed.
 
 ### Example
 === "Kotlin"
