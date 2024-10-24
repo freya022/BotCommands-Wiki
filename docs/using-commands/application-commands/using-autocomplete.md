@@ -15,8 +15,8 @@ all of which can be cached.
     You will have to implement the [`AutocompleteHandlerProvider`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.commands.application.slash.autocomplete.declaration/-autocomplete-handler-provider/index.html),
     enabling you to declare autocomplete handlers using the manager.
 
-    You can optionally put a name on the handler, if you plan on using [`autocompleteByName`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.commands.application.slash.builder/-slash-command-option-builder/autocomplete-by-name.html), 
-    however, that's not necessary when using [`autocompleteByFunction`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.commands.application.slash.builder/-slash-command-option-builder/autocomplete-by-function.html).
+    You can optionally put a name on the handler, if you plan on using [`autocompleteByName`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.commands.application.slash.options.builder/-slash-command-option-builder/autocomplete-by-name.html), 
+    however, that's not necessary when using [`autocompleteByFunction`](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.commands.application.slash.options.builder/-slash-command-option-builder/autocomplete-by-function.html).
 
     ```kotlin
     --8<-- "wiki/commands/slash/SlashWord.kt:word_autocomplete-kotlin_dsl"
@@ -29,8 +29,8 @@ all of which can be cached.
 
     !!! info
 
-        An annotated autocomplete handler can still be referenced [by name](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.commands.application.slash.builder/-slash-command-option-builder/autocomplete-by-name.html) 
-        and [by function](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.commands.application.slash.builder/-slash-command-option-builder/autocomplete-by-function.html)
+        An annotated autocomplete handler can still be referenced [by name](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.commands.application.slash.options.builder/-slash-command-option-builder/autocomplete-by-name.html) 
+        and [by function](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.commands.application.slash.options.builder/-slash-command-option-builder/autocomplete-by-function.html)
         in code-declared commands.
 
     === "Kotlin"
@@ -92,12 +92,12 @@ When the results are stable, you can enable autocomplete caching, saving time wh
 
 !!! note
     
-    If the outputs for the same input are stable but may rarely change (think, a list that updates daily), you can [invalidate autocomplete caches](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.core/-b-context/invalidate-autocomplete-cache.html)
+    If the outputs for the same input are stable but may rarely change (think, a list that updates daily), you can [invalidate autocomplete caches](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.commands.application/-application-commands-context/invalidate-autocomplete-cache.html)
     when it eventually does.
 
 !!! tip
 
-    You can also disable the autocomplete cache while developing your bot with the [disableAutocompleteCache](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.core.config/-b-config-builder/disable-autocomplete-cache.html)
+    You can also disable the autocomplete cache while developing your bot with the [disableAutocompleteCache](https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.core.config/-b-application-config-builder/disable-autocomplete-cache.html)
     property, this should help you test your handler live, using hotswap.
 
 ## Transforming elements into choices
