@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../assets/logo-round.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.40">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c3ca2c6.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.0253249f.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -1091,8 +1091,8 @@ they can still type anything.</p>
 <div class="tabbed-block">
 <p>You will have to implement the <a href="https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.commands.application.slash.autocomplete.declaration/-autocomplete-handler-provider/index.html"><code>AutocompleteHandlerProvider</code></a>,
 enabling you to declare autocomplete handlers using the manager.</p>
-<p>You can optionally put a name on the handler, if you plan on using <a href="https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.commands.application.slash.builder/-slash-command-option-builder/autocomplete-by-name.html"><code>autocompleteByName</code></a>, 
-however, that's not necessary when using <a href="https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.commands.application.slash.builder/-slash-command-option-builder/autocomplete-by-function.html"><code>autocompleteByFunction</code></a>.</p>
+<p>You can optionally put a name on the handler, if you plan on using <a href="https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.commands.application.slash.options.builder/-slash-command-option-builder/autocomplete-by-name.html"><code>autocompleteByName</code></a>, 
+however, that's not necessary when using <a href="https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.commands.application.slash.options.builder/-slash-command-option-builder/autocomplete-by-function.html"><code>autocompleteByFunction</code></a>.</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@BService</span>
 <span class="kd">class</span><span class="w"> </span><span class="nc">SlashWordAutocompleteDsl</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">AutocompleteHandlerProvider</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// https://en.wikipedia.org/wiki/Dolch_word_list#Dolch_list:_Nouns</span>
@@ -1124,8 +1124,8 @@ however, that's not necessary when using <a href="https://docs.bc.freya02.dev/-b
 give it a unique name, I'd recommend using one similar to <code>ClassName: optionName</code>, it will be useful to reference it in commands later on.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>An annotated autocomplete handler can still be referenced <a href="https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.commands.application.slash.builder/-slash-command-option-builder/autocomplete-by-name.html">by name</a> 
-and <a href="https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.commands.application.slash.builder/-slash-command-option-builder/autocomplete-by-function.html">by function</a>
+<p>An annotated autocomplete handler can still be referenced <a href="https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.commands.application.slash.options.builder/-slash-command-option-builder/autocomplete-by-name.html">by name</a> 
+and <a href="https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.commands.application.slash.options.builder/-slash-command-option-builder/autocomplete-by-function.html">by function</a>
 in code-declared commands.</p>
 </div>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Kotlin</label><label for="__tabbed_2_2">Java</label></div>
@@ -1229,12 +1229,12 @@ configurer.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If the outputs for the same input are stable but may rarely change (think, a list that updates daily), you can <a href="https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.core/-b-context/invalidate-autocomplete-cache.html">invalidate autocomplete caches</a>
+<p>If the outputs for the same input are stable but may rarely change (think, a list that updates daily), you can <a href="https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.commands.application/-application-commands-context/invalidate-autocomplete-cache.html">invalidate autocomplete caches</a>
 when it eventually does.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>You can also disable the autocomplete cache while developing your bot with the <a href="https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.core.config/-b-config-builder/disable-autocomplete-cache.html">disableAutocompleteCache</a>
+<p>You can also disable the autocomplete cache while developing your bot with the <a href="https://docs.bc.freya02.dev/-bot-commands/io.github.freya022.botcommands.api.core.config/-b-application-config-builder/disable-autocomplete-cache.html">disableAutocompleteCache</a>
 property, this should help you test your handler live, using hotswap.</p>
 </div>
 <h2 id="transforming-elements-into-choices">Transforming elements into choices<a class="headerlink" href="#transforming-elements-into-choices" title="Permanent link">&para;</a></h2>
@@ -1377,7 +1377,7 @@ by implementing <a href="https://docs.bc.freya02.dev/-bot-commands/io.github.fre
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes", "navigation.instant", "navigation.tabs", "toc.integrate", "content.code.annotate", "content.code.copy", "content.action.edit", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.525ec568.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
   </body>
