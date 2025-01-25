@@ -171,9 +171,10 @@ Components also support filtering, you can use `addFilter` with either the filte
 Creating a filter can be done
 by implementing [[ComponentInteractionFilter]]
 and registering it as a service, 
-they run when a component is about to be executed.
+they run when a component is about to be executed,
+and need to acknowledge the interaction if they fail.
 
-Lets create a filter that allows the component to be usable in a predefined one channel:
+Let's create a filter that allows the component to be usable in a predefined one channel:
 
 !!! note
 
@@ -184,37 +185,10 @@ Lets create a filter that allows the component to be usable in a predefined one 
     --8<-- "wiki/filters/GeneralChannelFilter.kt:component_filter-kotlin"
     ```
 
-    1. This is the return type of the filter, this will be passed as `userData` in your rejection handler.
-
 === "Java"
     ```java
     --8<-- "wiki/java/filters/GeneralChannelFilter.java:component_filter-java"
     ```
-
-    1. This is the return type of the filter, this will be passed as `userData` in your rejection handler.
-
-### Creating a rejection handler
-
-You must then create **a single** [rejection handler][[ComponentInteractionRejectionHandler]] for **all your filters**, 
-it runs when one of your filters fails.
-
-!!! note
-
-    All of your filters must have the same return type as the rejection handler (the generic you set on the interface).
-
-=== "Kotlin"
-    ```kotlin
-    --8<-- "wiki/filters/ComponentRejectionHandler.kt:component_rejection_handler-kotlin"
-    ```
-
-    1. This is what was returned by one of your filters, this will be passed as `userData`.
-
-=== "Java"
-    ```java
-    --8<-- "wiki/java/filters/ComponentRejectionHandler.java:component_rejection_handler-java"
-    ```
-
-    1. This is what was returned by one of your filters, this will be passed as `userData`.
 
 ### Using an existing filter
 Now that your filter has been created, you can reference it in your component.
