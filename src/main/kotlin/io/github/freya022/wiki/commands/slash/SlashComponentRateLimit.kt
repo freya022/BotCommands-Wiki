@@ -1,24 +1,19 @@
 package io.github.freya022.wiki.commands.slash
 
+import dev.freya02.jda.emojis.Emojis
 import dev.minn.jda.ktx.coroutines.await
 import io.github.freya022.botcommands.api.commands.annotations.Command
 import io.github.freya022.botcommands.api.commands.application.ApplicationCommand
 import io.github.freya022.botcommands.api.commands.application.slash.GuildSlashEvent
 import io.github.freya022.botcommands.api.commands.application.slash.annotations.JDASlashCommand
 import io.github.freya022.botcommands.api.components.Buttons
-import io.github.freya022.botcommands.api.core.utils.lazyUnicodeEmoji
 import io.github.freya022.wiki.java.ratelimit.WikiRateLimitProvider
 import io.github.freya022.wiki.switches.wiki.WikiLanguage
-import net.dv8tion.jda.api.entities.emoji.UnicodeEmoji
-import net.fellbaum.jemoji.Emojis
 
 @WikiLanguage(WikiLanguage.Language.KOTLIN)
 // --8<-- [start:component_rate_limit-kotlin]
 @Command
 class SlashComponentRateLimit(private val buttons: Buttons) : ApplicationCommand() {
-    // This is to prevent an unnecessary load on startup, emojis are slow
-    private val arrowUp: UnicodeEmoji by lazyUnicodeEmoji { Emojis.UP_ARROW }
-    private val arrowDown: UnicodeEmoji by lazyUnicodeEmoji { Emojis.DOWN_ARROW }
 
     // The combination of the group and discriminator must be unique
     private val upvoteRateLimitReference = buttons.createRateLimitReference(
@@ -35,7 +30,7 @@ class SlashComponentRateLimit(private val buttons: Buttons) : ApplicationCommand
 
     @JDASlashCommand(name = "component_rate_limit")
     suspend fun onSlashComponentRateLimit(event: GuildSlashEvent) {
-        val upvoteButton = buttons.success("Upvote", arrowUp).ephemeral {
+        val upvoteButton = buttons.success("Upvote", Emojis.UP_ARROW).ephemeral {
             rateLimitReference(upvoteRateLimitReference)
 
             bindTo { buttonEvent ->
@@ -43,7 +38,7 @@ class SlashComponentRateLimit(private val buttons: Buttons) : ApplicationCommand
             }
         }
 
-        val downvoteButton = buttons.danger("Downvote", arrowDown).ephemeral {
+        val downvoteButton = buttons.danger("Downvote", Emojis.DOWN_ARROW).ephemeral {
             rateLimitReference(downvoteRateLimitReference)
 
             bindTo { buttonEvent ->
