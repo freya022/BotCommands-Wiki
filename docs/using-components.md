@@ -231,3 +231,5 @@ as to differentiate components (referenced by `discriminator`) using the same ra
         ```java
         --8<-- "wiki/java/commands/slash/SlashComponentRateLimit.java:component_rate_limit-java"
         ```
+
+    !!! info "Those components use [jda-emojis](https://github.com/freya022/jda-emojis), you can learn more about it [here](using-botcommands/unicode-emojis.md)."
