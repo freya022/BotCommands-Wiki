@@ -1,26 +1,20 @@
 package io.github.freya022.wiki.java.commands.slash;
 
+import dev.freya02.jda.emojis.unicode.Emojis;
 import io.github.freya022.botcommands.api.commands.annotations.Command;
 import io.github.freya022.botcommands.api.commands.application.ApplicationCommand;
 import io.github.freya022.botcommands.api.commands.application.slash.GuildSlashEvent;
 import io.github.freya022.botcommands.api.commands.application.slash.annotations.JDASlashCommand;
 import io.github.freya022.botcommands.api.components.Buttons;
 import io.github.freya022.botcommands.api.components.ratelimit.ComponentRateLimitReference;
-import io.github.freya022.botcommands.api.utils.EmojiUtils;
 import io.github.freya022.wiki.java.ratelimit.WikiRateLimitProvider;
 import io.github.freya022.wiki.switches.wiki.WikiLanguage;
-import net.dv8tion.jda.api.entities.emoji.UnicodeEmoji;
 
 @SuppressWarnings("CodeBlock2Expr")
 @WikiLanguage(WikiLanguage.Language.JAVA)
 // --8<-- [start:component_rate_limit-java]
 @Command
 public class SlashComponentRateLimit extends ApplicationCommand {
-    // This is to prevent an unnecessary load on startup, emojis are slow
-    private static class Emojis {
-        static final UnicodeEmoji arrowUp = EmojiUtils.resolveJDAEmoji("arrow_up");
-        static final UnicodeEmoji arrowDown = EmojiUtils.resolveJDAEmoji("arrow_down");
-    }
 
     private final Buttons buttons;
     private final ComponentRateLimitReference upvoteRateLimitReference;
@@ -41,7 +35,7 @@ public class SlashComponentRateLimit extends ApplicationCommand {
 
     @JDASlashCommand(name = "component_rate_limit")
     public void onSlashComponentRateLimit(GuildSlashEvent event) {
-        final var upvoteButton = buttons.success("Upvote", Emojis.arrowUp)
+        final var upvoteButton = buttons.success("Upvote", Emojis.ARROW_UP)
                 .ephemeral()
                 .rateLimitReference(upvoteRateLimitReference)
                 .bindTo(buttonEvent -> {
@@ -49,7 +43,7 @@ public class SlashComponentRateLimit extends ApplicationCommand {
                 })
                 .build();
 
-        final var downvoteButton = buttons.danger("Downvote", Emojis.arrowDown)
+        final var downvoteButton = buttons.danger("Downvote", Emojis.ARROW_DOWN)
                 .ephemeral()
                 .rateLimitReference(downvoteRateLimitReference)
                 .bindTo(buttonEvent -> {

@@ -13,6 +13,26 @@ we do have some advantages such as being easier to fill in, choices and auto-com
 In addition to the common requirements, the first parameter must be `GlobalSlashEvent` for global commands
 or `GuildSlashEvent` for guild commands, or guild-only global commands (default).
 
+## Slash command properties
+Annotated and code-declared slash commands share the same properties, however,
+annotated commands will require an annotation for each command "level" (layer if you prefer)
+to prevent confusion.
+
+For example, on a `/ban temp users` command, you can set the description for all of these levels with:
+
+- [[JDASlashCommand#description]]: Sets the description of `/ban temp users`
+- [[SlashCommandGroupData#description]]: Sets the description of `/ban temp`
+- [[TopLevelSlashCommandData#description]]: Sets the description of `/ban`
+
+### Notable top-level properties
+- [`scope`][[TopLevelSlashCommandData#scope]]: Where the command is pushed, either once globally, or on each guild.
+  Guild commands have extra capabilities, such as allowing its declaration on a per-guild basis,
+  pushing it to test guilds, or having per-guild choices.
+- [`contexts`][[TopLevelSlashCommandData#contexts]]: Where the command can be used, can be used for user-installable commands
+- [`integrationTypes`][[TopLevelSlashCommandData#integrationTypes]]: Where the command can be installed, can be used for user-installable commands
+- [`description`][[TopLevelSlashCommandData#description]]: The command description, remind that it applies only on the top-level command
+- [`defaultLocked`][[TopLevelSlashCommandData#defaultLocked]]: Locks the commands to administrators until further configuration from them
+
 ## Annotated commands
 
 Annotated command methods must be annotated with `#!java @JDASlashCommand`,
