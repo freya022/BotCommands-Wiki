@@ -10,7 +10,7 @@ It is highly recommended using them as:
 - You no longer need to find the correct Unicode from any website
 - You will have a readable name in any editor
 
-Using them is nothing more simple than looking in `Emojis` (make sure it's from `dev.freya02.jda.emojis`) or `UnicodeEmojis`
+Using them is nothing more simple than looking in `Emojis` (make sure it's from `dev.freya02.jda.emojis.unicode`) or `UnicodeEmojis`
 for an emoji with the same name as you'd see on Discord!
 
 ## Resolving emojis
