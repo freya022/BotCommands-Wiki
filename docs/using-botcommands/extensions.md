@@ -71,7 +71,6 @@ Those check the cache before doing a request.
 - [[retrieveMemberByIdOrNull]] — Returns null if the member does not exist
 
 #### Users
-- [[retrieveUserOrNull]] — Returns null if the user does not exist
 - [[retrieveUserByIdOrNull]] — Returns null if the user does not exist
 
 #### Stickers
