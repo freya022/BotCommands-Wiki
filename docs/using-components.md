@@ -56,8 +56,7 @@ as well as [[Components]] to delete them manually and make groups.
 
 ## Persistent components
 They are components that still work after a restart,
-their handlers are methods identified by their handler name,
-set in [[JDAButtonListener]] / [[JDASelectMenuListener]].
+as they use existing methods identified by a name set in an annotation.
 
 Persistent components have a default timeout set in [[Components#defaultPersistentTimeout]],
 which can be changed.
@@ -66,25 +65,39 @@ which can be changed.
 
     Components which expired while the bot was offline will run their timeout handlers at startup.
 
-!!! Example
-    === "Kotlin"
-        In Kotlin, we can use extensions to make sure we call our component handlers in a type-safe manner.
-        This way, you will have a compiler error if the handler and the arguments don't match,
-        it will also allow using handlers without setting a name.
-    
-        This can only be used when the input argument types matches the handler parameter types.
-    
-        !!! note
-            A similar `timeoutWith` function exists for timeouts.
-    
-        ```kotlin
-        --8<-- "wiki/commands/slash/SlashClicker.kt:persistent-clicker-kotlin"
-        ```
+### Creating the handler
+Create a method annotated with [[JDAButtonListener]] / [[JDASelectMenuListener]],
+the first parameter must be a [[ButtonEvent]], [[StringSelectEvent]], or, [[EntitySelectEvent]].
 
-    === "Java"
-        ```java
-        --8<-- "wiki/java/commands/slash/SlashClickerPersistent.java:persistent-clicker-java"
-        ```
+### Passing data
+In most cases, you will only need to pass data parameters,
+to do so, add a parameter annotated with [[ComponentData]].
+
+If you need to pass a *serializable* object, use [[SerializableComponentData]] instead,
+this uses [[GlobalComponentDataSerializer]], it has a default Jackson-based instance (with the Kotlin module enabled), 
+but you can change it to use any other serialization library.
+
+### Binding to the handler method
+Finally, you can bind your component to the method, here's a full example:
+
+=== "Kotlin"
+    In Kotlin, we can use extensions to make sure we call our component handlers in a type-safe manner.
+    This way, you will have a compiler error if the handler and the arguments don't match,
+    it will also allow using handlers without setting a name.
+
+    This can only be used when the input argument types matches the handler parameter types.
+
+    !!! note
+        A similar `timeoutWith` function exists for timeouts.
+
+    ```kotlin
+    --8<-- "wiki/commands/slash/SlashClicker.kt:persistent-clicker-kotlin"
+    ```
+
+=== "Java"
+    ```java
+    --8<-- "wiki/java/commands/slash/SlashClickerPersistent.java:persistent-clicker-java"
+    ```
 
 ## Ephemeral components
 They are components which get invalidated after a restart, meaning they can no longer be used,
