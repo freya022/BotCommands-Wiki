@@ -166,7 +166,7 @@ to then invalidate them when the interaction expires.
     !!! example
         The built-in paginators stores all the `int` IDs of the components used in paginators,
         as they cannot be deleted on each page change, as the user might reuse a component they made themselves.
-        Storing them this way is more efficient and allows deletion when the paginator expires, using [`deleteRows`][[AbstractComponentFactory#deleteComponentsByIds]].
+        Storing them this way is more efficient and allows deletion when the paginator expires, using [`deleteComponentsByIds`][[AbstractComponentFactory#deleteComponentsByIds]].
 
 - In other, rare cases, you have the component instances (not the JDA ones), for which you can use [`deleteComponents`][[AbstractComponentFactory#deleteComponents]]
 
