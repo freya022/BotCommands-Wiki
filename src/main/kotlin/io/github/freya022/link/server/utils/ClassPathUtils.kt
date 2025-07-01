@@ -8,7 +8,7 @@ private val metadataAnnotationName = Metadata::class.java.name
 val apiClasses: List<KotlinClass> = ClassGraph()
     .enableClassInfo()
     .enableAnnotationInfo()
-    .acceptPackages("io.github.freya022.botcommands.api")
+    .acceptPackages("io.github.freya022.botcommands.api", "dev.freya02.botcommands.api")
     .scan()
     .allClasses
     // Only keep Kotlin classes
