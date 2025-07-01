@@ -37,6 +37,17 @@ The only strictly necessary dependencies are the framework and JDA:
     </dependencies>
     ```
 
+    !!! note
+
+        If you want to use Spring, you will need to add the module for it:
+        ```xml
+        <dependency>
+            <groupId>io.github.freya022</groupId>
+            <artifactId>BotCommands-spring</artifactId>
+            <version>BC_VERSION</version>
+        </dependency>
+        ```
+
 === "Kotlin Gradle"
 
     ```kotlin
@@ -53,6 +64,13 @@ The only strictly necessary dependencies are the framework and JDA:
     }
     ```
 
+    !!! note
+
+        If you want to use Spring, you will need to add the module for it:
+        ```kotlin
+        implementation("io.github.freya022:BotCommands-spring:BC_VERSION")
+        ```
+
 ## Adding logging
 
 Any SLF4J compatible logger should work; I recommend logback, which you can learn more [here](logging.md).
@@ -61,6 +79,8 @@ Any SLF4J compatible logger should work; I recommend logback, which you can lear
 
 Create a small `Config` service, it can be a simple object with the properties you need, 
 this will be useful when running your bot.
+
+If you use Spring you can skip this class and instead use your application's configuration.
 
 ??? example
 
@@ -150,14 +170,9 @@ and still be able to get it as a service.
         });
         ```
 
-=== "Spring IoC"
+=== "Spring Boot"
     
-    The framework also supports Spring IoC, add the library,
-    add the package of your application with the `scanBasePackages` value of your `#!java @SpringBootApplication`,
-    and voilà.
-
-    !!! note
-        You can always disable it by adding `BotCommandsAutoConfiguration` to the `exclude` value of your `#!java @SpringBootApplication`.
+    After adding the module, add the package(s) of your application to the `scanBasePackages` value of your `#!java @SpringBootApplication`.
 
     Configuration of the framework is then done either by using application properties (with the prefix being either `botcommands` or `jda`),
     or by implementing configurers, see the [`BConfigurer` inheritors][[BConfigurer]].
@@ -179,23 +194,21 @@ and still be able to get it as a service.
     --8<-- "wiki/CoroutineEventManagerSupplier.kt:coroutine_event_manager_supplier-kotlin"
     ```
 
-!!! warning
-
-    JDA must be created **after** the framework is built,
-    as the framework listens to JDA events and must not skip any of these,
-    you will need to make a service extending `JDAService`.
-
 ## Creating a `JDAService`
 
-Now you've been able to start the framework, all your services (such as `Config` for the moment) should be loaded, 
-but you must now have a way to start JDA, implementing `JDAService` will let you start the bot in a convenient place.
+Now if you try to start your bot, you will see an error about requesting a `JDAService` instance,
+this is a service which is responsible for providing (part of) the configuration of your bot,
+you must also start your JDA instance in `createJDA`, let's implement it!
 
-Implementing `JDAService` guarantees that your bot will connect at the right time,
-and provides a way for the framework to check missing intents and missing cache flags before your bot even starts.
+??? info "What is it useful for?"
 
-!!! warning "Spring properties"
+    - For the framework to receive all the events, useful for command updates, uploading [application emojis](../using-botcommands/app-emojis.md) and more
+    - To start the bot when everything is ready
+    - To check if event listeners have the required gateway intents/cache flags for them to be fired
 
-    If you use Spring, you will need to put gateway intents and cache flags in your environment.
+!!! note "Spring properties"
+
+    If you use Spring, you will need to put gateway intents and cache flags in your environment (likely your `application.yaml`).
     You will then be able to set your gateway intents and cache flags using the values provided by [[JDAConfiguration]].
 
 === "Kotlin"
@@ -210,9 +223,7 @@ and provides a way for the framework to check missing intents and missing cache 
     --8<-- "wiki/java/Bot.java:jdaservice-java"
     ```
 
-You can now run your bot!
-Assuming you have done your config class and provided at least the token and owner IDs, 
-you should be able to run the help command, by mentioning your bot `@YourBot help`.
+You can now run your bot! You should be able to run the help command, by mentioning your bot `@YourBot help`.
 
 !!! tip
 
