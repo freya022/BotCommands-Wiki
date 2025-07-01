@@ -49,7 +49,7 @@ fun KmPackage.getBaseLink(kotlinClass: KotlinClass): String {
 }
 
 fun KmClass.getBaseLink(kotlinClass: KotlinClass): String {
-    val module = moduleName!!.toKDocCase()
+    val module = moduleName!!
     val packageName = kotlinClass.packageName
     val classNames = kotlinClass.simpleNestedName.split(".").joinToString("/") { it.toKDocCase() }
     return "https://docs.bc.freya02.dev/$module/$packageName/$classNames"
