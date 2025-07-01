@@ -101,6 +101,7 @@ nav:
   - Home: index.md
   - Setup:
       - Getting started: setup/getting-started.md
+      - Getting started - Spring Boot: setup/getting-started-spring-boot.md
       - Logging: setup/logging.md
   - Recipes: recipes.md
   - Using BotCommands:

@@ -1,15 +1,14 @@
-# Starting from scratch
+# Starting from scratch - Spring Boot
 
-Start by creating a project either using Maven or Gradle, it must run on Java 17+,
-I recommend using [Java 21](https://adoptium.net/temurin/releases/?package=jdk&version=21).
+!!! note
 
-!!! warning "Creating a new Maven project"
+    This assumes you know how to use Spring Boot.
 
-    When creating a Maven project in IntelliJ, do not choose `Maven Archetype` in `Generators`, you must use `New Project`.
+Start by creating a regular Spring Boot project, no modules are required.
 
 ## Adding the dependencies
 
-The only strictly necessary dependencies are the framework and JDA:
+The only strictly necessary dependencies are the framework, the Spring support module, and, JDA:
 
 [![](https://img.shields.io/maven-central/v/io.github.freya022/BotCommands?versionPrefix=3&label=BotCommands)](https://mvnrepository.com/artifact/io.github.freya022/BotCommands/latest)
 [![](https://img.shields.io/maven-central/v/net.dv8tion/JDA?versionPrefix=5&label=JDA)](https://mvnrepository.com/artifact/net.dv8tion/JDA/latest)
@@ -34,6 +33,11 @@ The only strictly necessary dependencies are the framework and JDA:
             <artifactId>BotCommands</artifactId>
             <version>BC_VERSION</version>
         </dependency>
+        <dependency>
+            <groupId>io.github.freya022</groupId>
+            <artifactId>BotCommands-spring</artifactId>
+            <version>BC_VERSION</version>
+        </dependency>
     </dependencies>
     ```
 
@@ -50,103 +54,36 @@ The only strictly necessary dependencies are the framework and JDA:
 
         implementation("net.dv8tion:JDA:JDA_VERSION")
         implementation("io.github.freya022:BotCommands:BC_VERSION")
+        implementation("io.github.freya022:BotCommands-spring:BC_VERSION")
     }
     ```
 
-## Adding logging
+!!! tip
 
-Any SLF4J compatible logger should work; I recommend logback, which you can learn more [here](logging.md).
+    You can also use the [Spring developer tools](https://docs.spring.io/spring-boot/reference/using/devtools.html)
+    to speed up your development cycle.
 
-## Creating a config service
+## Optional - Configure logging
 
-Create a small `Config` service, it can be a simple object with the properties you need, 
-this will be useful when running your bot.
+The Spring Boot starter should include logging, you can further configure it, in most cases this is in `logback.xml`,
+see [Spring Boot logging docs](https://docs.spring.io/spring-boot/reference/features/logging.html#features.logging.custom-log-configuration).
 
-??? example
+For example, you can set the log level for the framework to `debug` by adding `<logger name="io.github.freya022.botcommands" level="debug"/>`.
 
-    === "Kotlin"
-        ```kotlin
-        class Config(val token: String, val ownerIds: List<Long>) {
-            companion object {
-                // Makes a service factory out of this property getter
-                @get:BService
-                val instance by lazy {
-                    // Load your config
-                }
-            }
-        }
-        ```
-    
-    === "Java"
-        ```java
-        public class Config {
-            private static Config INSTANCE = null;
-        
-            private String token;
-            private List<Long> ownerIds;
-        
-            public String getToken() { return token; }
-            public List<Long> getOwnerIds() { return ownerIds; }
-        
-            @BService // Makes this method a service factory that outputs Config objects
-            public static Config getInstance() {
-                if (INSTANCE == null) {
-                    INSTANCE = // Load your config
-                }
-        
-                return INSTANCE;
-            }
-        }
-        ```
+## Configuring your token
 
-!!! info
-
-    You can refer to [the Dependency Injection page](../using-botcommands/dependency-injection/index.md) for more details
+After getting your token from your bot's dashboard, you can put it in your Spring environment,
+this can be an [environment variable](https://docs.spring.io/spring-boot/reference/features/external-config.html#features.external-config.files.env-variables) or an **untracked** `application.yaml` in the current directory, or a `config/` subdirectory,
+see [Spring Boot external config docs](https://docs.spring.io/spring-boot/reference/features/external-config.html#features.external-config.files).
 
 ## Creating the main class
 
-As we've used a singleton pattern for your `Config` class, we can get the same instance anywhere, 
-and still be able to get it as a service.
+Add the package(s) of your application to the `scanBasePackages` value of your `#!java @SpringBootApplication`.
 
-All you need to do to start the framework is `BotCommands#create`:
+## Optional - Configuring the framework
 
-=== "Kotlin"
-
-    ```kotlin title="Main.kt - Main function"
-    val config = Config.instance
-
-    BotCommands.create {
-        // Optionally set the owner IDs if they differ from the owners in the Discord dashboard
-        // addPredefinedOwners(config.ownerIds)
-
-        // Add the base package of the application
-        // All services and commands inside will be loaded
-        addSearchPath("io.github.name.bot")
-
-        textCommands {
-            usePingAsPrefix = true // The bot will respond to his mention/ping
-        }
-    }    
-    ```
-
-=== "Java"
-
-    ```java title="Main.java - Main method"
-    final var config = Config.getInstance();
-
-    BotCommands.create(builder -> {
-        // Optionally set the owner IDs if they differ from the owners in the Discord dashboard
-        // builder.addPredefinedOwners(config.getOwnerIds());
-
-        // Add the base package of the application
-        // All services and commands inside will be loaded
-        builder.addSearchPath("io.github.name.bot");
-
-        builder.textCommands(textCommands -> {
-            textCommands.usePingAsPrefix(true);
-        });
-    });
-    ```
+Configuration of the framework is then done either by using application properties (with the prefix being either `botcommands` or `jda`),
+or by implementing configurers, see the [`BConfigurer` inheritors][[BConfigurer]].
 
 ??? tip "Kotlin - Using a custom `CoroutineEventManager`"
 
@@ -172,16 +109,21 @@ you must also start your JDA instance in `createJDA`, let's implement it!
     - To start the bot when everything is ready
     - To check if event listeners have the required gateway intents/cache flags for them to be fired
 
+!!! note
+
+    The Spring support module will also check that the gateway intents and cache flags match those configured in `JDAService`,
+    so, you must put them in your environment, you will then be able to set your gateway intents and cache flags using the values provided by [[JDAConfiguration]].
+
 === "Kotlin"
 
     ```kotlin
-    --8<-- "wiki/Bot.kt:jdaservice-kotlin"
+    --8<-- "wiki/SpringBot.kt:jdaservice-kotlin"
     ```
 
 === "Java"
 
     ```java
-    --8<-- "wiki/java/Bot.java:jdaservice-java"
+    --8<-- "wiki/java/SpringBot.java:jdaservice-java"
     ```
 
 You can now run your bot! You should be able to run the help command, by mentioning your bot `@YourBot help`.
@@ -262,69 +204,6 @@ Finally, load it on the first lines of your main program:
     } else {
         DecoroutinatorRuntime.INSTANCE.load();
     }
-    ```
-
-## Creating a runnable JAR
-
-=== "Maven"
-
-    ```xml
-    <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-shade-plugin</artifactId>
-        <version>3.5.0</version>
-        <executions>
-            <execution>
-                <phase>package</phase>
-                <goals>
-                    <goal>shade</goal>
-                </goals>
-                <configuration>
-                    <transformers>
-                        <transformer
-                                implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                            <mainClass>io.github.name.bot.Main</mainClass> <!-- TODO change here -->
-                        </transformer>
-                        <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
-                    </transformers>
-    
-                    <createDependencyReducedPom>false</createDependencyReducedPom>
-                    <finalName>${artifactId}</finalName>
-                </configuration>
-            </execution>
-        </executions>
-    </plugin>
-    ```
-
-=== "Kotlin Gradle"
-
-    ```kotlin
-    plugins {
-        ...
-        id("com.github.johnrengelman.shadow") version "7.1.2"
-    }
-
-    application.mainClass.set("io.github.name.bot.Main")    //TODO change here
-
-    tasks.withType<ShadowJar> {
-        mergeServiceFiles() // Fixes Java's service loading, which is used by Flyway
-        archiveFileName.set("your-project-name.jar")        //TODO change here
-    }
-    ```
-
-While you can run the main class in your IDE during development,
-you can create a JAR with all the dependencies by pressing ++ctrl++ twice in IntelliJ, then running:
-
-=== "Maven"
-
-    ```
-    mvn package
-    ```
-
-=== "Kotlin Gradle"
-
-    ```
-    gradle shadowJar
     ```
 
 ## Other resources
