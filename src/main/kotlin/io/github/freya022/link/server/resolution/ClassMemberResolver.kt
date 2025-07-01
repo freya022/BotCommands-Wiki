@@ -55,9 +55,9 @@ object ClassMemberResolver {
             else -> emptyList()
         }
 
-        val enumEntryCandidates = kmClass.enumEntries
-            .filter { enumEntry -> enumEntry == memberName }
-            .map { enumEntry -> LinkRepresentation(memberLabel, "$baseLink/${enumEntry.toKDocCase()}/index.html") }
+        val enumEntryCandidates = kmClass.kmEnumEntries
+            .filter { enumEntry -> enumEntry.name == memberName }
+            .map { enumEntry -> LinkRepresentation(memberLabel, "$baseLink/${enumEntry.name.toKDocCase()}/index.html") }
 
         val companionCandidates = kmClass.companionObject?.let { companionObjectName ->
             val companionNestedName = "${kotlinClass.simpleNestedName}.$companionObjectName"
