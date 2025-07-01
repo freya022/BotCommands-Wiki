@@ -186,11 +186,6 @@ you must also start your JDA instance in `createJDA`, let's implement it!
 
 You can now run your bot! You should be able to run the help command, by mentioning your bot `@YourBot help`.
 
-!!! tip
-
-    If necessary, you can retrieve a `JDA` instance once `createJDA` has been called, 
-    I recommend listening to `InjectedJDAEvent`, but you can also get one later, using `BContext#jda`.
-
 ## Optional - Add `stacktrace-decoroutinator`
 
 I recommend adding [`stacktrace-decoroutinator`](https://github.com/Anamorphosee/stacktrace-decoroutinator), 

@@ -117,6 +117,7 @@ nav:
       - Application emojis: using-botcommands/app-emojis.md
       - Kotlin extensions: using-botcommands/extensions.md
       - Java parameter names: using-botcommands/parameter-names.md
+      - FAQ: using-botcommands/FAQ.md
   - Using commands:
       - Common details: using-commands/common-command-details.md
       - Text commands:
