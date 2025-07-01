@@ -23,6 +23,9 @@ and *then* start MkDocs with `mkdocs serve`.
 - `[[functionRef]]` creates a link to the documentation of the referenced top-level function (extension functions are top level)
 - `[[propertyRef]]` creates a link to the documentation of the referenced top-level property (extension properties are top level)
 
+Class references use simple names (only the class's name, no package)
+Member references only use the member's name (such as `BotCommands#create`)
+
 ## Running the wiki bot
 
 ### Additional requirements
