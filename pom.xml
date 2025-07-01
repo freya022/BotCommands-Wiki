@@ -14,8 +14,8 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
 
-        <kotlin.version>2.1.0</kotlin.version>
-        <kotlin.coroutine.version>1.10.1</kotlin.coroutine.version>
+        <kotlin.version>2.2.0</kotlin.version>
+        <kotlin.coroutine.version>1.10.2</kotlin.coroutine.version>
 
         <kotlin.compiler.languageVersion>2.0</kotlin.compiler.languageVersion>
         <kotlin.compiler.apiVersion>2.0</kotlin.compiler.apiVersion>
@@ -23,8 +23,8 @@
         <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
 
         <flyway.version>10.16.0</flyway.version>
-        <ktor.version>3.0.1</ktor.version>
-        <serialization.version>1.7.3</serialization.version>
+        <ktor.version>3.2.0</ktor.version>
+        <serialization.version>1.9.0</serialization.version>
     </properties>
 
     <build>
