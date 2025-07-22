@@ -5,6 +5,7 @@ on:
     branches:
       '*.X'
     paths:
+      - .github/workflows/build-docs-site.yml
       - 'mkdocs.yml'
       - 'requirements.txt'
       - 'pom.xml'
