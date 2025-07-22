@@ -61,24 +61,16 @@ jobs:
 
             const pom = fs.readFileSync("pom.xml", "utf8")
             const pomDoc = new jsdom.JSDOM(pom, { contentType: "text/xml"})
-            const dependencies = pomDoc.window.document.querySelectorAll("project > properties > BotCommands\\.version")
+            
+            const bcVersion = pomDoc.window.document.querySelector("project > properties > BotCommands\\.version").textContent
+            const alias = bcVersion.at(0) + ".X"
+            const isLatest = bcVersion == latestBcVersion
 
-            for (dependency of dependencies) {
-            	const artifactId = dependency.querySelector("artifactId").textContent
-            	if (artifactId == "BotCommands") {
-            		const bcVersion = dependency.querySelector("version").textContent
-            		const alias = bcVersion.at(0) + ".X"
-            		const isLatest = bcVersion == latestBcVersion
-
-            		return {
-            			bcVersion: bcVersion,
-            			alias: alias,
-            			isLatest: isLatest
-            		}
-            	}
+            return {
+                bcVersion: bcVersion,
+                alias: alias,
+                isLatest: isLatest
             }
-
-            throw new Error("Could not find used BC version")
       - name: Generate wiki
         run: mvn compile exec:java -Dexec.mainClass=io.github.freya022.mkdocs.MkDocsLauncherKt -Dexec.args='mike deploy ${{ fromJSON(steps.get-bc-version.outputs.result).bcVersion }} ${{ fromJSON(steps.get-bc-version.outputs.result).alias }} --update-aliases'
       - name: Update latest alias
