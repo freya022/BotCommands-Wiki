@@ -25,7 +25,7 @@
         <flyway.version>10.16.0</flyway.version>
         <ktor.version>3.2.0</ktor.version>
         <serialization.version>1.9.0</serialization.version>
-        <BotCommands.version>3.0.0-beta.2_DEV</BotCommands.version>
+        <BotCommands.version>3.0.0-beta.3</BotCommands.version>
     </properties>
 
     <build>
