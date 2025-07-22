@@ -3,15 +3,14 @@
     "version": "3.0.0-beta.3",
     "title": "3.0.0-beta.3",
     "aliases": [
+      "3.X",
       "$.X"
     ]
   },
   {
     "version": "3.0.0-beta.1",
     "title": "3.0.0-beta.1",
-    "aliases": [
-      "3.X"
-    ]
+    "aliases": []
   },
   {
     "version": "3.0.0-alpha.24",
