@@ -12,6 +12,20 @@ or in your IDE (press `CTRL` twice in IntelliJ to open the command bar).
 If you wish to contribute to the link server, you can instead run the main method of `LinkServer` from your IDE, 
 and *then* start MkDocs with `mkdocs serve`.
 
+### Special macros
+
+- `{{ wiki_stub }}` creates an admonition about wiki stubs, which are here for feature discovery, but have little to no content
+
+#### Documentation macros
+- `[[ClassRef]]` creates a link to the documentation of the referenced class
+- `[[ClassRef#functionRef]]` creates a link to the documentation of the referenced function
+- `[[ClassRef#propertyRef]]` creates a link to the documentation of the referenced property
+- `[[functionRef]]` creates a link to the documentation of the referenced top-level function (extension functions are top level)
+- `[[propertyRef]]` creates a link to the documentation of the referenced top-level property (extension properties are top level)
+
+Class references use simple names (only the class's name, no package)
+Member references only use the member's name (such as `BotCommands#create`)
+
 ## Running the wiki bot
 
 ### Additional requirements

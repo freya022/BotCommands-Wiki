@@ -45,7 +45,7 @@ as well as [[Components]] to delete them manually and make groups.
         });
         ```
 
-=== "Spring IoC"
+=== "Spring Boot"
     Components require a database to be set up, see [this wiki page](using-botcommands/database.md) for more details.
 
     You can then enable them with the `botcommands.components.enable` property set to `true`.

@@ -14,8 +14,8 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
 
-        <kotlin.version>2.1.0</kotlin.version>
-        <kotlin.coroutine.version>1.10.1</kotlin.coroutine.version>
+        <kotlin.version>2.2.0</kotlin.version>
+        <kotlin.coroutine.version>1.10.2</kotlin.coroutine.version>
 
         <kotlin.compiler.languageVersion>2.0</kotlin.compiler.languageVersion>
         <kotlin.compiler.apiVersion>2.0</kotlin.compiler.apiVersion>
@@ -23,8 +23,9 @@
         <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
 
         <flyway.version>10.16.0</flyway.version>
-        <ktor.version>3.0.1</ktor.version>
-        <serialization.version>1.7.3</serialization.version>
+        <ktor.version>3.2.0</ktor.version>
+        <serialization.version>1.9.0</serialization.version>
+        <BotCommands.version>3.0.0-beta.3</BotCommands.version>
     </properties>
 
     <build>
@@ -34,9 +35,6 @@
                 <artifactId>kotlin-maven-plugin</artifactId>
                 <version>${kotlin.version}</version>
                 <configuration>
-                    <args>
-                        -Xcontext-receivers
-                    </args>
                     <compilerPlugins>
                         <plugin>kotlinx-serialization</plugin>
                     </compilerPlugins>
@@ -151,18 +149,27 @@
         <dependency>
             <groupId>net.dv8tion</groupId>
             <artifactId>JDA</artifactId>
-            <version>5.3.0</version>
+            <version>5.6.1</version>
             <exclusions>
                 <exclusion>
                     <groupId>club.minnced</groupId>
                     <artifactId>opus-java</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>tink</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
         <dependency>
             <groupId>io.github.freya022</groupId>
             <artifactId>BotCommands</artifactId>
-            <version>3.0.0-beta.1</version>
+            <version>${BotCommands.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.freya022</groupId>
+            <artifactId>BotCommands-spring</artifactId>
+            <version>${BotCommands.version}</version>
         </dependency>
 
         <!-- Needed for JDA and BotCommands logging -->
@@ -170,6 +177,11 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>1.5.16</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.oshai</groupId>
+            <artifactId>kotlin-logging-jvm</artifactId>
+            <version>7.0.3</version>
         </dependency>
 
         <!-- Needed for components, otherwise optional - You must use PostgreSQL -->
@@ -235,6 +247,12 @@
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-metadata-jvm</artifactId>
             <version>${kotlin.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.11.4</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>
