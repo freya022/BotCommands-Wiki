@@ -61,7 +61,7 @@ jobs:
 
             const pom = fs.readFileSync("pom.xml", "utf8")
             const pomDoc = new jsdom.JSDOM(pom, { contentType: "text/xml"})
-            const dependencies = pomDoc.window.document.querySelectorAll("project > dependencies > dependency")
+            const dependencies = pomDoc.window.document.querySelectorAll("project > properties > BotCommands\\.version")
 
             for (dependency of dependencies) {
             	const artifactId = dependency.querySelector("artifactId").textContent
