@@ -158,6 +158,10 @@
                     <groupId>club.minnced</groupId>
                     <artifactId>opus-java</artifactId>
                 </exclusion>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>tink</artifactId>
+                </exclusion>
             </exclusions>
         </dependency>
         <dependency>
