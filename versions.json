@@ -1,5 +1,12 @@
 [
   {
+    "version": "3.0.0-beta.3",
+    "title": "3.0.0-beta.3",
+    "aliases": [
+      "$.X"
+    ]
+  },
+  {
     "version": "3.0.0-beta.1",
     "title": "3.0.0-beta.1",
     "aliases": [
