@@ -148,18 +148,6 @@ All you need to do to start the framework is `BotCommands#create`:
     });
     ```
 
-??? tip "Kotlin - Using a custom `CoroutineEventManager`"
-
-    I recommend creating a custom `CoroutineEventManager`,
-    that way you can configure the amount of threads or their names,
-    which may be convenient in logs.
-
-    You can do so by implementing a `ICoroutineEventManagerSupplier` service, 
-    with the help of `namedDefaultScope`:
-    ```kotlin
-    --8<-- "wiki/CoroutineEventManagerSupplier.kt:coroutine_event_manager_supplier-kotlin"
-    ```
-
 ## Creating a `JDAService`
 
 Now if you try to start your bot, you will see an error about requesting a `JDAService` instance,

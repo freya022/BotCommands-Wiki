@@ -85,18 +85,6 @@ Add the package(s) of your application to the `scanBasePackages` value of your `
 Configuration of the framework is then done either by using application properties (with the prefix being either `botcommands` or `jda`),
 or by implementing configurers, see the [`BConfigurer` inheritors][[BConfigurer]].
 
-??? tip "Kotlin - Using a custom `CoroutineEventManager`"
-
-    I recommend creating a custom `CoroutineEventManager`,
-    that way you can configure the amount of threads or their names,
-    which may be convenient in logs.
-
-    You can do so by implementing a `ICoroutineEventManagerSupplier` service, 
-    with the help of `namedDefaultScope`:
-    ```kotlin
-    --8<-- "wiki/CoroutineEventManagerSupplier.kt:coroutine_event_manager_supplier-kotlin"
-    ```
-
 ## Creating a `JDAService`
 
 Now if you try to start your bot, you will see an error about requesting a `JDAService` instance,
