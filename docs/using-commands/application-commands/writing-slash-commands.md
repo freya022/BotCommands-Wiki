@@ -435,7 +435,3 @@ All you now need to do is enable `usePredefinedChoices` on your option.
 You can optionally get more info on what changed in your application commands,
 by enabling the `TRACE` logs on `io.github.freya022.botcommands.internal.commands.application.diff.DiffLogger`,
 or any package it is in.
-
-## Examples
-
-You can take a look at more examples [here](https://github.com/freya022/BotCommands/tree/3.X/src/examples#examples).
