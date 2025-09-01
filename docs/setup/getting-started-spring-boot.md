@@ -209,7 +209,7 @@ and [Using components](../using-components.md).
 
 ### Examples
 
-You can find examples covering parts of the framework [here](https://github.com/freya022/BotCommands/tree/3.X/src/examples).
+You can find examples covering parts of the framework [here](https://github.com/freya022/BotCommands/tree/3.X/BotCommands-core/src/examples).
 
 ### Getting help
 
