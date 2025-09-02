@@ -1,7 +1,7 @@
 package io.github.freya022.wiki.filters
 
-import dev.minn.jda.ktx.coroutines.await
-import dev.minn.jda.ktx.messages.reply_
+import dev.freya02.botcommands.jda.ktx.coroutines.await
+import dev.freya02.botcommands.jda.ktx.messages.reply_
 import io.github.freya022.botcommands.api.components.ComponentInteractionFilter
 import io.github.freya022.botcommands.api.core.service.annotations.BService
 import io.github.freya022.wiki.switches.wiki.WikiLanguage

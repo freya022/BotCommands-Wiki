@@ -1,9 +1,9 @@
 package io.github.freya022.wiki.commands.slash
 
-import dev.minn.jda.ktx.coroutines.await
-import dev.minn.jda.ktx.messages.reply_
+import dev.freya02.botcommands.jda.ktx.coroutines.await
+import dev.freya02.botcommands.jda.ktx.messages.reply_
+import dev.freya02.botcommands.jda.ktx.requests.awaitUnit
 import io.github.freya022.botcommands.api.commands.application.slash.GuildSlashEvent
-import io.github.freya022.botcommands.api.core.utils.awaitUnit
 
 @Suppress("unused")
 class SlashCancelledRateLimit {

@@ -46,6 +46,12 @@ object Main {
 
                 addSearchPath(mainPackageName)
 
+                // You can customize the coroutines scopes of various features,
+                // here we change the one used for responding to JDA events
+                coroutineScopes {
+                    eventManagerScopeFactory = defaultFactory("WikiBot Coroutine", corePoolSize = 4)
+                }
+
                 textCommands {
                     //Use ping as prefix if configured
                     usePingAsPrefix = "<ping>" in config.prefixes
