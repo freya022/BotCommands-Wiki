@@ -7,8 +7,8 @@ import io.github.freya022.botcommands.api.commands.application.slash.annotations
 import io.github.freya022.botcommands.api.components.Button;
 import io.github.freya022.botcommands.api.components.Buttons;
 import io.github.freya022.wiki.switches.wiki.WikiCommandProfile;
+import net.dv8tion.jda.api.components.actionrow.ActionRow;
 import net.dv8tion.jda.api.interactions.Interaction;
-import net.dv8tion.jda.api.interactions.components.ActionRow;
 
 import java.time.Duration;
 

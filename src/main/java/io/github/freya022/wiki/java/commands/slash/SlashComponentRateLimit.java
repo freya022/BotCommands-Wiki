@@ -9,6 +9,7 @@ import io.github.freya022.botcommands.api.components.Buttons;
 import io.github.freya022.botcommands.api.components.ratelimit.ComponentRateLimitReference;
 import io.github.freya022.wiki.java.ratelimit.WikiRateLimitProvider;
 import io.github.freya022.wiki.switches.wiki.WikiLanguage;
+import net.dv8tion.jda.api.components.actionrow.ActionRow;
 
 @SuppressWarnings("CodeBlock2Expr")
 @WikiLanguage(WikiLanguage.Language.JAVA)
@@ -52,7 +53,7 @@ public class SlashComponentRateLimit extends ApplicationCommand {
                 .build();
 
         event.reply("[Insert controversial sentence]")
-                .addActionRow(upvoteButton, downvoteButton)
+                .addComponents(ActionRow.of(upvoteButton, downvoteButton))
                 .queue();
     }
 }

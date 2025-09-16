@@ -1,5 +1,6 @@
 package io.github.freya022.wiki.commands.slash
 
+import dev.freya02.botcommands.jda.ktx.components.row
 import dev.freya02.botcommands.jda.ktx.coroutines.await
 import dev.freya02.jda.emojis.unicode.Emojis
 import io.github.freya022.botcommands.api.commands.annotations.Command
@@ -47,7 +48,7 @@ class SlashComponentRateLimit(private val buttons: Buttons) : ApplicationCommand
         }
 
         event.reply("[Insert controversial sentence]")
-            .addActionRow(upvoteButton, downvoteButton)
+            .addComponents(row(upvoteButton, downvoteButton))
             .await()
     }
 }
