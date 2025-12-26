@@ -112,7 +112,14 @@ nav:
       - Events: using-botcommands/events.md
       - Database: using-botcommands/database.md
       - Rate limiting: using-botcommands/ratelimit.md
-      - Localization: using-botcommands/localization.md
+      - Localization:
+        - using-botcommands/localization/index.md
+        - Application commands: using-botcommands/localization/commands.md
+        - Type-safe messages: using-botcommands/localization/typesafe-messages.md
+        - With events: using-botcommands/localization/events.md
+        - With contexts: using-botcommands/localization/contexts.md
+        - Overriding built-in messages: using-botcommands/localization/overriding-builtin-messages.md
+        - Custom bundles: using-botcommands/localization/custom-bundles.md
       - Unicode emojis: using-botcommands/unicode-emojis.md
       - Application emojis: using-botcommands/app-emojis.md
       - Kotlin extensions: using-botcommands/extensions.md

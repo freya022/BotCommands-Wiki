@@ -11,8 +11,9 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <!-- Some modules require Java 22+ -->
+        <maven.compiler.source>22</maven.compiler.source>
+        <maven.compiler.target>22</maven.compiler.target>
 
         <kotlin.version>2.2.20</kotlin.version>
         <kotlin.coroutine.version>1.10.2</kotlin.coroutine.version>
@@ -36,6 +37,9 @@
                 <artifactId>kotlin-maven-plugin</artifactId>
                 <version>${kotlin.version}</version>
                 <configuration>
+                    <args>
+                        <arg>-opt-in=dev.freya02.botcommands.typesafe.messages.api.annotations.ExperimentalTypesafeMessagesApi</arg>
+                    </args>
                     <compilerPlugins>
                         <plugin>kotlinx-serialization</plugin>
                     </compilerPlugins>
@@ -176,6 +180,17 @@
             <groupId>io.github.freya022</groupId>
             <artifactId>BotCommands-spring</artifactId>
             <version>${BotCommands.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.freya022</groupId>
+            <artifactId>BotCommands-typesafe-messages-core</artifactId>
+            <version>${BotCommands.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.freya022</groupId>
+            <artifactId>BotCommands-typesafe-messages-bc</artifactId>
+            <version>${BotCommands.version}</version>
+            <scope>runtime</scope>
         </dependency>
 
         <!-- Needed for JDA and BotCommands logging -->
