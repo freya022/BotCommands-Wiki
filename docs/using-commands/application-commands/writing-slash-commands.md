@@ -376,33 +376,7 @@ Contrary to the annotated commands, no checks are required, as this is tied to t
 
 You can avoid setting the (non-localized) descriptions of your commands and options 
 by putting them in a localization file, using the root locale (i.e., no locale suffix),
-and have your localization bundle registered with `BApplicationConfigBuilder#addLocalizations`.
-
-??? info "The same commands as before, but without the descriptions"
-    === "Kotlin"
-        ```kotlin
-        --8<-- "wiki/commands/slash/SlashSayDefaultDescription.kt:say_default_description-kotlin"
-        ```
-
-    === "Kotlin (DSL)"
-        ```kotlin
-        --8<-- "wiki/commands/slash/SlashSayDefaultDescription.kt:say_default_description-kotlin_dsl"
-        ```
-
-    === "Java"
-        ```java
-        --8<-- "wiki/java/commands/slash/SlashSayDefaultDescription.java:say_default_description-java"
-        ```
-
-!!! example "Adding the root localization bundle"
-    For the given resource bundle:
-    ```json title="src/main/resources/bc_localization/Commands.json"
-    {
-    --8<-- "bc_localization/Commands.json:default_description-json"
-    }
-    ```
-
-    You can add the bundle by calling `BApplicationConfigBuilder#addLocalizations("Commands")`.
+for more details, see ["Localizing application commands"](../../using-botcommands/localization/commands.md).
 
 ## Using predefined choices
 
