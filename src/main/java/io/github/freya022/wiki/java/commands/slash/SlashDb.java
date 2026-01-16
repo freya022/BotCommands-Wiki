@@ -1,7 +1,6 @@
 package io.github.freya022.wiki.java.commands.slash;
 
 import io.github.freya022.botcommands.api.commands.annotations.Command;
-import io.github.freya022.botcommands.api.commands.application.ApplicationCommand;
 import io.github.freya022.botcommands.api.commands.application.slash.GuildSlashEvent;
 import io.github.freya022.botcommands.api.commands.application.slash.annotations.JDASlashCommand;
 import io.github.freya022.botcommands.api.core.Logging;
@@ -16,7 +15,7 @@ import java.util.List;
 
 @WikiCommandProfile(WikiCommandProfile.Profile.JAVA)
 @Command
-public class SlashDb extends ApplicationCommand {
+public class SlashDb {
     private static final Logger LOGGER = Logging.getLogger();
 
     private final BlockingDatabase database;

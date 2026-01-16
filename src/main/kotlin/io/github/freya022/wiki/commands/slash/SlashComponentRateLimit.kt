@@ -4,7 +4,6 @@ import dev.freya02.botcommands.jda.ktx.components.row
 import dev.freya02.botcommands.jda.ktx.coroutines.await
 import dev.freya02.jda.emojis.unicode.Emojis
 import io.github.freya022.botcommands.api.commands.annotations.Command
-import io.github.freya022.botcommands.api.commands.application.ApplicationCommand
 import io.github.freya022.botcommands.api.commands.application.slash.GuildSlashEvent
 import io.github.freya022.botcommands.api.commands.application.slash.annotations.JDASlashCommand
 import io.github.freya022.botcommands.api.components.Buttons
@@ -14,7 +13,7 @@ import io.github.freya022.wiki.switches.wiki.WikiLanguage
 @WikiLanguage(WikiLanguage.Language.KOTLIN)
 // --8<-- [start:component_rate_limit-kotlin]
 @Command
-class SlashComponentRateLimit(private val buttons: Buttons) : ApplicationCommand() {
+class SlashComponentRateLimit(private val buttons: Buttons) {
 
     // The combination of the group and discriminator must be unique
     private val upvoteRateLimitReference = buttons.createRateLimitReference(

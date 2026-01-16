@@ -2,7 +2,6 @@ package io.github.freya022.wiki.commands.slash
 
 import dev.freya02.botcommands.jda.ktx.coroutines.await
 import io.github.freya022.botcommands.api.commands.annotations.*
-import io.github.freya022.botcommands.api.commands.application.ApplicationCommand
 import io.github.freya022.botcommands.api.commands.application.slash.GuildSlashEvent
 import io.github.freya022.botcommands.api.commands.application.slash.annotations.JDASlashCommand
 import io.github.freya022.botcommands.api.commands.ratelimit.RateLimitScope
@@ -12,7 +11,7 @@ import java.time.temporal.ChronoUnit
 @WikiCommandProfile(WikiCommandProfile.Profile.KOTLIN)
 // --8<-- [start:rate_limit-kotlin]
 @Command
-class SlashRateLimit : ApplicationCommand() {
+class SlashRateLimit {
 
     // A rate limit for this slash command only
     @RateLimit(

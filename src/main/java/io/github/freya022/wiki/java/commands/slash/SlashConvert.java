@@ -2,7 +2,7 @@ package io.github.freya022.wiki.java.commands.slash;
 
 import io.github.freya022.botcommands.api.commands.CommandPath;
 import io.github.freya022.botcommands.api.commands.annotations.Command;
-import io.github.freya022.botcommands.api.commands.application.ApplicationCommand;
+import io.github.freya022.botcommands.api.commands.application.SlashOptionChoiceProvider;
 import io.github.freya022.botcommands.api.commands.application.slash.GuildSlashEvent;
 import io.github.freya022.botcommands.api.commands.application.slash.annotations.JDASlashCommand;
 import io.github.freya022.botcommands.api.commands.application.slash.annotations.SlashOption;
@@ -20,7 +20,7 @@ import java.util.stream.Stream;
 @WikiCommandProfile(WikiCommandProfile.Profile.JAVA)
 // --8<-- [start:convert-java]
 @Command
-public class SlashConvert extends ApplicationCommand {
+public class SlashConvert implements SlashOptionChoiceProvider {
     @NotNull
     @Override
     public List<Choice> getOptionChoices(@Nullable Guild guild, @NotNull CommandPath commandPath, @NotNull String optionName) {
@@ -34,7 +34,7 @@ public class SlashConvert extends ApplicationCommand {
             }
         }
 
-        return super.getOptionChoices(guild, commandPath, optionName);
+        return List.of();
     }
 
     @JDASlashCommand(name = "convert", description = "Convert time to another unit")

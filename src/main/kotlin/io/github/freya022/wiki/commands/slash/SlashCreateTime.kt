@@ -4,8 +4,8 @@ import dev.freya02.botcommands.jda.ktx.coroutines.await
 import io.github.freya022.botcommands.api.commands.CommandPath
 import io.github.freya022.botcommands.api.commands.annotations.Command
 import io.github.freya022.botcommands.api.commands.annotations.GeneratedOption
-import io.github.freya022.botcommands.api.commands.application.ApplicationCommand
 import io.github.freya022.botcommands.api.commands.application.ApplicationGeneratedValueSupplier
+import io.github.freya022.botcommands.api.commands.application.ApplicationGeneratedValueSupplierProvider
 import io.github.freya022.botcommands.api.commands.application.provider.GlobalApplicationCommandManager
 import io.github.freya022.botcommands.api.commands.application.provider.GlobalApplicationCommandProvider
 import io.github.freya022.botcommands.api.commands.application.slash.GuildSlashEvent
@@ -19,7 +19,7 @@ import java.time.Instant
 @WikiCommandProfile(WikiCommandProfile.Profile.KOTLIN)
 // --8<-- [start:create_time-kotlin]
 @Command
-class SlashCreateTimeKotlin : ApplicationCommand() {
+class SlashCreateTimeKotlin : ApplicationGeneratedValueSupplierProvider {
     override fun getGeneratedValueSupplier(
         guild: Guild?,
         commandId: String?,
@@ -36,7 +36,7 @@ class SlashCreateTimeKotlin : ApplicationCommand() {
             }
         }
 
-        return super.getGeneratedValueSupplier(guild, commandId, commandPath, optionName, parameterType)
+        error("Unknown generated option: $optionName")
     }
 
     @JDASlashCommand(name = "create_time", description = "Shows the creation time of this command")

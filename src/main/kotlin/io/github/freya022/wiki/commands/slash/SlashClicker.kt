@@ -5,7 +5,6 @@ import dev.freya02.botcommands.jda.ktx.components.row
 import dev.freya02.botcommands.jda.ktx.coroutines.await
 import dev.freya02.botcommands.jda.ktx.messages.reply_
 import io.github.freya022.botcommands.api.commands.annotations.Command
-import io.github.freya022.botcommands.api.commands.application.ApplicationCommand
 import io.github.freya022.botcommands.api.commands.application.slash.GuildSlashEvent
 import io.github.freya022.botcommands.api.commands.application.slash.annotations.JDASlashCommand
 import io.github.freya022.botcommands.api.commands.application.slash.annotations.TopLevelSlashCommandData
@@ -28,7 +27,7 @@ import kotlin.time.Duration.Companion.minutes
 
 // Exists only for @TopLevelSlashCommandData
 @Command
-class SlashDummyClicker : ApplicationCommand() {
+class SlashDummyClicker {
     @JDASlashCommand(name = "clicker", subcommand = "dummy")
     @TopLevelSlashCommandData
     fun onSlashClicker(event: GuildSlashEvent) {
@@ -39,7 +38,7 @@ class SlashDummyClicker : ApplicationCommand() {
 @WikiLanguage(WikiLanguage.Language.KOTLIN)
 // --8<-- [start:persistent-clicker-kotlin]
 @Command
-class SlashPersistentClicker(private val buttons: Buttons) : ApplicationCommand() {
+class SlashPersistentClicker(private val buttons: Buttons) {
     @JDASlashCommand(name = "clicker", subcommand = "persistent", description = "Creates a button you can infinitely click")
     suspend fun onSlashClicker(event: GuildSlashEvent) {
         val button = createButton(event, count = 0)
@@ -86,7 +85,7 @@ class SlashPersistentClicker(private val buttons: Buttons) : ApplicationCommand(
 @WikiLanguage(WikiLanguage.Language.KOTLIN)
 // --8<-- [start:ephemeral-clicker-kotlin]
 @Command
-class SlashEphemeralClicker(private val buttons: Buttons) : ApplicationCommand() {
+class SlashEphemeralClicker(private val buttons: Buttons) {
     @JDASlashCommand(name = "clicker", subcommand = "ephemeral", description = "Creates a button you can click until the bot restarts or 15 minutes later")
     suspend fun onSlashClicker(event: GuildSlashEvent) {
         val button = createButton(event, count = 0)
@@ -132,7 +131,7 @@ class SlashEphemeralClicker(private val buttons: Buttons) : ApplicationCommand()
 @WikiLanguage(WikiLanguage.Language.KOTLIN)
 // --8<-- [start:ephemeral-awaiting-clicker-kotlin]
 @Command
-class SlashEphemeralAwaitingClicker(private val buttons: Buttons) : ApplicationCommand() {
+class SlashEphemeralAwaitingClicker(private val buttons: Buttons) {
     @JDASlashCommand(name = "clicker", subcommand = "ephemeral_await", description = "Creates a button you can click until the bot restarts or 15 minutes later")
     suspend fun onSlashClicker(event: GuildSlashEvent) {
         val button = createButton(event, count = 0)

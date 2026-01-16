@@ -1,7 +1,6 @@
 package io.github.freya022.wiki.commands.slash
 
 import io.github.freya022.botcommands.api.commands.annotations.Command
-import io.github.freya022.botcommands.api.commands.application.ApplicationCommand
 import io.github.freya022.botcommands.api.commands.application.slash.GuildSlashEvent
 import io.github.freya022.botcommands.api.commands.application.slash.annotations.JDASlashCommand
 import io.github.freya022.wiki.messages.CommandRepliesKt
@@ -12,7 +11,7 @@ import java.lang.management.ManagementFactory
 @WikiLanguage(WikiLanguage.Language.KOTLIN)
 // --8<-- [start:slash_info-kotlin]
 @Command
-class SlashInfo : ApplicationCommand() {
+class SlashInfo {
 
     @JDASlashCommand(
         name = "info",

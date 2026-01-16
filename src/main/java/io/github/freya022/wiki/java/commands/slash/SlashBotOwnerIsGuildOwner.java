@@ -1,7 +1,6 @@
 package io.github.freya022.wiki.java.commands.slash;
 
 import io.github.freya022.botcommands.api.commands.annotations.Command;
-import io.github.freya022.botcommands.api.commands.application.ApplicationCommand;
 import io.github.freya022.botcommands.api.commands.application.CommandScope;
 import io.github.freya022.botcommands.api.commands.application.annotations.DeclarationFilter;
 import io.github.freya022.botcommands.api.commands.application.slash.GuildSlashEvent;
@@ -13,7 +12,7 @@ import io.github.freya022.wiki.switches.wiki.WikiLanguage;
 @WikiLanguage(WikiLanguage.Language.JAVA)
 // --8<-- [start:declaration_filter-java]
 @Command
-public class SlashBotOwnerIsGuildOwner extends ApplicationCommand {
+public class SlashBotOwnerIsGuildOwner {
 
     // All filters must return 'true' for the command to be declared
     @DeclarationFilter(BotOwnerIsGuildOwnerDeclarationFilter.class)

@@ -3,7 +3,7 @@ package io.github.freya022.wiki.commands.slash
 import dev.freya02.botcommands.jda.ktx.coroutines.await
 import io.github.freya022.botcommands.api.commands.CommandPath
 import io.github.freya022.botcommands.api.commands.annotations.Command
-import io.github.freya022.botcommands.api.commands.application.ApplicationCommand
+import io.github.freya022.botcommands.api.commands.application.SlashOptionChoiceProvider
 import io.github.freya022.botcommands.api.commands.application.provider.GlobalApplicationCommandManager
 import io.github.freya022.botcommands.api.commands.application.provider.GlobalApplicationCommandProvider
 import io.github.freya022.botcommands.api.commands.application.slash.GuildSlashEvent
@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit
 @WikiCommandProfile(WikiCommandProfile.Profile.KOTLIN)
 // --8<-- [start:convert-kotlin]
 @Command
-class SlashConvertKotlin : ApplicationCommand() {
+class SlashConvertKotlin : SlashOptionChoiceProvider {
     override fun getOptionChoices(guild: Guild?, commandPath: CommandPath, optionName: String): List<Choice> {
         if (commandPath.name == "convert") {
             if (optionName == "from" || optionName == "to") {
@@ -29,7 +29,7 @@ class SlashConvertKotlin : ApplicationCommand() {
             }
         }
 
-        return super.getOptionChoices(guild, commandPath, optionName)
+        return emptyList()
     }
 
     @JDASlashCommand(name = "convert", description = "Convert time to another unit")

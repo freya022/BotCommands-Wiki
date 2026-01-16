@@ -3,8 +3,8 @@ package io.github.freya022.wiki.java.commands.slash;
 import io.github.freya022.botcommands.api.commands.CommandPath;
 import io.github.freya022.botcommands.api.commands.annotations.Command;
 import io.github.freya022.botcommands.api.commands.annotations.GeneratedOption;
-import io.github.freya022.botcommands.api.commands.application.ApplicationCommand;
 import io.github.freya022.botcommands.api.commands.application.ApplicationGeneratedValueSupplier;
+import io.github.freya022.botcommands.api.commands.application.ApplicationGeneratedValueSupplierProvider;
 import io.github.freya022.botcommands.api.commands.application.slash.GuildSlashEvent;
 import io.github.freya022.botcommands.api.commands.application.slash.annotations.JDASlashCommand;
 import io.github.freya022.botcommands.api.core.reflect.ParameterType;
@@ -19,7 +19,7 @@ import java.time.Instant;
 @WikiCommandProfile(WikiCommandProfile.Profile.JAVA)
 // --8<-- [start:create_time-java]
 @Command
-public class SlashCreateTime extends ApplicationCommand {
+public class SlashCreateTime implements ApplicationGeneratedValueSupplierProvider {
     @NotNull
     @Override
     public ApplicationGeneratedValueSupplier getGeneratedValueSupplier(
@@ -38,7 +38,7 @@ public class SlashCreateTime extends ApplicationCommand {
             }
         }
 
-        return super.getGeneratedValueSupplier(guild, commandId, commandPath, optionName, parameterType);
+        throw new IllegalArgumentException("Unknown generated option: " + optionName);
     }
 
     @JDASlashCommand(name = "create_time", description = "Shows the creation time of this command")

@@ -1,7 +1,6 @@
 package io.github.freya022.wiki.commands.slash
 
 import io.github.freya022.botcommands.api.commands.annotations.Command
-import io.github.freya022.botcommands.api.commands.application.ApplicationCommand
 import io.github.freya022.botcommands.api.commands.application.provider.GlobalApplicationCommandManager
 import io.github.freya022.botcommands.api.commands.application.provider.GlobalApplicationCommandProvider
 import io.github.freya022.botcommands.api.commands.application.slash.GuildSlashEvent
@@ -12,7 +11,7 @@ import io.github.freya022.wiki.switches.wiki.WikiCommandProfile
 @WikiCommandProfile(WikiCommandProfile.Profile.KOTLIN)
 // --8<-- [start:slash_subcommands-kotlin]
 @Command
-class SlashTag : ApplicationCommand() {
+class SlashTag {
     // Data for /tag create
     @JDASlashCommand(name = "tag", subcommand = "create", description = "Creates a tag")
     // Data for /tag

@@ -2,7 +2,6 @@ package io.github.freya022.wiki.commands.slash
 
 import dev.freya02.botcommands.jda.ktx.coroutines.await
 import io.github.freya022.botcommands.api.commands.annotations.Command
-import io.github.freya022.botcommands.api.commands.application.ApplicationCommand
 import io.github.freya022.botcommands.api.commands.application.provider.GlobalApplicationCommandManager
 import io.github.freya022.botcommands.api.commands.application.provider.GlobalApplicationCommandProvider
 import io.github.freya022.botcommands.api.commands.application.slash.GuildSlashEvent
@@ -12,7 +11,7 @@ import io.github.freya022.wiki.switches.wiki.WikiCommandProfile
 @WikiCommandProfile(WikiCommandProfile.Profile.KOTLIN)
 // --8<-- [start:ping-kotlin]
 @Command
-class SlashPingKotlin : ApplicationCommand() {
+class SlashPingKotlin {
     // Default scope is global, guild-only (GUILD_NO_DM)
     @JDASlashCommand(name = "ping", description = "Pong!")
     suspend fun onSlashPing(event: GuildSlashEvent) {

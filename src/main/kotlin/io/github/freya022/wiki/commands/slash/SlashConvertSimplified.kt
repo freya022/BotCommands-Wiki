@@ -2,7 +2,6 @@ package io.github.freya022.wiki.commands.slash
 
 import dev.freya02.botcommands.jda.ktx.coroutines.await
 import io.github.freya022.botcommands.api.commands.annotations.Command
-import io.github.freya022.botcommands.api.commands.application.ApplicationCommand
 import io.github.freya022.botcommands.api.commands.application.provider.GlobalApplicationCommandManager
 import io.github.freya022.botcommands.api.commands.application.provider.GlobalApplicationCommandProvider
 import io.github.freya022.botcommands.api.commands.application.slash.GuildSlashEvent
@@ -14,7 +13,7 @@ import java.util.concurrent.TimeUnit
 @WikiCommandProfile(WikiCommandProfile.Profile.KOTLIN)
 // --8<-- [start:convert_simplified-kotlin]
 @Command
-class SlashConvertSimplifiedKotlin : ApplicationCommand() {
+class SlashConvertSimplifiedKotlin {
     @JDASlashCommand(name = "convert_simplified", description = "Convert time to another unit")
     suspend fun onSlashConvertSimplified(
         event: GuildSlashEvent,

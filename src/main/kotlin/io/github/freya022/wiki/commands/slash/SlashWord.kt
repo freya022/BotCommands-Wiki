@@ -3,7 +3,6 @@ package io.github.freya022.wiki.commands.slash
 import dev.freya02.botcommands.jda.ktx.coroutines.await
 import dev.freya02.botcommands.jda.ktx.messages.reply_
 import io.github.freya022.botcommands.api.commands.annotations.Command
-import io.github.freya022.botcommands.api.commands.application.ApplicationCommand
 import io.github.freya022.botcommands.api.commands.application.provider.GlobalApplicationCommandManager
 import io.github.freya022.botcommands.api.commands.application.provider.GlobalApplicationCommandProvider
 import io.github.freya022.botcommands.api.commands.application.slash.GuildSlashEvent
@@ -20,7 +19,7 @@ import net.dv8tion.jda.api.events.interaction.command.CommandAutoCompleteInterac
 @WikiCommandProfile(WikiCommandProfile.Profile.KOTLIN)
 // --8<-- [start:word_command-kotlin]
 @Command
-class SlashWord : ApplicationCommand() {
+class SlashWord {
     @JDASlashCommand(name = "word", description = "Autocompletes a word")
     suspend fun onSlashWord(
         event: GuildSlashEvent,
