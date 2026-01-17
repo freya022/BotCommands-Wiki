@@ -16,6 +16,10 @@ as well as [[Components]] to delete them manually and make groups.
     When configuring components, you need to use the framework's methods first, 
     and then use the JDA methods, and finally build.
 
+!!! tip
+
+    You can use these components and non-BC components at the same time.
+
 ## Enabling components
 
 === "Build-in DI"
