@@ -137,5 +137,5 @@ nav:
         - Adding option resolvers: using-commands/application-commands/option-resolvers.md
       - Advanced options: using-commands/advanced-options.md
   - Using components: using-components.md
-#  - Using modals: foo
+  - Using modals: using-modals.md
   - Docs: https://docs.bc.freya02.dev
