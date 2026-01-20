@@ -101,14 +101,14 @@ be careful to check against the command path as well as the option's display nam
 
 ### Using autocomplete
 
-!!! info "Learn how to create an autocomplete handler [here](../using-autocomplete.md)"
+!!! info "Learn how to create an autocomplete handler [here](using-autocomplete.md)"
 
 Enabling autocompletion for an option is done by referencing an existing handler,
 in the [`autocomplete`][[SlashOption#autocomplete]] property of your [[SlashOption]].
 
 !!! example
 
-    Using the autocomplete handler we made ["Creating autocomplete handlers"](../using-autocomplete.md):
+    Using the autocomplete handler we made ["Creating autocomplete handlers"](using-autocomplete.md):
 
     === "Kotlin"
         ```kotlin
