@@ -97,18 +97,18 @@ be careful to check against the command path as well as the option's display nam
 
     As you can see, despite the short choice list, 
     the method is quite lengthy and causes duplications with multiple commands.
-    This issue is solved with [predefined choices](./basics.md#using-predefined-choices).
+    This issue is solved with [predefined choices](commons.md#using-predefined-choices).
 
 ### Using autocomplete
 
-!!! info "Learn how to create an autocomplete handler [here](using-autocomplete.md)"
+!!! info "Learn how to create an autocomplete handler [here](autocomplete-handlers.md)"
 
 Enabling autocompletion for an option is done by referencing an existing handler,
 in the [`autocomplete`][[SlashOption#autocomplete]] property of your [[SlashOption]].
 
 !!! example
 
-    Using the autocomplete handler we made ["Creating autocomplete handlers"](using-autocomplete.md):
+    Using the autocomplete handler we made ["Creating autocomplete handlers"](autocomplete-handlers.md):
 
     === "Kotlin"
         ```kotlin

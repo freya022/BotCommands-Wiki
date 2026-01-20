@@ -15,6 +15,12 @@ Registration of all applications commands is managed automatically, they are add
 By default, the commands are cached locally to avoid unnecessary updates,
 however, you might want to configure the cache in some cases.
 
+??? tip "Logging command changes"
+
+    You can optionally get more info on what changed in your application commands,
+    by enabling the `TRACE` logs on `io.github.freya022.botcommands.internal.commands.application.diff.DiffLogger`,
+    or any package it is in.
+
 ### In development environments
 
 If you develop on multiple machines, your local cache may differ from the commands Discord has,

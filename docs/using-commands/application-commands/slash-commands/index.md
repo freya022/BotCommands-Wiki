@@ -1,6 +1,6 @@
-# Slash command basics
+# Creating slash commands
 
-Slash commands are the new way of defining commands, even though there are limitations with them, 
+Slash commands are the new way of defining commands, even though there are limitations with them,
 we do have some advantages such as being easier to fill in, choices and auto-completion.
 
 All slash command methods must be public and have `GlobalSlashEvent` (for global commands) or `GuildSlashEvent` (for guild commands)
@@ -19,38 +19,10 @@ as their first parameter.
 
 ## Default description
 
-You can avoid setting the (non-localized) descriptions of your commands and options 
+You can avoid setting the (non-localized) descriptions of your commands and options
 by putting them in a localization file, using the root locale (i.e., no locale suffix),
 for more details, see ["Localizing application commands"](../../../using-botcommands/localization/commands.md).
 
-## Using predefined choices
+## What's next?
 
-If your choices stay the same for every command,
-you can improve re-usability and avoid extra code by using choices on the resolver's level,
-that is, the resolver will return the choices used for every option of their type.
-
-All you now need to do is enable `usePredefinedChoices` on your option.
-
-!!! example
-    Here, the resolver for `TimeUnit` is already defined and will be explained in [Adding option resolvers](../option-resolvers.md).
-
-    === "Kotlin"
-        ```kotlin
-        --8<-- "wiki/commands/slash/SlashConvertSimplified.kt:convert_simplified-kotlin"
-        ```
-
-    === "Kotlin (DSL)"
-        ```kotlin
-        --8<-- "wiki/commands/slash/SlashConvertSimplified.kt:convert_simplified-kotlin_dsl"
-        ```
-
-    === "Java"
-        ```java
-        --8<-- "wiki/java/commands/slash/SlashConvertSimplified.java:convert_simplified-java"
-        ```
-
-## Update logs
-
-You can optionally get more info on what changed in your application commands,
-by enabling the `TRACE` logs on `io.github.freya022.botcommands.internal.commands.application.diff.DiffLogger`,
-or any package it is in.
+You can look at [annotated commands](annotated.md) and [declarative commands](declarative.md).

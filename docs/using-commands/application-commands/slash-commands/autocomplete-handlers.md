@@ -122,10 +122,3 @@ by implementing [[AutocompleteTransformer]].
         ```java title="FullNameTransformer.java"
         --8<-- "wiki/java/autocomplete/transformer/FullNameTransformer.java:autocomplete_transformer-java"
         ```
-
-## Usage in commands
-
-Discover how to use your autocomplete handlers on:
-
-- [Annotated slash commands](slash-commands/annotated.md#using-autocomplete)
-- [Declarative slash commands](slash-commands/declarative.md#using-autocomplete)
