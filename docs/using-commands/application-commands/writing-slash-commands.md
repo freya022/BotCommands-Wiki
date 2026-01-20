@@ -36,15 +36,7 @@ For example, on a `/ban temp users` command, you can set the description for all
 ## Annotated commands
 
 Annotated command methods must be annotated with `#!java @JDASlashCommand`,
-where you can set the scope, name, description, etc..., 
-while the declaring class must extend `ApplicationCommand`.
-
-!!! question "Why do I need to extend `ApplicationCommand`?"
-
-    As a limitation of annotated commands, 
-    you are required to extend this class as it allows the framework to ask your commands for stuff,
-    like what guilds a command should be pushed to, getting a value generator for one of their options,
-    and also getting choices.
+where you can set the name, description, etc...
 
 [//]: # (TODO add tip with live template)
 
@@ -112,7 +104,7 @@ All supported types are documented under `ParameterResolver`, and [other types c
 
 #### Using choices
 
-You must override `getOptionChoices` in order to return a list of choices, 
+You must implement [[SlashOptionChoiceProvider]] in order to return a list of choices, 
 be careful to check against the command path as well as the option's display name.
 
 !!! example
@@ -155,8 +147,7 @@ in the [`autocomplete`][[SlashOption#autocomplete]] property of your [[SlashOpti
 
 Generated values are parameters that get their values from a lambda everytime a command is run.
 
-You must give one by overriding [[ApplicationCommand#getGeneratedValueSupplier]], 
-similarly to adding choices.
+You must give one by implementing [[ApplicationGeneratedValueSupplierProvider]].
 
 As always, make sure to check against the command path as well as the option's display name.
 
