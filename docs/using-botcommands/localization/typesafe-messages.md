@@ -1,4 +1,4 @@
-# Type-safe messages
+# Responding with type-safe messages
 
 [//]: # (TODO when this becomes stable, add tips on other pages mentioning this is recommended)
 

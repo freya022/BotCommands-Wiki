@@ -115,9 +115,9 @@ nav:
       - Localization:
         - using-botcommands/localization/index.md
         - Application commands: using-botcommands/localization/commands.md
-        - Type-safe messages: using-botcommands/localization/typesafe-messages.md
-        - With events: using-botcommands/localization/events.md
-        - With contexts: using-botcommands/localization/contexts.md
+        - Responding using type-safe messages: using-botcommands/localization/typesafe-messages.md
+        - Responding using events: using-botcommands/localization/events.md
+        - Responding using contexts: using-botcommands/localization/contexts.md
         - Overriding built-in messages: using-botcommands/localization/overriding-builtin-messages.md
       - Unicode emojis: using-botcommands/unicode-emojis.md
       - Application emojis: using-botcommands/app-emojis.md

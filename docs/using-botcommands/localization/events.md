@@ -1,4 +1,4 @@
-# Localizing using events
+# Responding using events
 
 The framework's events extend a few interfaces:
 

@@ -1,4 +1,4 @@
-# Localizing with contexts
+# Responding using contexts
 
 The framework allows you to inject contexts which allow you to get messages:
 
