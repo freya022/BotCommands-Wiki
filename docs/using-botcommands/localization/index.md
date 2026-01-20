@@ -2,9 +2,6 @@
 
 This will focus on how bundles are defined using the default configuration.
 
-!!! tip
-    Refer to [`Custom bundles`](./custom-bundles.md) for details on how to add support for different bundles. (bundle formats, search locations, template formats)
-
 ## Bundle paths
 
 By default, bundles have a `.json` extension and are located in a `bc_localization` folder of your app's resources.
