@@ -10,7 +10,7 @@ all of which can be cached.
 
 ## Creating autocomplete handlers
 
-=== "Code-declared"
+=== "Declarative"
 
     You will have to implement the [[AutocompleteHandlerProvider]],
     enabling you to declare autocomplete handlers using the manager.
@@ -31,7 +31,7 @@ all of which can be cached.
 
         An annotated autocomplete handler can still be referenced [by name][[SlashCommandOptionBuilder#autocompleteByName]] 
         and [by function][[SlashCommandOptionBuilder#autocompleteByFunction]]
-        in code-declared commands.
+        in declarative commands.
 
     === "Kotlin"
         ```kotlin
@@ -56,8 +56,7 @@ You may also configure other properties:
 
     It may sometimes makes more sense to use one "similarity" algorithm over another, 
     depending on what user input you expect, and what the source items are,
-    you can experiment different algos from the [java-string-similarity library](https://github.com/tdebatty/java-string-similarity),
-    already included in the framework.
+    you can experiment different algos, for example, from the [java-string-similarity](https://github.com/tdebatty/java-string-similarity) library.
 
     You are encouraged to to try inputs against different algos, and find what works the best, 
     which one could filter the results of the previous algo, etc.
@@ -66,7 +65,7 @@ You may also configure other properties:
 
 When the results are stable, you can enable autocomplete caching, saving time when a user types the same query.
 
-=== "Code-declared"
+=== "Declarative"
 
     To enable it, configure the cache using the [`cache`][[AutocompleteInfoBuilder#cache]] configurer.
 
@@ -128,5 +127,5 @@ by implementing [[AutocompleteTransformer]].
 
 Discover how to use your autocomplete handlers on:
 
-- [Annotated slash commands](writing-slash-commands.md#using-autocomplete)
-- [Code-declared slash commands](writing-slash-commands.md#using-autocomplete_1)
+- [Annotated slash commands](slash-commands/annotated.md#using-autocomplete)
+- [Declarative slash commands](slash-commands/declarative.md#using-autocomplete)

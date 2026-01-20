@@ -5,7 +5,7 @@ In both cases, classes containing commands need to be annotated with `#!java @Co
 which will also register your class for dependency injection.
 
 ## Defining the command method
-Whether you're using annotated or DSL commands, you will have to write a method,
+Whether you're using annotated or declarative commands, you will have to write a method,
 which holds the user inputs as parameters.
 
 The method must be public, non-static, with the first parameter being the event required for the command type of your choice.
@@ -31,8 +31,8 @@ and require usage of other methods to retrieve other values (such as choices for
 
 Requirements of such commands are specified on the command annotation.
 
-## DSL commands (Kotlin)
-DSL commands were added in V3 to help create commands dynamically,
+## Declarative commands (Kotlin)
+Declarative commands were added in V3 to help create commands dynamically,
 whether it's to let the user filter commands themselves, or adding subcommands/options in a loop;
 you can almost do anything you want while keeping the simplicity of your command method.
 
