@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service
 @Service
 class SpringBot(
     private val jdaConfiguration: JDAConfiguration,
-    @Value("\${bot.token}")
+    @param:Value($$"${bot.token}")
     private val token: String,
 ) : JDAService() {
     override val intents: Set<GatewayIntent> get() = jdaConfiguration.intents

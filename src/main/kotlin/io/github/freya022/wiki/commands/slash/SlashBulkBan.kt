@@ -8,7 +8,6 @@ import dev.freya02.botcommands.jda.ktx.requests.awaitCatching
 import dev.freya02.botcommands.jda.ktx.requests.awaitUnit
 import dev.freya02.botcommands.jda.ktx.requests.handle
 import io.github.freya022.botcommands.api.commands.annotations.Command
-import io.github.freya022.botcommands.api.commands.application.ApplicationCommand
 import io.github.freya022.botcommands.api.commands.application.slash.GuildSlashEvent
 import io.github.freya022.botcommands.api.commands.application.slash.annotations.JDASlashCommand
 import io.github.freya022.botcommands.api.commands.application.slash.annotations.MentionsString
@@ -23,7 +22,7 @@ import kotlin.time.toDurationUnit
 @WikiLanguage(WikiLanguage.Language.KOTLIN)
 // --8<-- [start:bulk_ban-kotlin]
 @Command
-class SlashBulkBan : ApplicationCommand() {
+class SlashBulkBan {
     @JDASlashCommand(name = "bulk_ban", description = "Ban users in bulk")
     suspend fun onSlashBulkBan(
         event: GuildSlashEvent,

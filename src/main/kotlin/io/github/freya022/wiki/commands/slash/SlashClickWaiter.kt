@@ -6,7 +6,6 @@ import dev.freya02.botcommands.jda.ktx.messages.deleteDelayed
 import dev.freya02.botcommands.jda.ktx.messages.replaceWith
 import dev.freya02.botcommands.jda.ktx.requests.awaitUnit
 import io.github.freya022.botcommands.api.commands.annotations.Command
-import io.github.freya022.botcommands.api.commands.application.ApplicationCommand
 import io.github.freya022.botcommands.api.commands.application.slash.GuildSlashEvent
 import io.github.freya022.botcommands.api.commands.application.slash.annotations.JDASlashCommand
 import io.github.freya022.botcommands.api.components.Buttons
@@ -16,7 +15,7 @@ import kotlin.time.Duration.Companion.seconds
 
 // --8<-- [start:click_waiter-kotlin]
 @Command
-class SlashClickWaiter(private val buttons: Buttons) : ApplicationCommand() {
+class SlashClickWaiter(private val buttons: Buttons) {
     @JDASlashCommand(name = "click_waiter", description = "Sends a button and waits for it to be clicked")
     suspend fun onSlashClickWaiter(event: GuildSlashEvent) {
         val button = buttons.primary("Click me").ephemeral {

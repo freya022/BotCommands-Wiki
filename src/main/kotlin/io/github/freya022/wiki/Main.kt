@@ -81,6 +81,10 @@ object Main {
                     addLocalizations("Commands", DiscordLocale.FRENCH)
                 }
 
+                localization {
+                    addResponseBundle("EventReplies")
+                }
+
                 components {
                     // Enables usage of components
                     enable = true

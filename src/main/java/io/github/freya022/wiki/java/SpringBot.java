@@ -3,7 +3,6 @@ package io.github.freya022.wiki.java;
 import io.github.freya022.botcommands.api.core.JDAService;
 import io.github.freya022.botcommands.api.core.config.JDAConfiguration;
 import io.github.freya022.botcommands.api.core.events.BReadyEvent;
-import io.github.freya022.botcommands.api.core.service.annotations.BService;
 import io.github.freya022.wiki.switches.wiki.WikiLanguage;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.hooks.IEventManager;
@@ -11,12 +10,13 @@ import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @WikiLanguage(WikiLanguage.Language.JAVA)
 // --8<-- [start:jdaservice-java]
-@BService
+@Service
 public class SpringBot extends JDAService {
     private final JDAConfiguration jdaConfiguration;
     private final String token;

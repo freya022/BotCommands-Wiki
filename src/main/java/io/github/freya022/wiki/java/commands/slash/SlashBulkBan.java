@@ -1,7 +1,6 @@
 package io.github.freya022.wiki.java.commands.slash;
 
 import io.github.freya022.botcommands.api.commands.annotations.Command;
-import io.github.freya022.botcommands.api.commands.application.ApplicationCommand;
 import io.github.freya022.botcommands.api.commands.application.slash.GuildSlashEvent;
 import io.github.freya022.botcommands.api.commands.application.slash.annotations.JDASlashCommand;
 import io.github.freya022.botcommands.api.commands.application.slash.annotations.MentionsString;
@@ -22,7 +21,7 @@ import java.util.stream.Collectors;
 @WikiLanguage(WikiLanguage.Language.JAVA)
 // --8<-- [start:bulk_ban-java]
 @Command
-public class SlashBulkBan extends ApplicationCommand {
+public class SlashBulkBan {
     @JDASlashCommand(name = "bulk_ban", description = "Ban users in bulk")
     public void onSlashBulkBan(
             GuildSlashEvent event,

@@ -5,7 +5,6 @@ import dev.freya02.botcommands.jda.ktx.coroutines.await
 import dev.freya02.botcommands.jda.ktx.messages.replaceWith
 import dev.freya02.botcommands.jda.ktx.requests.awaitUnit
 import io.github.freya022.botcommands.api.commands.annotations.Command
-import io.github.freya022.botcommands.api.commands.application.ApplicationCommand
 import io.github.freya022.botcommands.api.commands.application.slash.GuildSlashEvent
 import io.github.freya022.botcommands.api.commands.application.slash.annotations.JDASlashCommand
 import io.github.freya022.botcommands.api.components.Buttons
@@ -17,7 +16,7 @@ import kotlin.time.Duration.Companion.minutes
 @WikiLanguage(WikiLanguage.Language.KOTLIN)
 // --8<-- [start:click_group-kotlin]
 @Command
-class SlashClickGroup(private val buttons: Buttons) : ApplicationCommand() {
+class SlashClickGroup(private val buttons: Buttons) {
     @JDASlashCommand(name = "click_group", description = "Sends two buttons and waits for any of them to be clicked")
     suspend fun onSlashClickGroup(event: GuildSlashEvent) {
         val firstButton = buttons.primary("1").ephemeral {

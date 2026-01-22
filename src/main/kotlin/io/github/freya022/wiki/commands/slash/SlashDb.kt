@@ -3,7 +3,6 @@ package io.github.freya022.wiki.commands.slash
 import dev.freya02.botcommands.jda.ktx.coroutines.await
 import dev.freya02.botcommands.jda.ktx.messages.reply_
 import io.github.freya022.botcommands.api.commands.annotations.Command
-import io.github.freya022.botcommands.api.commands.application.ApplicationCommand
 import io.github.freya022.botcommands.api.commands.application.slash.GuildSlashEvent
 import io.github.freya022.botcommands.api.commands.application.slash.annotations.JDASlashCommand
 import io.github.freya022.botcommands.api.core.db.Database
@@ -18,7 +17,7 @@ private val logger = KotlinLogging.logger { }
 
 @WikiLanguage(WikiLanguage.Language.KOTLIN)
 @Command
-class SlashDb(private val database: Database) : ApplicationCommand() {
+class SlashDb(private val database: Database) {
     @JDASlashCommand(name = "db")
     suspend fun onSlashDb(event: GuildSlashEvent) {
         // --8<-- [start:db_return_value-kotlin]

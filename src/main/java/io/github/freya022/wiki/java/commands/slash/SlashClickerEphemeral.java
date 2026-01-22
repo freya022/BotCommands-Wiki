@@ -1,7 +1,6 @@
 package io.github.freya022.wiki.java.commands.slash;
 
 import io.github.freya022.botcommands.api.commands.annotations.Command;
-import io.github.freya022.botcommands.api.commands.application.ApplicationCommand;
 import io.github.freya022.botcommands.api.commands.application.slash.GuildSlashEvent;
 import io.github.freya022.botcommands.api.commands.application.slash.annotations.JDASlashCommand;
 import io.github.freya022.botcommands.api.components.Button;
@@ -16,7 +15,7 @@ import java.time.Duration;
 @WikiCommandProfile(WikiCommandProfile.Profile.JAVA)
 // --8<-- [start:ephemeral-clicker-java]
 @Command
-public class SlashClickerEphemeral extends ApplicationCommand {
+public class SlashClickerEphemeral {
     private final Buttons buttons;
 
     public SlashClickerEphemeral(Buttons buttons) {

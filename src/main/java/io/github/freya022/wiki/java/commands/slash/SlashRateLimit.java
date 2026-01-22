@@ -1,7 +1,6 @@
 package io.github.freya022.wiki.java.commands.slash;
 
 import io.github.freya022.botcommands.api.commands.annotations.*;
-import io.github.freya022.botcommands.api.commands.application.ApplicationCommand;
 import io.github.freya022.botcommands.api.commands.application.slash.GuildSlashEvent;
 import io.github.freya022.botcommands.api.commands.application.slash.annotations.JDASlashCommand;
 import io.github.freya022.botcommands.api.commands.ratelimit.RateLimitScope;
@@ -13,7 +12,7 @@ import java.time.temporal.ChronoUnit;
 @WikiCommandProfile(WikiCommandProfile.Profile.JAVA)
 // --8<-- [start:rate_limit-java]
 @Command
-public class SlashRateLimit extends ApplicationCommand {
+public class SlashRateLimit {
 
     // A rate limit for this slash command only
     @RateLimit(

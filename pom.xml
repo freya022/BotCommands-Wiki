@@ -11,22 +11,21 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <!-- Some modules require Java 22+ -->
+        <maven.compiler.source>22</maven.compiler.source>
+        <maven.compiler.target>22</maven.compiler.target>
 
-        <kotlin.version>2.2.20</kotlin.version>
+        <kotlin.version>2.3.0</kotlin.version>
         <kotlin.coroutine.version>1.10.2</kotlin.coroutine.version>
 
-        <kotlin.compiler.languageVersion>2.0</kotlin.compiler.languageVersion>
-        <kotlin.compiler.apiVersion>2.0</kotlin.compiler.apiVersion>
-        <kotlin.compiler.jvmTarget>17</kotlin.compiler.jvmTarget>
+        <kotlin.compiler.jvmTarget>22</kotlin.compiler.jvmTarget>
         <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
 
-        <flyway.version>10.16.0</flyway.version>
-        <ktor.version>3.2.0</ktor.version>
+        <flyway.version>11.20.2</flyway.version>
+        <ktor.version>3.3.3</ktor.version>
         <serialization.version>1.9.0</serialization.version>
         <!-- DO NOT REMOVE, USED BY .github/workflows/build-docs-site.yml -->
-        <BotCommands.version>3.0.0-beta.7</BotCommands.version>
+        <BotCommands.version>3.0.0-beta.8</BotCommands.version>
     </properties>
 
     <build>
@@ -36,6 +35,9 @@
                 <artifactId>kotlin-maven-plugin</artifactId>
                 <version>${kotlin.version}</version>
                 <configuration>
+                    <args>
+                        <arg>-opt-in=dev.freya02.botcommands.typesafe.messages.api.annotations.ExperimentalTypesafeMessagesApi</arg>
+                    </args>
                     <compilerPlugins>
                         <plugin>kotlinx-serialization</plugin>
                     </compilerPlugins>
@@ -79,7 +81,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.11.0</version>
                 <configuration>
-                    <release>17</release>
+                    <release>22</release>
                     <compilerArgs>
                         <compilerArg>-parameters</compilerArg>
                     </compilerArgs>
@@ -150,7 +152,7 @@
         <dependency>
             <groupId>net.dv8tion</groupId>
             <artifactId>JDA</artifactId>
-            <version>6.1.0</version>
+            <version>6.3.0</version>
             <exclusions>
                 <exclusion>
                     <groupId>club.minnced</groupId>
@@ -177,12 +179,23 @@
             <artifactId>BotCommands-spring</artifactId>
             <version>${BotCommands.version}</version>
         </dependency>
+        <dependency>
+            <groupId>io.github.freya022</groupId>
+            <artifactId>BotCommands-typesafe-messages-core</artifactId>
+            <version>${BotCommands.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.freya022</groupId>
+            <artifactId>BotCommands-typesafe-messages-bc</artifactId>
+            <version>${BotCommands.version}</version>
+            <scope>runtime</scope>
+        </dependency>
 
         <!-- Needed for JDA and BotCommands logging -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.5.16</version>
+            <version>1.5.24</version>
         </dependency>
         <dependency>
             <groupId>io.github.oshai</groupId>
@@ -190,11 +203,18 @@
             <version>7.0.3</version>
         </dependency>
 
+        <!-- To read config -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.13.2</version>
+        </dependency>
+
         <!-- Needed for components, otherwise optional - You must use PostgreSQL -->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.7.5</version>
+            <version>42.7.9</version>
         </dependency>
         <!-- BotCommands should provide upgrade scripts detectable by flyway, so you don't need to upgrade manually -->
         <dependency>
@@ -211,7 +231,7 @@
         <dependency>
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
-            <version>6.2.1</version>
+            <version>7.0.2</version>
         </dependency>
 
         <dependency>
@@ -257,7 +277,7 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>5.11.4</version>
+            <version>6.0.2</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

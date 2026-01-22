@@ -15,7 +15,7 @@ class ClassResolverTest {
         }
 
         ClassResolver.singleClass(LinkRequest("BConfig")).also { link ->
-            assertEquals("$BASE_URL/BotCommands/io.github.freya022.botcommands.api.core.config/-b-config/index.html", link.url)
+            assertEquals("$BASE_URL/BotCommands-core/io.github.freya022.botcommands.api.core.config/-b-config/index.html", link.url)
         }
     }
 }

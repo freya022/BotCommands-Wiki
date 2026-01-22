@@ -1,0 +1,7 @@
+{
+  "commands" : {
+    "replies": {
+      "context_localization": "I am translated using a context ! Sent {send_timestamp}"
+    }
+  }
+}

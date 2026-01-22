@@ -11,7 +11,7 @@ Use [[VarArgs]] on the parameter.
 
 The drawback is that each option will be configured the same, name, description, etc...
 
-### Code-declared commands
+### Declarative commands
 Using `optionVararg` or `inlineClassOptionVararg` on your command builder lets you solve the above issues.
 
 !!! example
@@ -36,7 +36,7 @@ Using `optionVararg` or `inlineClassOptionVararg` on your command builder lets y
     ```
 
 ## Mention strings
-!!! info "You can use this annotation on both code-declared and annotation-declared commands"
+!!! info "You can use this annotation on both declarative and annotation-declared commands"
 
 [[MentionsString]] is an annotation
 that lets you retrieve as many mentions as a [string option lets you type](https://docs.jda.wiki/net/dv8tion/jda/api/interactions/commands/build/OptionData.html#MAX_STRING_OPTION_LENGTH),
@@ -61,7 +61,7 @@ You can also use a `List<IMentionable>`, where you can set the requested mention
         --8<-- "wiki/java/commands/slash/SlashBulkBan.java:bulk_ban-java"
         ```
 
-## Advanced code-declared options
+## Advanced declarative options
 
 The Kotlin DSL also lets you do more, for example, using loops to generate commands, or even options.
 It also allows you to create more complex options, such as having multiple options in one parameter.

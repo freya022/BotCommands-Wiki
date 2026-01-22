@@ -192,7 +192,7 @@ Finally, load it on the first lines of your main program:
 ## Other resources
 
 Take a look at other wiki pages, such as [Dependency injection](../using-botcommands/dependency-injection/index.md), 
-[Creating slash command](../using-commands/application-commands/writing-slash-commands.md)
+[Creating slash command](../using-commands/application-commands/slash-commands/index.md)
 and [Using components](../using-components.md).
 
 ### Examples

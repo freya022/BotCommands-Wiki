@@ -313,7 +313,7 @@ you can create a JAR with all the dependencies by pressing ++ctrl++ twice in Int
 ## Other resources
 
 Take a look at other wiki pages, such as [Dependency injection](../using-botcommands/dependency-injection/index.md), 
-[Creating slash command](../using-commands/application-commands/writing-slash-commands.md)
+[Creating slash command](../using-commands/application-commands/slash-commands/index.md)
 and [Using components](../using-components.md).
 
 ### Examples

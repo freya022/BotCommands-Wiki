@@ -3,7 +3,6 @@ package io.github.freya022.wiki.commands.slash
 import dev.freya02.botcommands.jda.ktx.coroutines.await
 import dev.freya02.botcommands.jda.ktx.messages.reply_
 import io.github.freya022.botcommands.api.commands.annotations.Command
-import io.github.freya022.botcommands.api.commands.application.ApplicationCommand
 import io.github.freya022.botcommands.api.commands.application.CommandScope
 import io.github.freya022.botcommands.api.commands.application.annotations.DeclarationFilter
 import io.github.freya022.botcommands.api.commands.application.slash.GuildSlashEvent
@@ -15,7 +14,7 @@ import io.github.freya022.wiki.switches.wiki.WikiLanguage
 @WikiLanguage(WikiLanguage.Language.KOTLIN)
 // --8<-- [start:declaration_filter-kotlin]
 @Command
-class SlashBotOwnerIsGuildOwner : ApplicationCommand() {
+class SlashBotOwnerIsGuildOwner {
 
     // All filters must return 'true' for the command to be declared
     @DeclarationFilter(BotOwnerIsGuildOwnerDeclarationFilter::class)

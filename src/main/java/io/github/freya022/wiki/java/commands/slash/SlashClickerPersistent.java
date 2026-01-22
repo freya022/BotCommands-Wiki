@@ -1,7 +1,6 @@
 package io.github.freya022.wiki.java.commands.slash;
 
 import io.github.freya022.botcommands.api.commands.annotations.Command;
-import io.github.freya022.botcommands.api.commands.application.ApplicationCommand;
 import io.github.freya022.botcommands.api.commands.application.slash.GuildSlashEvent;
 import io.github.freya022.botcommands.api.commands.application.slash.annotations.JDASlashCommand;
 import io.github.freya022.botcommands.api.components.Button;
@@ -22,7 +21,7 @@ import java.time.Duration;
 @WikiCommandProfile(WikiCommandProfile.Profile.JAVA)
 // --8<-- [start:persistent-clicker-java]
 @Command
-public class SlashClickerPersistent extends ApplicationCommand {
+public class SlashClickerPersistent {
     // Since Java doesn't have the same method references as Kotlin,
     // we should use a constant name, so we don't have to type it more than once.
     private static final String COOKIE_BUTTON_NAME = "SlashPersistentClicker: cookie";

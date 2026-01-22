@@ -1,6 +1,5 @@
 package io.github.freya022.wiki.java.commands.slash;
 
-import io.github.freya022.botcommands.api.commands.application.ApplicationCommand;
 import io.github.freya022.botcommands.api.commands.application.slash.autocomplete.annotations.AutocompleteHandler;
 import io.github.freya022.botcommands.api.core.annotations.Handler;
 import io.github.freya022.wiki.switches.wiki.WikiCommandProfile;
@@ -12,7 +11,7 @@ import java.util.List;
 @WikiCommandProfile(WikiCommandProfile.Profile.JAVA)
 // --8<-- [start:word_autocomplete-java]
 @Handler // Required by the AutocompleteHandler annotation, can be replaced with @Command
-public class SlashWordAutocomplete extends ApplicationCommand {
+public class SlashWordAutocomplete {
     // https://en.wikipedia.org/wiki/Dolch_word_list#Dolch_list:_Nouns
     // but 30 words
     private static final List<String> WORDS = List.of(
