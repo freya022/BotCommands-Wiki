@@ -119,6 +119,7 @@ nav:
         - Responding using events: using-botcommands/localization/events.md
         - Responding using contexts: using-botcommands/localization/contexts.md
         - Overriding built-in messages: using-botcommands/localization/overriding-builtin-messages.md
+        - Customization: using-botcommands/localization/customization.md
       - Unicode emojis: using-botcommands/unicode-emojis.md
       - Application emojis: using-botcommands/app-emojis.md
       - Kotlin extensions: using-botcommands/extensions.md
