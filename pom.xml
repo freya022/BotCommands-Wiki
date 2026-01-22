@@ -25,7 +25,7 @@
         <ktor.version>3.3.3</ktor.version>
         <serialization.version>1.9.0</serialization.version>
         <!-- DO NOT REMOVE, USED BY .github/workflows/build-docs-site.yml -->
-        <BotCommands.version>3.0.0-beta.7_DEV</BotCommands.version>
+        <BotCommands.version>3.0.0-beta.8</BotCommands.version>
     </properties>
 
     <build>
