@@ -1,0 +1,7 @@
+{
+  "commands" : {
+    "replies": {
+      "event_localization": "Je suis directement traduis avec l'événement ! Envoyé {send_timestamp}"
+    }
+  }
+}

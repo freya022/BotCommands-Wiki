@@ -16,3 +16,42 @@ These interfaces allow you to:
 
 You can also configure the event to [use a particular bundle][[LocalizableAction#localizationBundle]],
 or change the [path prefix][[LocalizableAction#localizationPrefix]].
+
+## Example
+
+Using the following localization bundle:
+
+```json title="Root bundle @ src/main/resources/bc_localization/EventReplies.json"
+--8<-- "bc_localization/EventReplies.json"
+```
+
+The root bundle **must** exist as a fallback.
+
+```json title="French bundle @ src/main/resources/bc_localization/EventReplies_fr.json"
+--8<-- "bc_localization/EventReplies_fr.json"
+```
+
+Which we configure to use:
+
+```kotlin
+BotCommands.create {
+    // ...
+
+    localization {
+        // This is only for localization methods directly present on the event
+        addResponseBundle("EventReplies")
+    }
+}
+```
+
+Then, reply using the user's locale (as provided by [[UserLocaleProvider]]), passing the `send_timestamp` argument.
+
+=== "Kotlin"
+    ```kotlin
+    --8<-- "wiki/commands/slash/SlashEventLocalization.kt:event_localization-kotlin"
+    ```
+
+=== "Java"
+    ```java
+    --8<-- "wiki/java/commands/slash/SlashEventLocalization.java:event_localization-java"
+    ```
