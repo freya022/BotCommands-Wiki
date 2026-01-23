@@ -13,6 +13,10 @@ dependencies {
 
     // Required for introspection
     implementation(libs.botcommands)
+    runtimeOnly(libs.botcommands.jda.ktx)
+    runtimeOnly(libs.botcommands.spring)
+    runtimeOnly(libs.botcommands.typesafe.messages.core)
+    runtimeOnly(libs.botcommands.typesafe.messages.bc)
 
     // JSON
     implementation(libs.kotlinx.serialization.json)
