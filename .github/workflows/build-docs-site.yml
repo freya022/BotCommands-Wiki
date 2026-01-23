@@ -3,15 +3,7 @@ name: Deploy wiki to Pages
 on:
   push:
     branches:
-      '*.X'
-    paths:
-      - .github/workflows/build-docs-site.yml
-      - 'mkdocs.yml'
-      - 'requirements.txt'
-      - 'pom.xml'
-      - 'docs/**'
-      - 'config-template/**'
-      - 'src/**'
+      - '3.X'
   workflow_dispatch:
 
 # Allow one concurrent deployment
@@ -23,59 +15,38 @@ jobs:
   wiki:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        run: actions/checkout@v6
+
       - name: Fetch gh-pages
         run: git fetch origin gh-pages --depth=1
+
       - name: Configure Git user
         run: |
           git config user.name GitHub Actions
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-      - name: Set up JDK 21
-        uses: actions/setup-java@v4
+
+      - name: Set up JDK 25
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: 25
-          cache: maven
-      - uses: actions/setup-python@v5
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v5
+        with:
+          cache-encryption-key: ${{ secrets.GRADLE_ENCRYPTION_KEY }}
+
+      - name: Setup python
+        uses: actions/setup-python@v6
         with:
           python-version: 3.x
           cache: 'pip'
       - name: Install Python dependencies
         run: pip install -r requirements.txt
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20.x'
-      - name: Install jsdom
-        run: npm install jsdom
-      - name: Get BC version and alias
-        uses: actions/github-script@v7
-        id: get-bc-version
-        with:
-          result-encoding: 'json'
-          script: |
-            const fs = require("node:fs")
-            const jsdom = require("jsdom")
 
-            const mavenMetadata = await fetch("https://repo1.maven.org/maven2/io/github/freya022/BotCommands/maven-metadata.xml").then(response => response.text())
-            const mavenMetadataDoc = new jsdom.JSDOM(mavenMetadata, { contentType: "text/xml"})
-            const latestBcVersion = mavenMetadataDoc.window.document.querySelector("metadata > versioning > latest")
+      - name: Generate wiki and update latest alias
+        run: ./gradlew deployWiki
 
-            const pom = fs.readFileSync("pom.xml", "utf8")
-            const pomDoc = new jsdom.JSDOM(pom, { contentType: "text/xml"})
-            
-            const bcVersion = pomDoc.window.document.querySelector("project > properties > BotCommands\\.version").textContent
-            const alias = bcVersion.at(0) + ".X"
-            const isLatest = bcVersion == latestBcVersion
-
-            return {
-                bcVersion: bcVersion,
-                alias: alias,
-                isLatest: isLatest
-            }
-      - name: Generate wiki
-        run: mvn compile exec:java -Dexec.mainClass=io.github.freya022.mkdocs.MkDocsLauncherKt -Dexec.args='mike deploy ${{ fromJSON(steps.get-bc-version.outputs.result).bcVersion }} ${{ fromJSON(steps.get-bc-version.outputs.result).alias }} --update-aliases'
-      - name: Update latest alias
-        if: ${{ fromJSON(steps.get-bc-version.outputs.result).alias }}
-        run: mike set-default ${{ fromJSON(steps.get-bc-version.outputs.result).alias }}
       - name: Push gh-pages changes
         run: git push origin gh-pages:gh-pages

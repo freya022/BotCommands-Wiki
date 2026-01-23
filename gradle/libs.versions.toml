@@ -1,0 +1,38 @@
+[versions]
+botcommands = "3.0.0-beta.8"
+flyway = "11.20.2"
+kotlin = "2.3.0"
+ktor = "3.4.0"
+
+[plugins]
+kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+version-catalog-update = "nl.littlerobots.version-catalog-update:1.0.1"
+
+[libraries]
+botcommands = { module = "io.github.freya022:BotCommands", version.ref = "botcommands" }
+botcommands-jda-ktx = { module = "io.github.freya022:BotCommands-jda-ktx", version.ref = "botcommands" }
+botcommands-spring = { module = "io.github.freya022:BotCommands-spring", version.ref = "botcommands" }
+botcommands-typesafe-messages-bc = { module = "io.github.freya022:BotCommands-typesafe-messages-bc", version.ref = "botcommands" }
+botcommands-typesafe-messages-core = { module = "io.github.freya022:BotCommands-typesafe-messages-core", version.ref = "botcommands" }
+flyway-core = { module = "org.flywaydb:flyway-core", version.ref = "flyway" }
+flyway-postgresql = { module = "org.flywaydb:flyway-database-postgresql", version.ref = "flyway" }
+# TODO use kotlinx.serialization
+gson = "com.google.code.gson:gson:2.13.2"
+hikaricp = "com.zaxxer:HikariCP:7.0.2"
+jackson-dataformat-xml = "tools.jackson.dataformat:jackson-dataformat-xml:3.0.4"
+jda = "net.dv8tion:JDA:6.3.0"
+junit-jupiter = "org.junit.jupiter:junit-jupiter:6.0.2"
+kotlin-logging = "io.github.oshai:kotlin-logging-jvm:7.0.14"
+kotlin-metadata = { module = "org.jetbrains.kotlin:kotlin-metadata-jvm", version.ref = "kotlin" }
+kotlin-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+kotlinx-coroutines-core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2"
+kotlinx-serialization-json = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.10.0"
+ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json-jvm", version.ref = "ktor" }
+ktor-server-call-logging = { module = "io.ktor:ktor-server-call-logging-jvm", version.ref = "ktor" }
+ktor-server-content-negotiation = { module = "io.ktor:ktor-server-content-negotiation-jvm", version.ref = "ktor" }
+ktor-server-core = { module = "io.ktor:ktor-server-core-jvm", version.ref = "ktor" }
+ktor-server-netty = { module = "io.ktor:ktor-server-netty-jvm", version.ref = "ktor" }
+ktor-server-resources = { module = "io.ktor:ktor-server-resources-jvm", version.ref = "ktor" }
+logback-classic = "ch.qos.logback:logback-classic:1.5.25"
+postgresql = "org.postgresql:postgresql:42.7.9"
