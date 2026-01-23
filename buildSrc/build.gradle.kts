@@ -11,6 +11,11 @@ repositories {
 
 dependencies {
     implementation(libs.kotlin.plugin)
+
+    // DeployWikiTask
+    implementation(libs.ktoml)
+    implementation(libs.jackson.dataformat.xml)
+    implementation("dev.freya02:link-server")
 }
 
 tasks.withType<JavaCompile> {

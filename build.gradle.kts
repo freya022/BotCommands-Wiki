@@ -1,3 +1,4 @@
+import dev.freya02.gradle.tasks.DeployWikiTask
 import nl.littlerobots.vcu.plugin.resolver.VersionSelectors
 
 plugins {
@@ -46,4 +47,8 @@ kotlin.compilerOptions {
     freeCompilerArgs.addAll(
         "-opt-in=dev.freya02.botcommands.typesafe.messages.api.annotations.ExperimentalTypesafeMessagesApi",
     )
+}
+
+val deployWiki by tasks.registering(DeployWikiTask::class) {
+    currentBCVersion = libs.versions.botcommands
 }

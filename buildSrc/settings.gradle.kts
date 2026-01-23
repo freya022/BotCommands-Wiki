@@ -7,3 +7,9 @@ dependencyResolutionManagement {
         }
     }
 }
+
+includeBuild("../link-server") {
+    dependencySubstitution {
+        substitute(module("dev.freya02:link-server")).using(project(":"))
+    }
+}
