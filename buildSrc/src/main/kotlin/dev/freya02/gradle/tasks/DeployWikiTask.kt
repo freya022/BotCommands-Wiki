@@ -57,7 +57,7 @@ abstract class DeployWikiTask : DefaultTask() {
     }
 
     private fun runProcessAndWait(vararg args: String): Process {
-        val process = ProcessBuilder("mike", "set-default", "")
+        val process = ProcessBuilder(*args)
             .redirectOutput(Redirect.INHERIT)
             .redirectError(Redirect.INHERIT)
             .start()
