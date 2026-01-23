@@ -5,6 +5,7 @@ kotlin = "2.3.0"
 ktor = "3.4.0"
 
 [plugins]
+kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 version-catalog-update = "nl.littlerobots.version-catalog-update:1.0.1"
 

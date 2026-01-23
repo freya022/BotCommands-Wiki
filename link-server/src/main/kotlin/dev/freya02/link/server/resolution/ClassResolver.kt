@@ -1,11 +1,11 @@
-package io.github.freya022.link.server.resolution
+package dev.freya02.link.server.resolution
 
-import io.github.freya022.link.server.LinkException
-import io.github.freya022.link.server.LinkRepresentation
-import io.github.freya022.link.server.LinkRequest
-import io.github.freya022.link.server.utils.apiClasses
-import io.github.freya022.link.server.utils.filterBySimpleName
-import io.github.freya022.link.server.utils.getBaseLink
+import dev.freya02.link.server.LinkException
+import dev.freya02.link.server.LinkRepresentation
+import dev.freya02.link.server.LinkRequest
+import dev.freya02.link.server.utils.apiClasses
+import dev.freya02.link.server.utils.filterBySimpleName
+import dev.freya02.link.server.utils.getBaseLink
 import kotlin.metadata.ClassKind
 import kotlin.metadata.jvm.KotlinClassMetadata
 import kotlin.metadata.kind

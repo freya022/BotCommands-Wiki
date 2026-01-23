@@ -1,4 +1,4 @@
-package io.github.freya022.link.server
+package dev.freya02.link.server
 
 import io.github.freya022.botcommands.api.core.utils.enumSetOf
 import io.github.freya022.botcommands.api.core.utils.enumSetOfAll

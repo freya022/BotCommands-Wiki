@@ -1,4 +1,4 @@
-package io.github.freya022.link.server.utils
+package dev.freya02.link.server.utils
 
 private val uppercaseRegex = Regex("[A-Z]")
 

@@ -1,7 +1,7 @@
-package io.github.freya022.link.server.resolution
+package dev.freya02.link.server.resolution
 
-import io.github.freya022.link.server.*
-import io.github.freya022.link.server.utils.*
+import dev.freya02.link.server.*
+import dev.freya02.link.server.utils.*
 import io.github.oshai.kotlinlogging.KotlinLogging
 import kotlin.metadata.jvm.KotlinClassMetadata
 

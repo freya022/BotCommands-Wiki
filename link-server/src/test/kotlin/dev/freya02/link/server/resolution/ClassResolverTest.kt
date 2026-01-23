@@ -1,6 +1,6 @@
-package io.github.freya022.link.server.resolution
+package dev.freya02.link.server.resolution
 
-import io.github.freya022.link.server.LinkRequest
+import dev.freya02.link.server.LinkRequest
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 

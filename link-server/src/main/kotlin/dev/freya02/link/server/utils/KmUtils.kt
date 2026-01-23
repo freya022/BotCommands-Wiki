@@ -1,4 +1,4 @@
-package io.github.freya022.link.server.utils
+package dev.freya02.link.server.utils
 
 import kotlin.metadata.*
 import kotlin.metadata.jvm.moduleName

@@ -1,9 +1,9 @@
-package io.github.freya022.link.server.resolution
+package dev.freya02.link.server.resolution
 
-import io.github.freya022.link.server.LinkException
-import io.github.freya022.link.server.LinkRepresentation
-import io.github.freya022.link.server.LinkRequest
-import io.github.freya022.link.server.utils.*
+import dev.freya02.link.server.LinkException
+import dev.freya02.link.server.LinkRepresentation
+import dev.freya02.link.server.LinkRequest
+import dev.freya02.link.server.utils.*
 import io.github.oshai.kotlinlogging.KotlinLogging
 import kotlin.metadata.jvm.KotlinClassMetadata
 

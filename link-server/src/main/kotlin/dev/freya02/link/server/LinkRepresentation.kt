@@ -1,4 +1,4 @@
-package io.github.freya022.link.server
+package dev.freya02.link.server
 
 import kotlinx.serialization.Serializable
 
