@@ -50,5 +50,6 @@ kotlin.compilerOptions {
 }
 
 val deployWiki by tasks.registering(DeployWikiTask::class) {
+    group = "wiki"
     currentBCVersion = libs.versions.botcommands
 }
