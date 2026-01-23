@@ -4,6 +4,8 @@ import nl.littlerobots.vcu.plugin.resolver.VersionSelectors
 plugins {
     `kotlin-conventions`
 
+    alias(libs.plugins.kotlinx.serialization)
+
     alias(libs.plugins.version.catalog.update)
 }
 
@@ -34,7 +36,7 @@ dependencies {
     implementation(libs.kotlin.logging)
 
     // JSON
-    implementation(libs.gson)
+    implementation(libs.kotlinx.serialization.json)
 
     // SQL
     runtimeOnly(libs.postgresql)
