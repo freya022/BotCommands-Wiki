@@ -1,22 +1,16 @@
 ## Running the MkDocs server
-You will need a JDK (17+) and a Python (3.10+) installation.
+You will need a JDK (25+) and a Python (3.10+) installation.
 
-### Installing the Python dependencies
-Run `pip install -r requirements.txt`
+1. Install the dependencies with `pip install -r requirements.txt`.
+2. Make sure you run the development link server separately from Gradle, in IntelliJ, go to `File | Settings | Advanced Settings` and disable "Run using Gradle"
+3. Go to [LinkServerMain](link-server/src/main/kotlin/dev/freya02/link/server/LinkServerMain.kt) and run it
+4. Run `mkdocs serve`
 
-### Running MkDocs
-You can run the server by running `mvn compile exec:java -Dexec.mainClass=io.github.freya022.mkdocs.MkDocsLauncherKt -Dexec.args='mkdocs serve'`,
-either in your terminal (if you have Maven installed),
-or in your IDE (press `CTRL` twice in IntelliJ to open the command bar).
-
-If you wish to contribute to the link server, you can instead run the main method of `LinkServer` from your IDE, 
-and *then* start MkDocs with `mkdocs serve`.
-
-### Special macros
+## Special macros
 
 - `{{ wiki_stub }}` creates an admonition about wiki stubs, which are here for feature discovery, but have little to no content
 
-#### Documentation macros
+## Documentation macros
 - `[[ClassRef]]` creates a link to the documentation of the referenced class
 - `[[ClassRef#functionRef]]` creates a link to the documentation of the referenced function
 - `[[ClassRef#propertyRef]]` creates a link to the documentation of the referenced property
