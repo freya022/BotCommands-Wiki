@@ -1,13 +1,13 @@
+# mkdocs output
 site
 
-# Default ignored files
-/.idea/workspace.xml
-
+# IntelliJ stuff
 *.iml
 .idea
-target
 
+# Dev secrets
 dev-config
+
 # Ignore Gradle project-specific cache directory
 .gradle
 
