@@ -13,7 +13,7 @@ import static io.github.freya022.botcommands.api.localization.Localization.Entry
 @Command
 public class SlashContextLocalization {
 
-    @JDASlashCommand(name = "event_localization", description = "Send localized responses using the event!")
+    @JDASlashCommand(name = "context_localization", description = "Send localized responses using the event!")
     public void onSlashEventLocalization(GuildSlashEvent event,
                                          @LocalizationBundle("ContextReplies") AppLocalizationContext lc) {
         // Use a static import for io.github.freya022.botcommands.api.localization.Localization.Entry.entry
