@@ -2261,11 +2261,17 @@ which gets merged into one parameter by using an aggregator.</p>
 <span class="p">}</span>
 </code></pre></div>
 <div class="highlight"><span class="filename">The aggregated parameter declaration</span><pre><span></span><code><span class="nd">@Command</span>
-<span class="kd">class</span><span class="w"> </span><span class="nc">SlashBan</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nd">@AppDeclaration</span>
-<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onDeclare</span><span class="p">(</span><span class="n">manager</span><span class="p">:</span><span class="w"> </span><span class="n">GlobalApplicationCommandManager</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">manager</span><span class="p">.</span><span class="na">slashCommand</span><span class="p">(</span><span class="s">&quot;ban&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">function</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SlashBan</span><span class="o">::</span><span class="n">onSlashBan</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="p">...</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">SlashBan</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">GlobalApplicationCommandProvider</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onSlashBan</span><span class="p">(</span>
+<span class="w">        </span><span class="n">event</span><span class="p">:</span><span class="w"> </span><span class="n">GuildSlashEvent</span><span class="p">,</span>
+<span class="w">        </span><span class="n">timeframe</span><span class="p">:</span><span class="w"> </span><span class="n">DeleteTimeframe</span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="n">UnsupportedOperationException</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">declareGlobalApplicationCommands</span><span class="p">(</span><span class="n">manager</span><span class="p">:</span><span class="w"> </span><span class="n">GlobalApplicationCommandManager</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">manager</span><span class="p">.</span><span class="na">slashCommand</span><span class="p">(</span><span class="s">&quot;ban&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">function</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">::</span><span class="n">onSlashBan</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// ...</span>
 
 <span class="w">            </span><span class="n">aggregate</span><span class="p">(</span><span class="n">declaredName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;timeframe&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">aggregator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">::</span><span class="n">DeleteTimeframe</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                </span><span class="n">option</span><span class="p">(</span><span class="n">declaredName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;time&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -2278,6 +2284,8 @@ which gets merged into one parameter by using an aggregator.</p>
 <span class="w">                    </span><span class="n">usePredefinedChoices</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
 <span class="w">                </span><span class="p">}</span>
 <span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="c1">// ...</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>

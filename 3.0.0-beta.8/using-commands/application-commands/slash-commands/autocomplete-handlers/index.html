@@ -2066,7 +2066,7 @@ enabling you to declare autocomplete handlers using the manager.</p>
 <p>You can optionally put a name on the handler, if you plan on using <a href="https://docs.bc.freya02.dev/BotCommands-core/io.github.freya022.botcommands.api.commands.application.slash.options.builder/-slash-command-option-builder/autocomplete-by-name.html"><code>autocompleteByName</code></a>, 
 however, that's not necessary when using <a href="https://docs.bc.freya02.dev/BotCommands-core/io.github.freya022.botcommands.api.commands.application.slash.options.builder/-slash-command-option-builder/autocomplete-by-function.html"><code>autocompleteByFunction</code></a>.</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@BService</span>
-<span class="kd">class</span><span class="w"> </span><span class="nc">SlashWordAutocompleteDsl</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">AutocompleteHandlerProvider</span><span class="w"> </span><span class="p">{</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">SlashWordAutocomplete</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">AutocompleteHandlerProvider</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// https://en.wikipedia.org/wiki/Dolch_word_list#Dolch_list:_Nouns</span>
 <span class="w">    </span><span class="c1">// but 30 words</span>
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">words</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">listOf</span><span class="p">(</span>

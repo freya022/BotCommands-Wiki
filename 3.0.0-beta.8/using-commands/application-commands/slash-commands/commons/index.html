@@ -2042,8 +2042,8 @@ that is, the resolver will return the choices used for every option of their typ
 <div class="highlight"><pre><span></span><code>=== &quot;:material-language-kotlin: Kotlin&quot;
     ```kotlin
     @Command
-    class SlashConvertSimplifiedKotlin {
-        @JDASlashCommand(name = &quot;convert_simplified&quot;, description = &quot;Convert time to another unit&quot;)
+    class SlashConvertSimplified {
+        @JDASlashCommand(name = &quot;convert&quot;, description = &quot;Convert time to another unit&quot;)
         suspend fun onSlashConvertSimplified(
             event: GuildSlashEvent,
             @SlashOption(description = &quot;The time to convert&quot;) time: Long,
@@ -2058,13 +2058,13 @@ that is, the resolver will return the choices used for every option of their typ
 === &quot;Kotlin (DSL)&quot;
     ```kotlin
     @Command
-    class SlashConvertSimplifiedKotlinDsl : GlobalApplicationCommandProvider {
+    class SlashConvertSimplified : GlobalApplicationCommandProvider {
         suspend fun onSlashConvertSimplified(event: GuildSlashEvent, time: Long, from: TimeUnit, to: TimeUnit) {
             event.reply(&quot;${to.convert(time, from)} ${to.name.lowercase()}&quot;).await()
         }
 
         override fun declareGlobalApplicationCommands(manager: GlobalApplicationCommandManager) {
-            manager.slashCommand(&quot;convert_simplified&quot;, function = ::onSlashConvertSimplified) {
+            manager.slashCommand(&quot;convert&quot;, function = ::onSlashConvertSimplified) {
                 description = &quot;Convert time to another unit&quot;
 
                 option(&quot;time&quot;) {
@@ -2091,7 +2091,7 @@ that is, the resolver will return the choices used for every option of their typ
     ```java
     @Command
     public class SlashConvertSimplified {
-        @JDASlashCommand(name = &quot;convert_simplified&quot;, description = &quot;Convert time to another unit&quot;)
+        @JDASlashCommand(name = &quot;convert&quot;, description = &quot;Convert time to another unit&quot;)
         public void onSlashTimeInSimplified(
                 GuildSlashEvent event,
                 @SlashOption(description = &quot;The time to convert&quot;) long time,
