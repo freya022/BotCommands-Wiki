@@ -1,5 +1,6 @@
 package dev.freya02.wiki.commands.slash;
 
+import dev.freya02.wiki.switches.WikiDetailProfile;
 import io.github.freya022.botcommands.api.commands.CommandPath;
 import io.github.freya022.botcommands.api.commands.annotations.Command;
 import io.github.freya022.botcommands.api.commands.application.SlashOptionChoiceProvider;
@@ -16,6 +17,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
 
+@WikiDetailProfile(WikiDetailProfile.Profile.DETAILED)
 // --8<-- [start:convert-java]
 @Command
 public class SlashConvert implements SlashOptionChoiceProvider {

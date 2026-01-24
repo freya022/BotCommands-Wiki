@@ -16,7 +16,7 @@ and then configure your command.
 
 !!! example
     ```kotlin
-    --8<-- "wiki/commands/slash/SlashPing.kt:ping-kotlin_dsl"
+    --8<-- "commands/slash/SlashPingDsl.kt:ping-kotlin_dsl"
     ```
 
 ## Subcommands
@@ -27,7 +27,7 @@ You can then add a subcommand by using `subcommand`, where each subcommand is it
 
 !!! example
     ```kotlin
-    --8<-- "wiki/commands/slash/SlashTag.kt:slash_subcommands-kotlin_dsl"
+    --8<-- "commands/slash/SlashTagDsl.kt:slash_subcommands-kotlin_dsl"
     ```
 
 !!! info
@@ -43,7 +43,7 @@ All supported types are documented under [[ParameterResolver]], and [other types
 
 !!! example
     ```kotlin
-    --8<-- "wiki/commands/slash/SlashSay.kt:say-kotlin_dsl"
+    --8<-- "commands/slash/SlashSayDsl.kt:say-kotlin_dsl"
     ```
 
 !!! tip
@@ -60,7 +60,7 @@ Adding choices is very straight forward, you only have to give a list of choices
 
 !!! example
     ```kotlin
-    --8<-- "wiki/commands/slash/SlashConvert.kt:convert-kotlin_dsl"
+    --8<-- "commands/slash/SlashConvertDsl.kt:convert-kotlin_dsl"
     ```
 
     As you can see, despite the short choice list, this causes duplications with multiple commands.
@@ -80,7 +80,7 @@ Enabling autocompletion for an option is done by referencing an existing handler
     Using the autocomplete handler we made in ["Creating autocomplete handlers"](autocomplete-handlers.md#__tabbed_1_1):
 
     ```kotlin
-    --8<-- "wiki/commands/slash/SlashWord.kt:word_command-kotlin_dsl"
+    --8<-- "commands/slash/SlashWordDsl.kt:word_command-kotlin_dsl"
     ```
 
 ## Rate limiting
@@ -90,18 +90,18 @@ This lets you reject application commands if the user tries to use them too ofte
 
 ### Using an (anonymous) rate limiter
 ```kotlin
---8<-- "wiki/commands/slash/SlashRateLimitDsl.kt:rate_limit-kotlin_dsl"
+--8<-- "commands/slash/SlashRateLimitDsl.kt:rate_limit-kotlin_dsl"
 ```
 
 ### Using an existing rate limiter
 Nothing as simple as using `rateLimitReference` with the `group` of a rate limiter defined in a [[RateLimitProvider]].
 
 ```kotlin
---8<-- "wiki/ratelimit/WikiRateLimitProvider.kt:rate_limit_provider-kotlin"
+--8<-- "ratelimit/WikiRateLimitProvider.kt:rate_limit_provider-kotlin"
 ```
 
 ```kotlin
---8<-- "wiki/commands/slash/SlashRateLimitExistingDsl.kt:rate_limit_existing-kotlin_dsl"
+--8<-- "commands/slash/SlashRateLimitExistingDsl.kt:rate_limit_existing-kotlin_dsl"
 ```
 
 ### Cooldown
@@ -115,5 +115,5 @@ Contrary to the annotated commands, no checks are required, as this is tied to t
 
 !!! example
     ```kotlin
-    --8<-- "wiki/commands/slash/SlashCreateTime.kt:create_time-kotlin_dsl"
+    --8<-- "commands/slash/SlashCreateTimeDsl.kt:create_time-kotlin_dsl"
     ```

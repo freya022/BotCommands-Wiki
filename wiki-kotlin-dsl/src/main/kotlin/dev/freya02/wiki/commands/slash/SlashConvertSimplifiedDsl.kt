@@ -1,12 +1,14 @@
 package dev.freya02.wiki.commands.slash
 
 import dev.freya02.botcommands.jda.ktx.coroutines.await
+import dev.freya02.wiki.switches.WikiDetailProfile
 import io.github.freya022.botcommands.api.commands.annotations.Command
 import io.github.freya022.botcommands.api.commands.application.provider.GlobalApplicationCommandManager
 import io.github.freya022.botcommands.api.commands.application.provider.GlobalApplicationCommandProvider
 import io.github.freya022.botcommands.api.commands.application.slash.GuildSlashEvent
 import java.util.concurrent.TimeUnit
 
+@WikiDetailProfile(WikiDetailProfile.Profile.SIMPLIFIED)
 // --8<-- [start:convert_simplified-kotlin_dsl]
 @Command
 class SlashConvertSimplified : GlobalApplicationCommandProvider {
@@ -15,7 +17,7 @@ class SlashConvertSimplified : GlobalApplicationCommandProvider {
     }
 
     override fun declareGlobalApplicationCommands(manager: GlobalApplicationCommandManager) {
-        manager.slashCommand("convert_simplified", function = ::onSlashConvertSimplified) {
+        manager.slashCommand("convert", function = ::onSlashConvertSimplified) {
             description = "Convert time to another unit"
 
             option("time") {

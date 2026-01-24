@@ -28,14 +28,14 @@ This will search emojis in the `/emojis` folder by default, but you can change i
     for example:
 
     ```kotlin
-    --8<-- "wiki/emojis/AppEmojis.kt:eager_app_emojis-kotlin"
+    --8<-- "emojis/AppEmojis.kt:eager_app_emojis-kotlin"
     ```
 
 === "Java"
     You can use [[AppEmojisRegistry#get]], pass it the name of your field, for example:
 
     ```java
-    --8<-- "wiki/java/emojis/AppEmojis.java:eager_app_emojis-java"
+    --8<-- "emojis/AppEmojis.java:eager_app_emojis-java"
     ```
 
 !!! warning
@@ -49,7 +49,7 @@ This will search emojis in the `/emojis` folder by default, but you can change i
 Similar to eager retrieval, you can use [delegated properties](https://kotlinlang.org/docs/delegated-properties.html) on [[AppEmojisRegistry#lazy]], for example:
 
 ```kotlin
---8<-- "wiki/emojis/LazyAppEmojis.kt:lazy_app_emojis-kotlin"
+--8<-- "emojis/LazyAppEmojis.kt:lazy_app_emojis-kotlin"
 ```
 
 As always, you cannot use the emoji before it is loaded, however,

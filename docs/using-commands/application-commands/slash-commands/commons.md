@@ -15,15 +15,15 @@ Here, the resolver for `TimeUnit` is already defined and will be explained in [A
 
     === "Kotlin"
         ```kotlin
-        --8<-- "wiki/commands/slash/SlashConvertSimplified.kt:convert_simplified-kotlin"
+        --8<-- "commands/slash/SlashConvertSimplified.kt:convert_simplified-kotlin"
         ```
 
     === "Kotlin (DSL)"
         ```kotlin
-        --8<-- "wiki/commands/slash/SlashConvertSimplified.kt:convert_simplified-kotlin_dsl"
+        --8<-- "commands/slash/SlashConvertSimplifiedDsl.kt:convert_simplified-kotlin_dsl"
         ```
 
     === "Java"
         ```java
-        --8<-- "wiki/java/commands/slash/SlashConvertSimplified.java:convert_simplified-java"
+        --8<-- "commands/slash/SlashConvertSimplified.java:convert_simplified-java"
         ```

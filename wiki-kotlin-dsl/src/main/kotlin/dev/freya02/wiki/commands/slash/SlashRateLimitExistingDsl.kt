@@ -9,14 +9,14 @@ import io.github.freya022.botcommands.api.commands.application.slash.GuildSlashE
 
 // --8<-- [start:rate_limit_existing-kotlin_dsl]
 @Command
-class SlashRateLimitExistingDsl : GlobalApplicationCommandProvider {
+class SlashRateLimitExisting : GlobalApplicationCommandProvider {
 
     suspend fun onSlashRateLimit(event: GuildSlashEvent) {
         event.reply("Hello world!").await()
     }
 
     override fun declareGlobalApplicationCommands(manager: GlobalApplicationCommandManager) {
-        manager.slashCommand("rate_limit_existing_dsl", function = ::onSlashRateLimit) {
+        manager.slashCommand("rate_limit_existing", function = ::onSlashRateLimit) {
             // Use the rate limiter we defined in [[WikiRateLimitProvider]]
             rateLimitReference(WikiRateLimitProvider.RATE_LIMIT_GROUP)
         }

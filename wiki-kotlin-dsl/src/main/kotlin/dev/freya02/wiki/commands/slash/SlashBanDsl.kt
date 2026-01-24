@@ -4,13 +4,12 @@ import io.github.freya022.botcommands.api.commands.annotations.Command
 import io.github.freya022.botcommands.api.commands.application.provider.GlobalApplicationCommandManager
 import io.github.freya022.botcommands.api.commands.application.provider.GlobalApplicationCommandProvider
 import io.github.freya022.botcommands.api.commands.application.slash.GuildSlashEvent
-import io.github.freya022.botcommands.api.core.service.annotations.BService
 import io.github.oshai.kotlinlogging.KotlinLogging
 import java.util.concurrent.TimeUnit
 
 private val logger = KotlinLogging.logger { }
 
-// --8<-- [start:aggregated_object-kotlin]
+// --8<-- [start:aggregated_object-kotlin_dsl]
 // This data class is practically pointless;
 // this is just to demonstrate how you can group parameters together,
 // so you can benefit from functions/backed properties limited to your parameters,
@@ -18,25 +17,22 @@ private val logger = KotlinLogging.logger { }
 data class DeleteTimeframe(val time: Long, val unit: TimeUnit) {
     override fun toString(): String = "$time ${unit.name.lowercase()}"
 }
-// --8<-- [end:aggregated_object-kotlin]
+// --8<-- [end:aggregated_object-kotlin_dsl]
 
-@BService
-class SlashBan {
+// --8<-- [start:declare_aggregate-kotlin_dsl]
+@Command
+class SlashBan : GlobalApplicationCommandProvider {
     fun onSlashBan(
         event: GuildSlashEvent,
         timeframe: DeleteTimeframe
     ) {
         throw UnsupportedOperationException()
     }
-}
 
-@Command
-class SlashBanDetailedFront : GlobalApplicationCommandProvider {
     override fun declareGlobalApplicationCommands(manager: GlobalApplicationCommandManager) {
-        manager.slashCommand("ban", function = SlashBan::onSlashBan) {
+        manager.slashCommand("ban", function = ::onSlashBan) {
             // ...
 
-            // --8<-- [start:declare_aggregate-kotlin_dsl]
             aggregate(declaredName = "timeframe", aggregator = ::DeleteTimeframe) {
                 option(declaredName = "time") {
                     description = "The timeframe of messages to delete with the specified unit"
@@ -48,9 +44,9 @@ class SlashBanDetailedFront : GlobalApplicationCommandProvider {
                     usePredefinedChoices = true
                 }
             }
-            // --8<-- [end:declare_aggregate-kotlin_dsl]
 
             // ...
         }
     }
 }
+// --8<-- [end:declare_aggregate-kotlin_dsl]

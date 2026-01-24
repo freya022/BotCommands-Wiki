@@ -1,6 +1,7 @@
 package dev.freya02.wiki.commands.slash
 
 import dev.freya02.botcommands.jda.ktx.coroutines.await
+import dev.freya02.wiki.switches.WikiDetailProfile
 import io.github.freya022.botcommands.api.commands.CommandPath
 import io.github.freya022.botcommands.api.commands.annotations.Command
 import io.github.freya022.botcommands.api.commands.application.SlashOptionChoiceProvider
@@ -12,6 +13,7 @@ import net.dv8tion.jda.api.entities.Guild
 import net.dv8tion.jda.api.interactions.commands.Command.Choice
 import java.util.concurrent.TimeUnit
 
+@WikiDetailProfile(WikiDetailProfile.Profile.DETAILED)
 // --8<-- [start:convert-kotlin]
 @Command
 class SlashConvert : SlashOptionChoiceProvider {

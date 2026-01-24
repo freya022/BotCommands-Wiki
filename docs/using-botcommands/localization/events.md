@@ -48,10 +48,10 @@ Then, reply using the user's locale (as provided by [[UserLocaleProvider]]), pas
 
 === "Kotlin"
     ```kotlin
-    --8<-- "wiki/commands/slash/SlashEventLocalization.kt:event_localization-kotlin"
+    --8<-- "commands/slash/SlashEventLocalization.kt:event_localization-kotlin"
     ```
 
 === "Java"
     ```java
-    --8<-- "wiki/java/commands/slash/SlashEventLocalization.java:event_localization-java"
+    --8<-- "commands/slash/SlashEventLocalization.java:event_localization-java"
     ```

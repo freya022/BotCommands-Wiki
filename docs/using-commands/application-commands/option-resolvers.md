@@ -20,12 +20,12 @@ The first type parameter is the type of your resolver implementation, and the se
 !!! example "A `TimeUnit` resolver"
     === "Kotlin"
         ```kotlin
-        --8<-- "wiki/resolvers/TimeUnitResolver.kt:time_unit_resolver-detailed-kotlin"
+        --8<-- "resolvers/TimeUnitResolver.kt:time_unit_resolver-detailed-kotlin"
         ```
 
     === "Java"
         ```java
-        --8<-- "wiki/java/resolvers/TimeUnitResolver.java:time_unit_resolver-detailed-java"
+        --8<-- "resolvers/TimeUnitResolver.java:time_unit_resolver-detailed-java"
         ```
     
     As you can see, this defines the slash command's option to be a string, 
@@ -51,13 +51,13 @@ all you need to do is declare a service factory with `#!java @Resolver` and use 
     === "Kotlin"
         ```kotlin
         object TimeUnitResolverSimplified {
-        --8<-- "wiki/resolvers/TimeUnitResolver.kt:time_unit_resolver-simplified-kotlin"
+        --8<-- "resolvers/TimeUnitResolver.kt:time_unit_resolver-simplified-kotlin"
         ```
         As this functions as a service factory, the method needs to be in an `object` or have a no-arg constructor.
 
     === "Java"
         ```java
         public class TimeUnitResolverSimplifiedJava {
-        --8<-- "wiki/java/resolvers/TimeUnitResolverSimplified.java:time_unit_resolver-simplified-java"
+        --8<-- "resolvers/TimeUnitResolverSimplified.java:time_unit_resolver-simplified-java"
         ```
         As this functions as a service factory, the method needs to be static.

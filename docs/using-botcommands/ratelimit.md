@@ -21,12 +21,12 @@ or with the [`BucketConfiguration` builder](https://bucket4j.com/8.14.0/toc.html
 
     === "Kotlin"
         ```kotlin
---8<-- "wiki/ratelimit/WikiRateLimitProvider.kt:bucket_configuration-kotlin"
+--8<-- "ratelimit/WikiRateLimitProvider.kt:bucket_configuration-kotlin"
         ```
 
     === "Java"
         ```java
---8<-- "wiki/java/ratelimit/WikiRateLimitProvider.java:bucket_configuration-java"
+--8<-- "ratelimit/WikiRateLimitProvider.java:bucket_configuration-java"
         ```
 
 ### Creating a rate limiter
@@ -37,12 +37,12 @@ refer to the example attached to them.
 
     === "Kotlin"
         ```kotlin
---8<-- "wiki/ratelimit/WikiRateLimitProvider.kt:rate_limiter-kotlin"
+--8<-- "ratelimit/WikiRateLimitProvider.kt:rate_limiter-kotlin"
         ```
 
     === "Java"
         ```java
---8<-- "wiki/java/ratelimit/WikiRateLimitProvider.java:rate_limiter-java"
+--8<-- "ratelimit/WikiRateLimitProvider.java:rate_limiter-java"
         ```
 
 However, you can also create a custom one by implementing [[RateLimiter]], which is the combination of:
@@ -65,12 +65,12 @@ the `group` (name of the rate limiter) must be unique.
 
     === "Kotlin"
         ```kotlin
-        --8<-- "wiki/ratelimit/WikiRateLimitProvider.kt:rate_limit_provider-kotlin"
+        --8<-- "ratelimit/WikiRateLimitProvider.kt:rate_limit_provider-kotlin"
         ```
 
     === "Java"
         ```java
-        --8<-- "wiki/java/ratelimit/WikiRateLimitProvider.java:rate_limit_provider-java"
+        --8<-- "ratelimit/WikiRateLimitProvider.java:rate_limit_provider-java"
         ```
 
 ## Cancelling rate limits
@@ -81,10 +81,10 @@ so the user won't get penalized for this interaction.
 
     === "Kotlin"
         ```kotlin
-    --8<-- "wiki/commands/slash/SlashCancelledRateLimit.kt:cancelled_rate_limit-kotlin"
+    --8<-- "commands/slash/SlashCancelledRateLimit.kt:cancelled_rate_limit-kotlin"
         ```
 
     === "Java"
         ```java
-    --8<-- "wiki/java/commands/slash/SlashCancelledRateLimit.java:cancelled_rate_limit-java"
+    --8<-- "commands/slash/SlashCancelledRateLimit.java:cancelled_rate_limit-java"
         ```

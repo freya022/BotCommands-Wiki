@@ -1,6 +1,7 @@
 package dev.freya02.wiki.commands.slash
 
 import dev.freya02.botcommands.jda.ktx.coroutines.await
+import dev.freya02.wiki.switches.WikiDetailProfile
 import io.github.freya022.botcommands.api.commands.annotations.Command
 import io.github.freya022.botcommands.api.commands.application.provider.GlobalApplicationCommandManager
 import io.github.freya022.botcommands.api.commands.application.provider.GlobalApplicationCommandProvider
@@ -9,6 +10,7 @@ import io.github.freya022.botcommands.api.parameters.Resolvers
 import net.dv8tion.jda.api.interactions.commands.Command.Choice
 import java.util.concurrent.TimeUnit
 
+@WikiDetailProfile(WikiDetailProfile.Profile.DETAILED)
 // --8<-- [start:convert-kotlin_dsl]
 @Command
 class SlashConvert : GlobalApplicationCommandProvider {

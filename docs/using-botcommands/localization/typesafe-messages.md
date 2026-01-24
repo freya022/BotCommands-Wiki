@@ -55,13 +55,13 @@ and the function needs to return a `String`.
 === "Kotlin"
 
     ```kotlin
-    --8<-- "wiki/messages/CommandRepliesKt.kt:command_replies-kotlin"
+    --8<-- "messages/CommandRepliesKt.kt:command_replies-kotlin"
     ```
 
 === "Java"
 
     ```java
-    --8<-- "wiki/java/messages/CommandReplies.java:command_replies-java"
+    --8<-- "messages/CommandReplies.java:command_replies-java"
     ```
 
 !!! tip
@@ -80,13 +80,13 @@ the `MyBotMessages` string is the name of the bundle we added in the first step.
 === "Kotlin"
 
     ```kotlin
-    --8<-- "wiki/messages/CommandRepliesKtFactory.kt:command_replies_factory-kotlin"
+    --8<-- "messages/CommandRepliesKtFactory.kt:command_replies_factory-kotlin"
     ```
 
 === "Java"
 
     ```java
-    --8<-- "wiki/java/messages/CommandRepliesFactory.java:command_replies_factory-java"
+    --8<-- "messages/CommandRepliesFactory.java:command_replies_factory-java"
     ```
 
 Instances of this interface can be injected like any other service,
@@ -97,13 +97,13 @@ and will allow you to create `CommandReplies` instances from an `Interaction`.
 === "Kotlin"
 
     ```kotlin
-    --8<-- "wiki/commands/slash/SlashInfo.kt:slash_info-kotlin"
+    --8<-- "commands/slash/SlashInfo.kt:slash_info-kotlin"
     ```
 
 === "Java"
 
     ```java
-    --8<-- "wiki/java/commands/slash/SlashInfo.java:slash_info-java"
+    --8<-- "commands/slash/SlashInfo.java:slash_info-java"
     ```
 
 !!! tip
@@ -134,13 +134,13 @@ You can force a specific [`DiscordLocale`](https://docs.jda.wiki/net/dv8tion/jda
 === "Kotlin"
 
     ```kotlin
-    --8<-- "wiki/messages/CommandRepliesForcedLocaleKt.kt:command_replies_forced_locale-kotlin"
+    --8<-- "messages/CommandRepliesForcedLocaleKt.kt:command_replies_forced_locale-kotlin"
     ```
 
 === "Java"
 
     ```java
-    --8<-- "wiki/java/messages/CommandRepliesForcedLocale.java:command_replies_forced_locale-java"
+    --8<-- "messages/CommandRepliesForcedLocale.java:command_replies_forced_locale-java"
     ```
 
 ### Setting the preferred locale
@@ -150,11 +150,11 @@ You can also make a method or an entire message source prefer a locale provider 
 === "Kotlin"
 
     ```kotlin
-    --8<-- "wiki/messages/CommandRepliesPreferredLocaleKt.kt:command_replies_preferred_locale-kotlin"
+    --8<-- "messages/CommandRepliesPreferredLocaleKt.kt:command_replies_preferred_locale-kotlin"
     ```
 
 === "Java"
 
     ```java
-    --8<-- "wiki/java/messages/CommandRepliesPreferredLocale.java:command_replies_preferred_locale-java"
+    --8<-- "messages/CommandRepliesPreferredLocale.java:command_replies_preferred_locale-java"
     ```

@@ -26,10 +26,10 @@ We reply using the user's locale (as provided by [[UserLocaleProvider]]), passin
 
 === "Kotlin"
     ```kotlin
-    --8<-- "wiki/commands/slash/SlashContextLocalization.kt:context_localization-kotlin"
+    --8<-- "commands/slash/SlashContextLocalization.kt:context_localization-kotlin"
     ```
 
 === "Java"
     ```java
-    --8<-- "wiki/java/commands/slash/SlashContextLocalization.java:context_localization-java"
+    --8<-- "commands/slash/SlashContextLocalization.java:context_localization-java"
     ```

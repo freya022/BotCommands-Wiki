@@ -64,7 +64,7 @@ this can be omitted if the parameter name matches a service with a compatible ty
     === "Kotlin"
     
         ```kotlin
-        --8<-- "wiki/providers/HttpClientProvider.kt:http_client_provider-kotlin"
+        --8<-- "providers/HttpClientProvider.kt:http_client_provider-kotlin"
         ```
 
         === "With `@ServiceName`"
@@ -84,7 +84,7 @@ this can be omitted if the parameter name matches a service with a compatible ty
     === "Java"
 
         ```java
-        --8<-- "wiki/java/providers/HttpClientProvider.java:http_client_provider-java"
+        --8<-- "providers/HttpClientProvider.java:http_client_provider-java"
         ```
 
         === "With `@ServiceName`"

@@ -22,10 +22,10 @@ For example, you can change:
 
     === "Kotlin"
         ```kotlin
-        --8<-- "wiki/localization/LocalLocalizationMapReader.kt:local_localization_map_reader-kotlin"
+        --8<-- "localization/LocalLocalizationMapReader.kt:local_localization_map_reader-kotlin"
         ```
     
     === "Java"
         ```java
-        --8<-- "wiki/java/localization/LocalLocalizationMapReader.java:local_localization_map_reader-java"
+        --8<-- "localization/LocalLocalizationMapReader.java:local_localization_map_reader-java"
         ```

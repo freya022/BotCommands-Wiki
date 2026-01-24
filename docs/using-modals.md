@@ -38,12 +38,12 @@ Finally, you can bind your modal to the method, here's a full example:
 
 === "Kotlin"
     ```kotlin
-    --8<-- "wiki/commands/slash/SlashReport.kt:report-kotlin"
+    --8<-- "commands/slash/SlashReport.kt:report-kotlin"
     ```
 
 === "Java"
     ```java
-    --8<-- "wiki/java/commands/slash/SlashReport.java:report-java"
+    --8<-- "commands/slash/SlashReport.java:report-java"
     ```
 
 ## Lambda modal handlers
@@ -58,10 +58,10 @@ You can also use the custom IDs set in the inputs, with [`ModalEvent#getValue`](
 
 === "Kotlin"
     ```kotlin
-    --8<-- "wiki/commands/slash/SlashRequestRole.kt:request_role-kotlin"
+    --8<-- "commands/slash/SlashRequestRole.kt:request_role-kotlin"
     ```
 
 === "Java"
     ```java
-    --8<-- "wiki/java/commands/slash/SlashRequestRole.java:request_role-java"
+    --8<-- "commands/slash/SlashRequestRole.java:request_role-java"
     ```

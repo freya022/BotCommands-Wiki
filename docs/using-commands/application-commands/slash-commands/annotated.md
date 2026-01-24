@@ -7,12 +7,12 @@ for slash commands, the command method must be annotated with `#!java @JDASlashC
 
 === "Kotlin"
     ```kotlin
-    --8<-- "wiki/commands/slash/SlashPing.kt:ping-kotlin"
+    --8<-- "commands/slash/SlashPing.kt:ping-kotlin"
     ```
 
 === "Java"
     ```java
-    --8<-- "wiki/java/commands/slash/SlashPing.java:ping-java"
+    --8<-- "commands/slash/SlashPing.java:ping-java"
     ```
 
 ## Command configuration
@@ -43,12 +43,12 @@ it must only be used **once per top-level** command, this allows you to set top-
 
     === "Kotlin"
         ```kotlin
-        --8<-- "wiki/commands/slash/SlashTag.kt:slash_subcommands-kotlin"
+        --8<-- "commands/slash/SlashTag.kt:slash_subcommands-kotlin"
         ```
 
     === "Java"
         ```java
-        --8<-- "wiki/java/commands/slash/SlashTag.java:slash_subcommands-java"
+        --8<-- "commands/slash/SlashTag.java:slash_subcommands-java"
         ```
 
 !!! note
@@ -66,12 +66,12 @@ All supported types are documented under `ParameterResolver`, and [other types c
 !!! example
     === "Kotlin"
         ```kotlin
-        --8<-- "wiki/commands/slash/SlashSay.kt:say-kotlin"
+        --8<-- "commands/slash/SlashSay.kt:say-kotlin"
         ```
 
     === "Java"
         ```java
-        --8<-- "wiki/java/commands/slash/SlashSay.java:say-java"
+        --8<-- "commands/slash/SlashSay.java:say-java"
         ```
 
 !!! tip "Inferred option names"
@@ -87,12 +87,12 @@ be careful to check against the command path as well as the option's display nam
 !!! example
     === "Kotlin"
         ```kotlin
-        --8<-- "wiki/commands/slash/SlashConvert.kt:convert-kotlin"
+        --8<-- "commands/slash/SlashConvert.kt:convert-kotlin"
         ```
 
     === "Java"
         ```java
-        --8<-- "wiki/java/commands/slash/SlashConvert.java:convert-java"
+        --8<-- "commands/slash/SlashConvert.java:convert-java"
         ```
 
     As you can see, despite the short choice list, 
@@ -112,12 +112,12 @@ in the [`autocomplete`][[SlashOption#autocomplete]] property of your [[SlashOpti
 
     === "Kotlin"
         ```kotlin
-        --8<-- "wiki/commands/slash/SlashWord.kt:word_command-kotlin"
+        --8<-- "commands/slash/SlashWord.kt:word_command-kotlin"
         ```
 
     === "Java"
         ```java
-        --8<-- "wiki/java/commands/slash/SlashWord.java:word_command-java"
+        --8<-- "commands/slash/SlashWord.java:word_command-java"
         ```
 
 ## Generated values
@@ -131,12 +131,12 @@ As always, make sure to check against the command path as well as the option's d
 !!! example
     === "Kotlin"
         ```kotlin
-        --8<-- "wiki/commands/slash/SlashCreateTime.kt:create_time-kotlin"
+        --8<-- "commands/slash/SlashCreateTime.kt:create_time-kotlin"
         ```
 
     === "Java"
         ```java
-        --8<-- "wiki/java/commands/slash/SlashCreateTime.java:create_time-java"
+        --8<-- "commands/slash/SlashCreateTime.java:create_time-java"
         ```
 
 ## Rate limiting
@@ -147,12 +147,12 @@ Use [[RateLimit]] or [[Cooldown]] to define one on an application command.
 
 === "Kotlin"
     ```kotlin
-    --8<-- "wiki/commands/slash/SlashRateLimit.kt:rate_limit-kotlin"
+    --8<-- "commands/slash/SlashRateLimit.kt:rate_limit-kotlin"
     ```
 
 === "Java"
     ```java
-    --8<-- "wiki/java/commands/slash/SlashRateLimit.java:rate_limit-java"
+    --8<-- "commands/slash/SlashRateLimit.java:rate_limit-java"
     ```
 
 ### Using an existing rate limiter
@@ -162,20 +162,20 @@ Nothing as simple as using [[RateLimitReference]] with the `group` of a rate lim
 
 === "Kotlin"
     ```kotlin
-    --8<-- "wiki/ratelimit/WikiRateLimitProvider.kt:rate_limit_provider-kotlin"
+    --8<-- "ratelimit/WikiRateLimitProvider.kt:rate_limit_provider-kotlin"
     ```
 
     ```kotlin
-    --8<-- "wiki/commands/slash/SlashRateLimitExisting.kt:rate_limit_existing-kotlin"
+    --8<-- "commands/slash/SlashRateLimitExisting.kt:rate_limit_existing-kotlin"
     ```
 
 === "Java"
     ```java
-    --8<-- "wiki/java/ratelimit/WikiRateLimitProvider.java:rate_limit_provider-java"
+    --8<-- "ratelimit/WikiRateLimitProvider.java:rate_limit_provider-java"
     ```
 
     ```java
-    --8<-- "wiki/java/commands/slash/SlashRateLimitExisting.java:rate_limit_existing-java"
+    --8<-- "commands/slash/SlashRateLimitExisting.java:rate_limit_existing-java"
     ```
 
 ### Cooldown
@@ -197,12 +197,12 @@ All filters must return `true` for the command to be declared.
 
     === "Kotlin"
         ```kotlin
-        --8<-- "wiki/filters/declaration/BotOwnerIsGuildOwnerDeclarationFilter.kt:command_declaration_filter-kotlin"
+        --8<-- "filters/declaration/BotOwnerIsGuildOwnerDeclarationFilter.kt:command_declaration_filter-kotlin"
         ```
     
     === "Java"
         ```java
-        --8<-- "wiki/java/filters/declaration/BotOwnerIsGuildOwnerDeclarationFilter.java:command_declaration_filter-java"
+        --8<-- "filters/declaration/BotOwnerIsGuildOwnerDeclarationFilter.java:command_declaration_filter-java"
         ```
 
 ### Using the filter
@@ -212,10 +212,10 @@ Add a [[DeclarationFilter]] on your command and reference your filter inside it.
 
     === "Kotlin"
         ```kotlin
-        --8<-- "wiki/commands/slash/SlashBotOwnerIsGuildOwner.kt:declaration_filter-kotlin"
+        --8<-- "commands/slash/SlashBotOwnerIsGuildOwner.kt:declaration_filter-kotlin"
         ```
     
     === "Java"
         ```java
-        --8<-- "wiki/java/commands/slash/SlashBotOwnerIsGuildOwner.java:declaration_filter-java"
+        --8<-- "commands/slash/SlashBotOwnerIsGuildOwner.java:declaration_filter-java"
         ```

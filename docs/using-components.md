@@ -95,12 +95,12 @@ Finally, you can bind your component to the method, here's a full example:
         A similar `timeoutWith` function exists for timeouts.
 
     ```kotlin
-    --8<-- "wiki/commands/slash/SlashClicker.kt:persistent-clicker-kotlin"
+    --8<-- "commands/slash/SlashClicker.kt:persistent-clicker-kotlin"
     ```
 
 === "Java"
     ```java
-    --8<-- "wiki/java/commands/slash/SlashClickerPersistent.java:persistent-clicker-java"
+    --8<-- "commands/slash/SlashClickerPersistent.java:persistent-clicker-java"
     ```
 
 ## Ephemeral components
@@ -116,17 +116,17 @@ Ephemeral components have a default timeout set in [[Components#defaultEphemeral
 !!! Example
     === "Kotlin"
         ```kotlin
-        --8<-- "wiki/commands/slash/SlashClicker.kt:ephemeral-clicker-kotlin"
+        --8<-- "commands/slash/SlashClicker.kt:ephemeral-clicker-kotlin"
         ```
 
         You can also use components without setting a handler, and instead await the event:
 
         ```kotlin
-        --8<-- "wiki/commands/slash/SlashClicker.kt:ephemeral-awaiting-clicker-kotlin"
+        --8<-- "commands/slash/SlashClicker.kt:ephemeral-awaiting-clicker-kotlin"
         ```
     === "Java"
         ```java
-        --8<-- "wiki/java/commands/slash/SlashClickerEphemeral.java:ephemeral-clicker-java"
+        --8<-- "commands/slash/SlashClickerEphemeral.java:ephemeral-clicker-java"
         ```
 
 ## Component groups
@@ -146,12 +146,12 @@ The timeout works similarly to components, except the annotated handler is a [[G
 !!! Example
     === "Kotlin"
         ```kotlin
-        --8<-- "wiki/commands/slash/SlashClickGroup.kt:click_group-kotlin"
+        --8<-- "commands/slash/SlashClickGroup.kt:click_group-kotlin"
         ```
     
     === "Java"
         ```java
-        --8<-- "wiki/java/commands/slash/SlashClickGroup.java:click_group-java"
+        --8<-- "commands/slash/SlashClickGroup.java:click_group-java"
         ```
 
 ## Reset timeout on use
@@ -199,12 +199,12 @@ Let's create a filter that allows the component to be usable in a predefined one
 
 === "Kotlin"
     ```kotlin
-    --8<-- "wiki/filters/GeneralChannelFilter.kt:component_filter-kotlin"
+    --8<-- "filters/GeneralChannelFilter.kt:component_filter-kotlin"
     ```
 
 === "Java"
     ```java
-    --8<-- "wiki/java/filters/GeneralChannelFilter.java:component_filter-java"
+    --8<-- "filters/GeneralChannelFilter.java:component_filter-java"
     ```
 
 ### Using an existing filter
@@ -241,12 +241,12 @@ as to differentiate components (referenced by `discriminator`) using the same ra
 !!! example
     === "Kotlin"
         ```kotlin
-        --8<-- "wiki/commands/slash/SlashComponentRateLimit.kt:component_rate_limit-kotlin"
+        --8<-- "commands/slash/SlashComponentRateLimit.kt:component_rate_limit-kotlin"
         ```
     
     === "Java"
         ```java
-        --8<-- "wiki/java/commands/slash/SlashComponentRateLimit.java:component_rate_limit-java"
+        --8<-- "commands/slash/SlashComponentRateLimit.java:component_rate_limit-java"
         ```
 
     !!! info "Those components use [jda-emojis](https://github.com/freya022/jda-emojis), you can learn more about it [here](using-botcommands/unicode-emojis.md)."

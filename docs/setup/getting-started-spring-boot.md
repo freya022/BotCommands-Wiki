@@ -105,13 +105,13 @@ you must also start your JDA instance in `createJDA`, let's implement it!
 === "Kotlin"
 
     ```kotlin
-    --8<-- "wiki/SpringBot.kt:jdaservice-kotlin"
+    --8<-- "SpringBot.kt:jdaservice-kotlin"
     ```
 
 === "Java"
 
     ```java
-    --8<-- "wiki/java/SpringBot.java:jdaservice-java"
+    --8<-- "SpringBot.java:jdaservice-java"
     ```
 
 You can now run your bot! You should be able to run the help command, by mentioning your bot `@YourBot help`.

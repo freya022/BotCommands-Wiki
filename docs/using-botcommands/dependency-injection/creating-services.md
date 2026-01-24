@@ -124,12 +124,12 @@ the service is only created if none of these classes return an error message.
 
     === "Kotlin"
         ```kotlin
-        --8<-- "wiki/commands/slash/TagCommand.kt:tag_interfaced_condition-kotlin"
+        --8<-- "commands/slash/TagCommand.kt:tag_interfaced_condition-kotlin"
         ```
 
     === "Java"
         ```java
-        --8<-- "wiki/java/commands/slash/TagCommand.java:tag_interfaced_condition-java"
+        --8<-- "commands/slash/TagCommand.java:tag_interfaced_condition-java"
         ```
 
 #### Annotation conditions
@@ -149,26 +149,26 @@ The implementation must have a no-arg constructor, or be an `#!kotlin object`
 
     === "Kotlin"
         ```kotlin title="DevCommand.kt"
-        --8<-- "wiki/switches/DevCommand.kt:dev_command_annotated_condition-annotation-kotlin"
+        --8<-- "switches/DevCommand.kt:dev_command_annotated_condition-annotation-kotlin"
         
-        --8<-- "wiki/switches/DevCommand.kt:dev_command_annotated_condition-checker-kotlin"
+        --8<-- "switches/DevCommand.kt:dev_command_annotated_condition-checker-kotlin"
         ```
 
         ```kotlin title="SlashShutdown.kt"
-        --8<-- "wiki/commands/slash/SlashShutdown.kt:dev_command_annotated_condition-command-kotlin"
+        --8<-- "commands/slash/SlashShutdown.kt:dev_command_annotated_condition-command-kotlin"
         ```
 
     === "Java"
         ```java title="DevCommand.java"
-        --8<-- "wiki/java/switches/DevCommand.java:dev_command_annotated_condition-annotation-java"
+        --8<-- "switches/DevCommand.java:dev_command_annotated_condition-annotation-java"
         ```
 
         ```java title="DevCommandChecker.java"
-        --8<-- "wiki/java/switches/DevCommandChecker.java:dev_command_annotated_condition-checker-java"
+        --8<-- "switches/DevCommandChecker.java:dev_command_annotated_condition-checker-java"
         ```
 
         ```java title="SlashShutdown.java"
-        --8<-- "wiki/java/commands/slash/SlashShutdown.java:dev_command_annotated_condition-command-java"
+        --8<-- "commands/slash/SlashShutdown.java:dev_command_annotated_condition-command-java"
         ```
 
 ### Interfaced services

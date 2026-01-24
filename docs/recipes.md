@@ -12,7 +12,7 @@
 You can also use components without setting a handler, and instead await the event:
 
 ```kotlin
---8<-- "wiki/commands/slash/SlashClickWaiter.kt:click_waiter-kotlin"
+--8<-- "commands/slash/SlashClickWaiter.kt:click_waiter-kotlin"
 ```
 
 1. [[awaitOrNull]] returns `null` when the component expired, useful when combined with an elvis operator,

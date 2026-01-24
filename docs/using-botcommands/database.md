@@ -202,43 +202,43 @@ refer to `BDatabaseConfig#dumpLongTransactions` for more details.
 ### Running a statement, returning a value
 === "Kotlin"
     ```kotlin
-    --8<-- "wiki/commands/slash/SlashDb.kt:db_return_value-kotlin"
+    --8<-- "commands/slash/SlashDb.kt:db_return_value-kotlin"
     ```
 
 === "Java"
     ```java
-    --8<-- "wiki/java/commands/slash/SlashDb.java:db_return_value-java"
+    --8<-- "commands/slash/SlashDb.java:db_return_value-java"
     ```
 
 ### Running a statement, returning rows
 === "Kotlin"
     ```kotlin
-    --8<-- "wiki/commands/slash/SlashDb.kt:db_return_rows-kotlin"
+    --8<-- "commands/slash/SlashDb.kt:db_return_rows-kotlin"
     ```
 
 === "Java"
     ```java
-    --8<-- "wiki/java/commands/slash/SlashDb.java:db_return_rows-java"
+    --8<-- "commands/slash/SlashDb.java:db_return_rows-java"
     ```
 
 ### Running multiple statements in a transaction statement
 === "Kotlin"
     ```kotlin
-    --8<-- "wiki/commands/slash/SlashDb.kt:db_transaction-kotlin"
+    --8<-- "commands/slash/SlashDb.kt:db_transaction-kotlin"
     ```
 
 === "Java"
     ```java
-    --8<-- "wiki/java/commands/slash/SlashDb.java:db_transaction-java"
+    --8<-- "commands/slash/SlashDb.java:db_transaction-java"
     ```
 
 ### Running a single statement, returning generated keys
 === "Kotlin"
     ```kotlin
-    --8<-- "wiki/commands/slash/SlashDb.kt:db_generated_keys-kotlin"
+    --8<-- "commands/slash/SlashDb.kt:db_generated_keys-kotlin"
     ```
 
 === "Java"
     ```java
-    --8<-- "wiki/java/commands/slash/SlashDb.java:db_generated_keys-java"
+    --8<-- "commands/slash/SlashDb.java:db_generated_keys-java"
     ```

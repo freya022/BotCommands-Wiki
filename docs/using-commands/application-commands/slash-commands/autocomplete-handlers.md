@@ -19,7 +19,7 @@ all of which can be cached.
     however, that's not necessary when using [`autocompleteByFunction`][[SlashCommandOptionBuilder#autocompleteByFunction]].
 
     ```kotlin
-    --8<-- "wiki/commands/slash/SlashWord.kt:word_autocomplete-kotlin_dsl"
+    --8<-- "commands/slash/SlashWordDsl.kt:word_autocomplete-kotlin_dsl"
     ```
 
 === "Annotated"
@@ -35,12 +35,12 @@ all of which can be cached.
 
     === "Kotlin"
         ```kotlin
-        --8<-- "wiki/commands/slash/SlashWord.kt:word_autocomplete-kotlin"
+        --8<-- "commands/slash/SlashWord.kt:word_autocomplete-kotlin"
         ```
     
     === "Java"
         ```java
-        --8<-- "wiki/java/commands/slash/SlashWordAutocomplete.java:word_autocomplete-java"
+        --8<-- "commands/slash/SlashWordAutocomplete.java:word_autocomplete-java"
         ```
 
 You may also configure other properties:
@@ -107,18 +107,18 @@ by implementing [[AutocompleteTransformer]].
 
     === "Kotlin"
         ```kotlin title="FullName.kt"
-        --8<-- "wiki/autocomplete/transformer/FullNameTransformer.kt:full_name_obj-kotlin"
+        --8<-- "autocomplete/transformer/FullNameTransformer.kt:full_name_obj-kotlin"
         ```
 
         ```kotlin title="FullNameTransformer.kt"
-        --8<-- "wiki/autocomplete/transformer/FullNameTransformer.kt:autocomplete_transformer-kotlin"
+        --8<-- "autocomplete/transformer/FullNameTransformer.kt:autocomplete_transformer-kotlin"
         ```
 
     === "Java"
         ```java title="FullName.java"
-        --8<-- "wiki/java/autocomplete/transformer/FullName.java:full_name_obj-java"
+        --8<-- "autocomplete/transformer/FullName.java:full_name_obj-java"
         ```
 
         ```java title="FullNameTransformer.java"
-        --8<-- "wiki/java/autocomplete/transformer/FullNameTransformer.java:autocomplete_transformer-java"
+        --8<-- "autocomplete/transformer/FullNameTransformer.java:autocomplete_transformer-java"
         ```

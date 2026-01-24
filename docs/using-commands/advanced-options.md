@@ -53,12 +53,12 @@ You can also use a `List<IMentionable>`, where you can set the requested mention
 
     === "Kotlin"
         ```kotlin
-        --8<-- "wiki/commands/slash/SlashBulkBan.kt:bulk_ban-kotlin"
+        --8<-- "commands/slash/SlashBulkBan.kt:bulk_ban-kotlin"
         ```
 
     === "Java"
         ```java
-        --8<-- "wiki/java/commands/slash/SlashBulkBan.java:bulk_ban-java"
+        --8<-- "commands/slash/SlashBulkBan.java:bulk_ban-java"
         ```
 
 ## Advanced declarative options
@@ -85,21 +85,11 @@ which gets merged into one parameter by using an aggregator.
     Here is how you can use aggregated parameters to create a message delete timeframe, out of a `Long` and a `TimeUnit`.
 
     ```kotlin title="The aggregated object"
-    --8<-- "wiki/commands/slash/SlashBan.kt:aggregated_object-kotlin"
+    --8<-- "commands/slash/SlashBanDsl.kt:aggregated_object-kotlin_dsl"
     ```
 
     ```kotlin title="The aggregated parameter declaration"
-    @Command
-    class SlashBan {
-        @AppDeclaration
-        fun onDeclare(manager: GlobalApplicationCommandManager) {
-            manager.slashCommand("ban", function = SlashBan::onSlashBan) {
-                ...
-
-    --8<-- "wiki/commands/slash/SlashBan.kt:declare_aggregate-kotlin_dsl"
-            }
-        }
-    }
+    --8<-- "commands/slash/SlashBanDsl.kt:declare_aggregate-kotlin_dsl"
     ```
 
     The aggregating function can be a reference to the object's constructor,
@@ -114,5 +104,5 @@ allowing you to define simple computable properties and functions for types wher
 !!! example "Using inline classes"
 
     ```kotlin
-    --8<-- "wiki/commands/slash/SlashInlineWords.kt:inline_sentence-kotlin"
+    --8<-- "commands/slash/SlashInlineWords.kt:inline_sentence-kotlin"
     ```

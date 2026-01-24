@@ -14,14 +14,14 @@ import kotlin.time.Duration.Companion.minutes
 
 // --8<-- [start:rate_limit-kotlin_dsl]
 @Command
-class SlashRateLimitDsl : GlobalApplicationCommandProvider {
+class SlashRateLimit : GlobalApplicationCommandProvider {
 
     suspend fun onSlashRateLimit(event: GuildSlashEvent) {
         event.reply("Hello world!").await()
     }
 
     override fun declareGlobalApplicationCommands(manager: GlobalApplicationCommandManager) {
-        manager.slashCommand("rate_limit_dsl", function = ::onSlashRateLimit) {
+        manager.slashCommand("rate_limit", function = ::onSlashRateLimit) {
             // Lets the user use the command 5 times in an hour, but also 2 times in 2 minutes to prevent spam
             val bucketConfiguration = Buckets.spikeProtected(
                 capacity = 5,               // 5 uses
