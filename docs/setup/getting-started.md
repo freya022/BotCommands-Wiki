@@ -182,7 +182,7 @@ You can now run your bot! You should be able to run the help command, by mention
     <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-shade-plugin</artifactId>
-        <version>3.5.0</version>
+        <version>3.6.1</version>
         <executions>
             <execution>
                 <phase>package</phase>
@@ -209,16 +209,22 @@ You can now run your bot! You should be able to run the help command, by mention
 === "Kotlin Gradle"
 
     ```kotlin
+    import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+
     plugins {
         ...
-        id("com.github.johnrengelman.shadow") version "7.1.2"
+        id("com.gradleup.shadow") version "9.3.1"
     }
 
     application.mainClass.set("io.github.name.bot.Main")    //TODO change here
 
     tasks.withType<ShadowJar> {
-        mergeServiceFiles() // Fixes Java's service loading, which is used by Flyway
-        archiveFileName.set("your-project-name.jar")        //TODO change here
+        // Fixes Java's service loading, which is used by Flyway
+        duplicatesStrategy = DuplicatesStrategy.INCLUDE
+        mergeServiceFiles()
+    
+        // Set JAR name
+        archiveFileName.set("${rootProject.name}.jar")
     }
     ```
 
