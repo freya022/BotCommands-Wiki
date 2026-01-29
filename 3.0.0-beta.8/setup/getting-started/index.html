@@ -2336,7 +2336,7 @@ you must also start your JDA instance in <code>createJDA</code>, let's implement
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;plugin&gt;</span>
 <span class="w">    </span><span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
 <span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>maven-shade-plugin<span class="nt">&lt;/artifactId&gt;</span>
-<span class="w">    </span><span class="nt">&lt;version&gt;</span>3.5.0<span class="nt">&lt;/version&gt;</span>
+<span class="w">    </span><span class="nt">&lt;version&gt;</span>3.6.1<span class="nt">&lt;/version&gt;</span>
 <span class="w">    </span><span class="nt">&lt;executions&gt;</span>
 <span class="w">        </span><span class="nt">&lt;execution&gt;</span>
 <span class="w">            </span><span class="nt">&lt;phase&gt;</span>package<span class="nt">&lt;/phase&gt;</span>
@@ -2361,16 +2361,22 @@ you must also start your JDA instance in <code>createJDA</code>, let's implement
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="n">plugins</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nn">com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar</span>
+
+<span class="n">plugins</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="p">...</span>
-<span class="w">    </span><span class="n">id</span><span class="p">(</span><span class="s">&quot;com.github.johnrengelman.shadow&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="s">&quot;7.1.2&quot;</span>
+<span class="w">    </span><span class="n">id</span><span class="p">(</span><span class="s">&quot;com.gradleup.shadow&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="s">&quot;9.3.1&quot;</span>
 <span class="p">}</span>
 
 <span class="n">application</span><span class="p">.</span><span class="na">mainClass</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">&quot;io.github.name.bot.Main&quot;</span><span class="p">)</span><span class="w">    </span><span class="c1">//TODO change here</span>
 
 <span class="n">tasks</span><span class="p">.</span><span class="na">withType</span><span class="o">&lt;</span><span class="n">ShadowJar</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">mergeServiceFiles</span><span class="p">()</span><span class="w"> </span><span class="c1">// Fixes Java&#39;s service loading, which is used by Flyway</span>
-<span class="w">    </span><span class="n">archiveFileName</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">&quot;your-project-name.jar&quot;</span><span class="p">)</span><span class="w">        </span><span class="c1">//TODO change here</span>
+<span class="w">    </span><span class="c1">// Fixes Java&#39;s service loading, which is used by Flyway</span>
+<span class="w">    </span><span class="n">duplicatesStrategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DuplicatesStrategy</span><span class="p">.</span><span class="na">INCLUDE</span>
+<span class="w">    </span><span class="n">mergeServiceFiles</span><span class="p">()</span>
+
+<span class="w">    </span><span class="c1">// Set JAR name</span>
+<span class="w">    </span><span class="n">archiveFileName</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">&quot;</span><span class="si">${</span><span class="n">rootProject</span><span class="p">.</span><span class="na">name</span><span class="si">}</span><span class="s">.jar&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
 </div>
