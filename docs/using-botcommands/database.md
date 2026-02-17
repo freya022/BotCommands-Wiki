@@ -148,7 +148,7 @@ while the migration scripts uses a naming scheme compatible with Flyway, it may 
     You can see how it's done in [this Setup section](../setup/getting-started.md#creating-a-runnable-jar).
 
 ### Migrating the framework schema
-After creating your `ConnectionSupplier`, you can run:
+After creating your `ConnectionSupplier` and your data source, run this in your constructor:
 
 === "Kotlin"
     ```kotlin
