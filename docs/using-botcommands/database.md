@@ -150,16 +150,29 @@ while the migration scripts uses a naming scheme compatible with Flyway, it may 
 ### Migrating the framework schema
 After creating your `ConnectionSupplier`, you can run:
 
-```java
-Flyway.configure()
-    .dataSource(source) // Your already existing data source
-    .schemas("bc") // The name of the internal schema
-    .locations("bc_database_scripts") // Where the migration scripts are located
-    .validateMigrationNaming(true)
-    .loggers("slf4j") // Both JDA and BC logs using SLF4J
-    .load()
-    .migrate() // Create or update existing schema
-```
+=== "Kotlin"
+    ```kotlin
+    Flyway.configure(javaClass.classLoader)
+        .dataSource(source) // Your already existing data source
+        .schemas("bc") // The name of the internal schema
+        .locations("bc_database_scripts") // Where the migration scripts are located
+        .validateMigrationNaming(true)
+        .loggers("slf4j") // Both JDA and BC logs using SLF4J
+        .load()
+        .migrate() // Create or update existing schema
+    ```
+
+=== "Java"
+    ```java
+    Flyway.configure(getClass().getClassLoader())
+        .dataSource(source) // Your already existing data source
+        .schemas("bc") // The name of the internal schema
+        .locations("bc_database_scripts") // Where the migration scripts are located
+        .validateMigrationNaming(true)
+        .loggers("slf4j") // Both JDA and BC logs using SLF4J
+        .load()
+        .migrate(); // Create or update existing schema
+    ```
 
 ### Migrating your own schema
 Migrating your own schema is very similar to the code above, here are a few guidelines:

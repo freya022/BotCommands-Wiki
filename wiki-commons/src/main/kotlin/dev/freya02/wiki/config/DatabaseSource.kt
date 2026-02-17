@@ -34,11 +34,12 @@ class DatabaseSource(config: Config) : HikariSourceSupplier {
         logger.info { "Created database source" }
     }
 
-    private fun createFlyway(schema: String, scriptsLocation: String): Flyway = Flyway.configure()
-        .dataSource(source)
-        .schemas(schema)
-        .locations(scriptsLocation)
-        .validateMigrationNaming(true)
-        .loggers("slf4j")
-        .load()
+    private fun createFlyway(schema: String, scriptsLocation: String): Flyway =
+        Flyway.configure(javaClass.classLoader)
+            .dataSource(source)
+            .schemas(schema)
+            .locations(scriptsLocation)
+            .validateMigrationNaming(true)
+            .loggers("slf4j")
+            .load()
 }
