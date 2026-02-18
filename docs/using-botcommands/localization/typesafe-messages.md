@@ -24,7 +24,7 @@ without having to implement anything, alongside a few other benefits:
 
 See the [README](https://github.com/freya022/BotCommands/blob/3.X/BotCommands-typesafe-messages/README.md#installation).
 
-## Example
+## Setup
 
 ### Creating a localization bundle
 
@@ -92,25 +92,38 @@ the `MyBotMessages` string is the name of the bundle we added in the first step.
 Instances of this interface can be injected like any other service,
 and will allow you to create `CommandReplies` instances from an `Interaction`.
 
-### Usage
+## Usage
 
-=== "Kotlin"
+### In handlers
 
-    ```kotlin
-    --8<-- "commands/slash/SlashInfo.kt:slash_info-kotlin"
-    ```
+You can inject instances of the message source in text commands, as well as interaction handlers,
+such as application commands, component handlers and modal handlers.
 
-=== "Java"
+This is effectively the same as injecting `CommandRepliesFactory` in your class
+then using it in your command to create instances of `CommandReplies`.
 
-    ```java
-    --8<-- "commands/slash/SlashInfo.java:slash_info-java"
-    ```
+!!! example "In a slash command"
 
-!!! tip
-    Injecting the `CommandReplies` instance in the slash command function
-    is the same as injecting `CommandRepliesFactory` in your class then using it in your command to create instances of `CommandReplies`.
+    === "Kotlin"
+    
+        ```kotlin
+        --8<-- "commands/slash/SlashInfo.kt:slash_info-kotlin"
+        ```
+    
+    === "Java"
+    
+        ```java
+        --8<-- "commands/slash/SlashInfo.java:slash_info-java"
+        ```
 
-Try out `/info`!
+### With an event
+
+If you have a `MessageReceivedEvent` or an `Interaction`, there are overloads of [[IMessageSourceFactory#create]] to create instances from them.
+These instances will use locales provided by [[TextCommandLocaleProvider]] and [[UserLocaleProvider]]/[[GuildLocaleProvider]] respectively.
+
+### With locales
+
+You can also pass any `Locale`s to [[IMessageSourceFactory#create]].
 
 ## Improve safety across locales
 
