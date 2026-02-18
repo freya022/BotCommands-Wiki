@@ -1,6 +1,6 @@
 package dev.freya02.wiki.commands.slash
 
-import dev.freya02.wiki.messages.CommandRepliesKt
+import dev.freya02.wiki.messages.CommandReplies
 import io.github.freya022.botcommands.api.commands.annotations.Command
 import io.github.freya022.botcommands.api.commands.application.slash.GuildSlashEvent
 import io.github.freya022.botcommands.api.commands.application.slash.annotations.JDASlashCommand
@@ -15,7 +15,7 @@ class SlashInfo {
         name = "info",
         description = "Sends info about the bot",
     )
-    fun onSlashInfo(event: GuildSlashEvent, replies: CommandRepliesKt) {
+    fun onSlashInfo(event: GuildSlashEvent, replies: CommandReplies) {
         val response = replies.botInfo(
             // Use named parameters to make the arguments clearer!
             guildCount = event.jda.guildCache.size(),

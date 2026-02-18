@@ -5,7 +5,7 @@ import dev.freya02.botcommands.typesafe.messages.api.annotations.LocalizedConten
 import net.dv8tion.jda.api.interactions.DiscordLocale
 
 // --8<-- [start:command_replies_forced_locale-kotlin]
-interface CommandRepliesForcedLocaleKt : IMessageSource {
+interface CommandRepliesForcedLocale : IMessageSource {
 
     @LocalizedContent("bot.info")
     fun botInfo(

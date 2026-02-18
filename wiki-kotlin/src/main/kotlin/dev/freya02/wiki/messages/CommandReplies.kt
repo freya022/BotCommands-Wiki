@@ -5,7 +5,7 @@ import dev.freya02.botcommands.typesafe.messages.api.annotations.LocalizedConten
 
 // --8<-- [start:command_replies-kotlin]
 // No need to implement this interface
-interface CommandRepliesKt : IMessageSource {
+interface CommandReplies : IMessageSource {
 
     // The function can have any name you want
     @LocalizedContent("bot.info")

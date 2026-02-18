@@ -9,5 +9,5 @@ import dev.freya02.botcommands.typesafe.messages.api.annotations.MessageSourceFa
     bundleName = "MyBotMessages",
     ignoreEmptyLocales = true, // We set it to true as we only have a root bundle
 )
-interface CommandRepliesKtFactory : IMessageSourceFactory<CommandRepliesKt>
+interface CommandRepliesFactory : IMessageSourceFactory<CommandReplies>
 // --8<-- [end:command_replies_factory-kotlin]

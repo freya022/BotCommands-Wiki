@@ -6,7 +6,7 @@ import dev.freya02.botcommands.typesafe.messages.api.annotations.LocalizedConten
 import dev.freya02.botcommands.typesafe.messages.api.annotations.PreferLocale
 
 // --8<-- [start:command_replies_preferred_locale-kotlin]
-interface CommandRepliesPreferredLocaleKt : IMessageSource {
+interface CommandRepliesPreferredLocale : IMessageSource {
 
     // Prefers using GuildLocaleProvider
     @PreferLocale(LocalePreference.GUILD)
