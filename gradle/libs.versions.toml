@@ -1,7 +1,7 @@
 [versions]
-botcommands = "3.0.0-beta.8"
+botcommands = "3.0.0-beta.9"
 flyway = "11.20.2"
-kotlin = "2.3.0"
+kotlin = "2.3.10"
 ktor = "3.4.0"
 
 [plugins]

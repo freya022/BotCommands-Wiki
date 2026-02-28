@@ -16,7 +16,7 @@ You can also use components without setting a handler, and instead await the eve
 ```
 
 1. [[awaitOrNull]] returns `null` when the component expired, useful when combined with an elvis operator,
-this is the equivalent of a `#!java try catch` on `TimeoutCancellationException`.
+this is the equivalent of a `#!java try catch` on `ComponentCancellationException`.
 Since there is no timeout set here, the [default duration][[Components#defaultEphemeralTimeout]] is used.
 
 2. [[awaitUnit]] is an extension to await and then return `Unit`, 
