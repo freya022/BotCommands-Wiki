@@ -18,7 +18,7 @@ import io.github.freya022.botcommands.api.components.builder.bindWith
 import io.github.freya022.botcommands.api.components.builder.timeoutWith
 import io.github.freya022.botcommands.api.components.data.ComponentTimeoutData
 import io.github.freya022.botcommands.api.components.event.ButtonEvent
-import kotlinx.coroutines.TimeoutCancellationException
+import io.github.freya022.botcommands.api.components.exceptions.ComponentCancellationException
 import net.dv8tion.jda.api.interactions.Interaction
 import net.dv8tion.jda.api.interactions.callbacks.IDeferrableCallback
 import kotlin.time.Duration.Companion.days
@@ -135,7 +135,7 @@ class SlashEphemeralAwaitingClicker(private val buttons: Buttons) {
 
         var count = 0
         // When the 15 minutes expire,
-        // the loop is stopped due to a TimeoutCancellationException (see 'await' on the button).
+        // the loop is stopped due to a subclass of ComponentCancellationException (see 'await' on the button).
         try {
             while (true) {
                 // Wait for the button to be clicked and edit it with a new label
@@ -143,7 +143,7 @@ class SlashEphemeralAwaitingClicker(private val buttons: Buttons) {
                 val buttonEvent = button.await()
                 buttonEvent.editButton(button.withLabel("${++count} cookies")).await()
             }
-        } catch (_: TimeoutCancellationException) { }
+        } catch (_: ComponentCancellationException) { }
 
         // Try to disable components if the interaction is still usable
         if (!event.hook.isExpired) {
