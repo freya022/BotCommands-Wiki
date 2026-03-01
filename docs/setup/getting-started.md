@@ -219,7 +219,7 @@ You can now run your bot! You should be able to run the help command, by mention
     application.mainClass.set("io.github.name.bot.Main")    //TODO change here
 
     tasks.withType<ShadowJar> {
-        // Fixes Java's service loading, which is used by Flyway
+        // Multiple dependencies have files at the same place, keep all of them
         duplicatesStrategy = DuplicatesStrategy.INCLUDE
         mergeServiceFiles()
     
