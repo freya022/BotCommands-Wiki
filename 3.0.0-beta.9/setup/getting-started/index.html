@@ -2371,7 +2371,7 @@ you must also start your JDA instance in <code>createJDA</code>, let's implement
 <span class="n">application</span><span class="p">.</span><span class="na">mainClass</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">&quot;io.github.name.bot.Main&quot;</span><span class="p">)</span><span class="w">    </span><span class="c1">//TODO change here</span>
 
 <span class="n">tasks</span><span class="p">.</span><span class="na">withType</span><span class="o">&lt;</span><span class="n">ShadowJar</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// Fixes Java&#39;s service loading, which is used by Flyway</span>
+<span class="w">    </span><span class="c1">// Multiple dependencies have files at the same place, keep all of them</span>
 <span class="w">    </span><span class="n">duplicatesStrategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DuplicatesStrategy</span><span class="p">.</span><span class="na">INCLUDE</span>
 <span class="w">    </span><span class="n">mergeServiceFiles</span><span class="p">()</span>
 
