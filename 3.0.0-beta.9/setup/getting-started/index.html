@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../assets/logo-round.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
     
     
       
@@ -600,6 +600,17 @@
     <span class="md-ellipsis">
       
         Adding the dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-parameter-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setting up parameter names
       
     </span>
   </a>
@@ -2120,7 +2131,7 @@
 
 <h1 id="starting-from-scratch">Starting from scratch<a class="headerlink" href="#starting-from-scratch" title="Permanent link">&para;</a></h1>
 <p>Start by creating a project either using Maven or Gradle, it must run on Java 17+,
-I recommend using <a href="https://adoptium.net/temurin/releases/?package=jdk&amp;version=21">Java 21</a>.</p>
+I recommend using <a href="https://adoptium.net/temurin/releases/?package=jdk&amp;version=25">Java 25</a>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Creating a new Maven project</p>
 <p>When creating a Maven project in IntelliJ, do not choose <code>Maven Archetype</code> in <code>Generators</code>, you must use <code>New Project</code>.</p>
@@ -2167,6 +2178,9 @@ I recommend using <a href="https://adoptium.net/temurin/releases/?package=jdk&am
 </div>
 </div>
 </div>
+<h2 id="setting-up-parameter-names">Setting up parameter names<a class="headerlink" href="#setting-up-parameter-names" title="Permanent link">&para;</a></h2>
+<p>The framework needs to be able to read your parameter names, Kotlin users don't have to do anything,
+but Java users will need to add a compiler argument, see <a href="../../using-botcommands/parameter-names/">"Java parameter names"</a>.</p>
 <h2 id="adding-logging">Adding logging<a class="headerlink" href="#adding-logging" title="Permanent link">&para;</a></h2>
 <p>Any SLF4J compatible logger should work; I recommend logback, which you can learn more <a href="../logging/">here</a>.</p>
 <h2 id="creating-a-config-service">Creating a config service<a class="headerlink" href="#creating-a-config-service" title="Permanent link">&para;</a></h2>
