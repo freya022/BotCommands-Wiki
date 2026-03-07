@@ -1,7 +1,7 @@
 # Starting from scratch
 
 Start by creating a project either using Maven or Gradle, it must run on Java 17+,
-I recommend using [Java 21](https://adoptium.net/temurin/releases/?package=jdk&version=21).
+I recommend using [Java 25](https://adoptium.net/temurin/releases/?package=jdk&version=25).
 
 !!! warning "Creating a new Maven project"
 
