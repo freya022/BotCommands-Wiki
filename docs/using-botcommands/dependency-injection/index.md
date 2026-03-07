@@ -10,6 +10,20 @@ the framework will then construct it by providing the dependencies required for 
 This avoids having to pass objects everywhere, allowing a more effective decoupling,
 and allows switching implementations in a completely transparent manner.
 
+!!! question "How do I know if I can inject something?"
+
+    Objects like [[BContext]], [[Buttons]], [[Modals]] or [[EventWaiter]] are typically annotated with either [[BService]] or [[InterfacedService]].
+
+    - `@BService` declares a service that can be injected anywhere. It can be followed by conditional annotations, making it unavailable if the conditions fail.
+      
+        This is the case with `Buttons`, the annotated class is the one you can request.
+
+    - `@InterfacedService` says that any subclass implementing the interface will be injectable as such.
+
+        This is the case with `BContext`, requesting one will give you an implementation of that interface, if found.
+
+    If you see one of them, you can put a parameter in your class's constructor to request it.
+
 !!! example
 
     `ConnectionSupplier` is an interfaced service (an interface that, when implemented, enables the service to be retrieved as such interface).
