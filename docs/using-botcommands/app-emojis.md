@@ -12,13 +12,42 @@ While you can add them manually in your dashboard, they are:
 Which is why you can let the framework upload them for you!
 It will upload them after JDA logs in, but before it comes online.
 
+## Enabling the feature
+
+You need to enable the feature explicitly, in your `BotCommands` entry point,
+go to the [`appEmojis`][[BConfigBuilder#appEmojis]] configuration, and [enable][[BAppEmojisConfigBuilder#enable]] the feature.
+
+=== "Kotlin"
+
+    ```kotlin
+    BotCommands.create {
+        // ...
+
+        appEmojis {
+            enable = true
+        }
+    }
+    ```
+
+=== "Java"
+
+    ```java
+    BotCommands.create(builder -> {
+        // ...
+
+        appEmojis(appEmojis -> {
+            appEmojis.enable(true);
+        });
+    });
+    ```
+
 ## Making an application emoji container
 
 The first step is to create a class that will hold your application emojis,
 you will need to annotate it with [[AppEmojiContainer]], 
 which tells the library to load all `ApplicationEmoji` fields inside it.
 
-This will search emojis in the `/emojis` folder by default, but you can change it in the annotation. 
+By default, this will search emojis in the `/emojis` resource folder, but you can change it in the annotation. 
 
 ## Registering/retrieving application emojis
 ### Eager retrieval

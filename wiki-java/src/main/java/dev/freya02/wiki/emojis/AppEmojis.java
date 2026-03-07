@@ -6,9 +6,14 @@ import io.github.freya022.botcommands.api.emojis.annotations.AppEmojiContainer;
 import net.dv8tion.jda.api.entities.emoji.ApplicationEmoji;
 
 // --8<-- [start:eager_app_emojis-java]
-@AppEmojiContainer
+@AppEmojiContainer // Here you can change the base location of all emojis contained here
 public class AppEmojis {
-    @AppEmoji(emojiName = "java_eager") // Optionally use this if you want to change defaults
-    public static final ApplicationEmoji java = AppEmojisRegistry.get("java");
+    // This annotation is optional,
+    // you can use it to change where the emoji is fetched from,
+    // or how it will be named on Discord.
+    @AppEmoji(emojiName = "java_eager")
+    public static final ApplicationEmoji java =
+            // The field name must be the same as the string passed
+            AppEmojisRegistry.get("java");
 }
 // --8<-- [end:eager_app_emojis-java]

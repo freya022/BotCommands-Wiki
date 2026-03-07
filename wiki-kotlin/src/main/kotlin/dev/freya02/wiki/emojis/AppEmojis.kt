@@ -6,9 +6,12 @@ import io.github.freya022.botcommands.api.emojis.annotations.AppEmojiContainer
 import net.dv8tion.jda.api.entities.emoji.ApplicationEmoji
 
 // --8<-- [start:eager_app_emojis-kotlin]
-@AppEmojiContainer
+@AppEmojiContainer // Here you can change the base location of all emojis contained here
 object AppEmojis {
-    @AppEmoji(emojiName = "kotlin_eager") // Optionally use this if you want to change defaults
+    // This annotation is optional,
+    // you can use it to change where the emoji is fetched from,
+    // or how it will be named on Discord.
+    @AppEmoji(emojiName = "kotlin_eager")
     val kotlin: ApplicationEmoji by AppEmojisRegistry
 }
 // --8<-- [end:eager-app-emojis-kotlin]
