@@ -63,6 +63,11 @@ The only strictly necessary dependencies are the framework, the Spring support m
     You can also use the [Spring developer tools](https://docs.spring.io/spring-boot/reference/using/devtools.html)
     to speed up your development cycle.
 
+## Setting up parameter names
+
+The framework needs to be able to read your parameter names, Kotlin users don't have to do anything,
+but Java users will need to add a compiler argument, see ["Java parameter names"](../using-botcommands/parameter-names.md).
+
 ## Optional - Configure logging
 
 The Spring Boot starter should include logging, you can further configure it, in most cases this is in `logback.xml`,

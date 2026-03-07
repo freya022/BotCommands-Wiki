@@ -53,6 +53,11 @@ The only strictly necessary dependencies are the framework and JDA:
     }
     ```
 
+## Setting up parameter names
+
+The framework needs to be able to read your parameter names, Kotlin users don't have to do anything,
+but Java users will need to add a compiler argument, see ["Java parameter names"](../using-botcommands/parameter-names.md).
+
 ## Adding logging
 
 Any SLF4J compatible logger should work; I recommend logback, which you can learn more [here](logging.md).
