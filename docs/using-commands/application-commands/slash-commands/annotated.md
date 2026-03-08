@@ -61,7 +61,7 @@ it must only be used **once per top-level** command, this allows you to set top-
 
 Options can be added with a parameter annotated with `#!java @SlashOption`.
 
-All supported types are documented under `ParameterResolver`, and [other types can be added](../option-resolvers.md).
+All supported types are documented under [[SlashParameterResolver]], and [other types can be added](../option-resolvers.md).
 
 !!! example
     === "Kotlin"

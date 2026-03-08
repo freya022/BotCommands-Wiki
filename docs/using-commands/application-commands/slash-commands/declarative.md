@@ -39,7 +39,7 @@ You can then add a subcommand by using `subcommand`, where each subcommand is it
 Options can be added with a parameter and declaring it using `option` in your command builder,
 where the `declaredName` is the name of your parameter, the block will let you change the description, choices, etc.
 
-All supported types are documented under [[ParameterResolver]], and [other types can be added](../option-resolvers.md).
+All supported types are documented under [[SlashParameterResolver]], and [other types can be added](../option-resolvers.md).
 
 !!! example
     ```kotlin
