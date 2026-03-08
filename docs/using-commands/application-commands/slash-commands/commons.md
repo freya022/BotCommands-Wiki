@@ -11,7 +11,8 @@ that is, the resolver will return the choices used for every option of their typ
 All you now need to do is enable `usePredefinedChoices` on your option.
 
 !!! example
-Here, the resolver for `TimeUnit` is already defined and will be explained in [Adding option resolvers](../option-resolvers.md).
+
+    Here, the resolver for `TimeUnit` is already defined and will be explained in [Adding option resolvers](../option-resolvers.md).
 
     === "Kotlin"
         ```kotlin
