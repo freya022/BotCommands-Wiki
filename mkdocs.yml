@@ -116,7 +116,10 @@ nav:
         - Retrieving services: using-botcommands/dependency-injection/retrieving-services.md
       - Events: using-botcommands/events.md
       - Database: using-botcommands/database.md
-      - Rate limiting: using-botcommands/ratelimit.md
+      - Rate limiting:
+          - using-botcommands/ratelimit/index.md
+          - Declaring rate limiters: using-botcommands/ratelimit/declaring.md
+          - Usage in commands: using-botcommands/ratelimit/usage-in-commands.md
       - Localization:
         - using-botcommands/localization/index.md
         - Application commands: using-botcommands/localization/commands.md

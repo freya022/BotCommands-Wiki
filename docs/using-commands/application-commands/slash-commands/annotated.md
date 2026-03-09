@@ -140,46 +140,8 @@ As always, make sure to check against the command path as well as the option's d
         ```
 
 ## Rate limiting
-This lets you reject application commands if the user tries to use them too often.
-
-### Using an (anonymous) rate limiter
-Use [[RateLimit]] or [[Cooldown]] to define one on an application command.
-
-=== "Kotlin"
-    ```kotlin
-    --8<-- "commands/slash/SlashRateLimit.kt:rate_limit-kotlin"
-    ```
-
-=== "Java"
-    ```java
-    --8<-- "commands/slash/SlashRateLimit.java:rate_limit-java"
-    ```
-
-### Using an existing rate limiter
-Nothing as simple as using [[RateLimitReference]] with the `group` of a rate limiter defined in a `RateLimitProvider`.
-
-!!! info "Learn how to create a rate limiter with ["Defining a rate limit"](../../../using-botcommands/ratelimit.md)"
-
-=== "Kotlin"
-    ```kotlin
-    --8<-- "ratelimit/WikiRateLimitProvider.kt:rate_limit_provider-kotlin"
-    ```
-
-    ```kotlin
-    --8<-- "commands/slash/SlashRateLimitExisting.kt:rate_limit_existing-kotlin"
-    ```
-
-=== "Java"
-    ```java
-    --8<-- "ratelimit/WikiRateLimitProvider.java:rate_limit_provider-java"
-    ```
-
-    ```java
-    --8<-- "commands/slash/SlashRateLimitExisting.java:rate_limit_existing-java"
-    ```
-
-### Cooldown
-A cooldown is a rate limit, but with fewer parameters, it can be used as `#!java @Cooldown(5, ChronoUnit.SECONDS /* also scope and deleteOnRefill */)`.
+This lets you reject application commands if the user tries to use them too often,
+see ["Using rate limiters in commands"](../../../using-botcommands/ratelimit/usage-in-commands.md#annotated-commands).
 
 ## Filtering commands
 You can use [[DeclarationFilter]] if you wish to declare a **guild** command conditionally.

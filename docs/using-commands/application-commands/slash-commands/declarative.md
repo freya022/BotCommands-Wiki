@@ -83,30 +83,6 @@ Enabling autocompletion for an option is done by referencing an existing handler
     --8<-- "commands/slash/SlashWordDsl.kt:word_command-kotlin_dsl"
     ```
 
-## Rate limiting
-This lets you reject application commands if the user tries to use them too often.
-
-!!! info "Learn how to create a rate limiter with ["Defining a rate limit"](../../../using-botcommands/ratelimit.md)"
-
-### Using an (anonymous) rate limiter
-```kotlin
---8<-- "commands/slash/SlashRateLimitDsl.kt:rate_limit-kotlin_dsl"
-```
-
-### Using an existing rate limiter
-Nothing as simple as using `rateLimitReference` with the `group` of a rate limiter defined in a [[RateLimitProvider]].
-
-```kotlin
---8<-- "ratelimit/WikiRateLimitProvider.kt:rate_limit_provider-kotlin"
-```
-
-```kotlin
---8<-- "commands/slash/SlashRateLimitExistingDsl.kt:rate_limit_existing-kotlin_dsl"
-```
-
-### Cooldown
-A cooldown is a rate limit, but with fewer parameters, it can be used as `cooldown(5.seconds /* also scope and deleteOnRefill */)`.
-
 ## Generated values
 
 Generated values are a command parameter that gets their values computed by the given block everytime the command run.
@@ -117,3 +93,7 @@ Contrary to the annotated commands, no checks are required, as this is tied to t
     ```kotlin
     --8<-- "commands/slash/SlashCreateTimeDsl.kt:create_time-kotlin_dsl"
     ```
+
+## Rate limiting
+This lets you reject application commands if the user tries to use them too often,
+see ["Using rate limiters in commands"](../../../using-botcommands/ratelimit/usage-in-commands.md#declarative-commands).
