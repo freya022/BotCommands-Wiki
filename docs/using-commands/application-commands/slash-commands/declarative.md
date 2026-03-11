@@ -39,7 +39,7 @@ You can then add a subcommand by using `subcommand`, where each subcommand is it
 Options can be added with a parameter and declaring it using `option` in your command builder,
 where the `declaredName` is the name of your parameter, the block will let you change the description, choices, etc.
 
-All supported types are documented under [[SlashParameterResolver]], and [other types can be added](../option-resolvers.md).
+All supported types are documented under [[SlashParameterResolver]], and [other types can be added](../../../using-botcommands/option-resolvers.md#slash-commands).
 
 !!! example
     ```kotlin
@@ -56,15 +56,29 @@ All supported types are documented under [[SlashParameterResolver]], and [other 
 
 ### Using choices
 
-Adding choices is very straight forward, you only have to give a list of choices to the `choice` property.
+There are two ways of setting choices for an option.
 
-!!! example
+#### With the builder property
+
+A `choices` property is available for you to give a list of choices to be used.
+
+This one is useful if the choices may differ from other similar options.
+
+??? example
     ```kotlin
     --8<-- "commands/slash/SlashConvertDsl.kt:convert-kotlin_dsl"
     ```
 
-    As you can see, despite the short choice list, this causes duplications with multiple commands.
-    This issue is solved with [predefined choices](commons.md#using-predefined-choices).
+#### With choices predefined by the resolver
+
+This one is useful if the choices are the same for all parameters of the same type.
+
+After implementing [[SlashParameterResolver#getPredefinedChoices]], you can enable them on your option with `usePredefinedChoices = true`.
+
+??? example "Using the predefined choices"
+    ```kotlin
+    --8<-- "commands/slash/SlashConvertSimplifiedDsl.kt:convert_simplified-kotlin_dsl"
+    ```
 
 ### Using autocomplete
 

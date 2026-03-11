@@ -11,8 +11,8 @@ import net.dv8tion.jda.api.interactions.commands.Command;
 import net.dv8tion.jda.api.interactions.commands.CommandInteractionPayload;
 import net.dv8tion.jda.api.interactions.commands.OptionMapping;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 
 import java.util.Collection;
 import java.util.concurrent.TimeUnit;
@@ -21,21 +21,20 @@ import java.util.stream.Stream;
 @WikiDetailProfile(WikiDetailProfile.Profile.DETAILED)
 // --8<-- [start:time_unit_resolver-detailed-java]
 @Resolver
-public class TimeUnitResolver
-        extends ClassParameterResolver<TimeUnitResolver, TimeUnit>
-        implements SlashParameterResolver<TimeUnitResolver, TimeUnit> {
+@NullMarked // Everything is non-null unless @Nullable
+public class SlashTimeUnitResolver
+        extends ClassParameterResolver<SlashTimeUnitResolver, TimeUnit>
+        implements SlashParameterResolver<SlashTimeUnitResolver, TimeUnit> {
 
-    public TimeUnitResolver() {
+    public SlashTimeUnitResolver() {
         super(TimeUnit.class);
     }
 
-    @NotNull
     @Override
     public OptionType getOptionType() {
         return OptionType.STRING;
     }
 
-    @NotNull
     @Override
     public Collection<Command.Choice> getPredefinedChoices(@Nullable Guild guild) {
         return Stream.of(TimeUnit.SECONDS, TimeUnit.MINUTES, TimeUnit.HOURS, TimeUnit.DAYS)
@@ -47,7 +46,7 @@ public class TimeUnitResolver
 
     @Nullable
     @Override
-    public TimeUnit resolve(@NotNull SlashCommandOption option, @NotNull CommandInteractionPayload event, @NotNull OptionMapping optionMapping) {
+    public TimeUnit resolve(SlashCommandOption option, CommandInteractionPayload event, OptionMapping optionMapping) {
         return TimeUnit.valueOf(optionMapping.getAsString());
     }
 }

@@ -17,21 +17,23 @@ import net.dv8tion.jda.api.interactions.commands.OptionType
 import java.util.concurrent.TimeUnit
 
 @Suppress("unused")
-object TimeUnitResolverSimplified {
+object SlashTimeUnitResolverSimplified {
     @WikiDetailProfile(WikiDetailProfile.Profile.SIMPLIFIED)
     // --8<-- [start:time_unit_resolver-simplified-kotlin]
     // The displayed name should be lowercase with the first letter uppercase, see Resolvers#toHumanName
     @Resolver
-    fun getTimeUnitResolverSimplified() = enumResolver<TimeUnit>(TimeUnit.SECONDS, TimeUnit.MINUTES, TimeUnit.HOURS, TimeUnit.DAYS)
+    fun getTimeUnitResolverSimplified() = enumResolver<TimeUnit>(TimeUnit.SECONDS, TimeUnit.MINUTES, TimeUnit.HOURS, TimeUnit.DAYS) {
+        // Optional configuration
+    }
 }
 // --8<-- [end:time_unit_resolver-simplified-kotlin]
 
 @WikiDetailProfile(WikiDetailProfile.Profile.DETAILED)
 // --8<-- [start:time_unit_resolver-detailed-kotlin]
 @Resolver
-class TimeUnitResolver :
-    ClassParameterResolver<TimeUnitResolver, TimeUnit>(TimeUnit::class),
-    SlashParameterResolver<TimeUnitResolver, TimeUnit> {
+class SlashTimeUnitResolver :
+        ClassParameterResolver<SlashTimeUnitResolver, TimeUnit>(TimeUnit::class),
+        SlashParameterResolver<SlashTimeUnitResolver, TimeUnit> {
 
     override val optionType: OptionType = OptionType.STRING
 

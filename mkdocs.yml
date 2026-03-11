@@ -115,6 +115,7 @@ nav:
         - Creating services: using-botcommands/dependency-injection/creating-services.md
         - Retrieving services: using-botcommands/dependency-injection/retrieving-services.md
       - Events: using-botcommands/events.md
+      - Option resolvers: using-botcommands/option-resolvers.md
       - Database: using-botcommands/database.md
       - Rate limiting:
           - using-botcommands/ratelimit/index.md
@@ -142,12 +143,9 @@ nav:
         - using-commands/application-commands/index.md
         - Creating slash commands:
           - using-commands/application-commands/slash-commands/index.md
-          - Commons: using-commands/application-commands/slash-commands/commons.md
           - Annotated slash commands: using-commands/application-commands/slash-commands/annotated.md
           - Declarative slash commands: using-commands/application-commands/slash-commands/declarative.md
           - Autocomplete handlers: using-commands/application-commands/slash-commands/autocomplete-handlers.md
-        # TODO move to Using BotCommands, make a global overview and then a bunch of sections for each resolver type
-        - Adding option resolvers: using-commands/application-commands/option-resolvers.md
       - Advanced options: using-commands/advanced-options.md
   - Using components: using-components.md
   - Using modals: using-modals.md

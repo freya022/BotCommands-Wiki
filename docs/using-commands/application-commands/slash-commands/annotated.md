@@ -61,7 +61,7 @@ it must only be used **once per top-level** command, this allows you to set top-
 
 Options can be added with a parameter annotated with `#!java @SlashOption`.
 
-All supported types are documented under [[SlashParameterResolver]], and [other types can be added](../option-resolvers.md).
+All supported types are documented under [[SlashParameterResolver]], and [other types can be added](../../../using-botcommands/option-resolvers.md#slash-commands).
 
 !!! example
     === "Kotlin"
@@ -81,10 +81,16 @@ All supported types are documented under [[SlashParameterResolver]], and [other 
 
 ### Using choices
 
-You must implement [[SlashOptionChoiceProvider]] in order to return a list of choices, 
-be careful to check against the command path as well as the option's display name.
+There are two ways of setting choices for an option.
 
-!!! example
+#### With a choice provider
+
+This one is useful if the choices are local to the command's class and may differ from other similar options.
+
+You must implement [[SlashOptionChoiceProvider]] in order to return a list of choices,
+remember to check against the command path as well as the option's display name.
+
+??? example "Making a choice provider"
     === "Kotlin"
         ```kotlin
         --8<-- "commands/slash/SlashConvert.kt:convert-kotlin"
@@ -95,9 +101,22 @@ be careful to check against the command path as well as the option's display nam
         --8<-- "commands/slash/SlashConvert.java:convert-java"
         ```
 
-    As you can see, despite the short choice list, 
-    the method is quite lengthy and causes duplications with multiple commands.
-    This issue is solved with [predefined choices](commons.md#using-predefined-choices).
+#### With choices predefined by the resolver
+
+This one is useful if the choices are the same for all parameters of the same type.
+
+After implementing [[SlashParameterResolver#getPredefinedChoices]], you can enable them on your option with [[SlashOption#usePredefinedChoices]].
+
+??? example "Using the predefined choices"
+    === "Kotlin"
+        ```kotlin
+        --8<-- "commands/slash/SlashConvertSimplified.kt:convert_simplified-kotlin"
+        ```
+
+    === "Java"
+        ```java
+        --8<-- "commands/slash/SlashConvertSimplified.java:convert_simplified-java"
+        ```
 
 ### Using autocomplete
 
