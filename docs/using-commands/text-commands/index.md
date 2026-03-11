@@ -7,7 +7,7 @@ The framework provides support for text (message) commands. They support:
 - Parsing the arguments automatically, as best as it can, similar to application commands
 - Or, letting you consume arguments manually
 
-!!! info "You can enable/disable the feature with the [`enable`][[BTextConfigProps#enable]] property, Is is recommended to set it explicitly."
+!!! info "You can enable/disable the feature with the [`enable`][[BTextConfigProps#enable]] property, it is recommended to set it explicitly."
 
 ## Variations
 
