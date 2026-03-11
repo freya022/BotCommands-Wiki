@@ -8,10 +8,10 @@
       
       
       
-        <link rel="canonical" href="https://bc.freya02.dev/3.0.0-beta.9/using-commands/text-commands/writing-text-commands/">
+        <link rel="canonical" href="https://bc.freya02.dev/3.0.0-beta.9/using-commands/text-commands/declarative/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../annotated/">
       
       
         <link rel="next" href="../../application-commands/">
@@ -21,11 +21,11 @@
       
       
       <link rel="icon" href="../../../assets/logo-round.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
     
     
       
-        <title>Creating text commands - BotCommands Wiki</title>
+        <title>Declarative text commands - BotCommands Wiki</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#writing-text-commands" class="md-skip">
+        <a href="#declarative-text-commands" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Creating text commands
+              Declarative text commands
             
           </span>
         </div>
@@ -671,6 +671,8 @@
       
         
       
+        
+      
     
     
     
@@ -882,6 +884,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../using-botcommands/option-resolvers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Option resolvers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../using-botcommands/database/" class="md-nav__link">
         
   
@@ -909,9 +939,34 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../using-botcommands/ratelimit/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../using-botcommands/ratelimit/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -925,7 +980,87 @@
   
   
 
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Rate limiting
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../using-botcommands/ratelimit/declaring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Declaring rate limiters
+  
+
+    
+  </span>
+  
+  
+
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../using-botcommands/ratelimit/usage-in-commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage in commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -967,7 +1102,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -989,14 +1124,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_5">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1501,16 +1636,29 @@
   
   
   
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
+    
+    
       
         
       
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
         
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_2" id="__nav_5_2_2_label" tabindex="0">
+            
   
   
   <span class="md-ellipsis">
@@ -1524,7 +1672,169 @@
   
   
 
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Creating text commands
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../annotated/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Annotated text commands
+  
+
+    
+  </span>
+  
+  
+
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Declarative text commands
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Declarative text commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#subcommands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subcommands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding options
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generated-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generated values
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rate-limiting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rate limiting
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -1550,8 +1860,6 @@
       
         
           
-        
-      
         
       
         
@@ -1627,8 +1935,6 @@
       
         
       
-        
-      
     
     
     
@@ -1688,34 +1994,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../application-commands/slash-commands/commons/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Commons
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../application-commands/slash-commands/annotated/" class="md-nav__link">
         
   
@@ -1723,7 +2001,7 @@
   <span class="md-ellipsis">
     
   
-    Annotated
+    Annotated slash commands
   
 
     
@@ -1751,7 +2029,7 @@
   <span class="md-ellipsis">
     
   
-    Declarative
+    Declarative slash commands
   
 
     
@@ -1796,34 +2074,6 @@
           </ul>
         </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../application-commands/option-resolvers/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Adding option resolvers
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -1970,7 +2220,7 @@
 
 
   
-    <a href="https://github.com/freya022/BotCommands-Wiki/edit/3.X/docs/using-commands/text-commands/writing-text-commands.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/freya022/BotCommands-Wiki/edit/3.X/docs/using-commands/text-commands/declarative.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1978,18 +2228,163 @@
   
 
 
-<h1 id="writing-text-commands">Writing text commands<a class="headerlink" href="#writing-text-commands" title="Permanent link">&para;</a></h1>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This is a wiki stub, while this allows you to know such features exist,
-there is little to no content about it, however, you can:</p>
-<ul>
-<li>Ask questions about it in the <a href="https://discord.gg/frpCcQfvTz">support server</a></li>
-<li>Help create this wiki by contributing directly, or by suggesting what topics should be explained,
-  how they should be structured, give relevant use cases/examples...</li>
-</ul>
+<h1 id="declarative-text-commands">Declarative text commands<a class="headerlink" href="#declarative-text-commands" title="Permanent link">&para;</a></h1>
+<p>Declarative commands allow you full control over your commands, start with a service implementing <a href="https://docs.bc.freya02.dev/BotCommands-core/io.github.freya022.botcommands.api.commands.text.provider/-text-command-provider/index.html"><code>TextCommandProvider</code></a>.</p>
+<div class="admonition info">
+<p class="admonition-title">They must be declared with Kotlin, but the command itself may be in any language.</p>
 </div>
-<p>Text commands are made very similarly to application commands, annotated or declarative.</p>
+<p>The implemented method gives you a manager, you can use the <a href="https://docs.bc.freya02.dev/BotCommands-core/io.github.freya022.botcommands.api.commands.text.provider/-text-command-manager/text-command.html"><code>textCommand</code></a> function to create a new top-level text command.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Command</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">TextPing</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">TextCommandProvider</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">suspend</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onTextPing</span><span class="p">(</span>
+<span class="w">        </span><span class="c1">// Fallback command event since we have no args</span>
+<span class="w">        </span><span class="n">event</span><span class="p">:</span><span class="w"> </span><span class="n">CommandEvent</span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="na">reply</span><span class="p">(</span><span class="s">&quot;Pong!&quot;</span><span class="p">).</span><span class="na">await</span><span class="p">()</span>
+
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">ping</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="na">jda</span><span class="p">.</span><span class="na">getRestPing</span><span class="p">().</span><span class="na">await</span><span class="p">()</span>
+<span class="w">        </span><span class="n">message</span><span class="p">.</span><span class="na">editMessage</span><span class="p">(</span><span class="s">&quot;Pong! </span><span class="si">$</span><span class="n">ping</span><span class="s"> ms&quot;</span><span class="p">).</span><span class="na">queue</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">declareTextCommands</span><span class="p">(</span><span class="n">manager</span><span class="p">:</span><span class="w"> </span><span class="n">TextCommandManager</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">manager</span><span class="p">.</span><span class="na">textCommand</span><span class="p">(</span><span class="s">&quot;ping&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Shared top level properties here</span>
+
+<span class="w">            </span><span class="n">category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Utility&quot;</span>
+<span class="w">            </span><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Pong!&quot;</span>
+
+<span class="w">            </span><span class="n">variation</span><span class="p">(</span><span class="o">::</span><span class="n">onTextPing</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// Properties of this variation only</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You are free to skip registration of any command/subcommand/group by <code>return</code>ing.</p>
+</div>
+<h2 id="subcommands">Subcommands<a class="headerlink" href="#subcommands" title="Permanent link">&para;</a></h2>
+<p>With text commands, you're free to have any command structure</p>
+<p>Add a subcommand by using <code>subcommand</code>, you'll find text subcommands to be very similar to top-level commands.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Command</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">TextTag</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">TextCommandProvider</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onTextTagCreate</span><span class="p">(</span><span class="n">event</span><span class="p">:</span><span class="w"> </span><span class="n">CommandEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// ...</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onTextTagDelete</span><span class="p">(</span><span class="n">event</span><span class="p">:</span><span class="w"> </span><span class="n">CommandEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// ...</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">declareTextCommands</span><span class="p">(</span><span class="n">manager</span><span class="p">:</span><span class="w"> </span><span class="n">TextCommandManager</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">manager</span><span class="p">.</span><span class="na">textCommand</span><span class="p">(</span><span class="s">&quot;tag&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Manage tags&quot;</span>
+
+<span class="w">            </span><span class="n">subcommand</span><span class="p">(</span><span class="s">&quot;create&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Creates a tag&quot;</span>
+
+<span class="w">                </span><span class="n">variation</span><span class="p">(</span><span class="o">::</span><span class="n">onTextTagCreate</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="c1">// ...</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="n">subcommand</span><span class="p">(</span><span class="s">&quot;delete&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Deletes a tag&quot;</span>
+
+<span class="w">                </span><span class="n">variation</span><span class="p">(</span><span class="o">::</span><span class="n">onTextTagDelete</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="c1">// ...</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<h2 id="adding-options">Adding options<a class="headerlink" href="#adding-options" title="Permanent link">&para;</a></h2>
+<p>Options can be added with a parameter and declaring it using <code>option</code> in your command builder,
+where the <code>declaredName</code> is the name of your parameter, the block will let you change properties.</p>
+<p>All supported types are documented under <a href="https://docs.bc.freya02.dev/BotCommands-core/io.github.freya022.botcommands.api.parameters.resolvers/-text-parameter-resolver/index.html"><code>TextParameterResolver</code></a>, and <a href="../../../using-botcommands/option-resolvers/#text-commands">other types can be added</a>.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Command</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">TextSay</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">TextCommandProvider</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">suspend</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onTextSay</span><span class="p">(</span><span class="n">event</span><span class="p">:</span><span class="w"> </span><span class="n">BaseCommandEvent</span><span class="p">,</span><span class="w"> </span><span class="n">content</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">event</span><span class="p">.</span><span class="na">reply</span><span class="p">(</span><span class="n">content</span><span class="p">).</span><span class="na">await</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">declareTextCommands</span><span class="p">(</span><span class="n">manager</span><span class="p">:</span><span class="w"> </span><span class="n">TextCommandManager</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">manager</span><span class="p">.</span><span class="na">textCommand</span><span class="p">(</span><span class="s">&quot;say&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Shared top level properties here</span>
+
+<span class="w">            </span><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Says something&quot;</span>
+
+<span class="w">            </span><span class="c1">// The &quot;say&quot; command can only be parsed one way, so, one variation</span>
+<span class="w">            </span><span class="n">variation</span><span class="p">(</span><span class="o">::</span><span class="n">onTextSay</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// Properties of this variation only</span>
+
+<span class="w">                </span><span class="c1">// This will show up in the help command, if the prefix is &#39;!&#39; then it will show:</span>
+<span class="w">                </span><span class="c1">// !say I like trains</span>
+<span class="w">                </span><span class="n">example</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;I like trains&quot;</span>
+
+<span class="w">                </span><span class="c1">// Declare the &quot;content&quot; parameter as a regular option</span>
+<span class="w">                </span><span class="n">option</span><span class="p">(</span><span class="s">&quot;content&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can override the option name by setting <code>optionName</code> in the option declaration:
+<div class="highlight"><pre><span></span><code><span class="n">option</span><span class="p">(</span><span class="s">&quot;content&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">optionName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;sentence&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</div>
+<h2 id="generated-values">Generated values<a class="headerlink" href="#generated-values" title="Permanent link">&para;</a></h2>
+<p>Generated values are a command parameter that gets their values computed by the given block everytime the command run.</p>
+<p>Contrary to the annotated commands, no checks are required, as this is tied to the currently built command.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Command</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">TextCreateTime</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">TextCommandProvider</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">suspend</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onTextCreateTime</span><span class="p">(</span><span class="n">event</span><span class="p">:</span><span class="w"> </span><span class="n">CommandEvent</span><span class="p">,</span><span class="w"> </span><span class="n">timestamp</span><span class="p">:</span><span class="w"> </span><span class="n">Instant</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">event</span><span class="p">.</span><span class="na">reply</span><span class="p">(</span><span class="s">&quot;I was created on </span><span class="si">${</span><span class="n">TimeFormat</span><span class="p">.</span><span class="na">DATE_TIME_SHORT</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">timestamp</span><span class="p">)</span><span class="si">}</span><span class="s">&quot;</span><span class="p">).</span><span class="na">await</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">declareTextCommands</span><span class="p">(</span><span class="n">manager</span><span class="p">:</span><span class="w"> </span><span class="n">TextCommandManager</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">manager</span><span class="p">.</span><span class="na">textCommand</span><span class="p">(</span><span class="s">&quot;create_time&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Shared top level properties here</span>
+
+<span class="w">            </span><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Shows the creation time of this command&quot;</span>
+
+<span class="w">            </span><span class="n">variation</span><span class="p">(</span><span class="o">::</span><span class="n">onTextCreateTime</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// Properties of this variation only</span>
+
+<span class="w">                </span><span class="c1">// Create a snapshot of the instant the command was created</span>
+<span class="w">                </span><span class="kd">val</span><span class="w"> </span><span class="nv">now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Instant</span><span class="p">.</span><span class="na">now</span><span class="p">()</span>
+<span class="w">                </span><span class="c1">// Declare the &quot;timestamp&quot; parameter as a generated option</span>
+<span class="w">                </span><span class="c1">// The closure is executed everytime the command runs</span>
+<span class="w">                </span><span class="n">generatedOption</span><span class="p">(</span><span class="s">&quot;timestamp&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">_</span><span class="p">:</span><span class="w"> </span><span class="n">BaseCommandEvent</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">                    </span><span class="c1">// Give back the instant snapshot, as this will be called every time the command runs</span>
+<span class="w">                    </span><span class="n">now</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<h2 id="rate-limiting">Rate limiting<a class="headerlink" href="#rate-limiting" title="Permanent link">&para;</a></h2>
+<p>This lets you reject application commands if the user tries to use them too often,
+see <a href="../../../using-botcommands/ratelimit/usage-in-commands/#declarative-commands">"Using rate limiters in commands"</a>.</p>
 
 
 

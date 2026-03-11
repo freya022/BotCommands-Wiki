@@ -14,14 +14,14 @@
         <link rel="prev" href="../database/">
       
       
-        <link rel="next" href="../localization/">
+        <link rel="next" href="declaring/">
       
       
         
       
       
       <link rel="icon" href="../../assets/logo-round.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
     
     
       
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#using-rate-limits" class="md-skip">
+        <a href="#rate-limiting" class="md-skip">
           Skip to content
         </a>
       
@@ -675,6 +675,8 @@
       
         
       
+        
+      
     
     
     
@@ -889,6 +891,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../option-resolvers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Option resolvers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../database/" class="md-nav__link">
         
   
@@ -918,16 +948,34 @@
   
   
   
-    <li class="md-nav__item md-nav__item--active">
+    
+    
       
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
+        
+          
+        
       
         
       
+        
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" checked>
+        
           
+          <div class="md-nav__link md-nav__container">
+            <a href="./" class="md-nav__link md-nav__link--active">
+              
   
   
   <span class="md-ellipsis">
@@ -941,17 +989,43 @@
   
   
 
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+            </a>
+            
+              
+              <label class="md-nav__link md-nav__link--active" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Rate limiting
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="declaring/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Rate limiting
+    Declaring rate limiters
   
 
     
@@ -960,86 +1034,41 @@
   
 
       </a>
-      
-        
+    </li>
+  
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+              
+            
+              
+                
   
   
   
+  
+    <li class="md-nav__item">
+      <a href="usage-in-commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
+    Usage in commands
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#defining-a-rate-limit" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Defining a rate limit
-      
-    </span>
-  </a>
+
+    
+  </span>
   
-    <nav class="md-nav" aria-label="Defining a rate limit">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#defining-bucket-configurations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Defining bucket configurations
-      
-    </span>
-  </a>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#creating-a-rate-limiter" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Creating a rate limiter
-      
-    </span>
-  </a>
+
+      </a>
+    </li>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#registering-the-rate-limiter" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Registering the rate limiter
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cancelling-rate-limits" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cancelling rate limits
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -1082,7 +1111,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -1104,14 +1133,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_5">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1607,9 +1636,29 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../using-commands/text-commands/writing-text-commands/" class="md-nav__link">
+    
+    
+      
         
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_2" id="__nav_5_2_2_label" tabindex="0">
+            
   
   
   <span class="md-ellipsis">
@@ -1623,7 +1672,79 @@
   
   
 
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Creating text commands
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../using-commands/text-commands/annotated/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Annotated text commands
+  
+
+    
+  </span>
+  
+  
+
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../using-commands/text-commands/declarative/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Declarative text commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1648,8 +1769,6 @@
       
         
           
-        
-      
         
       
         
@@ -1725,8 +1844,6 @@
       
         
       
-        
-      
     
     
     
@@ -1786,34 +1903,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../using-commands/application-commands/slash-commands/commons/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Commons
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../using-commands/application-commands/slash-commands/annotated/" class="md-nav__link">
         
   
@@ -1821,7 +1910,7 @@
   <span class="md-ellipsis">
     
   
-    Annotated
+    Annotated slash commands
   
 
     
@@ -1849,7 +1938,7 @@
   <span class="md-ellipsis">
     
   
-    Declarative
+    Declarative slash commands
   
 
     
@@ -1894,34 +1983,6 @@
           </ul>
         </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../using-commands/application-commands/option-resolvers/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Adding option resolvers
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -2068,7 +2129,7 @@
 
 
   
-    <a href="https://github.com/freya022/BotCommands-Wiki/edit/3.X/docs/using-botcommands/ratelimit.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/freya022/BotCommands-Wiki/edit/3.X/docs/using-botcommands/ratelimit/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -2076,206 +2137,18 @@
   
 
 
-<h1 id="using-rate-limits">Using rate limits<a class="headerlink" href="#using-rate-limits" title="Permanent link">&para;</a></h1>
-<p>Rate limits lets you reject interactions when they are used too much in a time span.</p>
+<h1 id="rate-limiting">Rate limiting<a class="headerlink" href="#rate-limiting" title="Permanent link">&para;</a></h1>
+<p>Rate limits lets you reject interactions when they are used too often in a time span.</p>
+<p>This uses <a href="https://github.com/bucket4j/bucket4j">Bucket4J</a>, here's a quick breakdown:</p>
+<ul>
+<li>A "bucket" contains how many requests are remaining</li>
+<li>A bucket is composed of one or more "limits", if one is exhausted, the request is rejected</li>
+<li>A limit describes how many requests are allowed (tokens), and define how fast, and in which way, the tokens are regenerated</li>
+</ul>
 <div class="admonition abstract">
 <p class="admonition-title">For more details, check out the <a href="https://bucket4j.com/8.14.0/toc.html">docs of Bucket4J</a></p>
 </div>
-<h2 id="defining-a-rate-limit">Defining a rate limit<a class="headerlink" href="#defining-a-rate-limit" title="Permanent link">&para;</a></h2>
-<p>Rate limits can be defined by implementing <a href="https://docs.bc.freya02.dev/BotCommands-core/io.github.freya022.botcommands.api.commands.ratelimit.declaration/-rate-limit-provider/index.html"><code>RateLimitProvider</code></a>,
-the overridden function will run before registering commands, so you can use them anywhere.</p>
-<h3 id="defining-bucket-configurations">Defining bucket configurations<a class="headerlink" href="#defining-bucket-configurations" title="Permanent link">&para;</a></h3>
-<p>A <code>BucketConfiguration</code> defines what the limits are, you can supply different configurations based on the context,
-by implementing a <a href="https://docs.bc.freya02.dev/BotCommands-core/io.github.freya022.botcommands.api.commands.ratelimit.bucket/-bucket-configuration-supplier/index.html"><code>BucketConfigurationSupplier</code></a>, or you can create a configuration with the factories in <a href="https://docs.bc.freya02.dev/BotCommands-core/io.github.freya022.botcommands.api.commands.ratelimit.bucket/-buckets/index.html"><code>Buckets</code></a>,
-or with the <a href="https://bucket4j.com/8.14.0/toc.html#bucket-bonfiguration"><code>BucketConfiguration</code> builder</a>.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>If you want to give the same configuration regardless of context,
-you can use <a href="https://docs.bc.freya02.dev/BotCommands-core/io.github.freya022.botcommands.api.commands.ratelimit.bucket/-bucket-configuration-supplier/-companion/constant.html"><code>BucketConfigurationSupplier.constant(BucketConfiguration)</code></a> (or <a href="https://docs.bc.freya02.dev/-bot-commands-core/io.github.freya022.botcommands.api.commands.ratelimit.bucket/to-supplier.html"><code>BucketConfiguration#toSupplier()</code></a> for Kotlin users)</p>
-</div>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 2h20L12 12l10 10H2Z"/></svg></span> Kotlin</label><label for="__tabbed_1_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.5 6.08s-6.84 1.71-3.56 5.48c.97 1.11-.25 2.11-.25 2.11s2.45-1.25 1.31-2.85c-1.06-1.47-1.86-2.2 2.5-4.74m-4.47 1.2C16.08 4.08 14 2 14 2c.84 3.3-2.96 4.3-4.33 6.36-.94 1.4.46 2.91 2.33 4.64-.71-1.7-3.22-3.16.03-5.72M9.37 17.47c-3.08.86 1.88 2.63 5.79.96-.38-.15-.75-.33-1.1-.54-1.36.31-2.76.37-4.14.18-1.31-.16-.55-.6-.55-.6m5.32-1.68c-1.75.38-3.56.47-5.34.26-1.31-.13-.45-.77-.45-.77-3.4 1.13 1.88 2.4 6.6 1.02-.29-.11-.57-.3-.81-.51m3.42 3.3s.57.47-.61.83c-2.28.68-9.43.89-11.41.03-.71-.31.63-.74 1.05-.83.23-.06.46-.08.69-.08-.79-.54-5.13 1.1-2.19 1.56 7.97 1.3 14.54-.6 12.47-1.51m-2.74-4.86c.29-.19.6-.35.92-.49 0 0-1.51.26-3.02.4-1.6.16-3.21.18-4.81.06-2.35-.31 1.29-1.2 1.29-1.2-1.1 0-2.18.26-3.16.75-2.05 1 5.1 1.45 8.78.48m.9 2.42c-.02.04-.04.07-.08.1 5.01-1.31 3.17-4.64.77-3.81-.13.06-.24.14-.31.25.14-.05.28-.09.43-.12 1.2-.24 2.92 1.63-.81 3.58m.13 4.61c-3.01.52-6.09.56-9.12.14 0 0 .46.38 2.81.53 3.6.23 9.13-.13 9.26-1.83.03.01-.23.65-2.95 1.16"/></svg></span> Java</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="c1">// Lets the user use the command 5 times in an hour, but also 2 times in 2 minutes to prevent spam</span>
-<span class="kd">val</span><span class="w"> </span><span class="nv">bucketConfiguration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Buckets</span><span class="p">.</span><span class="na">spikeProtected</span><span class="p">(</span>
-<span class="w">    </span><span class="n">capacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w">               </span><span class="c1">// 5 uses</span>
-<span class="w">    </span><span class="n">duration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1.</span><span class="n">hours</span><span class="p">,</span><span class="w">         </span><span class="c1">// Gives 5 tokens gradually, during an hour (1 token every 12 minutes)</span>
-<span class="w">    </span><span class="n">spikeCapacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w">          </span><span class="c1">// 2 uses</span>
-<span class="w">    </span><span class="n">spikeDuration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2.</span><span class="n">minutes</span><span class="w">   </span><span class="c1">// Give 2 tokens every 2 minutes</span>
-<span class="p">)</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="c1">// Lets the user use the command 5 times in an hour, but also 2 times in 2 minutes to prevent spam</span>
-<span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">bucketConfiguration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Buckets</span><span class="p">.</span><span class="na">createSpikeProtected</span><span class="p">(</span>
-<span class="w">        </span><span class="mi">5</span><span class="p">,</span><span class="w">                      </span><span class="c1">// 5 uses</span>
-<span class="w">        </span><span class="n">Duration</span><span class="p">.</span><span class="na">ofHours</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w">    </span><span class="c1">// Gives 5 tokens gradually, during an hour (1 token every 12 minutes)</span>
-<span class="w">        </span><span class="mi">2</span><span class="p">,</span><span class="w">                      </span><span class="c1">// 2 uses</span>
-<span class="w">        </span><span class="n">Duration</span><span class="p">.</span><span class="na">ofMinutes</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w">   </span><span class="c1">// Give 2 tokens every 2 minutes</span>
-<span class="p">);</span>
-</code></pre></div>
-</div>
-</div>
-</div>
-</div>
-<h3 id="creating-a-rate-limiter">Creating a rate limiter<a class="headerlink" href="#creating-a-rate-limiter" title="Permanent link">&para;</a></h3>
-<p>The <a href="https://docs.bc.freya02.dev/BotCommands-core/io.github.freya022.botcommands.api.commands.ratelimit/-rate-limiter/-companion/index.html">default rate limiters</a> should provide you ready-made implementations for both in-memory and proxied buckets,
-refer to the example attached to them.</p>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 2h20L12 12l10 10H2Z"/></svg></span> Kotlin</label><label for="__tabbed_2_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.5 6.08s-6.84 1.71-3.56 5.48c.97 1.11-.25 2.11-.25 2.11s2.45-1.25 1.31-2.85c-1.06-1.47-1.86-2.2 2.5-4.74m-4.47 1.2C16.08 4.08 14 2 14 2c.84 3.3-2.96 4.3-4.33 6.36-.94 1.4.46 2.91 2.33 4.64-.71-1.7-3.22-3.16.03-5.72M9.37 17.47c-3.08.86 1.88 2.63 5.79.96-.38-.15-.75-.33-1.1-.54-1.36.31-2.76.37-4.14.18-1.31-.16-.55-.6-.55-.6m5.32-1.68c-1.75.38-3.56.47-5.34.26-1.31-.13-.45-.77-.45-.77-3.4 1.13 1.88 2.4 6.6 1.02-.29-.11-.57-.3-.81-.51m3.42 3.3s.57.47-.61.83c-2.28.68-9.43.89-11.41.03-.71-.31.63-.74 1.05-.83.23-.06.46-.08.69-.08-.79-.54-5.13 1.1-2.19 1.56 7.97 1.3 14.54-.6 12.47-1.51m-2.74-4.86c.29-.19.6-.35.92-.49 0 0-1.51.26-3.02.4-1.6.16-3.21.18-4.81.06-2.35-.31 1.29-1.2 1.29-1.2-1.1 0-2.18.26-3.16.75-2.05 1 5.1 1.45 8.78.48m.9 2.42c-.02.04-.04.07-.08.1 5.01-1.31 3.17-4.64.77-3.81-.13.06-.24.14-.31.25.14-.05.28-.09.43-.12 1.2-.24 2.92 1.63-.81 3.58m.13 4.61c-3.01.52-6.09.56-9.12.14 0 0 .46.38 2.81.53 3.6.23 9.13-.13 9.26-1.83.03.01-.23.65-2.95 1.16"/></svg></span> Java</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">rateLimiter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RateLimiter</span><span class="p">.</span><span class="na">createDefault</span><span class="p">(</span>
-<span class="w">    </span><span class="c1">// Apply to each user, regardless of channel/guild</span>
-<span class="w">    </span><span class="n">RateLimitScope</span><span class="p">.</span><span class="na">USER</span><span class="p">,</span>
-<span class="w">    </span><span class="c1">// Delete the message telling the user about the remaining rate limit after it expires</span>
-<span class="w">    </span><span class="n">deleteOnRefill</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">    </span><span class="c1">// Give our constant bucket configuration</span>
-<span class="w">    </span><span class="n">configurationSupplier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bucketConfiguration</span><span class="p">.</span><span class="na">toSupplier</span><span class="p">()</span>
-<span class="p">)</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">rateLimiter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RateLimiter</span><span class="p">.</span><span class="na">createDefault</span><span class="p">(</span>
-<span class="w">        </span><span class="c1">// Apply to each user, regardless of channel/guild</span>
-<span class="w">        </span><span class="n">RateLimitScope</span><span class="p">.</span><span class="na">USER</span><span class="p">,</span>
-<span class="w">        </span><span class="c1">// Give our constant bucket configuration</span>
-<span class="w">        </span><span class="n">BucketConfigurationSupplier</span><span class="p">.</span><span class="na">constant</span><span class="p">(</span><span class="n">bucketConfiguration</span><span class="p">),</span>
-<span class="w">        </span><span class="c1">// Delete the message telling the user about the remaining rate limit after it expires</span>
-<span class="w">        </span><span class="kc">true</span>
-<span class="p">);</span>
-</code></pre></div>
-</div>
-</div>
-</div>
-</div>
-<p>However, you can also create a custom one by implementing <a href="https://docs.bc.freya02.dev/BotCommands-core/io.github.freya022.botcommands.api.commands.ratelimit/-rate-limiter/index.html"><code>RateLimiter</code></a>, which is the combination of:</p>
-<ul>
-<li><a href="https://docs.bc.freya02.dev/BotCommands-core/io.github.freya022.botcommands.api.commands.ratelimit.bucket/-bucket-accessor/index.html"><code>BucketAccessor</code></a>: Retrieves a <code>Bucket</code> based on the context</li>
-<li><a href="https://docs.bc.freya02.dev/BotCommands-core/io.github.freya022.botcommands.api.commands.ratelimit.handler/-rate-limit-handler/index.html"><code>RateLimitHandler</code></a>: Handles when an interaction has been rate limited (often to tell the user about it)</li>
-</ul>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>When making a custom rate limiter, you can delegate one of the default implementations to avoid reimplementing existing behavior.</p>
-</div>
-<p>You can also use <a href="https://docs.bc.freya02.dev/BotCommands-core/io.github.freya022.botcommands.api.commands.ratelimit.bucket/-bucket-key-supplier/index.html"><code>BucketKeySupplier</code></a> to help you define functions
-returning a bucket key (an identifier basically), based on the execution context.</p>
-<h3 id="registering-the-rate-limiter">Registering the rate limiter<a class="headerlink" href="#registering-the-rate-limiter" title="Permanent link">&para;</a></h3>
-<p>You can now register using <a href="https://docs.bc.freya02.dev/BotCommands-core/io.github.freya022.botcommands.api.commands.ratelimit.declaration/-rate-limit-manager/rate-limit.html"><code>RateLimitManager#rateLimit(String, RateLimiter)</code></a>,
-the <code>group</code> (name of the rate limiter) must be unique.</p>
-<div class="admonition example">
-<p class="admonition-title">Full example</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 2h20L12 12l10 10H2Z"/></svg></span> Kotlin</label><label for="__tabbed_3_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.5 6.08s-6.84 1.71-3.56 5.48c.97 1.11-.25 2.11-.25 2.11s2.45-1.25 1.31-2.85c-1.06-1.47-1.86-2.2 2.5-4.74m-4.47 1.2C16.08 4.08 14 2 14 2c.84 3.3-2.96 4.3-4.33 6.36-.94 1.4.46 2.91 2.33 4.64-.71-1.7-3.22-3.16.03-5.72M9.37 17.47c-3.08.86 1.88 2.63 5.79.96-.38-.15-.75-.33-1.1-.54-1.36.31-2.76.37-4.14.18-1.31-.16-.55-.6-.55-.6m5.32-1.68c-1.75.38-3.56.47-5.34.26-1.31-.13-.45-.77-.45-.77-3.4 1.13 1.88 2.4 6.6 1.02-.29-.11-.57-.3-.81-.51m3.42 3.3s.57.47-.61.83c-2.28.68-9.43.89-11.41.03-.71-.31.63-.74 1.05-.83.23-.06.46-.08.69-.08-.79-.54-5.13 1.1-2.19 1.56 7.97 1.3 14.54-.6 12.47-1.51m-2.74-4.86c.29-.19.6-.35.92-.49 0 0-1.51.26-3.02.4-1.6.16-3.21.18-4.81.06-2.35-.31 1.29-1.2 1.29-1.2-1.1 0-2.18.26-3.16.75-2.05 1 5.1 1.45 8.78.48m.9 2.42c-.02.04-.04.07-.08.1 5.01-1.31 3.17-4.64.77-3.81-.13.06-.24.14-.31.25.14-.05.28-.09.43-.12 1.2-.24 2.92 1.63-.81 3.58m.13 4.61c-3.01.52-6.09.56-9.12.14 0 0 .46.38 2.81.53 3.6.23 9.13-.13 9.26-1.83.03.01-.23.65-2.95 1.16"/></svg></span> Java</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="nd">@BService</span>
-<span class="kd">class</span><span class="w"> </span><span class="nc">WikiRateLimitProvider</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">RateLimitProvider</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">declareRateLimit</span><span class="p">(</span><span class="n">manager</span><span class="p">:</span><span class="w"> </span><span class="n">RateLimitManager</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// Lets the user use the command 5 times in an hour, but also 2 times in 2 minutes to prevent spam</span>
-<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">bucketConfiguration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Buckets</span><span class="p">.</span><span class="na">spikeProtected</span><span class="p">(</span>
-<span class="w">            </span><span class="n">capacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w">               </span><span class="c1">// 5 uses</span>
-<span class="w">            </span><span class="n">duration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1.</span><span class="n">hours</span><span class="p">,</span><span class="w">         </span><span class="c1">// Gives 5 tokens gradually, during an hour (1 token every 12 minutes)</span>
-<span class="w">            </span><span class="n">spikeCapacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w">          </span><span class="c1">// 2 uses</span>
-<span class="w">            </span><span class="n">spikeDuration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2.</span><span class="n">minutes</span><span class="w">   </span><span class="c1">// Give 2 tokens every 2 minutes</span>
-<span class="w">        </span><span class="p">)</span>
-
-<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">rateLimiter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RateLimiter</span><span class="p">.</span><span class="na">createDefault</span><span class="p">(</span>
-<span class="w">            </span><span class="c1">// Apply to each user, regardless of channel/guild</span>
-<span class="w">            </span><span class="n">RateLimitScope</span><span class="p">.</span><span class="na">USER</span><span class="p">,</span>
-<span class="w">            </span><span class="c1">// Delete the message telling the user about the remaining rate limit after it expires</span>
-<span class="w">            </span><span class="n">deleteOnRefill</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">            </span><span class="c1">// Give our constant bucket configuration</span>
-<span class="w">            </span><span class="n">configurationSupplier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bucketConfiguration</span><span class="p">.</span><span class="na">toSupplier</span><span class="p">()</span>
-<span class="w">        </span><span class="p">)</span>
-
-<span class="w">        </span><span class="c1">// Register, any command can use it</span>
-<span class="w">        </span><span class="n">manager</span><span class="p">.</span><span class="na">rateLimit</span><span class="p">(</span><span class="n">RATE_LIMIT_GROUP</span><span class="p">,</span><span class="w"> </span><span class="n">rateLimiter</span><span class="p">)</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="kd">companion</span><span class="w"> </span><span class="kd">object</span><span class="w"> </span><span class="err">{</span>
-<span class="w">        </span><span class="c1">// The name of the rate limit, so you can reference it in your commands/components</span>
-<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">RATE_LIMIT_GROUP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Wiki&quot;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="nd">@BService</span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">WikiRateLimitProvider</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">RateLimitProvider</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// The name of the rate limit, so you can reference it in your commands/components</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">RATE_LIMIT_GROUP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Wiki&quot;</span><span class="p">;</span>
-
-<span class="w">    </span><span class="nd">@Override</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">declareRateLimit</span><span class="p">(</span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">RateLimitManager</span><span class="w"> </span><span class="n">rateLimitManager</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// Lets the user use the command 5 times in an hour, but also 2 times in 2 minutes to prevent spam</span>
-<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">bucketConfiguration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Buckets</span><span class="p">.</span><span class="na">createSpikeProtected</span><span class="p">(</span>
-<span class="w">                </span><span class="mi">5</span><span class="p">,</span><span class="w">                      </span><span class="c1">// 5 uses</span>
-<span class="w">                </span><span class="n">Duration</span><span class="p">.</span><span class="na">ofHours</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w">    </span><span class="c1">// Gives 5 tokens gradually, during an hour (1 token every 12 minutes)</span>
-<span class="w">                </span><span class="mi">2</span><span class="p">,</span><span class="w">                      </span><span class="c1">// 2 uses</span>
-<span class="w">                </span><span class="n">Duration</span><span class="p">.</span><span class="na">ofMinutes</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w">   </span><span class="c1">// Give 2 tokens every 2 minutes</span>
-<span class="w">        </span><span class="p">);</span>
-
-<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">rateLimiter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RateLimiter</span><span class="p">.</span><span class="na">createDefault</span><span class="p">(</span>
-<span class="w">                </span><span class="c1">// Apply to each user, regardless of channel/guild</span>
-<span class="w">                </span><span class="n">RateLimitScope</span><span class="p">.</span><span class="na">USER</span><span class="p">,</span>
-<span class="w">                </span><span class="c1">// Give our constant bucket configuration</span>
-<span class="w">                </span><span class="n">BucketConfigurationSupplier</span><span class="p">.</span><span class="na">constant</span><span class="p">(</span><span class="n">bucketConfiguration</span><span class="p">),</span>
-<span class="w">                </span><span class="c1">// Delete the message telling the user about the remaining rate limit after it expires</span>
-<span class="w">                </span><span class="kc">true</span>
-<span class="w">        </span><span class="p">);</span>
-
-<span class="w">        </span><span class="c1">// Register</span>
-<span class="w">        </span><span class="n">rateLimitManager</span><span class="p">.</span><span class="na">rateLimit</span><span class="p">(</span><span class="n">RATE_LIMIT_GROUP</span><span class="p">,</span><span class="w"> </span><span class="n">rateLimiter</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-</div>
-</div>
-</div>
-</div>
-<h2 id="cancelling-rate-limits">Cancelling rate limits<a class="headerlink" href="#cancelling-rate-limits" title="Permanent link">&para;</a></h2>
-<p>If your interaction does an early return, you can also return the token with <a href="https://docs.bc.freya02.dev/BotCommands-core/io.github.freya022.botcommands.api.commands.ratelimit/-cancellable-rate-limit/cancel-rate-limit.html"><code>cancelRateLimit()</code></a>, 
-so the user won't get penalized for this interaction.</p>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 2h20L12 12l10 10H2Z"/></svg></span> Kotlin</label><label for="__tabbed_4_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.5 6.08s-6.84 1.71-3.56 5.48c.97 1.11-.25 2.11-.25 2.11s2.45-1.25 1.31-2.85c-1.06-1.47-1.86-2.2 2.5-4.74m-4.47 1.2C16.08 4.08 14 2 14 2c.84 3.3-2.96 4.3-4.33 6.36-.94 1.4.46 2.91 2.33 4.64-.71-1.7-3.22-3.16.03-5.72M9.37 17.47c-3.08.86 1.88 2.63 5.79.96-.38-.15-.75-.33-1.1-.54-1.36.31-2.76.37-4.14.18-1.31-.16-.55-.6-.55-.6m5.32-1.68c-1.75.38-3.56.47-5.34.26-1.31-.13-.45-.77-.45-.77-3.4 1.13 1.88 2.4 6.6 1.02-.29-.11-.57-.3-.81-.51m3.42 3.3s.57.47-.61.83c-2.28.68-9.43.89-11.41.03-.71-.31.63-.74 1.05-.83.23-.06.46-.08.69-.08-.79-.54-5.13 1.1-2.19 1.56 7.97 1.3 14.54-.6 12.47-1.51m-2.74-4.86c.29-.19.6-.35.92-.49 0 0-1.51.26-3.02.4-1.6.16-3.21.18-4.81.06-2.35-.31 1.29-1.2 1.29-1.2-1.1 0-2.18.26-3.16.75-2.05 1 5.1 1.45 8.78.48m.9 2.42c-.02.04-.04.07-.08.1 5.01-1.31 3.17-4.64.77-3.81-.13.06-.24.14-.31.25.14-.05.28-.09.43-.12 1.2-.24 2.92 1.63-.81 3.58m.13 4.61c-3.01.52-6.09.56-9.12.14 0 0 .46.38 2.81.53 3.6.23 9.13-.13 9.26-1.83.03.01-.23.65-2.95 1.16"/></svg></span> Java</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">suspend</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onSlashRateLimit</span><span class="p">(</span><span class="n">event</span><span class="p">:</span><span class="w"> </span><span class="n">GuildSlashEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// Assuming we have voice states cached</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">event</span><span class="p">.</span><span class="na">member</span><span class="p">.</span><span class="na">voiceState</span><span class="o">!!</span><span class="p">.</span><span class="na">inAudioChannel</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// Note that this would be easier done using a filter,</span>
-<span class="w">        </span><span class="c1">// as no token would be used, and would also be cleaner.</span>
-<span class="w">        </span><span class="n">event</span><span class="p">.</span><span class="na">cancelRateLimit</span><span class="p">()</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="na">reply_</span><span class="p">(</span><span class="s">&quot;You must be in a voice channel&quot;</span><span class="p">).</span><span class="na">awaitUnit</span><span class="p">()</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="n">event</span><span class="p">.</span><span class="na">reply</span><span class="p">(</span><span class="s">&quot;Hello world!&quot;</span><span class="p">).</span><span class="na">await</span><span class="p">()</span>
-<span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onSlashRateLimit</span><span class="p">(</span><span class="n">GuildSlashEvent</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// Assuming we have voice states cached</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">event</span><span class="p">.</span><span class="na">getMember</span><span class="p">().</span><span class="na">getVoiceState</span><span class="p">().</span><span class="na">inAudioChannel</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// Note that this would be easier done using a filter,</span>
-<span class="w">        </span><span class="c1">// as no token would be used, and would also be cleaner.</span>
-<span class="w">        </span><span class="n">event</span><span class="p">.</span><span class="na">cancelRateLimit</span><span class="p">();</span>
-<span class="w">        </span><span class="n">event</span><span class="p">.</span><span class="na">reply</span><span class="p">(</span><span class="s">&quot;You must be in a voice channel&quot;</span><span class="p">).</span><span class="na">queue</span><span class="p">();</span>
-<span class="w">        </span><span class="k">return</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="n">event</span><span class="p">.</span><span class="na">reply</span><span class="p">(</span><span class="s">&quot;Hello world!&quot;</span><span class="p">).</span><span class="na">queue</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre></div>
-</div>
-</div>
-</div>
-</div>
+<p>Next, look at how to <a href="declaring/">declare rate limiters</a>, or, declare them <a href="usage-in-commands/#annotated-commands">with annotations</a>.</p>
 
 
 

@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://bc.freya02.dev/3.0.0-beta.9/using-botcommands/dependency-injection/creating-services/">
+        <link rel="canonical" href="https://bc.freya02.dev/3.0.0-beta.9/using-botcommands/ratelimit/declaring/">
       
       
         <link rel="prev" href="../">
       
       
-        <link rel="next" href="../retrieving-services/">
+        <link rel="next" href="../usage-in-commands/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Creating services - BotCommands Wiki</title>
+        <title>Declaring rate limiters - BotCommands Wiki</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#service-factories" class="md-skip">
+        <a href="#declaring-rate-limiters-globally" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Creating services
+              Declaring rate limiters
             
           </span>
         </div>
@@ -299,7 +299,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+        <a href="../../dependency-injection/" class="md-tabs__link">
           
   
   
@@ -727,8 +727,6 @@
                 
   
   
-    
-  
   
   
     
@@ -749,15 +747,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../dependency-injection/" class="md-nav__link ">
               
   
   
@@ -781,7 +779,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_1">
             <span class="md-nav__icon md-icon"></span>
             
@@ -798,35 +796,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Creating services
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../dependency-injection/creating-services/" class="md-nav__link">
         
   
   
@@ -842,146 +815,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#service-factories" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Service factories
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conditional-services" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Conditional services
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Conditional services">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#dependencies" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Dependencies
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#interfaced-conditions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Interfaced conditions
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#annotation-conditions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Annotation conditions
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#interfaced-services" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Interfaced services
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#service-properties" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Service properties
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Service properties">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#service-names" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Service names
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#service-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Service types
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#service-priority" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Service priority
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -994,7 +827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../retrieving-services/" class="md-nav__link">
+      <a href="../../dependency-injection/retrieving-services/" class="md-nav__link">
         
   
   
@@ -1111,6 +944,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1131,15 +966,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../ratelimit/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -1163,7 +998,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1180,10 +1015,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../ratelimit/declaring/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Declaring rate limiters
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1199,6 +1061,98 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#defining-bucket-configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Defining bucket configurations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supplying-bucket-configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supplying bucket configurations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-rate-limiter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating a rate limiter
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating a rate limiter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#default-rate-limiters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Default rate limiters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-rate-limiter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom rate limiter
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#registering-the-rate-limiter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registering the rate limiter
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1211,7 +1165,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ratelimit/usage-in-commands/" class="md-nav__link">
+      <a href="../usage-in-commands/" class="md-nav__link">
         
   
   
@@ -2294,7 +2248,7 @@
 
 
   
-    <a href="https://github.com/freya022/BotCommands-Wiki/edit/3.X/docs/using-botcommands/dependency-injection/creating-services.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/freya022/BotCommands-Wiki/edit/3.X/docs/using-botcommands/ratelimit/declaring.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -2302,319 +2256,177 @@
   
 
 
-  <h1>Creating services</h1>
-
-<p>To register a class as a service, add <code class="highlight"><span class="nd">@BService</span></code> to your class declaration.</p>
-<p><code class="highlight"><span class="nd">@BService</span></code> is the base annotation to register a service, 
-other annotations exist such as <code class="highlight"><span class="nd">@Command</span></code> and <code class="highlight"><span class="nd">@Resolver</span></code>, 
-but the appropriate documentation will specify if such alternatives are required.</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>All classes available for dependency injection must be in the framework's classpath,
-by adding packages to <code>BConfigBuilder#packages</code>, or by using <code>BConfigBuilder#addSearchPath</code>, 
-all classes are searched recursively.</p>
-</div>
-<h3 id="service-factories">Service factories<a class="headerlink" href="#service-factories" title="Permanent link">&para;</a></h3>
-<p>Service factories are methods that create initialized services themselves,
-they accept other services as parameters and define a service with the method's return type.</p>
-<p>In addition to the package requirement,
-they must be annotated with <code class="highlight"><span class="nd">@BService</span></code>, be in a service, or in an <code class="highlight"><span class="kd">object</span></code>, or be a static method.</p>
-<div class="admonition note">
-<p class="admonition-title">Terminology</p>
-<p>Classes registered as services, and service factories, are service providers.</p>
-</div>
-<details class="example">
-<summary>Example</summary>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 2h20L12 12l10 10H2Z"/></svg></span> Kotlin</label><label for="__tabbed_1_2">Kotlin property</label><label for="__tabbed_1_3"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.5 6.08s-6.84 1.71-3.56 5.48c.97 1.11-.25 2.11-.25 2.11s2.45-1.25 1.31-2.85c-1.06-1.47-1.86-2.2 2.5-4.74m-4.47 1.2C16.08 4.08 14 2 14 2c.84 3.3-2.96 4.3-4.33 6.36-.94 1.4.46 2.91 2.33 4.64-.71-1.7-3.22-3.16.03-5.72M9.37 17.47c-3.08.86 1.88 2.63 5.79.96-.38-.15-.75-.33-1.1-.54-1.36.31-2.76.37-4.14.18-1.31-.16-.55-.6-.55-.6m5.32-1.68c-1.75.38-3.56.47-5.34.26-1.31-.13-.45-.77-.45-.77-3.4 1.13 1.88 2.4 6.6 1.02-.29-.11-.57-.3-.81-.51m3.42 3.3s.57.47-.61.83c-2.28.68-9.43.89-11.41.03-.71-.31.63-.74 1.05-.83.23-.06.46-.08.69-.08-.79-.54-5.13 1.1-2.19 1.56 7.97 1.3 14.54-.6 12.47-1.51m-2.74-4.86c.29-.19.6-.35.92-.49 0 0-1.51.26-3.02.4-1.6.16-3.21.18-4.81.06-2.35-.31 1.29-1.2 1.29-1.2-1.1 0-2.18.26-3.16.75-2.05 1 5.1 1.45 8.78.48m.9 2.42c-.02.04-.04.07-.08.1 5.01-1.31 3.17-4.64.77-3.81-.13.06-.24.14-.31.25.14-.05.28-.09.43-.12 1.2-.24 2.92 1.63-.81 3.58m.13 4.61c-3.01.52-6.09.56-9.12.14 0 0 .46.38 2.81.53 3.6.23 9.13-.13 9.26-1.83.03.01-.23.65-2.95 1.16"/></svg></span> Java</label></div>
+<h1 id="declaring-rate-limiters-globally">Declaring rate limiters globally<a class="headerlink" href="#declaring-rate-limiters-globally" title="Permanent link">&para;</a></h1>
+<p>Rate limiters can be declared in any service class, they can be referenced anywhere and can be customized.</p>
+<p>They can be defined by implementing <a href="https://docs.bc.freya02.dev/BotCommands-core/io.github.freya022.botcommands.api.commands.ratelimit.declaration/-rate-limit-provider/index.html"><code>RateLimitProvider</code></a>,
+the overridden function will run before registering commands, so you can use them anywhere.</p>
+<h2 id="defining-bucket-configurations">Defining bucket configurations<a class="headerlink" href="#defining-bucket-configurations" title="Permanent link">&para;</a></h2>
+<p>Bucket configurations define limits, there are some predefined functions from <a href="https://docs.bc.freya02.dev/BotCommands-core/io.github.freya022.botcommands.api.commands.ratelimit.bucket/-buckets/index.html"><code>Buckets</code></a> which will help us,
+but you can also use a <a href="https://bucket4j.com/8.14.0/toc.html#bucket-bonfiguration"><code>BucketConfiguration</code> builder</a>.</p>
+<div class="admonition example">
+<p class="admonition-title">Allow 5 uses per hour, but also 2 uses in 2 minutes (to prevent bursts)</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 2h20L12 12l10 10H2Z"/></svg></span> Kotlin</label><label for="__tabbed_1_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.5 6.08s-6.84 1.71-3.56 5.48c.97 1.11-.25 2.11-.25 2.11s2.45-1.25 1.31-2.85c-1.06-1.47-1.86-2.2 2.5-4.74m-4.47 1.2C16.08 4.08 14 2 14 2c.84 3.3-2.96 4.3-4.33 6.36-.94 1.4.46 2.91 2.33 4.64-.71-1.7-3.22-3.16.03-5.72M9.37 17.47c-3.08.86 1.88 2.63 5.79.96-.38-.15-.75-.33-1.1-.54-1.36.31-2.76.37-4.14.18-1.31-.16-.55-.6-.55-.6m5.32-1.68c-1.75.38-3.56.47-5.34.26-1.31-.13-.45-.77-.45-.77-3.4 1.13 1.88 2.4 6.6 1.02-.29-.11-.57-.3-.81-.51m3.42 3.3s.57.47-.61.83c-2.28.68-9.43.89-11.41.03-.71-.31.63-.74 1.05-.83.23-.06.46-.08.69-.08-.79-.54-5.13 1.1-2.19 1.56 7.97 1.3 14.54-.6 12.47-1.51m-2.74-4.86c.29-.19.6-.35.92-.49 0 0-1.51.26-3.02.4-1.6.16-3.21.18-4.81.06-2.35-.31 1.29-1.2 1.29-1.2-1.1 0-2.18.26-3.16.75-2.05 1 5.1 1.45 8.78.48m.9 2.42c-.02.04-.04.07-.08.1 5.01-1.31 3.17-4.64.77-3.81-.13.06-.24.14-.31.25.14-.05.28-.09.43-.12 1.2-.24 2.92 1.63-.81 3.58m.13 4.61c-3.01.52-6.09.56-9.12.14 0 0 .46.38 2.81.53 3.6.23 9.13-.13 9.26-1.83.03.01-.23.65-2.95 1.16"/></svg></span> Java</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Config</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="cm">/* */</span>
-
-<span class="w">    </span><span class="kd">companion</span><span class="w"> </span><span class="kd">object</span><span class="w"> </span><span class="err">{</span>
-<span class="w">        </span><span class="c1">// Service factory, registers as Config (as it is the return type), with the name &quot;config&quot;</span>
-<span class="w">        </span><span class="c1">// You can use any method name, but the method name is what the service is registered as</span>
-<span class="w">        </span><span class="nd">@BService</span>
-<span class="w">        </span><span class="kd">fun</span><span class="w"> </span><span class="nf">config</span><span class="p">():</span><span class="w"> </span><span class="n">Config</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="c1">// Of course here you would load the config from a file</span>
-<span class="w">            </span><span class="n">Config</span><span class="p">()</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// Lets the user use the command 5 times in an hour, but also 2 times in 2 minutes to prevent spam</span>
+<span class="kd">val</span><span class="w"> </span><span class="nv">bucketConfiguration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Buckets</span><span class="p">.</span><span class="na">spikeProtected</span><span class="p">(</span>
+<span class="w">    </span><span class="n">capacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w">               </span><span class="c1">// 5 uses</span>
+<span class="w">    </span><span class="n">duration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1.</span><span class="n">hours</span><span class="p">,</span><span class="w">         </span><span class="c1">// Gives 5 tokens gradually, during an hour (1 token every 12 minutes)</span>
+<span class="w">    </span><span class="n">spikeCapacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w">          </span><span class="c1">// 2 uses</span>
+<span class="w">    </span><span class="n">spikeDuration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2.</span><span class="n">minutes</span><span class="w">   </span><span class="c1">// Give 2 tokens every 2 minutes</span>
+<span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Config</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="cm">/* */</span>
-
-<span class="w">    </span><span class="kd">companion</span><span class="w"> </span><span class="kd">object</span><span class="w"> </span><span class="err">{</span>
-<span class="w">        </span><span class="c1">// Service factory, registers as Config (as it is the return type), with the name &quot;config&quot;</span>
-<span class="w">        </span><span class="nd">@get</span><span class="p">:</span><span class="n">BService</span>
-<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">config</span><span class="p">:</span><span class="w"> </span><span class="n">Config</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">lazy</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="c1">// Of course here you would load the config from a file</span>
-<span class="w">            </span><span class="n">Config</span><span class="p">()</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Config</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Config</span><span class="w"> </span><span class="n">INSTANCE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
-
-<span class="w">    </span><span class="cm">/* */</span>
-
-<span class="w">    </span><span class="c1">// Service factory, registers as &quot;Config&quot; (as it is the return type), with the name &quot;config&quot;</span>
-<span class="w">    </span><span class="c1">// You can use any method name, but the method name is what the service is registered as</span>
-<span class="w">    </span><span class="nd">@BService</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Config</span><span class="w"> </span><span class="nf">config</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">INSTANCE</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="c1">// Of course here you would load the config from a file</span>
-<span class="w">            </span><span class="n">INSTANCE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Config</span><span class="p">();</span>
-<span class="w">        </span><span class="p">}</span>
-
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">INSTANCE</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// Lets the user use the command 5 times in an hour, but also 2 times in 2 minutes to prevent spam</span>
+<span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">bucketConfiguration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Buckets</span><span class="p">.</span><span class="na">createSpikeProtected</span><span class="p">(</span>
+<span class="w">        </span><span class="mi">5</span><span class="p">,</span><span class="w">                      </span><span class="c1">// 5 uses</span>
+<span class="w">        </span><span class="n">Duration</span><span class="p">.</span><span class="na">ofHours</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w">    </span><span class="c1">// Gives 5 tokens gradually, during an hour (1 token every 12 minutes)</span>
+<span class="w">        </span><span class="mi">2</span><span class="p">,</span><span class="w">                      </span><span class="c1">// 2 uses</span>
+<span class="w">        </span><span class="n">Duration</span><span class="p">.</span><span class="na">ofMinutes</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w">   </span><span class="c1">// Give 2 tokens every 2 minutes</span>
+<span class="p">);</span>
 </code></pre></div>
 </div>
 </div>
 </div>
-</details>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>To suppress unused warnings on the declaring class, you can use <code class="highlight"><span class="nd">@BConfiguration</span></code>,
-unless the declaring class itself must be a service.</p>
 </div>
-<h3 id="conditional-services">Conditional services<a class="headerlink" href="#conditional-services" title="Permanent link">&para;</a></h3>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This section only applies to the built-in dependency injection</p>
-</div>
-<p>Some services may not always be instantiable, 
-some may require soft dependencies (prevents instantiation if a service is unavailable, without failing),
-while some run a set of conditions to determine if a service can be instantiated.</p>
-<p>Services that are not instantiable will not be created at startup, 
-will be unavailable for injection and do not figure in the list of interfaced services.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>All the following annotations must be used alongside a service-declaring annotation, 
-such as <code class="highlight"><span class="nd">@BService</span></code> or <code class="highlight"><span class="nd">@Command</span></code>.</p>
+<p>A cooldown is a bucket with a single limit, which has a single token and is regenerated after the cooldown time. </p>
 </div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>There is a few built-in conditional annotations, such as:</p>
-<ul>
-<li><code class="highlight"><span class="nd">@RequiredIntents</span></code>: Enables a service if the <code>JDAService</code> has the specified intents enabled.</li>
-<li><code class="highlight"><span class="nd">@RequiresDatabase</span></code>: Enables a service if a <code>(Blocking)Database</code> instance is available.</li>
-<li><code class="highlight"><span class="nd">@RequiresComponents</span></code>: Enables a service if components are enabled.</li>
-</ul>
+<h2 id="supplying-bucket-configurations">Supplying bucket configurations<a class="headerlink" href="#supplying-bucket-configurations" title="Permanent link">&para;</a></h2>
+<p>The framework requests a <a href="https://docs.bc.freya02.dev/BotCommands-core/io.github.freya022.botcommands.api.commands.ratelimit.bucket/-bucket-configuration-supplier/index.html"><code>BucketConfigurationSupplier</code></a>, allowing you to create buckets on a per-request basis.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>By <a href="https://docs.bc.freya02.dev/BotCommands-core/io.github.freya022.botcommands.api.commands.ratelimit.bucket/-in-memory-bucket-accessor/index.html">default</a>, a bucket is cached depending on which scope the rate limit applies to,
+so the supplier won't run on all requests, you can use change that with a custom <a href="https://docs.bc.freya02.dev/BotCommands-core/io.github.freya022.botcommands.api.commands.ratelimit.bucket/-bucket-accessor/index.html"><code>BucketAccessor</code></a>.</p>
 </div>
-<h4 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h4>
-<p>The <code class="highlight"><span class="nd">@Dependencies</span></code> annotation lets you define soft dependencies,
-that is, if any of these classes in the annotation are unavailable, your service will not be instantiated.</p>
-<p>Without the annotation, any unavailable dependency would throw an exception.</p>
-<h4 id="interfaced-conditions">Interfaced conditions<a class="headerlink" href="#interfaced-conditions" title="Permanent link">&para;</a></h4>
-<p><code class="highlight"><span class="nd">@ConditionalService</span></code> defines a list of classes implementing <code>ConditionalServiceChecker</code>,
-the service is only created if none of these classes return an error message.</p>
-<p><code>ConditionalServiceChecker</code> can be implemented on any class that has a no-arg constructor, or is an <code class="highlight"><span class="kd">object</span></code>.</p>
-<details class="example">
-<summary>Example</summary>
+<p>However, for most cases, you'll use the same configuration,
+use <a href="https://docs.bc.freya02.dev/BotCommands-core/io.github.freya022.botcommands.api.commands.ratelimit.bucket/-bucket-configuration-supplier/-companion/constant.html"><code>BucketConfigurationSupplier.constant</code></a> (or the <a href="https://docs.bc.freya02.dev/-bot-commands-core/io.github.freya022.botcommands.api.commands.ratelimit.bucket/to-supplier.html"><code>BucketConfiguration.toSupplier()</code></a> extension for Kotlin users)
+to make a supplier that returns the same configuration.</p>
+<h2 id="creating-a-rate-limiter">Creating a rate limiter<a class="headerlink" href="#creating-a-rate-limiter" title="Permanent link">&para;</a></h2>
+<h3 id="default-rate-limiters">Default rate limiters<a class="headerlink" href="#default-rate-limiters" title="Permanent link">&para;</a></h3>
+<p>The <a href="https://docs.bc.freya02.dev/BotCommands-core/io.github.freya022.botcommands.api.commands.ratelimit/-rate-limiter/-companion/index.html">default rate limiters</a> should provide you ready-made implementations for both in-memory and proxied buckets,
+refer to the example attached to them.</p>
+<div class="admonition example">
+<p class="admonition-title">Per-user rate limiter using the previous configuration</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 2h20L12 12l10 10H2Z"/></svg></span> Kotlin</label><label for="__tabbed_2_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.5 6.08s-6.84 1.71-3.56 5.48c.97 1.11-.25 2.11-.25 2.11s2.45-1.25 1.31-2.85c-1.06-1.47-1.86-2.2 2.5-4.74m-4.47 1.2C16.08 4.08 14 2 14 2c.84 3.3-2.96 4.3-4.33 6.36-.94 1.4.46 2.91 2.33 4.64-.71-1.7-3.22-3.16.03-5.72M9.37 17.47c-3.08.86 1.88 2.63 5.79.96-.38-.15-.75-.33-1.1-.54-1.36.31-2.76.37-4.14.18-1.31-.16-.55-.6-.55-.6m5.32-1.68c-1.75.38-3.56.47-5.34.26-1.31-.13-.45-.77-.45-.77-3.4 1.13 1.88 2.4 6.6 1.02-.29-.11-.57-.3-.81-.51m3.42 3.3s.57.47-.61.83c-2.28.68-9.43.89-11.41.03-.71-.31.63-.74 1.05-.83.23-.06.46-.08.69-.08-.79-.54-5.13 1.1-2.19 1.56 7.97 1.3 14.54-.6 12.47-1.51m-2.74-4.86c.29-.19.6-.35.92-.49 0 0-1.51.26-3.02.4-1.6.16-3.21.18-4.81.06-2.35-.31 1.29-1.2 1.29-1.2-1.1 0-2.18.26-3.16.75-2.05 1 5.1 1.45 8.78.48m.9 2.42c-.02.04-.04.07-.08.1 5.01-1.31 3.17-4.64.77-3.81-.13.06-.24.14-.31.25.14-.05.28-.09.43-.12 1.2-.24 2.92 1.63-.81 3.58m.13 4.61c-3.01.52-6.09.56-9.12.14 0 0 .46.38 2.81.53 3.6.23 9.13-.13 9.26-1.83.03.01-.23.65-2.95 1.16"/></svg></span> Java</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="nd">@Command</span>
-<span class="nd">@ConditionalService</span><span class="p">(</span><span class="n">TagCommand</span><span class="p">.</span><span class="na">FeatureCheck</span><span class="o">::</span><span class="n">class</span><span class="p">)</span><span class="w"> </span><span class="c1">// Only create the command if this passes</span>
-<span class="kd">class</span><span class="w"> </span><span class="nc">TagCommand</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="cm">/* */</span>
-
-<span class="w">    </span><span class="kd">object</span><span class="w"> </span><span class="nc">FeatureCheck</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ConditionalServiceChecker</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">checkServiceAvailability</span><span class="p">(</span><span class="n">serviceContainer</span><span class="p">:</span><span class="w"> </span><span class="n">ServiceContainer</span><span class="p">,</span><span class="w"> </span><span class="n">checkedClass</span><span class="p">:</span><span class="w"> </span><span class="n">Class</span><span class="o">&lt;*&gt;</span><span class="p">):</span><span class="w"> </span><span class="kt">String?</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">serviceContainer</span><span class="p">.</span><span class="na">getService</span><span class="o">&lt;</span><span class="n">Config</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="c1">// Suppose this is your configuration</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">config</span><span class="p">.</span><span class="na">enableTags</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Tags are disabled in the configuration&quot;</span><span class="w"> </span><span class="c1">// Do not allow the tag command!</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="c1">// No error message, allow the tag command!</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">rateLimiter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RateLimiter</span><span class="p">.</span><span class="na">createDefault</span><span class="p">(</span>
+<span class="w">    </span><span class="c1">// Apply to each user, regardless of channel/guild</span>
+<span class="w">    </span><span class="n">RateLimitScope</span><span class="p">.</span><span class="na">USER</span><span class="p">,</span>
+<span class="w">    </span><span class="c1">// Delete the message telling the user about the remaining rate limit after it expires</span>
+<span class="w">    </span><span class="n">deleteOnRefill</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="c1">// Give our constant bucket configuration</span>
+<span class="w">    </span><span class="n">configurationSupplier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bucketConfiguration</span><span class="p">.</span><span class="na">toSupplier</span><span class="p">()</span>
+<span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="nd">@Command</span>
-<span class="nd">@ConditionalService</span><span class="p">(</span><span class="n">TagCommand</span><span class="p">.</span><span class="na">FeatureCheck</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w"> </span><span class="c1">// Only create the command if this passes</span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TagCommand</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="cm">/* */</span>
-
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FeatureCheck</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ConditionalServiceChecker</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nd">@Nullable</span>
-<span class="w">        </span><span class="nd">@Override</span>
-<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">checkServiceAvailability</span><span class="p">(</span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">ServiceContainer</span><span class="w"> </span><span class="n">serviceContainer</span><span class="p">,</span><span class="w"> </span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">Class</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">checkedClass</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">serviceContainer</span><span class="p">.</span><span class="na">getService</span><span class="p">(</span><span class="n">Config</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w"> </span><span class="c1">// Suppose this is your configuration</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">config</span><span class="p">.</span><span class="na">areTagsEnabled</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Tags are disabled in the configuration&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Do not allow the tag command!</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"> </span><span class="c1">// No error message, allow the tag command!</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">rateLimiter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RateLimiter</span><span class="p">.</span><span class="na">createDefault</span><span class="p">(</span>
+<span class="w">        </span><span class="c1">// Apply to each user, regardless of channel/guild</span>
+<span class="w">        </span><span class="n">RateLimitScope</span><span class="p">.</span><span class="na">USER</span><span class="p">,</span>
+<span class="w">        </span><span class="c1">// Give our constant bucket configuration</span>
+<span class="w">        </span><span class="n">BucketConfigurationSupplier</span><span class="p">.</span><span class="na">constant</span><span class="p">(</span><span class="n">bucketConfiguration</span><span class="p">),</span>
+<span class="w">        </span><span class="c1">// Delete the message telling the user about the remaining rate limit after it expires</span>
+<span class="w">        </span><span class="kc">true</span>
+<span class="p">);</span>
 </code></pre></div>
 </div>
 </div>
 </div>
-</details>
-<h4 id="annotation-conditions">Annotation conditions<a class="headerlink" href="#annotation-conditions" title="Permanent link">&para;</a></h4>
-<p><code class="highlight"><span class="nd">@Condition</span></code> is a <em>meta-annotation</em> (an annotation for annotations) which marks your own annotation as being a condition.</p>
-<p>Similar to interfaced conditions, they must refer to an implementation of <code>CustomConditionChecker</code>, 
-to determine if the annotated service can be created, 
-you can also indicate if the service creation must throw an exception in case it fails.</p>
-<p>The implementation must have a no-arg constructor, or be an <code class="highlight"><span class="kd">object</span></code></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The annotation must also be in the framework's classpath.</p>
 </div>
-<details class="example">
-<summary>Example</summary>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>You can also create a persistent bucket with <a href="https://docs.bc.freya02.dev/BotCommands-core/io.github.freya022.botcommands.api.commands.ratelimit/-rate-limiter/-companion/create-default-proxied.html"><code>RateLimiter.createDefaultProxied</code></a>.</p>
+</div>
+<h3 id="custom-rate-limiter">Custom rate limiter<a class="headerlink" href="#custom-rate-limiter" title="Permanent link">&para;</a></h3>
+<p>A custom <a href="https://docs.bc.freya02.dev/BotCommands-core/io.github.freya022.botcommands.api.commands.ratelimit/-rate-limiter/index.html"><code>RateLimiter</code></a> can also be created, which is the combination of:</p>
+<ul>
+<li><a href="https://docs.bc.freya02.dev/BotCommands-core/io.github.freya022.botcommands.api.commands.ratelimit.bucket/-bucket-accessor/index.html"><code>BucketAccessor</code></a>: Retrieves a <code>Bucket</code> based on the context</li>
+<li><a href="https://docs.bc.freya02.dev/BotCommands-core/io.github.freya022.botcommands.api.commands.ratelimit.handler/-rate-limit-handler/index.html"><code>RateLimitHandler</code></a>: Handles when an interaction has been rate limited (often to tell the user about it)</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>When making a custom rate limiter, you can delegate one of the default implementations to avoid reimplementing existing behavior.</p>
+</div>
+<p>You can also use <a href="https://docs.bc.freya02.dev/BotCommands-core/io.github.freya022.botcommands.api.commands.ratelimit.bucket/-bucket-key-supplier/index.html"><code>BucketKeySupplier</code></a> to help you define functions
+returning a bucket key (an identifier basically), based on the execution context.</p>
+<h2 id="registering-the-rate-limiter">Registering the rate limiter<a class="headerlink" href="#registering-the-rate-limiter" title="Permanent link">&para;</a></h2>
+<p>You can now register using <a href="https://docs.bc.freya02.dev/BotCommands-core/io.github.freya022.botcommands.api.commands.ratelimit.declaration/-rate-limit-manager/rate-limit.html"><code>RateLimitManager#rateLimit(String, RateLimiter)</code></a>,
+the <code>group</code> (name of the rate limiter) must be unique.</p>
+<div class="admonition example">
+<p class="admonition-title">Full example</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 2h20L12 12l10 10H2Z"/></svg></span> Kotlin</label><label for="__tabbed_3_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.5 6.08s-6.84 1.71-3.56 5.48c.97 1.11-.25 2.11-.25 2.11s2.45-1.25 1.31-2.85c-1.06-1.47-1.86-2.2 2.5-4.74m-4.47 1.2C16.08 4.08 14 2 14 2c.84 3.3-2.96 4.3-4.33 6.36-.94 1.4.46 2.91 2.33 4.64-.71-1.7-3.22-3.16.03-5.72M9.37 17.47c-3.08.86 1.88 2.63 5.79.96-.38-.15-.75-.33-1.1-.54-1.36.31-2.76.37-4.14.18-1.31-.16-.55-.6-.55-.6m5.32-1.68c-1.75.38-3.56.47-5.34.26-1.31-.13-.45-.77-.45-.77-3.4 1.13 1.88 2.4 6.6 1.02-.29-.11-.57-.3-.81-.51m3.42 3.3s.57.47-.61.83c-2.28.68-9.43.89-11.41.03-.71-.31.63-.74 1.05-.83.23-.06.46-.08.69-.08-.79-.54-5.13 1.1-2.19 1.56 7.97 1.3 14.54-.6 12.47-1.51m-2.74-4.86c.29-.19.6-.35.92-.49 0 0-1.51.26-3.02.4-1.6.16-3.21.18-4.81.06-2.35-.31 1.29-1.2 1.29-1.2-1.1 0-2.18.26-3.16.75-2.05 1 5.1 1.45 8.78.48m.9 2.42c-.02.04-.04.07-.08.1 5.01-1.31 3.17-4.64.77-3.81-.13.06-.24.14-.31.25.14-.05.28-.09.43-.12 1.2-.24 2.92 1.63-.81 3.58m.13 4.61c-3.01.52-6.09.56-9.12.14 0 0 .46.38 2.81.53 3.6.23 9.13-.13 9.26-1.83.03.01-.23.65-2.95 1.16"/></svg></span> Java</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">DevCommand.kt</span><pre><span></span><code><span class="c1">// Same targets as service annotations</span>
-<span class="nd">@Target</span><span class="p">(</span><span class="n">AnnotationTarget</span><span class="p">.</span><span class="na">CLASS</span><span class="p">,</span><span class="w"> </span><span class="n">AnnotationTarget</span><span class="p">.</span><span class="na">FUNCTION</span><span class="p">,</span><span class="w"> </span><span class="n">AnnotationTarget</span><span class="p">.</span><span class="na">PROPERTY_GETTER</span><span class="p">)</span>
-<span class="c1">// The implementation of our CustomConditionChecker</span>
-<span class="nd">@Condition</span><span class="p">(</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DevCommandChecker</span><span class="o">::</span><span class="n">class</span><span class="p">)</span>
-<span class="kd">annotation</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">DevCommand</span>
+<div class="highlight"><pre><span></span><code><span class="nd">@BService</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">WikiRateLimitProvider</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">RateLimitProvider</span><span class="w"> </span><span class="p">{</span>
 
-<span class="c1">// Checks services annotated with @DevCommand</span>
-<span class="kd">object</span><span class="w"> </span><span class="nc">DevCommandChecker</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">CustomConditionChecker</span><span class="o">&lt;</span><span class="n">DevCommand</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">annotationType</span><span class="p">:</span><span class="w"> </span><span class="n">Class</span><span class="o">&lt;</span><span class="n">DevCommand</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DevCommand</span><span class="o">::</span><span class="n">class</span><span class="p">.</span><span class="na">java</span>
+<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">declareRateLimit</span><span class="p">(</span><span class="n">manager</span><span class="p">:</span><span class="w"> </span><span class="n">RateLimitManager</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Lets the user use the command 5 times in an hour, but also 2 times in 2 minutes to prevent spam</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">bucketConfiguration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Buckets</span><span class="p">.</span><span class="na">spikeProtected</span><span class="p">(</span>
+<span class="w">            </span><span class="n">capacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w">               </span><span class="c1">// 5 uses</span>
+<span class="w">            </span><span class="n">duration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1.</span><span class="n">hours</span><span class="p">,</span><span class="w">         </span><span class="c1">// Gives 5 tokens gradually, during an hour (1 token every 12 minutes)</span>
+<span class="w">            </span><span class="n">spikeCapacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w">          </span><span class="c1">// 2 uses</span>
+<span class="w">            </span><span class="n">spikeDuration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2.</span><span class="n">minutes</span><span class="w">   </span><span class="c1">// Give 2 tokens every 2 minutes</span>
+<span class="w">        </span><span class="p">)</span>
 
-<span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">checkServiceAvailability</span><span class="p">(</span><span class="n">serviceContainer</span><span class="p">:</span><span class="w"> </span><span class="n">ServiceContainer</span><span class="p">,</span><span class="w"> </span><span class="n">checkedClass</span><span class="p">:</span><span class="w"> </span><span class="n">Class</span><span class="o">&lt;*&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">annotation</span><span class="p">:</span><span class="w"> </span><span class="n">DevCommand</span><span class="p">):</span><span class="w"> </span><span class="kt">String?</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">serviceContainer</span><span class="p">.</span><span class="na">getService</span><span class="o">&lt;</span><span class="n">Config</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="c1">// Suppose this is your configuration</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">config</span><span class="p">.</span><span class="na">enableDevMode</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Dev mode is disable in the configuration&quot;</span><span class="w"> </span><span class="c1">// Do not allow the dev commands!</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="c1">// No error message, allow the tag command!</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">rateLimiter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RateLimiter</span><span class="p">.</span><span class="na">createDefault</span><span class="p">(</span>
+<span class="w">            </span><span class="c1">// Apply to each user, regardless of channel/guild</span>
+<span class="w">            </span><span class="n">RateLimitScope</span><span class="p">.</span><span class="na">USER</span><span class="p">,</span>
+<span class="w">            </span><span class="c1">// Delete the message telling the user about the remaining rate limit after it expires</span>
+<span class="w">            </span><span class="n">deleteOnRefill</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="c1">// Give our constant bucket configuration</span>
+<span class="w">            </span><span class="n">configurationSupplier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bucketConfiguration</span><span class="p">.</span><span class="na">toSupplier</span><span class="p">()</span>
+<span class="w">        </span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">// Register, any command can use it</span>
+<span class="w">        </span><span class="n">manager</span><span class="p">.</span><span class="na">rateLimit</span><span class="p">(</span><span class="n">RATE_LIMIT_GROUP</span><span class="p">,</span><span class="w"> </span><span class="n">rateLimiter</span><span class="p">)</span>
 <span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<div class="highlight"><span class="filename">SlashShutdown.kt</span><pre><span></span><code><span class="nd">@Command</span>
-<span class="nd">@DevCommand</span><span class="w"> </span><span class="c1">// Our custom condition, this command will only exist if it passes.</span>
-<span class="kd">class</span><span class="w"> </span><span class="nc">SlashShutdown</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="cm">/* */</span>
+
+<span class="w">    </span><span class="kd">companion</span><span class="w"> </span><span class="kd">object</span><span class="w"> </span><span class="err">{</span>
+<span class="w">        </span><span class="c1">// The name of the rate limit, so you can reference it in your commands/components</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">RATE_LIMIT_GROUP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Wiki&quot;</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">DevCommand.java</span><pre><span></span><code><span class="c1">// Same targets as service annotations</span>
-<span class="nd">@Target</span><span class="p">({</span><span class="n">ElementType</span><span class="p">.</span><span class="na">TYPE</span><span class="p">,</span><span class="w"> </span><span class="n">ElementType</span><span class="p">.</span><span class="na">METHOD</span><span class="p">})</span>
-<span class="c1">// The implementation of our CustomConditionChecker</span>
-<span class="nd">@Condition</span><span class="p">(</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DevCommandChecker</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
-<span class="kd">public</span><span class="w"> </span><span class="nd">@interface</span><span class="w"> </span><span class="n">DevCommand</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
-</code></pre></div>
-<div class="highlight"><span class="filename">DevCommandChecker.java</span><pre><span></span><code><span class="c1">// Checks services annotated with @DevCommand</span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DevCommandChecker</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">CustomConditionChecker</span><span class="o">&lt;</span><span class="n">DevCommand</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nd">@NotNull</span>
-<span class="w">    </span><span class="nd">@Override</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Class</span><span class="o">&lt;</span><span class="n">DevCommand</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getAnnotationType</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">DevCommand</span><span class="p">.</span><span class="na">class</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="nd">@BService</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">WikiRateLimitProvider</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">RateLimitProvider</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// The name of the rate limit, so you can reference it in your commands/components</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">RATE_LIMIT_GROUP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Wiki&quot;</span><span class="p">;</span>
 
-<span class="w">    </span><span class="nd">@Nullable</span>
 <span class="w">    </span><span class="nd">@Override</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">checkServiceAvailability</span><span class="p">(</span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">ServiceContainer</span><span class="w"> </span><span class="n">serviceContainer</span><span class="p">,</span><span class="w"> </span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">Class</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">checkedClass</span><span class="p">,</span><span class="w"> </span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">DevCommand</span><span class="w"> </span><span class="n">annotation</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">serviceContainer</span><span class="p">.</span><span class="na">getService</span><span class="p">(</span><span class="n">Config</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w"> </span><span class="c1">// Suppose this is your configuration</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">config</span><span class="p">.</span><span class="na">isDevModeEnabled</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Dev mode is disable in the configuration&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Do not allow the dev commands!</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"> </span><span class="c1">// No error message, allow the tag command!</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">declareRateLimit</span><span class="p">(</span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">RateLimitManager</span><span class="w"> </span><span class="n">rateLimitManager</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Lets the user use the command 5 times in an hour, but also 2 times in 2 minutes to prevent spam</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">bucketConfiguration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Buckets</span><span class="p">.</span><span class="na">createSpikeProtected</span><span class="p">(</span>
+<span class="w">                </span><span class="mi">5</span><span class="p">,</span><span class="w">                      </span><span class="c1">// 5 uses</span>
+<span class="w">                </span><span class="n">Duration</span><span class="p">.</span><span class="na">ofHours</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w">    </span><span class="c1">// Gives 5 tokens gradually, during an hour (1 token every 12 minutes)</span>
+<span class="w">                </span><span class="mi">2</span><span class="p">,</span><span class="w">                      </span><span class="c1">// 2 uses</span>
+<span class="w">                </span><span class="n">Duration</span><span class="p">.</span><span class="na">ofMinutes</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w">   </span><span class="c1">// Give 2 tokens every 2 minutes</span>
+<span class="w">        </span><span class="p">);</span>
+
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">rateLimiter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RateLimiter</span><span class="p">.</span><span class="na">createDefault</span><span class="p">(</span>
+<span class="w">                </span><span class="c1">// Apply to each user, regardless of channel/guild</span>
+<span class="w">                </span><span class="n">RateLimitScope</span><span class="p">.</span><span class="na">USER</span><span class="p">,</span>
+<span class="w">                </span><span class="c1">// Give our constant bucket configuration</span>
+<span class="w">                </span><span class="n">BucketConfigurationSupplier</span><span class="p">.</span><span class="na">constant</span><span class="p">(</span><span class="n">bucketConfiguration</span><span class="p">),</span>
+<span class="w">                </span><span class="c1">// Delete the message telling the user about the remaining rate limit after it expires</span>
+<span class="w">                </span><span class="kc">true</span>
+<span class="w">        </span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Register</span>
+<span class="w">        </span><span class="n">rateLimitManager</span><span class="p">.</span><span class="na">rateLimit</span><span class="p">(</span><span class="n">RATE_LIMIT_GROUP</span><span class="p">,</span><span class="w"> </span><span class="n">rateLimiter</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<div class="highlight"><span class="filename">SlashShutdown.java</span><pre><span></span><code><span class="nd">@Command</span>
-<span class="nd">@DevCommand</span><span class="w"> </span><span class="c1">// Our custom condition, this command will only exist if it passes.</span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SlashShutdown</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="cm">/* */</span>
-<span class="p">}</span>
-</code></pre></div>
 </div>
 </div>
 </div>
-</details>
-<h3 id="interfaced-services">Interfaced services<a class="headerlink" href="#interfaced-services" title="Permanent link">&para;</a></h3>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This section only applies to the built-in dependency injection</p>
 </div>
-<p>Interfaced services are interfaces, or abstract class, marked by <code class="highlight"><span class="nd">@InterfacedService</span></code>,
-they must be implemented by a service.</p>
-<p>In addition to the service's type,
-implementations of these annotated interfaces have the interface's type automatically added.</p>
-<p>Some interfaced services may only be implemented once, some may allow multiple implementations,
-if an interfaced service only accepts one implementation, multiple implementations can exist,
-but only one must be instantiable.</p>
-<div class="admonition tip">
-<p class="admonition-title">Creating multiple interfaced services in one</p>
-<p>You can implement multiple interfaced services at once, 
-which may be useful for text, application and component filters.</p>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">Creating interfaced services without registering the interface type</p>
-<p>You can also implement an interfaced service, without it being accessible as such, 
-by using <code class="highlight"><span class="nd">@IgnoreServiceTypes</span></code>.</p>
-</div>
-<details class="info">
-<summary>2.X Migration</summary>
-<p>Most methods in <code>CommandsBuilder</code> accepting interfaces, implementations or lambdas, were moved to interfaced services:</p>
-<p><strong>Global:</strong></p>
-<ul>
-<li><code>CommandsBuilder#setComponentManager</code>: Removed, using components must be enabled in <code>BComponentsConfigBuilder#enable</code>, and a <code>ConnectionSupplier</code> service be present</li>
-<li><code>CommandsBuilder#setSettingsProvider</code>: Needs to implement <code>SettingsProvider</code></li>
-<li><code>CommandsBuilder#setUncaughtExceptionHandler</code>: Needs to implement <code>GlobalExceptionHandler</code></li>
-<li><code>CommandsBuilder#setDefaultEmbedFunction</code>: Needs to implement <code>DefaultEmbedSupplier</code> and <code>DefaultEmbedFooterIconSupplier</code></li>
-</ul>
-<p><strong>Text commands:</strong></p>
-<ul>
-<li><code>TextCommandBuilder#addTextFilter</code>: Needs to implement <code>TextCommandFilter</code>, and <code>TextCommandRejectionHandler</code></li>
-<li><code>TextCommandBuilder#setHelpBuilderConsumer</code>: Needs to implement <code>HelpBuilderConsumer</code></li>
-</ul>
-<p><strong>Application commands:</strong></p>
-<ul>
-<li><code>ApplicationCommandBuilder#addApplicationFilter</code>: Needs to implement <code>ApplicationCommandFilter</code>, and <code>ApplicationCommandRejectionHandler</code></li>
-<li><code>ApplicationCommandBuilder#addComponentFilter</code>: Needs to implement <code>ComponentCommandFilter</code>, and <code>ComponentCommandRejectionHandler</code></li>
-</ul>
-<p><strong>Extensions:</strong></p>
-<ul>
-<li><code>ExtensionsBuilder#registerAutocompletionTransformer</code>: Needs to implement <code>AutocompleteTransformer</code></li>
-<li><code>ExtensionsBuilder#registerCommandDependency</code>: Replaced with standard dependency injection</li>
-<li><code>ExtensionsBuilder#registerConstructorParameter</code>: Replaced with standard dependency injection</li>
-<li><code>ExtensionsBuilder#registerCustomResolver</code>: Needs to implement <code>ClassParameterResolver</code> and <code>ICustomResolver</code></li>
-<li><code>ExtensionsBuilder#registerDynamicInstanceSupplier</code>: Needs to implement <code>DynamicSupplier</code></li>
-<li><code>ExtensionsBuilder#registerInstanceSupplier</code>: Replaced by service factories</li>
-<li><code>ExtensionsBuilder#registerParameterResolver</code>: Needs to implement <code>ClassParameterResolver</code> and the resolver interface of your choices</li>
-</ul>
-</details>
-<h3 id="service-properties">Service properties<a class="headerlink" href="#service-properties" title="Permanent link">&para;</a></h3>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This section only applies to the built-in dependency injection</p>
-</div>
-<p>Service providers can have names, additional registered types, and an instantiation priority.</p>
-<h4 id="service-names">Service names<a class="headerlink" href="#service-names" title="Permanent link">&para;</a></h4>
-<p>Named services may be useful if you have multiple services of the same type, but need to get a specific one.</p>
-<p>The name is either defined by using <code class="highlight"><span class="nd">@ServiceName</span></code>, or with <code>BService#name</code> on the service provider.</p>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<p>You can have a caching <code>HttpClient</code> named <code>cachingHttpClient</code>, while the usual client uses the default name.</p>
-</div>
-<h4 id="service-types">Service types<a class="headerlink" href="#service-types" title="Permanent link">&para;</a></h4>
-<p>In addition to the type of the service provider, 
-<code class="highlight"><span class="nd">@ServiceType</span></code> enables you to register a service as a supertype.</p>
-<h4 id="service-priority">Service priority<a class="headerlink" href="#service-priority" title="Permanent link">&para;</a></h4>
-<p>Service priorities control how service providers are sorted.</p>
-<p>A higher priority means that the service will be loaded first,
-or that an interfaced service will appear first when <a href="#interfaced-services">requesting interfaced services</a>.</p>
-<p>The priority is either defined by using <code class="highlight"><span class="nd">@ServicePriority</span></code>, or with <code>BService#priority</code> on the service provider, 
-see their documentation to learn what how service providers are sorted.</p>
 
 
 
