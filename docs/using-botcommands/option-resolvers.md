@@ -25,7 +25,27 @@ or the function returning the built resolver.
 
 ### Resolver factories
 
-{{ wiki_stub }}
+These are more advanced, they let you match the being-resolved parameters individually,
+you can inspect them in depth and decide if they are compatible or not.
+
+If you still want to make the parameters by type only, use [[TypedParameterResolverFactory]], 
+if you need more control, use [[ParameterResolverFactory]]. 
+
+If one is compatible, you can then return a customized resolver.
+
+### Priorities
+
+When a resolver is requested by a command, at most one resolver factory must support the parameter.
+
+!!! note
+
+    Resolvers are requested per interaction type (e.g. text command and slash command resolvers are treated separately),
+    for example, this enables making a `TimeUnit` resolver for slash commands, and a separate one for text commands,
+    with the default priority, without any issue.
+
+If there is more than one, then a higher priority can be used to override the other. 
+
+They are set on the [[Resolver]] annotation, or on the [[ParameterResolverFactory#priority]] property.
 
 ## Built-in resolver generators
 
