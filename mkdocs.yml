@@ -138,7 +138,9 @@ nav:
       - Common details: using-commands/common-command-details.md
       - Text commands:
         - using-commands/text-commands/index.md
-        - Creating text commands: using-commands/text-commands/writing-text-commands.md
+        - Creating text commands:
+          - Annotated text commands: using-commands/text-commands/annotated.md
+          - Declarative text commands: using-commands/text-commands/declarative.md
       - Application commands:
         - using-commands/application-commands/index.md
         - Creating slash commands:
