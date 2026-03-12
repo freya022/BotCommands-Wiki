@@ -870,7 +870,7 @@
   <span class="md-ellipsis">
     
   
-    Events
+    Event listeners & special events
   
 
     
@@ -1611,6 +1611,8 @@
       
         
       
+        
+      
     
     
     
@@ -1892,6 +1894,8 @@
       
         
       
+        
+      
     
     
     
@@ -2107,9 +2111,65 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../using-commands/application-commands/declaration-filters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Filtering guild application command registrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../using-commands/interaction-filters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Filtering command usages
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -2395,12 +2455,13 @@ the <code>group</code> (name of the rate limiter) must be unique.</p>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nd">@BService</span>
+<span class="nd">@NullMarked</span><span class="w"> </span><span class="c1">// Everything is non-null unless @Nullable</span>
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">WikiRateLimitProvider</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">RateLimitProvider</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// The name of the rate limit, so you can reference it in your commands/components</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">RATE_LIMIT_GROUP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Wiki&quot;</span><span class="p">;</span>
 
 <span class="w">    </span><span class="nd">@Override</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">declareRateLimit</span><span class="p">(</span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">RateLimitManager</span><span class="w"> </span><span class="n">rateLimitManager</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">declareRateLimit</span><span class="p">(</span><span class="n">RateLimitManager</span><span class="w"> </span><span class="n">rateLimitManager</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="c1">// Lets the user use the command 5 times in an hour, but also 2 times in 2 minutes to prevent spam</span>
 <span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">bucketConfiguration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Buckets</span><span class="p">.</span><span class="na">createSpikeProtected</span><span class="p">(</span>
 <span class="w">                </span><span class="mi">5</span><span class="p">,</span><span class="w">                      </span><span class="c1">// 5 uses</span>

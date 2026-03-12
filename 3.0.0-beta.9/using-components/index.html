@@ -863,7 +863,7 @@
   <span class="md-ellipsis">
     
   
-    Events
+    Event listeners & special events
   
 
     
@@ -1483,6 +1483,8 @@
       
         
       
+        
+      
     
     
     
@@ -1764,6 +1766,8 @@
       
         
       
+        
+      
     
     
     
@@ -1979,9 +1983,65 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using-commands/application-commands/declaration-filters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Filtering guild application command registrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using-commands/interaction-filters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Filtering command usages
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -2873,10 +2933,12 @@ and need to acknowledge the interaction if they fail.</p>
 <span class="w">        </span><span class="n">event</span><span class="p">:</span><span class="w"> </span><span class="n">GenericComponentInteractionCreateEvent</span><span class="p">,</span>
 <span class="w">        </span><span class="n">handlerName</span><span class="p">:</span><span class="w"> </span><span class="kt">String?</span>
 <span class="w">    </span><span class="p">):</span><span class="w"> </span><span class="kt">String?</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="na">channelIdLong</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">channelId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="na">channelIdLong</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">channelId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="n">event</span><span class="p">.</span><span class="na">reply_</span><span class="p">(</span><span class="s">&quot;This button can only be used in &lt;#</span><span class="si">$</span><span class="n">channelId</span><span class="s">&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ephemeral</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">).</span><span class="na">await</span><span class="p">()</span>
 <span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Button was used in the wrong channel&quot;</span>
 <span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// Correct channel, return no error message</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
@@ -2884,6 +2946,7 @@ and need to acknowledge the interaction if they fail.</p>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nd">@BService</span>
+<span class="nd">@NullMarked</span><span class="w"> </span><span class="c1">// Everything is non-null unless @Nullable</span>
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">GeneralChannelFilter</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ComponentInteractionFilter</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">CHANNEL_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">722891685755093076L</span><span class="p">;</span>
 
@@ -2895,14 +2958,15 @@ and need to acknowledge the interaction if they fail.</p>
 
 <span class="w">    </span><span class="nd">@Nullable</span>
 <span class="w">    </span><span class="nd">@Override</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">check</span><span class="p">(</span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">GenericComponentInteractionCreateEvent</span><span class="w"> </span><span class="n">event</span><span class="p">,</span>
-<span class="w">                        </span><span class="nd">@Nullable</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">handlerName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="na">getChannelIdLong</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">CHANNEL_ID</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">check</span><span class="p">(</span><span class="n">GenericComponentInteractionCreateEvent</span><span class="w"> </span><span class="n">event</span><span class="p">,</span><span class="w"> </span><span class="nd">@Nullable</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">handlerName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="na">getChannelIdLong</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">CHANNEL_ID</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="n">event</span><span class="p">.</span><span class="na">reply</span><span class="p">(</span><span class="s">&quot;This button can only be used in &lt;#&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">CHANNEL_ID</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&gt;&quot;</span><span class="p">)</span>
 <span class="w">                    </span><span class="p">.</span><span class="na">setEphemeral</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
 <span class="w">                    </span><span class="p">.</span><span class="na">queue</span><span class="p">();</span>
 <span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Button was used in the wrong channel&quot;</span><span class="p">;</span>
 <span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// Correct channel, return no error message</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>

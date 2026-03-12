@@ -1037,7 +1037,7 @@
   <span class="md-ellipsis">
     
   
-    Events
+    Event listeners & special events
   
 
     
@@ -1657,6 +1657,8 @@
       
         
       
+        
+      
     
     
     
@@ -1938,6 +1940,8 @@
       
         
       
+        
+      
     
     
     
@@ -2153,9 +2157,65 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../using-commands/application-commands/declaration-filters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Filtering guild application command registrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../using-commands/interaction-filters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Filtering command usages
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -2442,6 +2502,7 @@ the service is only created if none of these classes return an error message.</p
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nd">@Command</span>
+<span class="nd">@NullMarked</span><span class="w"> </span><span class="c1">// Everything is non-null unless @Nullable</span>
 <span class="nd">@ConditionalService</span><span class="p">(</span><span class="n">TagCommand</span><span class="p">.</span><span class="na">FeatureCheck</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w"> </span><span class="c1">// Only create the command if this passes</span>
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TagCommand</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="cm">/* */</span>
@@ -2449,7 +2510,7 @@ the service is only created if none of these classes return an error message.</p
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FeatureCheck</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ConditionalServiceChecker</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nd">@Nullable</span>
 <span class="w">        </span><span class="nd">@Override</span>
-<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">checkServiceAvailability</span><span class="p">(</span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">ServiceContainer</span><span class="w"> </span><span class="n">serviceContainer</span><span class="p">,</span><span class="w"> </span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">Class</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">checkedClass</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">checkServiceAvailability</span><span class="p">(</span><span class="n">ServiceContainer</span><span class="w"> </span><span class="n">serviceContainer</span><span class="p">,</span><span class="w"> </span><span class="n">Class</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">checkedClass</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">serviceContainer</span><span class="p">.</span><span class="na">getService</span><span class="p">(</span><span class="n">Config</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w"> </span><span class="c1">// Suppose this is your configuration</span>
 <span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">config</span><span class="p">.</span><span class="na">areTagsEnabled</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Tags are disabled in the configuration&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Do not allow the tag command!</span>
@@ -2512,8 +2573,8 @@ you can also indicate if the service creation must throw an exception in case it
 <span class="kd">public</span><span class="w"> </span><span class="nd">@interface</span><span class="w"> </span><span class="n">DevCommand</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 <div class="highlight"><span class="filename">DevCommandChecker.java</span><pre><span></span><code><span class="c1">// Checks services annotated with @DevCommand</span>
+<span class="nd">@NullMarked</span><span class="w"> </span><span class="c1">// Everything is non-null unless @Nullable</span>
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DevCommandChecker</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">CustomConditionChecker</span><span class="o">&lt;</span><span class="n">DevCommand</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nd">@NotNull</span>
 <span class="w">    </span><span class="nd">@Override</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Class</span><span class="o">&lt;</span><span class="n">DevCommand</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getAnnotationType</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">DevCommand</span><span class="p">.</span><span class="na">class</span><span class="p">;</span>
@@ -2521,7 +2582,7 @@ you can also indicate if the service creation must throw an exception in case it
 
 <span class="w">    </span><span class="nd">@Nullable</span>
 <span class="w">    </span><span class="nd">@Override</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">checkServiceAvailability</span><span class="p">(</span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">ServiceContainer</span><span class="w"> </span><span class="n">serviceContainer</span><span class="p">,</span><span class="w"> </span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">Class</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">checkedClass</span><span class="p">,</span><span class="w"> </span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">DevCommand</span><span class="w"> </span><span class="n">annotation</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">checkServiceAvailability</span><span class="p">(</span><span class="n">ServiceContainer</span><span class="w"> </span><span class="n">serviceContainer</span><span class="p">,</span><span class="w"> </span><span class="n">Class</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">checkedClass</span><span class="p">,</span><span class="w"> </span><span class="n">DevCommand</span><span class="w"> </span><span class="n">annotation</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">serviceContainer</span><span class="p">.</span><span class="na">getService</span><span class="p">(</span><span class="n">Config</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w"> </span><span class="c1">// Suppose this is your configuration</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">config</span><span class="p">.</span><span class="na">isDevModeEnabled</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Dev mode is disable in the configuration&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Do not allow the dev commands!</span>

@@ -14,7 +14,7 @@
         <link rel="prev" href="../declarative/">
       
       
-        <link rel="next" href="../../../advanced-options/">
+        <link rel="next" href="../../declaration-filters/">
       
       
         
@@ -863,7 +863,7 @@
   <span class="md-ellipsis">
     
   
-    Events
+    Event listeners & special events
   
 
     
@@ -1485,6 +1485,8 @@
       
         
       
+        
+      
     
     
     
@@ -1767,6 +1769,8 @@
       
         
           
+        
+      
         
       
         
@@ -2064,9 +2068,65 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../declaration-filters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Filtering guild application command registrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../interaction-filters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Filtering command usages
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -2398,16 +2458,15 @@ by implementing <a href="https://docs.bc.freya02.dev/BotCommands-core/io.github.
 <div class="highlight"><span class="filename">FullName.java</span><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">FullName</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">firstName</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">secondName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 <div class="highlight"><span class="filename">FullNameTransformer.java</span><pre><span></span><code><span class="nd">@BService</span>
+<span class="nd">@NullMarked</span><span class="w"> </span><span class="c1">// Everything is non-null unless @Nullable</span>
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FullNameTransformer</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">AutocompleteTransformer</span><span class="o">&lt;</span><span class="n">FullName</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nd">@NotNull</span>
 <span class="w">    </span><span class="nd">@Override</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Class</span><span class="o">&lt;</span><span class="n">FullName</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getElementType</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">FullName</span><span class="p">.</span><span class="na">class</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="nd">@NotNull</span>
 <span class="w">    </span><span class="nd">@Override</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Command</span><span class="p">.</span><span class="na">Choice</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">FullName</span><span class="w"> </span><span class="n">fullName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Command</span><span class="p">.</span><span class="na">Choice</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="n">FullName</span><span class="w"> </span><span class="n">fullName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Command</span><span class="p">.</span><span class="na">Choice</span><span class="p">(</span>
 <span class="w">                </span><span class="s">&quot;%s %s&quot;</span><span class="p">.</span><span class="na">formatted</span><span class="p">(</span><span class="n">fullName</span><span class="p">.</span><span class="na">firstName</span><span class="p">(),</span><span class="w"> </span><span class="n">fullName</span><span class="p">.</span><span class="na">secondName</span><span class="p">()),</span>
 <span class="w">                </span><span class="s">&quot;%s|%s&quot;</span><span class="p">.</span><span class="na">formatted</span><span class="p">(</span><span class="n">fullName</span><span class="p">,</span><span class="w"> </span><span class="n">fullName</span><span class="p">.</span><span class="na">secondName</span><span class="p">())</span>

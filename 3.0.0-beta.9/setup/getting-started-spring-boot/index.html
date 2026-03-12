@@ -1031,7 +1031,7 @@
   <span class="md-ellipsis">
     
   
-    Events
+    Event listeners & special events
   
 
     
@@ -1651,6 +1651,8 @@
       
         
       
+        
+      
     
     
     
@@ -1932,6 +1934,8 @@
       
         
       
+        
+      
     
     
     
@@ -2147,9 +2151,65 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../using-commands/application-commands/declaration-filters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Filtering guild application command registrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../using-commands/interaction-filters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Filtering command usages
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -2416,6 +2476,7 @@ so, you must put them in your environment, you will then be able to set your gat
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nd">@Service</span>
+<span class="nd">@NullMarked</span><span class="w"> </span><span class="c1">// Everything is non-null unless @Nullable</span>
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SpringBot</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">JDAService</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">JDAConfiguration</span><span class="w"> </span><span class="n">jdaConfiguration</span><span class="p">;</span>
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">token</span><span class="p">;</span>
@@ -2425,20 +2486,18 @@ so, you must put them in your environment, you will then be able to set your gat
 <span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">token</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="nd">@NotNull</span>
 <span class="w">    </span><span class="nd">@Override</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Set</span><span class="o">&lt;</span><span class="n">CacheFlag</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getCacheFlags</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">jdaConfiguration</span><span class="p">.</span><span class="na">getCacheFlags</span><span class="p">();</span>
 <span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="nd">@NotNull</span>
 <span class="w">    </span><span class="nd">@Override</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Set</span><span class="o">&lt;</span><span class="n">GatewayIntent</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getIntents</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">jdaConfiguration</span><span class="p">.</span><span class="na">getIntents</span><span class="p">();</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="nd">@Override</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">createJDA</span><span class="p">(</span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">BReadyEvent</span><span class="w"> </span><span class="n">event</span><span class="p">,</span><span class="w"> </span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">IEventManager</span><span class="w"> </span><span class="n">eventManager</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">createJDA</span><span class="p">(</span><span class="n">BReadyEvent</span><span class="w"> </span><span class="n">event</span><span class="p">,</span><span class="w"> </span><span class="n">IEventManager</span><span class="w"> </span><span class="n">eventManager</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="c1">// This uses JDABuilder#createLight, with the intents and the additional cache flags set above</span>
 <span class="w">        </span><span class="c1">// It also sets the EventManager and a special rate limiter</span>
 <span class="w">        </span><span class="n">createLight</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
