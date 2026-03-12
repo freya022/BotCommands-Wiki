@@ -17,8 +17,6 @@ botcommands-typesafe-messages-bc = { module = "io.github.freya022:BotCommands-ty
 botcommands-typesafe-messages-core = { module = "io.github.freya022:BotCommands-typesafe-messages-core", version.ref = "botcommands" }
 flyway-core = { module = "org.flywaydb:flyway-core", version.ref = "flyway" }
 flyway-postgresql = { module = "org.flywaydb:flyway-database-postgresql", version.ref = "flyway" }
-# TODO use kotlinx.serialization
-gson = "com.google.code.gson:gson:2.13.2"
 hikaricp = "com.zaxxer:HikariCP:7.0.2"
 jackson-dataformat-xml = "tools.jackson.dataformat:jackson-dataformat-xml:3.0.4"
 jda = "net.dv8tion:JDA:6.3.0"
