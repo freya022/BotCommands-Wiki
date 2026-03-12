@@ -149,6 +149,7 @@ nav:
           - Declarative slash commands: using-commands/application-commands/slash-commands/declarative.md
           - Autocomplete handlers: using-commands/application-commands/slash-commands/autocomplete-handlers.md
         - Filtering guild application command registrations: using-commands/application-commands/declaration-filters.md
+      - Filtering command usages: using-commands/interaction-filters.md
       - Advanced options: using-commands/advanced-options.md
   - Using components: using-components.md
   - Using modals: using-modals.md
