@@ -18,10 +18,12 @@ class GeneralChannelFilter : ComponentInteractionFilter {
         event: GenericComponentInteractionCreateEvent,
         handlerName: String?
     ): String? {
-        if (event.channelIdLong == channelId) {
+        if (event.channelIdLong != channelId) {
             event.reply_("This button can only be used in <#$channelId>", ephemeral = true).await()
             return "Button was used in the wrong channel"
         }
+
+        // Correct channel, return no error message
         return null
     }
 }

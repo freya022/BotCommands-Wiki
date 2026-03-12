@@ -21,12 +21,14 @@ public class GeneralChannelFilter implements ComponentInteractionFilter {
     @Override
     public String check(@NotNull GenericComponentInteractionCreateEvent event,
                         @Nullable String handlerName) {
-        if (event.getChannelIdLong() == CHANNEL_ID) {
+        if (event.getChannelIdLong() != CHANNEL_ID) {
             event.reply("This button can only be used in <#" + CHANNEL_ID + ">")
                     .setEphemeral(true)
                     .queue();
             return "Button was used in the wrong channel";
         }
+
+        // Correct channel, return no error message
         return null;
     }
 }
