@@ -114,7 +114,7 @@ nav:
         - using-botcommands/dependency-injection/index.md
         - Creating services: using-botcommands/dependency-injection/creating-services.md
         - Retrieving services: using-botcommands/dependency-injection/retrieving-services.md
-      - Events: using-botcommands/events.md
+      - Event listeners & special events: using-botcommands/events.md
       - Option resolvers: using-botcommands/option-resolvers.md
       - Database: using-botcommands/database.md
       - Rate limiting:
