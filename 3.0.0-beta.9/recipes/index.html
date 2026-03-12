@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://bc.freya02.dev/3.0.0-beta.9/recipes/">
       
       
-        <link rel="prev" href="../setup/logging/">
+        <link rel="prev" href="../setup/parameter-names/">
       
       
         <link rel="next" href="../using-botcommands/dependency-injection/">
@@ -481,6 +481,8 @@
       
         
       
+        
+      
     
     
     
@@ -595,6 +597,34 @@
     
   
     Logging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/parameter-names/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java parameter names
   
 
     
@@ -725,8 +755,6 @@
   
     
     
-      
-        
       
         
       
@@ -1465,34 +1493,6 @@
     
   
     Kotlin extensions
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../using-botcommands/parameter-names/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Java parameter names
   
 
     
@@ -2304,12 +2304,12 @@ what topics should be explained, how they should be structured, give relevant us
 </code></pre></div>
 <ol>
 <li>
-<p><a href="https://docs.bc.freya02.dev/-bot-commands-core/io.github.freya022.botcommands.api.components/await-or-null.html"><code>AwaitableComponent&lt;T&gt;.awaitOrNull</code></a> returns <code>null</code> when the component expired, useful when combined with an elvis operator,
+<p><a href="https://docs.bc.freya02.dev/BotCommands-core/io.github.freya022.botcommands.api.components/await-or-null.html"><code>AwaitableComponent&lt;T&gt;.awaitOrNull</code></a> returns <code>null</code> when the component expired, useful when combined with an elvis operator,
 this is the equivalent of a <code class="highlight"><span class="k">try</span><span class="w"> </span><span class="k">catch</span></code> on <code>ComponentCancellationException</code>.
 Since there is no timeout set here, the <a href="https://docs.bc.freya02.dev/BotCommands-core/io.github.freya022.botcommands.api.components/-components/-companion/default-ephemeral-timeout.html">default duration</a> is used.</p>
 </li>
 <li>
-<p><a href="https://docs.bc.freya02.dev/-bot-commands-jda-ktx/io.github.freya022.botcommands.api.core.utils/await-unit.html"><code>RestAction&lt;*&gt;.awaitUnit</code></a> is an extension to await and then return <code>Unit</code>, 
+<p><a href="https://docs.bc.freya02.dev/BotCommands-jda-ktx/io.github.freya022.botcommands.api.core.utils/await-unit.html"><code>RestAction&lt;*&gt;.awaitUnit</code></a> is an extension to await and then return <code>Unit</code>, 
 which helps in common scenarios where you want to reply using an elvis operator.</p>
 </li>
 </ol>

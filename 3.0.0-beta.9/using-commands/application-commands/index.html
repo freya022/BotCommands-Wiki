@@ -481,6 +481,8 @@
       
         
       
+        
+      
     
     
     
@@ -608,6 +610,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/parameter-names/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java parameter names
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -650,8 +680,6 @@
   
     
     
-      
-        
       
         
       
@@ -1390,34 +1418,6 @@
     
   
     Kotlin extensions
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../using-botcommands/parameter-names/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Java parameter names
   
 
     
@@ -2223,7 +2223,7 @@ which can cause updates to not be triggered, in which case you can:</p>
 <li>Check commands online, by setting the <code>checkOnline</code> property of your command cache. (by default, <a href="https://docs.bc.freya02.dev/BotCommands-core/io.github.freya022.botcommands.api.core.config/-b-application-config-builder/file-cache.html"><code>fileCache</code></a>)</li>
 </ul>
 <h3 id="when-running-in-a-container">When running in a container<a class="headerlink" href="#when-running-in-a-container" title="Permanent link">&para;</a></h3>
-<p>As containers are ephemeral, files in them are typically not retained, which breaks the cache.</p>
+<p>As containers are ephemeral, files in them are typically not retained, which makes the cache ineffective.</p>
 <p>To fix that, you can either:</p>
 <ul>
 <li>Use an existing database as the cache, using <a href="https://docs.bc.freya02.dev/BotCommands-core/io.github.freya022.botcommands.api.core.config/-b-application-config-builder/database-cache.html"><code>BApplicationConfigBuilder.databaseCache</code></a></li>
