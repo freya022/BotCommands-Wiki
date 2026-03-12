@@ -5,11 +5,12 @@ import io.github.freya022.botcommands.api.commands.application.CommandDeclaratio
 import io.github.freya022.botcommands.api.core.BotOwners;
 import io.github.freya022.botcommands.api.core.service.annotations.BService;
 import net.dv8tion.jda.api.entities.Guild;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 
 // --8<-- [start:command_declaration_filter-java]
 @BService
+@NullMarked // Everything is non-null unless @Nullable
 public class BotOwnerIsGuildOwnerDeclarationFilter implements CommandDeclarationFilter {
     private final BotOwners botOwners; // Provided by the framework
 
@@ -18,7 +19,7 @@ public class BotOwnerIsGuildOwnerDeclarationFilter implements CommandDeclaration
     }
 
     @Override
-    public boolean filter(@NotNull Guild guild, @NotNull CommandPath commandPath, @Nullable String s) {
+    public boolean filter(Guild guild, CommandPath commandPath, @Nullable String s) {
         // Only allow this command to be in guilds owned by the bot owner
         return botOwners.getOwnerIds().contains(guild.getOwnerIdLong());
     }
