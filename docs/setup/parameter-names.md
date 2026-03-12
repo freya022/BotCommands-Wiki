@@ -1,8 +1,6 @@
 # Enabling Java parameter names
 
-!!! tip
-
-    This is **NOT** required if you are using Kotlin.
+!!! tip "This is <u>not</u> required if you are using Kotlin."
 
 A significant part of the framework benefits from having accessible method parameter names, 
 such as `#!java @TextOption` or `#!java @SlashOption`, injecting a service by its name, 

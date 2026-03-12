@@ -111,7 +111,7 @@ this can be omitted if the parameter name matches a service with a compatible ty
 
             !!! warning
 
-                For this to work, you need to [enable Java parameter names](../parameter-names.md)
+                For this to work, you need to [enable Java parameter names](../../setup/parameter-names.md)
 
 ### Primary providers
 

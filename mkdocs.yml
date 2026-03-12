@@ -108,6 +108,7 @@ nav:
       - Getting started: setup/getting-started.md
       - Getting started - Spring Boot: setup/getting-started-spring-boot.md
       - Logging: setup/logging.md
+      - Java parameter names: setup/parameter-names.md
   - Recipes: recipes.md
   - Using BotCommands:
       - Dependency injection:
@@ -132,7 +133,6 @@ nav:
       - Unicode emojis: using-botcommands/unicode-emojis.md
       - Application emojis: using-botcommands/app-emojis.md
       - Kotlin extensions: using-botcommands/extensions.md
-      - Java parameter names: using-botcommands/parameter-names.md
       - FAQ: using-botcommands/FAQ.md
   - Using commands:
       - Common details: using-commands/common-command-details.md

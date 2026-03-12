@@ -77,7 +77,7 @@ All supported types are documented under [[SlashParameterResolver]], and [other 
 !!! tip "Inferred option names"
     Display names of options can be set on the annotation,
     but can also be deduced from the parameter name, this is natively supported in Kotlin,
-    but for Java, you will need to [enable parameter names](../../../using-botcommands/parameter-names.md) on the Java compiler.
+    but for Java, you will need to [enable parameter names](../../../setup/parameter-names.md) on the Java compiler.
 
 ### Using choices
 
