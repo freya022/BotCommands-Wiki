@@ -5,11 +5,12 @@ import io.github.freya022.botcommands.api.commands.annotations.Command;
 import io.github.freya022.botcommands.api.core.service.ConditionalServiceChecker;
 import io.github.freya022.botcommands.api.core.service.ServiceContainer;
 import io.github.freya022.botcommands.api.core.service.annotations.ConditionalService;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
+import org.jspecify.annotations.Nullable;
 
 // --8<-- [start:tag_interfaced_condition-java]
 @Command
+@NullMarked // Everything is non-null unless @Nullable
 @ConditionalService(TagCommand.FeatureCheck.class) // Only create the command if this passes
 public class TagCommand {
     /* */
@@ -17,7 +18,7 @@ public class TagCommand {
     public static class FeatureCheck implements ConditionalServiceChecker {
         @Nullable
         @Override
-        public String checkServiceAvailability(@NotNull ServiceContainer serviceContainer, @NotNull Class<?> checkedClass) {
+        public String checkServiceAvailability(ServiceContainer serviceContainer, Class<?> checkedClass) {
             final var config = serviceContainer.getService(Config.class); // Suppose this is your configuration
             if (!config.areTagsEnabled()) {
                 return "Tags are disabled in the configuration"; // Do not allow the tag command!

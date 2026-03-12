@@ -5,8 +5,8 @@ import io.github.freya022.botcommands.api.commands.application.CommandDeclaratio
 import io.github.freya022.botcommands.api.core.BotOwners;
 import io.github.freya022.botcommands.api.core.service.annotations.BService;
 import net.dv8tion.jda.api.entities.Guild;
-import org.jetbrains.annotations.Nullable;
 import org.jspecify.annotations.NullMarked;
+import org.jspecify.annotations.Nullable;
 
 // --8<-- [start:command_declaration_filter-java]
 @BService

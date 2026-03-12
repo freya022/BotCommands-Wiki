@@ -10,8 +10,8 @@ import io.github.freya022.botcommands.api.commands.application.slash.annotations
 import io.github.freya022.botcommands.api.parameters.Resolvers;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.interactions.commands.Command.Choice;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
+import org.jspecify.annotations.Nullable;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -20,10 +20,10 @@ import java.util.stream.Stream;
 @WikiDetailProfile(WikiDetailProfile.Profile.DETAILED)
 // --8<-- [start:convert-java]
 @Command
+@NullMarked // Everything is non-null unless @Nullable
 public class SlashConvert implements SlashOptionChoiceProvider {
-    @NotNull
     @Override
-    public List<Choice> getOptionChoices(@Nullable Guild guild, @NotNull CommandPath commandPath, @NotNull String optionName) {
+    public List<Choice> getOptionChoices(@Nullable Guild guild, CommandPath commandPath, String optionName) {
         if (commandPath.getName().equals("convert")) {
             if (optionName.equals("from") || optionName.equals("to")) {
                 return Stream.of(TimeUnit.SECONDS, TimeUnit.MINUTES, TimeUnit.HOURS, TimeUnit.DAYS)

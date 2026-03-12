@@ -3,11 +3,12 @@ package dev.freya02.wiki.filters;
 import io.github.freya022.botcommands.api.components.ComponentInteractionFilter;
 import io.github.freya022.botcommands.api.core.service.annotations.BService;
 import net.dv8tion.jda.api.events.interaction.component.GenericComponentInteractionCreateEvent;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
+import org.jspecify.annotations.Nullable;
 
 // --8<-- [start:component_filter-java]
 @BService
+@NullMarked // Everything is non-null unless @Nullable
 public class GeneralChannelFilter implements ComponentInteractionFilter {
     private static final long CHANNEL_ID = 722891685755093076L;
 
@@ -19,8 +20,7 @@ public class GeneralChannelFilter implements ComponentInteractionFilter {
 
     @Nullable
     @Override
-    public String check(@NotNull GenericComponentInteractionCreateEvent event,
-                        @Nullable String handlerName) {
+    public String check(GenericComponentInteractionCreateEvent event, @Nullable String handlerName) {
         if (event.getChannelIdLong() != CHANNEL_ID) {
             event.reply("This button can only be used in <#" + CHANNEL_ID + ">")
                     .setEphemeral(true)

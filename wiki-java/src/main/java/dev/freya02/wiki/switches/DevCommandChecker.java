@@ -3,13 +3,13 @@ package dev.freya02.wiki.switches;
 import dev.freya02.wiki.config.Config;
 import io.github.freya022.botcommands.api.core.service.CustomConditionChecker;
 import io.github.freya022.botcommands.api.core.service.ServiceContainer;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
+import org.jspecify.annotations.Nullable;
 
 // --8<-- [start:dev_command_annotated_condition-checker-java]
 // Checks services annotated with @DevCommand
+@NullMarked // Everything is non-null unless @Nullable
 public class DevCommandChecker implements CustomConditionChecker<DevCommand> {
-    @NotNull
     @Override
     public Class<DevCommand> getAnnotationType() {
         return DevCommand.class;
@@ -17,7 +17,7 @@ public class DevCommandChecker implements CustomConditionChecker<DevCommand> {
 
     @Nullable
     @Override
-    public String checkServiceAvailability(@NotNull ServiceContainer serviceContainer, @NotNull Class<?> checkedClass, @NotNull DevCommand annotation) {
+    public String checkServiceAvailability(ServiceContainer serviceContainer, Class<?> checkedClass, DevCommand annotation) {
         final var config = serviceContainer.getService(Config.class); // Suppose this is your configuration
         if (!config.isDevModeEnabled()) {
             return "Dev mode is disable in the configuration"; // Do not allow the dev commands!

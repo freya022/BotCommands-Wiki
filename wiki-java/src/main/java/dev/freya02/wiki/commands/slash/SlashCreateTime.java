@@ -10,22 +10,22 @@ import io.github.freya022.botcommands.api.commands.application.slash.annotations
 import io.github.freya022.botcommands.api.core.reflect.ParameterType;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.utils.TimeFormat;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
+import org.jspecify.annotations.Nullable;
 
 import java.time.Instant;
 
 // --8<-- [start:create_time-java]
 @Command
+@NullMarked // Everything is non-null unless @Nullable
 public class SlashCreateTime implements ApplicationGeneratedValueSupplierProvider {
-    @NotNull
     @Override
     public ApplicationGeneratedValueSupplier getGeneratedValueSupplier(
             @Nullable Guild guild,
             @Nullable String commandId,
-            @NotNull CommandPath commandPath,
-            @NotNull String optionName,
-            @NotNull ParameterType parameterType
+            CommandPath commandPath,
+            String optionName,
+            ParameterType parameterType
     ) {
         if (commandPath.getName().equals("create_time")) {
             if (optionName.equals("timestamp")) {

@@ -7,18 +7,19 @@ import io.github.freya022.botcommands.api.commands.ratelimit.bucket.Buckets;
 import io.github.freya022.botcommands.api.commands.ratelimit.declaration.RateLimitManager;
 import io.github.freya022.botcommands.api.commands.ratelimit.declaration.RateLimitProvider;
 import io.github.freya022.botcommands.api.core.service.annotations.BService;
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NullMarked;
 
 import java.time.Duration;
 
 // --8<-- [start:rate_limit_provider-java]
 @BService
+@NullMarked // Everything is non-null unless @Nullable
 public class WikiRateLimitProvider implements RateLimitProvider {
     // The name of the rate limit, so you can reference it in your commands/components
     public static final String RATE_LIMIT_GROUP = "Wiki";
 
     @Override
-    public void declareRateLimit(@NotNull RateLimitManager rateLimitManager) {
+    public void declareRateLimit(RateLimitManager rateLimitManager) {
         // --8<-- [start:bucket_configuration-java]
         // Lets the user use the command 5 times in an hour, but also 2 times in 2 minutes to prevent spam
         final var bucketConfiguration = Buckets.createSpikeProtected(
