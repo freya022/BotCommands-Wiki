@@ -43,7 +43,7 @@ val KmClassifier.Class.simpleNestedName: String
     get() = name.dropWhile { !it.isUpperCase() }.replace('/', '.')
 
 fun KmPackage.getBaseLink(kotlinClass: KotlinClass): String {
-    val module = moduleName!!.toKDocCase()
+    val module = moduleName!!
     val packageName = kotlinClass.packageName
     return "https://docs.bc.freya02.dev/$module/$packageName"
 }
