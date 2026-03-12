@@ -31,7 +31,7 @@ which can cause updates to not be triggered, in which case you can:
 
 ### When running in a container
 
-As containers are ephemeral, files in them are typically not retained, which breaks the cache.
+As containers are ephemeral, files in them are typically not retained, which makes the cache ineffective.
 
 To fix that, you can either:
 
