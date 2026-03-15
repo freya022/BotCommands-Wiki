@@ -1,5 +1,5 @@
 [versions]
-botcommands = "3.0.0-beta.9"
+botcommands = "3.0.0-beta.10"
 flyway = "11.20.2"
 kotlin = "2.3.10"
 ktor = "3.4.0"
@@ -19,7 +19,7 @@ flyway-core = { module = "org.flywaydb:flyway-core", version.ref = "flyway" }
 flyway-postgresql = { module = "org.flywaydb:flyway-database-postgresql", version.ref = "flyway" }
 hikaricp = "com.zaxxer:HikariCP:7.0.2"
 jackson-dataformat-xml = "tools.jackson.dataformat:jackson-dataformat-xml:3.0.4"
-jda = "net.dv8tion:JDA:6.3.0"
+jda = "net.dv8tion:JDA:6.3.2"
 junit-jupiter = "org.junit.jupiter:junit-jupiter:6.0.2"
 kotlin-logging = "io.github.oshai:kotlin-logging-jvm:7.0.14"
 kotlin-metadata = { module = "org.jetbrains.kotlin:kotlin-metadata-jvm", version.ref = "kotlin" }
