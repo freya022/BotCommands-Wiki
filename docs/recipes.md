@@ -19,5 +19,5 @@ You can also use components without setting a handler, and instead await the eve
 this is the equivalent of a `#!java try catch` on `ComponentCancellationException`.
 Since there is no timeout set here, the [default duration][[Components#defaultEphemeralTimeout]] is used.
 
-2. [[awaitUnit]] is an extension to await and then return `Unit`, 
+2. `awaitUnit` is an extension to await and then return `Unit`, 
 which helps in common scenarios where you want to reply using an elvis operator.
