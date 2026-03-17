@@ -3,7 +3,9 @@ package dev.freya02.link.server.resolution
 import dev.freya02.link.server.*
 import dev.freya02.link.server.utils.*
 import io.github.oshai.kotlinlogging.KotlinLogging
+import kotlin.metadata.Visibility
 import kotlin.metadata.jvm.KotlinClassMetadata
+import kotlin.metadata.visibility
 
 object ClassMemberResolver {
 
@@ -40,10 +42,15 @@ object ClassMemberResolver {
         val kmClass = (kotlinClass.metadata as? KotlinClassMetadata.Class)?.kmClass
             ?: throw LinkException("'${kotlinClass.simpleNestedName}' is not a class")
 
+        if (kmClass.visibility != Visibility.PUBLIC) {
+            throw LinkException("'$displayClassName' is not public")
+        }
+
         val baseLink = kmClass.getBaseLink(kotlinClass)
         val functionCandidates = when {
             request.functionsRequested -> kmClass.functions
                 .filter { function -> function.name == memberName }
+                .filter { property -> property.visibility == Visibility.PUBLIC }
                 .map { function -> LinkRepresentation(memberLabel, "$baseLink/${function.name.toKDocCase()}.html") }
             else -> emptyList()
         }
@@ -51,6 +58,7 @@ object ClassMemberResolver {
         val propertyCandidates = when {
             request.propertiesRequested -> kmClass.properties
                 .filter { property -> property.name == memberName }
+                .filter { property -> property.visibility == Visibility.PUBLIC }
                 .map { property -> LinkRepresentation(memberLabel, "$baseLink/${property.name.toKDocCase()}.html") }
             else -> emptyList()
         }

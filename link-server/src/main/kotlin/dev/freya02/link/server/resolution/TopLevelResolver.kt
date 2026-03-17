@@ -5,7 +5,9 @@ import dev.freya02.link.server.LinkRepresentation
 import dev.freya02.link.server.LinkRequest
 import dev.freya02.link.server.utils.*
 import io.github.oshai.kotlinlogging.KotlinLogging
+import kotlin.metadata.Visibility
 import kotlin.metadata.jvm.KotlinClassMetadata
+import kotlin.metadata.visibility
 
 object TopLevelResolver {
 
@@ -38,11 +40,13 @@ object TopLevelResolver {
         val baseLink = kmPackage.getBaseLink(kotlinClass)
         val functionCandidates = kmPackage.functions
             .filter { function -> function.name == request.identifier }
+            .filter { function -> function.visibility == Visibility.PUBLIC }
             .map(::KotlinFunction)
             .map { function -> LinkRepresentation(function.toSimpleString(), "$baseLink/${function.name.toKDocCase()}.html") }
 
         val propertyCandidates = kmPackage.properties
             .filter { property -> property.name == request.identifier }
+            .filter { property -> property.visibility == Visibility.PUBLIC }
             .map(::KotlinProperty)
             .map { property -> LinkRepresentation(property.toSimpleString(), "$baseLink/${property.name.toKDocCase()}.html") }
 

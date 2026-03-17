@@ -7,8 +7,10 @@ import dev.freya02.link.server.utils.apiClasses
 import dev.freya02.link.server.utils.filterBySimpleName
 import dev.freya02.link.server.utils.getBaseLink
 import kotlin.metadata.ClassKind
+import kotlin.metadata.Visibility
 import kotlin.metadata.jvm.KotlinClassMetadata
 import kotlin.metadata.kind
+import kotlin.metadata.visibility
 
 object ClassResolver {
 
@@ -23,6 +25,10 @@ object ClassResolver {
             val kotlinClass = classes.first()
             val kmClass = (kotlinClass.metadata as? KotlinClassMetadata.Class)?.kmClass
                 ?: throw LinkException("'$className' is not a class")
+
+            if (kmClass.visibility != Visibility.PUBLIC) {
+                throw LinkException("'$className' is not public")
+            }
 
             val baseLink = kmClass.getBaseLink(kotlinClass)
             return when (kmClass.kind) {
