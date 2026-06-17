@@ -4,11 +4,6 @@ plugins {
     alias(libs.plugins.kotlinx.serialization)
 }
 
-repositories {
-    mavenCentral()
-    mavenLocal()
-}
-
 dependencies {
     implementation(libs.kotlin.logging)
 

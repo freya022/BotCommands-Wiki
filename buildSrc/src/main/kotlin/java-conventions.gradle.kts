@@ -2,11 +2,6 @@ plugins {
     java
 }
 
-repositories {
-    mavenCentral()
-    mavenLocal()
-}
-
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(25)
