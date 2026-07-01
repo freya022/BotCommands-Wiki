@@ -18,7 +18,7 @@ class SlashTag : GlobalApplicationCommandProvider {
 
     override fun declareGlobalApplicationCommands(manager: GlobalApplicationCommandManager) {
         // Pass a null function as this is not a top-level command
-        manager.slashCommand("tag", function = null) {
+        manager.ofSubcommands("tag") {
             description = "Manage tags"
 
             subcommand("create", ::onSlashTagCreate) {
