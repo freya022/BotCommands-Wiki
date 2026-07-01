@@ -51,7 +51,9 @@ kotlin.compilerOptions {
     )
 }
 
-val deployWiki by tasks.registering(DeployWikiTask::class) {
+val deployWiki = tasks.register<DeployWikiTask>("deployWiki") {
     group = "wiki"
+    description = "Generates the wiki deployment"
+
     currentBCVersion = libs.versions.botcommands
 }
