@@ -12,7 +12,7 @@ dependencyResolutionManagement {
             }
 
             filter {
-                includeVersionByRegex("io\\.github\\.freya022", "BotCommands-.+", ".+_DEV$")
+                includeVersionByRegex("io\\.github\\.freya022", "BotCommands.*", ".+_DEV$")
             }
         }
     }
