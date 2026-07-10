@@ -3,8 +3,6 @@ package dev.freya02.wiki.resolvers
 import dev.freya02.wiki.switches.WikiDetailProfile
 import io.github.freya022.botcommands.api.commands.application.slash.options.SlashCommandOption
 import io.github.freya022.botcommands.api.core.service.annotations.Resolver
-import io.github.freya022.botcommands.api.localization.context.LocalizationContext
-import io.github.freya022.botcommands.api.localization.to
 import io.github.freya022.botcommands.api.parameters.ClassParameterResolver
 import io.github.freya022.botcommands.api.parameters.enumResolver
 import io.github.freya022.botcommands.api.parameters.resolvers.SlashParameterResolver
@@ -52,9 +50,3 @@ class SlashTimeUnitResolver :
     ): TimeUnit = enumValueOf<TimeUnit>(optionMapping.asString)
 }
 // --8<-- [end:time_unit_resolver-detailed-kotlin]
-
-fun TimeUnit.localize(time: Long, localizationContext: LocalizationContext): String {
-    return localizationContext.switchBundle("Misc")
-        .localizeOrNull("time_unit.$name", "time" to time)
-        ?: name.lowercase().trimEnd('s')
-}
