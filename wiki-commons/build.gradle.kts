@@ -4,18 +4,15 @@ plugins {
     alias(libs.plugins.kotlinx.serialization)
 }
 
-// Exclude "opus-java" and "tink" from all dependencies as we dont use audio
-configurations.all {
-    exclude(module = "opus-java")
-    exclude(module = "tink")
-}
-
 dependencies {
     // Coroutines
     implementation(libs.kotlinx.coroutines.core)
 
     // Discord stuff
-    api(libs.jda)
+    api(libs.jda) {
+        exclude(module = "opus-java")
+        exclude(module = "tink")
+    }
     api(libs.botcommands)
 
     // Logging

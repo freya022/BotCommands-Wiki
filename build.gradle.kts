@@ -13,12 +13,6 @@ versionCatalogUpdate {
     versionSelector(VersionSelectors.PREFER_STABLE)
 }
 
-// Exclude "opus-java" and "tink" from all dependencies as we dont use audio
-configurations.all {
-    exclude(module = "opus-java")
-    exclude(module = "tink")
-}
-
 dependencies {
     // Coroutines
     implementation(libs.kotlinx.coroutines.core)
