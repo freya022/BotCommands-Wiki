@@ -41,9 +41,14 @@ jobs:
         uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
         with:
           python-version: 3.x
-          cache: 'pip'
-      - name: Install Python dependencies
-        run: pip install -r requirements.txt
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v8.3.2 # Immutable
+        with:
+          enable-cache: true
+
+      - name: Install the project
+        run: uv sync
 
       - name: Generate wiki and update latest alias
         run: ./gradlew deployWiki

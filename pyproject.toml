@@ -1,0 +1,13 @@
+[project]
+name = "botcommands-wiki"
+version = "0.1.0"
+requires-python = ">=3.14"
+dependencies = [
+    "mike>=2.2.0",
+    "mkdocs>=1.6.1",
+    "mkdocs-macros-plugin>=1.5.0",
+    "mkdocs-material>=9.7.6",
+    "mkdocs-open-in-new-tab>=1.0.8",
+    # docs/doc_links.py
+    "requests>=2.34.2",
+]

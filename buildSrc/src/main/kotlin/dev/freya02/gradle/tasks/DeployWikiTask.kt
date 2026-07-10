@@ -26,7 +26,7 @@ abstract class DeployWikiTask : DefaultTask() {
         val embeddedLinkServer = LinkServer.embeddedLinkServer().start(wait = false)
 
         try {
-            runProcessAndWait("mike", "deploy", currentBCVersion, alias, "--update-aliases")
+            runProcessAndWait("uv", "run", "mike", "deploy", currentBCVersion, alias, "--update-aliases")
                 .checkExitCode(message = "Failed to generate deployment")
         } finally {
             embeddedLinkServer.stop()
@@ -34,7 +34,7 @@ abstract class DeployWikiTask : DefaultTask() {
 
         val isLatest = latestBCVersion == currentBCVersion
         if (isLatest) {
-            runProcessAndWait("mike", "set-default", alias)
+            runProcessAndWait("uv", "run", "mike", "set-default", alias)
                 .checkExitCode(message = "Failed to set default")
         }
     }
