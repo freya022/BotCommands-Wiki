@@ -32,4 +32,7 @@ Member references only use the member's name (such as `BotCommands#create`)
 Duplicate the `config-template` folder as `dev-config`,
 and edit the `config.json`, with your bot token, prefixes, owner ID and the database details.
 
-You can then run the `Main` class.
+You can then run the main class of:
+- [`wiki-java`](wiki-java/src/main/java/dev/freya02/wiki/JavaWikiMain.java)
+- [`wiki-kotlin`](wiki-kotlin/src/main/kotlin/dev/freya02/wiki/KotlinWikiMain.kt)
+- [`wiki-kotlin-dsl`](wiki-kotlin-dsl/src/main/kotlin/dev/freya02/wiki/KotlinDslWikiMain.kt)
