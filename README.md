@@ -1,10 +1,11 @@
 ## Running the MkDocs server
 You will need a JDK (25+) and a Python (3.10+) installation.
 
-1. Install the dependencies with `pip install -r requirements.txt`.
-2. Make sure you run the development link server separately from Gradle, in IntelliJ, go to `File | Settings | Advanced Settings` and disable "Run using Gradle"
-3. Go to [LinkServerMain](link-server/src/main/kotlin/dev/freya02/link/server/LinkServerMain.kt) and run it
-4. Run `mkdocs serve`
+1. Install [uv](https://docs.astral.sh/uv/getting-started/installation/)
+2. Install the dependencies with `uv sync`
+3. Make sure you run the development link server separately from Gradle, in IntelliJ, go to `File | Settings | Advanced Settings` and disable "Run using Gradle"
+4. Go to [LinkServerMain](link-server/src/main/kotlin/dev/freya02/link/server/LinkServerMain.kt) and run it
+5. Run `uv run mkdocs serve --livereload`
 
 ## Special macros
 
