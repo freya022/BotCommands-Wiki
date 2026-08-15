@@ -13,7 +13,7 @@ object ClassMemberResolver {
 
     fun singleMember(request: LinkRequest): LinkRepresentation {
         val (className, memberName) = request.identifier.split("#")
-        val classes = apiClasses.filterBySimpleName(className)
+        val classes = apiClasses.filterByPrefixedSimpleName(className)
         if (classes.isEmpty()) {
             throw LinkException("'$className' was not found")
         } else {

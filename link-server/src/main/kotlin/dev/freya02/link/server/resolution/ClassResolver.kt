@@ -4,7 +4,7 @@ import dev.freya02.link.server.LinkException
 import dev.freya02.link.server.LinkRepresentation
 import dev.freya02.link.server.LinkRequest
 import dev.freya02.link.server.utils.apiClasses
-import dev.freya02.link.server.utils.filterBySimpleName
+import dev.freya02.link.server.utils.filterByPrefixedSimpleName
 import dev.freya02.link.server.utils.getBaseLink
 import kotlin.metadata.ClassKind
 import kotlin.metadata.Visibility
@@ -16,7 +16,7 @@ object ClassResolver {
 
     fun singleClass(request: LinkRequest): LinkRepresentation {
         val className = request.identifier
-        val classes = apiClasses.filterBySimpleName(className)
+        val classes = apiClasses.filterByPrefixedSimpleName(className)
         if (classes.isEmpty()) {
             throw LinkException("'$className' was not found")
         } else if (classes.size > 1) {
