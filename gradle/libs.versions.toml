@@ -1,5 +1,5 @@
 [versions]
-botcommands = "3.3.0"
+botcommands = "3.4.0"
 flyway = "13.5.0"
 kotlin = "2.4.20"
 ktor = "3.5.2"

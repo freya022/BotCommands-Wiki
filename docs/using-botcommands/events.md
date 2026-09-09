@@ -7,7 +7,7 @@ These are [[BEventListener]] functions which can:
 - Have any name
 - Be suspending
 - Can get services injected
-- Listen to any of JDA's events (including generic ones) and built-in framework events, as seen further below
+- Listen to any of JDA's events (including generic ones), built-in framework events (as seen further below), and custom events.
 
 There are several properties on [[BEventListener]], such as how it is threaded, its priority, intent checks and timeouts.
 
