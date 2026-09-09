@@ -1,13 +1,14 @@
 [versions]
 botcommands = "3.3.0"
-flyway = "12.8.1"
-kotlin = "2.4.0"
-ktor = "3.5.0"
+flyway = "13.5.0"
+kotlin = "2.4.20"
+ktor = "3.5.2"
+org-jetbrains-kotlinx = "1.11.0"
 
 [plugins]
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
-version-catalog-update = "nl.littlerobots.version-catalog-update:1.1.0"
+version-catalog-update = "nl.littlerobots.version-catalog-update:1.1.1"
 
 [libraries]
 botcommands = { module = "io.github.freya022:BotCommands", version.ref = "botcommands" }
@@ -18,20 +19,19 @@ botcommands-typesafe-messages-core = { module = "io.github.freya022:BotCommands-
 flyway-core = { module = "org.flywaydb:flyway-core", version.ref = "flyway" }
 flyway-postgresql = { module = "org.flywaydb:flyway-database-postgresql", version.ref = "flyway" }
 hikaricp = "com.zaxxer:HikariCP:7.1.0"
-jackson-dataformat-xml = "tools.jackson.dataformat:jackson-dataformat-xml:3.2.0"
-jda = "net.dv8tion:JDA:6.4.2"
-junit-jupiter = "org.junit.jupiter:junit-jupiter:6.1.0"
-# @pin Don't update to next major version as BC depends on v7
+jackson-dataformat-xml = "tools.jackson.dataformat:jackson-dataformat-xml:3.2.2"
+jda = "net.dv8tion:JDA:6.6.0"
+junit-jupiter = "org.junit.jupiter:junit-jupiter:6.1.3"
 kotlin-logging = "io.github.oshai:kotlin-logging-jvm:7.0.14"
 kotlin-metadata = { module = "org.jetbrains.kotlin:kotlin-metadata-jvm", version.ref = "kotlin" }
 kotlin-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
-kotlinx-coroutines-core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.11.0"
-kotlinx-serialization-json = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.11.0"
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "org-jetbrains-kotlinx" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "org-jetbrains-kotlinx" }
 ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json-jvm", version.ref = "ktor" }
 ktor-server-call-logging = { module = "io.ktor:ktor-server-call-logging-jvm", version.ref = "ktor" }
 ktor-server-content-negotiation = { module = "io.ktor:ktor-server-content-negotiation-jvm", version.ref = "ktor" }
 ktor-server-core = { module = "io.ktor:ktor-server-core-jvm", version.ref = "ktor" }
 ktor-server-netty = { module = "io.ktor:ktor-server-netty-jvm", version.ref = "ktor" }
 ktor-server-resources = { module = "io.ktor:ktor-server-resources-jvm", version.ref = "ktor" }
-logback-classic = "ch.qos.logback:logback-classic:1.5.34"
-postgresql = "org.postgresql:postgresql:42.7.11"
+logback-classic = "ch.qos.logback:logback-classic:1.6.3"
+postgresql = "org.postgresql:postgresql:42.7.13"
